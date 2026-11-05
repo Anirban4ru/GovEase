@@ -80,3 +80,4 @@ jobs:
 
       - name: Build Next.js static export
         run: npm run build
+
