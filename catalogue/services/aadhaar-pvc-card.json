@@ -1,0 +1,65 @@
+{
+  "id": "aadhaar-pvc-card",
+  "ecosystem": "government-and-citizen",
+  "category": "civil-identity",
+  "title": {
+    "en": "Order Aadhaar PVC Card Guide",
+    "hi": "आधार पीवीसी कार्ड ऑर्डर गाइड"
+  },
+  "goal": {
+    "en": "Order a durable, wallet-sized Aadhaar PVC card with security features",
+    "hi": "सुरक्षा सुविधाओं से युक्त मजबूत, वॉलेट आकार का आधार पीवीसी कार्ड ऑर्डर करें"
+  },
+  "summary": {
+    "en": "The Unique Identification Authority of India (UIDAI) allows residents to order a durable polyvinyl chloride (PVC) card delivered by speed post. The card includes a digitally signed secure QR code, hologram, and ghost image.",
+    "hi": "भारतीय विशिष्ट पहचान प्राधिकरण (UIDAI) नागरिकों को स्पीड पोस्ट द्वारा वितरित किए जाने वाले सुरक्षित आधार पीवीसी कार्ड का ऑनलाइन ऑर्डर करने की सुविधा प्रदान करता है।"
+  },
+  "provider": {
+    "name": "Unique Identification Authority of India (UIDAI)",
+    "type": "central"
+  },
+  "official_url": "https://myaadhaar.uidai.gov.in/genricPVC",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Any individual possessing a 12-digit Aadhaar number or 28-digit Enrolment ID (EID). The service is available even if your registered mobile number is not active, using any alternate mobile number to receive the order OTP.",
+      "hi": "12 अंकों का आधार नंबर या 28 अंकों की नामांकन आईडी रखने वाला कोई भी भारतीय निवासी।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Aadhaar Number (12 digits) or Enrolment ID (28 digits) entered on the official portal",
+    "Any mobile number to receive the one-time authentication passcode (OTP)"
+  ],
+  "fees": {
+    "is_fee_required": true,
+    "details": "A nominal statutory fee of ₹50 (inclusive of GST and Speed Post delivery charges) is collected online on the official UIDAI portal.",
+    "source_url": "https://uidai.gov.in/en/my-aadhaar/about-your-aadhaar/aadhaar-pvc-card.html",
+    "last_verified_on": "2026-11-05"
+  },
+  "sources": [
+    {
+      "url": "https://uidai.gov.in/en/my-aadhaar/about-your-aadhaar/aadhaar-pvc-card.html",
+      "title": "UIDAI Official Information - Aadhaar PVC Card",
+      "verified_on": "2026-11-05"
+    },
+    {
+      "url": "https://myaadhaar.uidai.gov.in/genricPVC",
+      "title": "MyAadhaar Order PVC Card Portal",
+      "verified_on": "2026-11-05"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-05",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-05",
+    "notes": "Verified against UIDAI official portal on 5 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal is compliant with GIGW accessibility standards.",
+  "status": "draft-pending-human-review"
+}

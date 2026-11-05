@@ -1,0 +1,65 @@
+{
+  "id": "create-abha-id",
+  "ecosystem": "healthcare",
+  "category": "health-id",
+  "title": {
+    "en": "Ayushman Bharat Health Account (ABHA) Creation",
+    "hi": "आयुष्मान भारत स्वास्थ्य खाता (ABHA) निर्माण"
+  },
+  "goal": {
+    "en": "Create a unique 14-digit digital health account number to organise medical records",
+    "hi": "अपने मेडिकल रिकॉर्ड व्यवस्थित करने के लिए 14 अंकों का डिजिटल स्वास्थ्य खाता बनाएं"
+  },
+  "summary": {
+    "en": "Create an Ayushman Bharat Health Account (ABHA) number through the National Health Authority. An ABHA number lets you digitally access and share your laboratory reports, prescriptions, and health records across participating hospitals and clinics.",
+    "hi": "राष्ट्रीय स्वास्थ्य प्राधिकरण (NHA) के माध्यम से 14 अंकों का आयुष्मान भारत स्वास्थ्य खाता (ABHA) बनाएं। यह खाता आपको विभिन्न अस्पतालों और क्लीनिकों में अपने मेडिकल रिकॉर्ड सुरक्षित रूप से साझा करने की अनुमति देता है।"
+  },
+  "provider": {
+    "name": "National Health Authority (NHA)",
+    "type": "central"
+  },
+  "official_url": "https://abha.abdm.gov.in/abha/v3/register",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Open to all Indian citizens. Registration requires an active mobile number linked with Aadhaar or a valid driving licence for identity verification on the official portal.",
+      "hi": "सभी भारतीय नागरिकों के लिए उपलब्ध। पंजीकरण के लिए आधार या ड्राइविंग लाइसेंस से जुड़ा मोबाइल नंबर आवश्यक है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Aadhaar card number or Indian Driving Licence details for authentication on the government portal",
+    "Mobile phone capable of receiving One-Time Passwords (OTP) from UIDAI or Parivahan"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "ABHA creation is a free digital public good provided by the Government of India. No fee is charged by the National Health Authority.",
+    "source_url": "https://abdm.gov.in/abha",
+    "last_verified_on": "2026-11-05"
+  },
+  "sources": [
+    {
+      "url": "https://abdm.gov.in/abha",
+      "title": "ABDM - Ayushman Bharat Health Account Overview",
+      "verified_on": "2026-11-05"
+    },
+    {
+      "url": "https://abha.abdm.gov.in/abha/v3/register",
+      "title": "Official ABHA Self-Registration Portal",
+      "verified_on": "2026-11-05"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-05",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-05",
+    "notes": "Verified against ABDM official portal on 5 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal supports screen readers and OTP-based mobile registration.",
+  "status": "draft-pending-human-review"
+}

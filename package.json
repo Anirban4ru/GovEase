@@ -4,8 +4,9 @@
   "private": true,
   "description": "India-first, globally expandable Unified Life Services Platform (Independent Public Services Guide)",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run build:catalogue && next dev",
+    "build:catalogue": "node scripts/build-catalogue.mjs",
+    "build": "npm run build:catalogue && next build",
     "start": "next start",
     "serve:static": "node scripts/static-server.mjs",
     "lint": "eslint .",
@@ -16,6 +17,9 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "validate:catalogue": "node scripts/validate-catalogue.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:links:offline": "node scripts/check-links.mjs --offline",
+    "report:staleness": "node scripts/catalogue-staleness.mjs",
     "audit:ci": "npm audit --audit-level=high"
   },
   "dependencies": {

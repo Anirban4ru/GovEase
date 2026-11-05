@@ -3,7 +3,7 @@
 **Project:** Unified Life Services Platform  
 **Purpose:** Living single-source-of-truth ledger of feature states, acceptance criteria, tests, and linked evidence.  
 **Owner:** Engineering Lead / Founder  
-**Status:** active (M1 App Shell Completed)  
+**Status:** active (M2 Catalogue Pipeline Completed)  
 **Last updated:** 2026-11-05
 
 Per `PROMPT_FINAL.md` Section 5.3 and 14.3:  
@@ -32,7 +32,7 @@ A feature or milestone deliverable is **never** marked `implemented-and-tested` 
 | M0-003  | Project Scaffold & Next.js 16        | `implemented-and-tested` | Empty App Router template, TypeScript strict, Next.js static export build clean        | `npm run build` exits 0 (static export generated in `out/`) | 2026-11-05    |
 | M0-004  | TypeScript Strict Configuration      | `implemented-and-tested` | `strict: true`, noUncheckedIndexedAccess, 0 compiler errors                            | `npm run type-check` exits 0                                | 2026-11-05    |
 | M0-005  | Code Hygiene (ESLint & Prettier)     | `implemented-and-tested` | ESLint and Prettier configs active, zero errors                                        | `npm run lint` & `npm run format:check` exit 0              | 2026-11-05    |
-| M0-006  | Unit Test Runner (Vitest)            | `implemented-and-tested` | Fast local testing, zero vulnerability dependencies                                    | `npm test` runs 7 tests in <500ms, exits 0                  | 2026-11-05    |
+| M0-006  | Unit Test Runner (Vitest)            | `implemented-and-tested` | Fast local testing, zero vulnerability dependencies                                    | `npm test` runs 12 tests in <550ms, exits 0                 | 2026-11-05    |
 | M0-007  | Catalogue Schema Validation Pipeline | `implemented-and-tested` | JSON Schema for services and domain allowlists, schema validator script                | `npm run validate:catalogue` exits 0                        | 2026-11-05    |
 | M0-008  | Security & Vulnerability Audit       | `implemented-and-tested` | Zero high/critical vulnerabilities in npm dependency tree                              | `npm run audit:ci` reports 0 vulnerabilities                | 2026-11-05    |
 | M0-009  | CI Workflow (GitHub Actions)         | `implemented-and-tested` | Lint, typecheck, unit test, schema validation, build                                   | `.github/workflows/ci.yml` defined and validated            | 2026-11-05    |
@@ -56,3 +56,20 @@ A feature or milestone deliverable is **never** marked `implemented-and-tested` 
 | M1-008  | Security Headers & Static Server          | `implemented-and-tested` | CSP, X-Frame-Options: DENY, X-Content-Type-Options: nosniff, Referrer-Policy, zero external deps       | `public/_headers`, `scripts/static-server.mjs`, Playwright header tests pass on all runs         | 2026-11-05    |
 | M1-009  | Privacy Control: Clear Stored Preferences | `implemented-and-tested` | "Clear My Stored Preferences" button in footer, completely resets localStorage                         | `src/components/Footer.tsx`, verified in browser and E2E specs                                   | 2026-11-05    |
 | M1-010  | Automated Accessibility Audit (axe-core)  | `implemented-and-tested` | Zero critical or serious WCAG 2.2 AA violations detected by axe-core engine                            | Playwright `axe-core` runner passes on all 6 viewports with 0 violations                         | 2026-11-05    |
+
+---
+
+## Milestone M2: Catalogue Pipeline & Service Seeding Deliverables
+
+| Item ID | Deliverable / Component                  | State                    | Acceptance Criteria                                                                             | Test & Verification Evidence                                                                | Date Verified |
+| ------- | ---------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------- |
+| M2-001  | Verified Seed Dataset (6 Services)       | `implemented-and-tested` | 6 services covering all 6 ecosystems, schema-valid, bilingual, verified sources, Class 5        | `catalogue/services/*.json`, `npm run validate:catalogue` (6/6 pass), `test/catalogue.test` | 2026-11-05    |
+| M2-002  | Domain Allow-list Expansion              | `implemented-and-tested` | 10 verified official domains registered (`abdm.gov.in`, `pmkisan.gov.in`, `uidai.gov.in`, etc.) | `catalogue/domain-allowlist.json`, schema valid, allow-list test passes                     | 2026-11-05    |
+| M2-003  | Automated Link Health Checker            | `implemented-and-tested` | Scans all service URLs, enforces HTTPS & allow-list, generates markdown health report           | `scripts/check-links.mjs`, `docs/catalogue/LINK_HEALTH_REPORT.md` (9/9 URLs verified)       | 2026-11-05    |
+| M2-004  | Catalogue Freshness & Staleness Audit    | `implemented-and-tested` | Calculates review due dates, staleness flags, generates living markdown audit report            | `scripts/catalogue-staleness.mjs`, `docs/catalogue/STALENESS_REPORT.md`                     | 2026-11-05    |
+| M2-005  | Static Catalogue Snapshot Compiler       | `implemented-and-tested` | Compiles JSON service files into indexed snapshot for client runtime without Node fs            | `scripts/build-catalogue.mjs`, `src/data/catalogue.json`                                    | 2026-11-05    |
+| M2-006  | Prerendered Service Detail Pages         | `implemented-and-tested` | Static SSG pages via `generateStaticParams()`, comprehensive metadata, accessible breadcrumbs   | `src/app/services/[id]/page.tsx`, `out/services/` (6 static pages generated)                | 2026-11-05    |
+| M2-007  | Outbound Link Safety Modal               | `implemented-and-tested` | Interstitial dialog warning citizen of official portal exit, fraud warnings, `_blank` safely    | `src/components/OutboundHandoffModal.tsx`, WAI-ARIA dialog compliant, Playwright tests pass | 2026-11-05    |
+| M2-008  | Explore Ecosystem Category Filtering     | `implemented-and-tested` | Tabbed filtering by 6 ecosystems, instant client updates without page reload                    | `src/app/explore/page.tsx`, Playwright filter tests pass on all 6 viewports                 | 2026-11-05    |
+| M2-009  | Local Bookmark & Saved Items             | `implemented-and-tested` | Save/Remove reference using `useSavedServices` and `useSyncExternalStore`, zero tracking        | `src/hooks/useSavedServices.ts`, `src/app/saved/page.tsx`, verified in Playwright suite     | 2026-11-05    |
+| M2-010  | Automated Accessibility Audit (axe-core) | `implemented-and-tested` | 0 critical/serious violations across `/explore` and `/services/[id]` across 6 viewports         | Playwright `axe-core` tests passing on all 6 viewports (72/72 total tests pass)             | 2026-11-05    |

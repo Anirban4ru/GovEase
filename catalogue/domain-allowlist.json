@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "last_updated": "2026-11-05",
   "domains": [
     {
@@ -25,6 +25,62 @@
       "added_on": "2026-11-05",
       "approved_by": "Founder",
       "notes": "MoRTH main ministry portal"
+    },
+    {
+      "domain": "abdm.gov.in",
+      "provider": "National Health Authority (NHA)",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "Ayushman Bharat Digital Mission main portal"
+    },
+    {
+      "domain": "abha.abdm.gov.in",
+      "provider": "National Health Authority (NHA)",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "Ayushman Bharat Health Account (ABHA) creation and management portal"
+    },
+    {
+      "domain": "scholarships.gov.in",
+      "provider": "Ministry of Electronics and Information Technology (MeitY) & Ministry of Education",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "National Scholarship Portal for government scholarship schemes"
+    },
+    {
+      "domain": "pmkisan.gov.in",
+      "provider": "Ministry of Agriculture & Farmers Welfare",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "Pradhan Mantri Kisan Samman Nidhi portal"
+    },
+    {
+      "domain": "uidai.gov.in",
+      "provider": "Unique Identification Authority of India (UIDAI)",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "Unique Identification Authority of India main portal"
+    },
+    {
+      "domain": "myaadhaar.uidai.gov.in",
+      "provider": "Unique Identification Authority of India (UIDAI)",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "MyAadhaar citizen self-service portal for PVC card orders and status"
+    },
+    {
+      "domain": "consumerhelpline.gov.in",
+      "provider": "Department of Consumer Affairs",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "National Consumer Helpline (NCH) portal for grievance registration"
     }
   ]
 }

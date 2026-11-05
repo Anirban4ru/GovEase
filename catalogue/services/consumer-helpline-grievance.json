@@ -1,0 +1,61 @@
+{
+  "id": "consumer-helpline-grievance",
+  "ecosystem": "utilities-and-local",
+  "category": "consumer-rights",
+  "title": {
+    "en": "National Consumer Helpline Grievance Registration",
+    "hi": "राष्ट्रीय उपभोक्ता हेल्पलाइन शिकायत पंजीकरण"
+  },
+  "goal": {
+    "en": "File a consumer complaint against defective goods or deficient services",
+    "hi": "दोषपूर्ण सामान या सेवाओं में कमी के विरुद्ध उपभोक्ता शिकायत दर्ज करें"
+  },
+  "summary": {
+    "en": "The National Consumer Helpline (NCH), established by the Department of Consumer Affairs, provides a central grievance redressal portal (INGRAM) for consumers to lodge complaints against companies, e-commerce platforms, telecom providers, and service entities.",
+    "hi": "उपभोक्ता मामले विभाग द्वारा संचालित राष्ट्रीय उपभोक्ता हेल्पलाइन (NCH) उपभोक्ताओं को दोषपूर्ण उत्पादों या सेवाओं के खिलाफ शिकायत दर्ज करने का एक आधिकारिक डिजिटल मंच प्रदान करती है।"
+  },
+  "provider": {
+    "name": "Department of Consumer Affairs, Ministry of Consumer Affairs, Food and Public Distribution",
+    "type": "central"
+  },
+  "official_url": "https://consumerhelpline.gov.in/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Any individual consumer who has purchased goods or hired services for personal use from an enterprise, utility, or digital marketplace.",
+      "hi": "कोई भी व्यक्ति जिसने व्यक्तिगत उपयोग के लिए सामान खरीदा हो या सेवाएं ली हों।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Purchase invoice, bill, or transaction receipt",
+    "Warranty card, service booking number, or order reference ID",
+    "Previous written correspondence with the company (emails, support tickets, or letters) if available"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Filing a grievance on the official National Consumer Helpline portal is completely free of charge. No court fee or stamp duty is needed for NCH mediation.",
+    "source_url": "https://consumerhelpline.gov.in/",
+    "last_verified_on": "2026-11-05"
+  },
+  "sources": [
+    {
+      "url": "https://consumerhelpline.gov.in/",
+      "title": "National Consumer Helpline Official Portal",
+      "verified_on": "2026-11-05"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-05",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-05",
+    "notes": "Verified against consumerhelpline.gov.in on 5 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal provides toll-free telephone support (1915) alongside web and SMS grievance lodging.",
+  "status": "draft-pending-human-review"
+}

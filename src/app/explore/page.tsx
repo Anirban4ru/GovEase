@@ -1,13 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 import { useTranslation } from "../../context/I18nContext";
+import { usePresentationMode } from "../../context/ModeContext";
+import { getAllServices, ECOSYSTEMS } from "../../lib/catalogue";
 
 export default function ExplorePage() {
   const { t, locale } = useTranslation();
+  const { mode } = usePresentationMode();
+  const [selectedEcosystem, setSelectedEcosystem] = useState<string>("all");
+
+  const services = getAllServices();
+
+  const filteredServices =
+    selectedEcosystem === "all"
+      ? services
+      : services.filter((s) => s.ecosystem === selectedEcosystem);
+
+  const filterTabs = [
+    { id: "all", labelEn: "All Services", labelHi: "सभी सेवाएं" },
+    ...ECOSYSTEMS.map((e) => ({
+      id: e.id,
+      labelEn: e.titleEn,
+      labelHi: e.titleHi,
+    })),
+  ];
 
   return (
-    <div className="app-container" style={{ paddingTop: "2rem", paddingBottom: "3rem" }}>
+    <div className="app-container" style={{ paddingTop: "2rem", paddingBottom: "4rem" }}>
+      {/* Page Header */}
       <div style={{ marginBottom: "2rem" }}>
         <h1
           style={{
@@ -26,114 +48,189 @@ export default function ExplorePage() {
         </p>
       </div>
 
-      {/* Featured Verified Entry for M1 Shell Demonstration */}
+      {/* Ecosystem Filter Tabs */}
       <div
+        role="tablist"
+        aria-label="Filter services by ecosystem"
         style={{
-          border: "1px solid var(--color-border-default)",
-          borderRadius: "var(--radius-md)",
-          padding: "1.5rem",
-          backgroundColor: "var(--color-surface-page)",
-          boxShadow: "var(--shadow-sm)",
-          maxWidth: "760px",
+          display: "flex",
+          gap: "0.5rem",
+          flexWrap: "wrap",
+          marginBottom: "2rem",
+          borderBottom: "1px solid var(--color-border-default)",
+          paddingBottom: "1rem",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            gap: "1rem",
-            flexWrap: "wrap",
-            marginBottom: "0.5rem",
-          }}
-        >
-          <span
-            style={{
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              textTransform: "uppercase",
-              backgroundColor: "var(--color-brand-primary-subtle)",
-              color: "var(--color-brand-primary)",
-              padding: "0.25rem 0.5rem",
-              borderRadius: "var(--radius-xs)",
-            }}
-          >
-            Mobility & Transport
-          </span>
-          <span
-            style={{
-              fontSize: "0.75rem",
-              color: "var(--color-content-tertiary)",
-              fontWeight: 600,
-            }}
-          >
-            {t("common.verifiedOn")} 2026-11-05
-          </span>
-        </div>
-
-        <h2
-          style={{
-            fontSize: "1.25rem",
-            fontWeight: 700,
-            margin: "0.5rem 0",
-            color: "var(--color-content-primary)",
-          }}
-        >
-          {locale === "hi" ? "ड्राइविंग लाइसेंस नवीनीकरण" : "Driving Licence Renewal"}
-        </h2>
-        <p
-          style={{
-            fontSize: "0.9375rem",
-            color: "var(--color-content-secondary)",
-            lineHeight: 1.6,
-            margin: "0 0 1rem 0",
-          }}
-        >
-          {locale === "hi"
-            ? "सड़क परिवहन और राजमार्ग मंत्रालय (MoRTH) के आधिकारिक सारथी पोर्टल के माध्यम से ड्राइविंग लाइसेंस नवीनीकरण की प्रक्रिया और आवश्यक दस्तावेज।"
-            : "Step-by-step guidance for renewing your Indian driving licence via the official Ministry of Road Transport and Highways (MoRTH) Sarathi portal."}
-        </p>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
-          <a
-            href="https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.625rem 1.25rem",
-              backgroundColor: "var(--color-brand-primary)",
-              color: "var(--color-content-inverse)",
-              fontWeight: 700,
-              fontSize: "0.875rem",
-              borderRadius: "var(--radius-sm)",
-              textDecoration: "none",
-              minHeight: "var(--min-touch-target)",
-            }}
-          >
-            <span>{locale === "hi" ? "आधिकारिक पोर्टल पर जाएँ" : "Go to Official Portal"}</span>
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
+        {filterTabs.map((tab) => {
+          const isActive = selectedEcosystem === tab.id;
+          return (
+            <button
+              key={tab.id}
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => setSelectedEcosystem(tab.id)}
+              style={{
+                padding: "0.5rem 1rem",
+                borderRadius: "var(--radius-sm)",
+                fontSize: "0.875rem",
+                fontWeight: 600,
+                border: "1px solid",
+                borderColor: isActive
+                  ? "var(--color-brand-primary)"
+                  : "var(--color-border-default)",
+                backgroundColor: isActive
+                  ? "var(--color-brand-primary)"
+                  : "var(--color-surface-page)",
+                color: isActive ? "var(--color-content-inverse)" : "var(--color-content-secondary)",
+                cursor: "pointer",
+                minHeight: "var(--min-touch-target)",
+                transition: "all var(--transition-fast)",
+              }}
             >
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          </a>
-          <span style={{ fontSize: "0.8125rem", color: "var(--color-content-tertiary)" }}>
-            {t("common.officialSource")} <code>sarathi.parivahan.gov.in</code>
-          </span>
-        </div>
+              {locale === "hi" ? tab.labelHi : tab.labelEn}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Services Grid */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns:
+            mode === "simple" ? "1fr" : "repeat(auto-fill, minmax(min(100%, 340px), 1fr))",
+          gap: "1.5rem",
+        }}
+      >
+        {filteredServices.map((service) => {
+          const ecosystemMeta = ECOSYSTEMS.find((e) => e.id === service.ecosystem);
+          const ecosystemLabel =
+            locale === "hi" && ecosystemMeta?.titleHi
+              ? ecosystemMeta.titleHi
+              : ecosystemMeta?.titleEn || service.ecosystem;
+          const title = locale === "hi" && service.title.hi ? service.title.hi : service.title.en;
+          const goal = locale === "hi" && service.goal.hi ? service.goal.hi : service.goal.en;
+
+          return (
+            <div
+              key={service.id}
+              style={{
+                backgroundColor: "var(--color-surface-page)",
+                border: "1px solid var(--color-border-default)",
+                borderRadius: "var(--radius-md)",
+                padding: "1.5rem",
+                display: "flex",
+                flexDirection: "column",
+                boxShadow: "var(--shadow-sm)",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "flex-start",
+                  gap: "0.5rem",
+                  marginBottom: "0.75rem",
+                  flexWrap: "wrap",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    backgroundColor: "var(--color-brand-primary-subtle)",
+                    color: "var(--color-brand-primary)",
+                    padding: "0.25rem 0.5rem",
+                    borderRadius: "var(--radius-xs)",
+                  }}
+                >
+                  {ecosystemLabel}
+                </span>
+
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    fontWeight: 600,
+                    color: service.fees.is_fee_required
+                      ? "var(--color-content-tertiary)"
+                      : "var(--color-status-success)",
+                  }}
+                >
+                  {service.fees.is_fee_required
+                    ? locale === "hi"
+                      ? "शुल्क लागू"
+                      : "Fee applicable"
+                    : locale === "hi"
+                      ? "निःशुल्क सेवा"
+                      : "Free public service"}
+                </span>
+              </div>
+
+              <h2
+                style={{
+                  fontSize: "1.25rem",
+                  fontWeight: 700,
+                  margin: "0 0 0.5rem 0",
+                  color: "var(--color-content-primary)",
+                  lineHeight: 1.3,
+                }}
+              >
+                <Link
+                  href={`/services/${service.id}`}
+                  style={{
+                    color: "var(--color-content-primary)",
+                    textDecoration: "none",
+                  }}
+                >
+                  {title}
+                </Link>
+              </h2>
+
+              <p
+                style={{
+                  fontSize: "0.9375rem",
+                  color: "var(--color-content-secondary)",
+                  lineHeight: 1.5,
+                  margin: "0 0 1.25rem 0",
+                  flex: 1,
+                }}
+              >
+                {goal}
+              </p>
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  borderTop: "1px solid var(--color-border-default)",
+                  paddingTop: "0.875rem",
+                  fontSize: "0.8125rem",
+                  color: "var(--color-content-tertiary)",
+                  flexWrap: "wrap",
+                  gap: "0.5rem",
+                }}
+              >
+                <span>
+                  {t("common.verifiedOn")} {service.verification.last_verified_on}
+                </span>
+
+                <Link
+                  href={`/services/${service.id}`}
+                  style={{
+                    fontWeight: 700,
+                    color: "var(--color-brand-primary)",
+                    textDecoration: "underline",
+                  }}
+                >
+                  {locale === "hi" ? "सेवा विवरण देखें →" : "View guide →"}
+                </Link>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

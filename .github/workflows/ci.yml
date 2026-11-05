@@ -58,6 +58,12 @@ jobs:
       - name: Validate catalogue schemas & governance
         run: npm run validate:catalogue
 
+      - name: Audit link health and allowlist integrity
+        run: npm run check:links:offline
+
+      - name: Generate catalogue staleness report
+        run: npm run report:staleness
+
       - name: Security audit
         run: npm run audit:ci
 

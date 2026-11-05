@@ -3,7 +3,7 @@
 **Project:** Unified Life Services Platform  
 **Purpose:** Pre-release verification gates for milestone releases (M0 Foundation to Release 3+)  
 **Owner:** Founder  
-**Status:** active (M1 App Shell Verification Complete)  
+**Status:** active (M2 Catalogue Pipeline Verification Complete)  
 **Last updated:** 2026-11-05
 
 Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unless explicitly deferred with a written, dated justification signed by the human founder.
@@ -44,14 +44,32 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 | Data Minimisation        | Zero server-side tracking, "Clear Stored Preferences"      | Footer action and privacy policy page   | ✅ Passed (`src/app/privacy/page.tsx`, local-only storage)         |
 | Build Integrity          | Static export with zero errors                             | `npm run build` output                  | ✅ Passed (Static export generates 7 static HTML pages in `out/`)  |
 | Dependency Hygiene       | Zero high or critical audit vulnerabilities                | `npm run audit:ci`                      | ✅ Passed (0 vulnerabilities found)                                |
-| Human Review & Approval  | Founder review of M1 App Shell deliverable and screenshots | Sign-off pending founder review         | ⏳ Awaiting Founder Review                                         |
+| Human Review & Approval  | Founder review of M1 App Shell deliverable and screenshots | Conversation decision                   | ✅ Approved by Founder ("Go ahead")                                |
+
+---
+
+## Milestone M2: Catalogue Pipeline & Service Seeding Sign-Off Gate
+
+| Gate Check                | Requirement                                                     | Evidence Required                            | Verification Status                                                |
+| ------------------------- | --------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------ |
+| Seed Dataset Coverage     | 6 high-value services across all 6 ecosystems                   | `catalogue/services/*.json`                  | ✅ Passed (6 services valid, bilingual, Grade 6-8 plain language)  |
+| Schema Strictness         | JSON Schema validation passes for all services & allow-list     | `npm run validate:catalogue` output          | ✅ Passed (6/6 services conform to schema)                         |
+| Domain Allow-list         | All URLs strictly allow-listed, HTTPS only, 10 official domains | `catalogue/domain-allowlist.json`            | ✅ Passed (`test/catalogue.test.ts`, all URLs allow-listed)        |
+| Automated Link Health     | Link checker script validates syntax, status, and protocols     | `npm run check:links:offline`                | ✅ Passed (9/9 URLs verified in `LINK_HEALTH_REPORT.md`)           |
+| Staleness & Review Audit  | Living freshness report calculating days until review due       | `npm run report:staleness`                   | ✅ Passed (`docs/catalogue/STALENESS_REPORT.md`, 0 overdue)        |
+| Static Prerendering (SSG) | Service detail pages prerendered statically at build time       | Next.js static build in `out/services/`      | ✅ Passed (6 static HTML detail directories generated)             |
+| Outbound Link Safety      | Accessible handoff modal warning of external exit & fraud risks | `OutboundHandoffModal.tsx` & E2E tests       | ✅ Passed (WAI-ARIA dialog compliant, `rel="noopener noreferrer"`) |
+| Local Bookmark Privacy    | Save/remove toggle persisted in localStorage without server API | `useSavedServices.ts` hook & E2E spec        | ✅ Passed (`/saved` route verified without network traffic)        |
+| WCAG 2.2 AA (axe-core)    | 0 critical or serious violations on catalogue screens           | Automated Playwright `axe-core` tests        | ✅ Passed (0 violations across all 6 viewports; 72/72 tests pass)  |
+| Code & Type Hygiene       | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean   | `npm run lint`, `type-check`, `format:check` | ✅ Passed (0 errors, 0 warnings across entire codebase)            |
+| Human Review & Approval   | Founder review of M2 Catalogue deliverable                      | Sign-off pending founder review              | ⏳ Awaiting Founder Review                                         |
 
 ---
 
 ## Formal Sign-Off Record
 
-- **Milestone:** M1 App Shell
+- **Milestone:** M2 Catalogue Pipeline & Service Seeding
 - **Verified By Agent:** Antigravity AI Pair Programmer
 - **Date:** 2026-11-05
-- **Branch:** `feat/m1-app-shell`
+- **Branch:** `feat/m2-catalogue-pipeline`
 - **Human Approval:** ___________________________ (Pending Founder Review)

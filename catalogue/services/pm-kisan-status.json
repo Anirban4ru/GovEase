@@ -1,0 +1,62 @@
+{
+  "id": "pm-kisan-status",
+  "ecosystem": "finance-and-welfare",
+  "category": "agriculture-welfare",
+  "title": {
+    "en": "PM-Kisan Samman Nidhi Status & Registration",
+    "hi": "प्रधानमंत्री किसान सम्मान निधि स्थिति और पंजीकरण"
+  },
+  "goal": {
+    "en": "Check installment payment status or register as a farmer beneficiary",
+    "hi": "किसान सम्मान निधि की किस्त स्थिति जांचें या नए लाभार्थी के रूप में पंजीकरण करें"
+  },
+  "summary": {
+    "en": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) is a central sector income support scheme providing ₹6,000 per year in three equal installments to small and marginal farmer families across India. The portal enables farmer registration, Aadhaar verification, and installment payment tracking.",
+    "hi": "प्रधानमंत्री किसान सम्मान निधि योजना के तहत पात्र किसान परिवारों को प्रति वर्ष ₹6,000 की वित्तीय सहायता तीन समान किश्तों में सीधे बैंक खाते में दी जाती है। इस पोर्टल पर आप पंजीकरण और भुगतान की स्थिति जांच सकते हैं।"
+  },
+  "provider": {
+    "name": "Ministry of Agriculture & Farmers Welfare",
+    "type": "central"
+  },
+  "official_url": "https://pmkisan.gov.in/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Landholding farmer families with cultivable land in their name, subject to certain exclusion criteria (such as institutional landholders, income-tax payers, and government employees).",
+      "hi": "खेती योग्य भूमि के मालिक किसान परिवार, कुछ बहिष्करण मानदंडों के अधीन।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Aadhaar card of the landholder",
+    "Land ownership records / Khatauni details",
+    "Active Aadhaar-seeded bank account for direct benefit credit",
+    "Mobile number linked to Aadhaar for OTP verification"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Online registration and status checks on the official PM-KISAN portal are free. Common Service Centres (CSCs) may charge standard government-mandated service fees for biometric eKYC.",
+    "source_url": "https://pmkisan.gov.in/",
+    "last_verified_on": "2026-11-05"
+  },
+  "sources": [
+    {
+      "url": "https://pmkisan.gov.in/",
+      "title": "PM-Kisan Official Scheme Portal",
+      "verified_on": "2026-11-05"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-05",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-05",
+    "notes": "Verified against pmkisan.gov.in on 5 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal provides multi-language interface and voice-assisted helpbot.",
+  "status": "draft-pending-human-review"
+}

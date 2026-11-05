@@ -1,0 +1,62 @@
+{
+  "id": "nsp-scholarship-discovery",
+  "ecosystem": "education",
+  "category": "scholarships",
+  "title": {
+    "en": "National Scholarship Portal (NSP) Application Discovery",
+    "hi": "राष्ट्रीय छात्रवृत्ति पोर्टल (NSP) आवेदन एवं खोज"
+  },
+  "goal": {
+    "en": "Find and apply for central and state government student scholarships",
+    "hi": "केंद्र और राज्य सरकार की छात्रवृत्ति योजनाओं की खोज करें और आवेदन करें"
+  },
+  "summary": {
+    "en": "The National Scholarship Portal (NSP) is the common electronic gateway of the Government of India for student scholarship schemes across central ministries, states, and union territories. It streamlines student registration, document submission, and direct benefit transfer (DBT).",
+    "hi": "राष्ट्रीय छात्रवृत्ति पोर्टल (NSP) भारत सरकार का एक साझा मंच है जहाँ छात्र केंद्र और राज्य सरकारों की विभिन्न छात्रवृत्ति योजनाओं के लिए आवेदन कर सकते हैं।"
+  },
+  "provider": {
+    "name": "Ministry of Electronics & Information Technology and Ministry of Education",
+    "type": "central"
+  },
+  "official_url": "https://scholarships.gov.in/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Students enrolled in recognised schools, colleges, or universities in India. Specific academic marks, family income criteria, and community categories vary by scholarship scheme.",
+      "hi": "भारत के मान्यता प्राप्त विद्यालयों, महाविद्यालयों या विश्वविद्यालयों में नामांकित छात्र। पात्रता नियम योजनानुसार भिन्न हैं।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "One-Time Registration (OTR) / Student identification reference",
+    "Academic mark sheets from previous qualifying examinations",
+    "Active bank account details linked with Aadhaar for Direct Benefit Transfer",
+    "Family income certificate and caste/community certificate (if applicable for the chosen scheme)"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Application on the official National Scholarship Portal is completely free of charge. No processing fee is collected from students.",
+    "source_url": "https://scholarships.gov.in/",
+    "last_verified_on": "2026-11-05"
+  },
+  "sources": [
+    {
+      "url": "https://scholarships.gov.in/",
+      "title": "National Scholarship Portal Home Page",
+      "verified_on": "2026-11-05"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-05",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-05",
+    "notes": "Verified against scholarships.gov.in portal on 5 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal provides high contrast and font resizing controls.",
+  "status": "draft-pending-human-review"
+}
