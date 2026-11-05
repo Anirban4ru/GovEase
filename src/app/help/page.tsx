@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "../../context/I18nContext";
+import { FeedbackModal } from "../../components/FeedbackModal";
 
 export default function HelpPage() {
   const { locale } = useTranslation();
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
 
   return (
     <div className="app-container" style={{ paddingTop: "2rem", paddingBottom: "3rem" }}>
@@ -113,11 +115,41 @@ export default function HelpPage() {
               ? "यदि आपको किसी सेवा के लिंक या विवरण में कोई विसंगति दिखाई देती है, तो आप हमारी सार्वजनिक रिपोजिटरी में सुधार का सुझाव दे सकते हैं।"
               : "If you notice a broken link, outdated fee schedule, or inaccurate eligibility description, let us know through our open correction register."}
           </p>
-          <div style={{ fontSize: "0.875rem", color: "var(--color-content-tertiary)" }}>
-            Anonymous correction workflow — no user account or personal details required.
-          </div>
+          <button
+            type="button"
+            onClick={() => setFeedbackOpen(true)}
+            style={{
+              padding: "0.625rem 1.25rem",
+              backgroundColor: "var(--color-brand-primary)",
+              color: "var(--color-content-inverse)",
+              border: "none",
+              borderRadius: "var(--radius-sm)",
+              fontWeight: 700,
+              fontSize: "0.875rem",
+              cursor: "pointer",
+              minHeight: "var(--min-touch-target)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            {locale === "hi" ? "सुझाव या सुधार भेजें" : "Submit Feedback / Correction"}
+          </button>
         </section>
       </div>
+
+      <FeedbackModal isOpen={feedbackOpen} onClose={() => setFeedbackOpen(false)} />
     </div>
   );
 }

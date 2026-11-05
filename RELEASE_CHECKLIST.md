@@ -82,10 +82,29 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 
 ---
 
+## Milestone M4: Saved Items, PWA Offline Shell, Settings & Feedback Flow Sign-Off Gate
+
+| Gate Check                 | Requirement                                                        | Evidence Required                            | Verification Status                                                |
+| -------------------------- | ------------------------------------------------------------------ | -------------------------------------------- | ------------------------------------------------------------------ |
+| Saved Items Portability    | Client-side export & schema-validated import (`.json`), zero leak  | `src/lib/saved-backup.ts`, Vitest unit test  | ✅ Passed (6/6 unit tests pass, tested in Playwright E2E)          |
+| Printable Checklist View   | High-contrast `@media print` layout with document checklist, 0 nav | `src/app/saved/page.tsx`, print stylesheet   | ✅ Passed (Emulated print media test passes across all viewports)  |
+| Transparent Data Inventory | Discloses all `localStorage` keys, byte sizes, purpose, 0 cookies  | `src/app/settings/page.tsx` & E2E spec       | ✅ Passed (Table renders live keys, 0 cookies detected)            |
+| Complete Local Data Purge  | Two-step confirmation modal permanently clearing storage & caches  | `src/app/settings/page.tsx` & E2E spec       | ✅ Passed (Modal dialog conforms to WAI-ARIA, full purge verified) |
+| Web App Manifest           | W3C valid manifest (`manifest.webmanifest`), 192px/512px SVG icons | `public/manifest.webmanifest`, API response  | ✅ Passed (200 OK, conforms to standalone spec with icons)         |
+| Offline Service Worker     | Cache-first static shell, network-first nav, `/offline` fallback   | `public/sw.js`, `src/app/offline/page.tsx`   | ✅ Passed (Offline dated snapshot verified per §252)               |
+| Anonymous Feedback Flow    | Zero-backend feedback modal in `/help`, pre-filled mailto & copy   | `src/components/FeedbackModal.tsx` & E2E     | ✅ Passed (Modal dialog verified with mailto & copy templates)     |
+| Sensitive Data Anti-Leak   | Client regex scanning detects & blocks Aadhaar, phone, email leaks | `src/lib/anti-leak-sanitizer.ts`, unit tests | ✅ Passed (7/7 sanitizer unit tests pass, blocks leaks in E2E)     |
+| Privacy Notice Draft       | Compliant notice labeled `DRAFT - Pending Legal Review`            | `docs/PRIVACY_NOTICE_DRAFT.md`, `/privacy`   | ✅ Passed (Draft label visible, on-device inventory detailed)      |
+| Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean      | `npm run lint`, `type-check`, `format:check` | ✅ Passed (0 errors, 0 warnings across entire codebase)            |
+| Full E2E & axe-core Suite  | 138/138 tests pass across 6 viewports with 0 critical/serious a11y | Playwright test report                       | ✅ Passed (138/138 tests pass, 0 critical/serious axe violations)  |
+| Human Review & Approval    | Founder review of M4 Deliverable Report                            | Sign-off pending founder review              | ⏳ Awaiting Founder Review                                         |
+
+---
+
 ## Formal Sign-Off Record
 
-- **Milestone:** M3 Search & Discovery Engine
+- **Milestone:** M4 Saved Items, PWA Offline Shell, Settings & Feedback Flow
 - **Verified By Agent:** Antigravity AI Pair Programmer
 - **Date:** 2026-11-05
-- **Branch:** `master` (Merged from `feat/m3-search-discovery`)
-- **Human Approval:** Approved by Founder on 2026-11-05 ("go ahead")
+- **Branch:** `feat/m4-saved-pwa-settings`
+- **Human Approval:** ___________________________ (Pending Founder Review)

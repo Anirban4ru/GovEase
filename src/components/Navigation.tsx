@@ -13,6 +13,7 @@ export function DesktopNavigation() {
     { href: "/", label: t("nav.home") },
     { href: "/explore", label: t("nav.explore") },
     { href: "/saved", label: t("nav.saved") },
+    { href: "/settings", label: t("nav.settings") },
     { href: "/help", label: t("nav.help") },
   ];
 

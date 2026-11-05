@@ -5,6 +5,7 @@ import { ModeProvider } from "../context/ModeContext";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { OfflineBanner } from "../components/OfflineBanner";
+import { PwaRegister } from "../components/PwaRegister";
 import { MobileBottomNavigation } from "../components/Navigation";
 
 export const metadata: Metadata = {
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
   description:
     "An independent, citizen-centric discovery and navigation guide to essential public services in India. Zero advertising, verified official links, and zero server-side tracking.",
   applicationName: "Unified Life Services Platform",
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: "/icons/icon-192.svg",
+    apple: "/icons/icon-192.svg",
+  },
   authors: [{ name: "Independent Public Technology Initiative" }],
   keywords: [
     "public services",
@@ -27,7 +33,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#1d4e8f",
+  themeColor: "#1e293b",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -37,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <I18nProvider>
           <ModeProvider>
             <OfflineBanner />
+            <PwaRegister />
             <Header />
             <main id="main-content" tabIndex={-1} style={{ flex: 1, outline: "none" }}>
               {children}
