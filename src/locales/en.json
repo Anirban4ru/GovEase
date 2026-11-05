@@ -1,0 +1,50 @@
+{
+  "common": {
+    "appName": "Unified Life Services Platform",
+    "tagline": "Independent Guide to Essential Public Services",
+    "disclaimerBadge": "Independent Guide — Not a Government Portal",
+    "disclaimerNotice": "This is an independent public-benefit platform. We do not provide government services or process applications. All outbound links take you directly to verified official provider portals.",
+    "skipToContent": "Skip to main content",
+    "offlineNotice": "You are currently offline. Viewing cached public service guides.",
+    "onlineRestored": "Internet connection restored. You are back online.",
+    "loading": "Loading...",
+    "errorOccurred": "Something went wrong",
+    "tryAgain": "Try again",
+    "goHome": "Return to Home",
+    "officialSource": "Official website of",
+    "verifiedOn": "Last verified on",
+    "close": "Close",
+    "clearData": "Clear My Stored Preferences",
+    "dataClearedNotice": "Your stored preferences and saved items have been cleared from this device."
+  },
+  "nav": {
+    "home": "Home",
+    "explore": "Explore",
+    "saved": "Saved",
+    "help": "Help",
+    "settings": "Settings"
+  },
+  "modes": {
+    "label": "Display Mode",
+    "standard": "Standard",
+    "standardDesc": "Concise, efficient interface for regular users",
+    "simple": "Simple",
+    "simpleDesc": "Larger text, simpler steps, and uncluttered layouts",
+    "assisted": "Assisted",
+    "assistedDesc": "Guided step-by-step assistance with plain-language explanations"
+  },
+  "languages": {
+    "label": "Language",
+    "en": "English",
+    "hi": "हिंदी"
+  },
+  "footer": {
+    "about": "About This Initiative",
+    "aboutText": "An independent, public-benefit discovery platform designed to help citizens navigate essential digital services in India with clarity and confidence.",
+    "privacy": "Privacy & Data Minimisation",
+    "privacyText": "Zero server-side tracking. Your preferences are stored exclusively on your local device.",
+    "allowlist": "Official Domain Allow-List",
+    "governance": "Content Governance",
+    "allRightsReserved": "Independent Civic Technology Initiative. Zero commercial advertising or data sharing."
+  }
+}

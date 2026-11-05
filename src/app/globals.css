@@ -1,1 +1,100 @@
+@import "../styles/tokens.css";
 @import "tailwindcss";
+
+/* ==========================================================================
+   Base CSS Resets & Accessibility Foundation
+   WCAG 2.2 Level AA Compliant: Focus Indicators, Touch Targets, Contrast
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* 16px root */
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-sans);
+  background-color: var(--color-surface-page);
+  color: var(--color-content-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Accessible, Uncompromising Visible Focus Rings */
+:focus-visible {
+  outline: 3px solid var(--color-border-focus) !important;
+  outline-offset: 2px !important;
+}
+
+/* Remove default focus when clicked with mouse if focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip Link: Highest z-index, visible on focus */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--color-brand-primary);
+  color: var(--color-content-inverse);
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: top var(--transition-fast);
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+/* Touch Targets: minimum 44px */
+button,
+a,
+input,
+select,
+summary {
+  touch-action: manipulation;
+}
+
+/* Standard Link Styles */
+a {
+  color: var(--color-content-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--color-brand-primary-hover);
+}
+
+/* Semantic Container Utility */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
