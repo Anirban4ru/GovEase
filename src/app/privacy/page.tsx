@@ -9,6 +9,22 @@ export default function PrivacyPage() {
   return (
     <div className="app-container" style={{ paddingTop: "2rem", paddingBottom: "3rem" }}>
       <div style={{ marginBottom: "2rem" }}>
+        <div
+          style={{
+            display: "inline-block",
+            fontSize: "0.75rem",
+            fontWeight: 700,
+            letterSpacing: "0.05em",
+            textTransform: "uppercase",
+            padding: "0.25rem 0.625rem",
+            borderRadius: "var(--radius-xs)",
+            backgroundColor: "var(--color-neutral-200)",
+            color: "var(--color-content-secondary)",
+            marginBottom: "0.75rem",
+          }}
+        >
+          DRAFT — Pending Qualified Legal Review Before Public Release
+        </div>
         <h1
           style={{
             fontSize: "2rem",
