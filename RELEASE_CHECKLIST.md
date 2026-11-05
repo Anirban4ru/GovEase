@@ -12,19 +12,19 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 
 ## Milestone M0: Foundation Sign-Off Gate
 
-| Gate Check             | Requirement                                            | Evidence Required                       | Verification Status                     |
-| ---------------------- | ------------------------------------------------------ | --------------------------------------- | --------------------------------------- |
-| Toolchain & Repo       | Git initialized, `.gitignore`, `.env.example` in place | Git commit history                      | ✅ Passed (commit `407e400`)            |
-| Strict Typing          | TypeScript strict mode, 0 compile errors               | `npm run type-check` output             | ✅ Passed (0 errors)                    |
-| Code Hygiene           | ESLint and Prettier passing with 0 warnings            | `npm run lint` & `npm run format:check` | ✅ Passed (0 errors)                    |
-| Unit Tests             | Vitest passing schema verification tests               | `npm test` test run output              | ✅ Passed (7 tests passed)              |
-| Catalogue Integrity    | JSON Schema validation of services and allowlists      | `npm run validate:catalogue` output     | ✅ Passed (0 errors)                    |
-| Security Baseline      | npm audit reports zero high/critical vulnerabilities   | `npm run audit:ci` output               | ✅ Passed (0 vulnerabilities)           |
-| Threat Model v0        | Assets, actors, STRIDE analysis, trust boundaries      | `THREAT_MODEL.md`                       | ✅ Passed                               |
-| Agent Guidelines       | AGENTS.md <=150 lines, verbatim hard rules             | `AGENTS.md` (62 lines)                  | ✅ Passed                               |
-| CI Pipeline            | GitHub Actions workflow config in place                | `.github/workflows/ci.yml`              | ✅ Passed                               |
-| Architecture Decisions | ADR-0001 through ADR-0008 documented                   | `docs/decisions/`                       | ✅ Passed                               |
-| Design System Tokens   | Colour palette and typography approved                 | Human approval of ADR-0002/3            | ✅ Approved (Civic Slate & Noto Sans)   |
+| Gate Check             | Requirement                                            | Evidence Required                       | Verification Status                    |
+| ---------------------- | ------------------------------------------------------ | --------------------------------------- | -------------------------------------- |
+| Toolchain & Repo       | Git initialized, `.gitignore`, `.env.example` in place | Git commit history                      | ✅ Passed (commit `407e400`)           |
+| Strict Typing          | TypeScript strict mode, 0 compile errors               | `npm run type-check` output             | ✅ Passed (0 errors)                   |
+| Code Hygiene           | ESLint and Prettier passing with 0 warnings            | `npm run lint` & `npm run format:check` | ✅ Passed (0 errors)                   |
+| Unit Tests             | Vitest passing schema verification tests               | `npm test` test run output              | ✅ Passed (7 tests passed)             |
+| Catalogue Integrity    | JSON Schema validation of services and allowlists      | `npm run validate:catalogue` output     | ✅ Passed (0 errors)                   |
+| Security Baseline      | npm audit reports zero high/critical vulnerabilities   | `npm run audit:ci` output               | ✅ Passed (0 vulnerabilities)          |
+| Threat Model v0        | Assets, actors, STRIDE analysis, trust boundaries      | `THREAT_MODEL.md`                       | ✅ Passed                              |
+| Agent Guidelines       | AGENTS.md <=150 lines, verbatim hard rules             | `AGENTS.md` (62 lines)                  | ✅ Passed                              |
+| CI Pipeline            | GitHub Actions workflow config in place                | `.github/workflows/ci.yml`              | ✅ Passed                              |
+| Architecture Decisions | ADR-0001 through ADR-0008 documented                   | `docs/decisions/`                       | ✅ Passed                              |
+| Design System Tokens   | Colour palette and typography approved                 | Human approval of ADR-0002/3            | ✅ Approved (Civic Slate & Noto Sans)  |
 | Human Sign-off         | Formal human approval of M0 deliverable                | Conversation decision                   | ✅ Approved by Founder ("M0 APPROVED") |
 
 ---
@@ -62,32 +62,30 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 | Local Bookmark Privacy    | Save/remove toggle persisted in localStorage without server API | `useSavedServices.ts` hook & E2E spec        | ✅ Passed (`/saved` route verified without network traffic)        |
 | WCAG 2.2 AA (axe-core)    | 0 critical or serious violations on catalogue screens           | Automated Playwright `axe-core` tests        | ✅ Passed (0 violations across all 6 viewports; 72/72 tests pass)  |
 | Code & Type Hygiene       | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean   | `npm run lint`, `type-check`, `format:check` | ✅ Passed (0 errors, 0 warnings across entire codebase)            |
-| Human Review & Approval   | Founder review of M2 Catalogue deliverable                      | Sign-off pending founder review              | ⏳ Awaiting Founder Review                                         |
+| Human Review & Approval   | Founder review of M2 Catalogue deliverable                      | Conversation approval                        | ✅ Approved by Founder ("proceed")                                 |
 
 ---
 
-## Milestone M2: Catalogue Pipeline & Service Seeding Sign-Off Gate
+## Milestone M3: Search & Discovery Engine Sign-Off Gate
 
-| Gate Check               | Requirement                                                     | Evidence Required                         | Verification Status                                                |
-| ------------------------ | --------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------ |
-| Seed Dataset Coverage    | 6 high-value services across all 6 ecosystems                   | `catalogue/services/*.json`               | ✅ Passed (6 services valid, bilingual, Grade 6-8 plain language) |
-| Schema Strictness        | JSON Schema validation passes for all services & allow-list     | `npm run validate:catalogue` output       | ✅ Passed (6/6 services conform to schema)                         |
-| Domain Allow-list        | All URLs strictly allow-listed, HTTPS only, 10 official domains | `catalogue/domain-allowlist.json`         | ✅ Passed (`test/catalogue.test.ts`, all URLs allow-listed)        |
-| Automated Link Health    | Link checker script validates syntax, status, and protocols     | `npm run check:links:offline`             | ✅ Passed (9/9 URLs verified in `LINK_HEALTH_REPORT.md`)           |
-| Staleness & Review Audit | Living freshness report calculating days until review due       | `npm run report:staleness`                | ✅ Passed (`docs/catalogue/STALENESS_REPORT.md`, 0 overdue)        |
-| Static Prerendering (SSG)| Service detail pages prerendered statically at build time       | Next.js static build in `out/services/`   | ✅ Passed (6 static HTML detail directories generated)             |
-| Outbound Link Safety     | Accessible handoff modal warning of external exit & fraud risks | `OutboundHandoffModal.tsx` & E2E tests    | ✅ Passed (WAI-ARIA dialog compliant, `rel="noopener noreferrer"`) |
-| Local Bookmark Privacy   | Save/remove toggle persisted in localStorage without server API | `useSavedServices.ts` hook & E2E spec     | ✅ Passed (`/saved` route verified without network traffic)        |
-| WCAG 2.2 AA (axe-core)   | 0 critical or serious violations on catalogue screens           | Automated Playwright `axe-core` tests     | ✅ Passed (0 violations across all 6 viewports; 72/72 tests pass)  |
-| Code & Type Hygiene      | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean   | `npm run lint`, `type-check`, `format:check` | ✅ Passed (0 errors, 0 warnings across entire codebase)           |
-| Human Review & Approval  | Founder review of M2 Catalogue deliverable                      | Sign-off pending founder review           | ⏳ Awaiting Founder Review                                         |
+| Gate Check                 | Requirement                                                         | Evidence Required                              | Verification Status                                                |
+| -------------------------- | ------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------ |
+| In-Memory Engine & Privacy | Client-side search via `minisearch`, 0 network requests, 0 logging  | `src/lib/search.ts`                            | ✅ Passed (Pure function, 100% offline, zero citizen telemetry)    |
+| Synonym & Intent Mapping   | English, Hindi (Devanagari), Hinglish, acronyms, and common typos   | `src/lib/search-synonyms.ts`                   | ✅ Passed (Comprehensive mapping across 6 ecosystems)              |
+| Benchmark Test Set         | >= 100 realistic citizen queries with expected service IDs          | `test/search-test-set.json`                    | ✅ Passed (114 queries covering natural language, typos, Hinglish) |
+| Relevance Threshold        | >= 95% Top-1 accuracy and 100% Top-3 accuracy on 114 queries        | `test/search-relevance.test.ts` output         | ✅ Passed (114/114 = 100.0% Top-1, 100.0% Top-3 accuracy)          |
+| Accessible Combobox UI     | WAI-ARIA combobox/listbox, polite live status, keyboard navigation  | `src/components/SearchBar.tsx`                 | ✅ Passed (ArrowDown/Up, Enter, Esc, polite aria-live status)      |
+| Route Integrations         | Hero search on Home (`/`), synchronized live filtering on Explore   | `src/app/page.tsx`, `src/app/explore/page.tsx` | ✅ Passed (Explore handles query params, tabs, reset state)        |
+| Full E2E & axe-core Suite  | All 102 Playwright tests pass across 6 viewports with 0 a11y errors | Playwright test report                         | ✅ Passed (102/102 tests pass, 0 critical/serious axe violations)  |
+| Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean       | `npm run lint`, `type-check`, `format:check`   | ✅ Passed (0 errors, 0 warnings across entire codebase)            |
+| Human Review & Approval    | Founder review of M3 Search Engine deliverable                      | Sign-off pending founder review                | ⏳ Awaiting Founder Review                                         |
 
 ---
 
 ## Formal Sign-Off Record
 
-- **Milestone:** M2 Catalogue Pipeline & Service Seeding
+- **Milestone:** M3 Search & Discovery Engine
 - **Verified By Agent:** Antigravity AI Pair Programmer
 - **Date:** 2026-11-05
-- **Branch:** `feat/m2-catalogue-pipeline`
+- **Branch:** `feat/m3-search-discovery`
 - **Human Approval:** ___________________________ (Pending Founder Review)

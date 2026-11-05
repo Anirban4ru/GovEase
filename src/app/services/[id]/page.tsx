@@ -40,4 +40,3 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   return <ServiceDetailView service={service} />;
 }
-

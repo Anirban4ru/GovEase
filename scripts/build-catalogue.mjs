@@ -29,4 +29,3 @@ fs.mkdirSync(outputDir, { recursive: true });
 fs.writeFileSync(outputPath, JSON.stringify(services, null, 2), "utf8");
 
 console.log(`✅ Compiled ${services.length} services into ${outputPath}`);
-
