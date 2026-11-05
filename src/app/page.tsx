@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useTranslation } from "../context/I18nContext";
 import { usePresentationMode } from "../context/ModeContext";
+import { SearchBar } from "../components/SearchBar";
 
 export default function HomePage() {
   const { t, locale } = useTranslation();
@@ -138,6 +139,17 @@ export default function HomePage() {
             ? "एक स्वतंत्र, सत्यापित मार्गदर्शिका जो आपको सीधे आधिकारिक सरकारी और जनोपयोगी पोर्टलों से जोड़ती है। कोई विज्ञापन नहीं, कोई डेटा संग्रह नहीं।"
             : "An independent, dated catalogue linking citizens directly to official government portals. Zero advertising, zero document storage, and uncompromising privacy."}
         </p>
+
+        {/* Prominent Instant Search Bar */}
+        <div
+          style={{
+            maxWidth: "680px",
+            margin: mode === "simple" ? "0 0 1.5rem 0" : "0 auto 1.5rem auto",
+            textAlign: "left",
+          }}
+        >
+          <SearchBar />
+        </div>
 
         {/* Quick Goal Prompts */}
         <div
