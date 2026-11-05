@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://unified-life-services.internal/schemas/domain-allowlist.schema.json",
+  "title": "DomainAllowlist",
+  "description": "Allowed domains for official government and verified provider outbound links",
+  "type": "object",
+  "required": ["version", "last_updated", "domains"],
+  "properties": {
+    "version": { "type": "string" },
+    "last_updated": { "type": "string", "format": "date" },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["domain", "provider", "category", "added_on", "approved_by"],
+        "properties": {
+          "domain": {
+            "type": "string",
+            "pattern": "^[a-z0-9.-]+\\.[a-z]{2,}$"
+          },
+          "provider": { "type": "string" },
+          "category": {
+            "type": "string",
+            "enum": ["central-gov", "state-gov", "municipal", "verified-utility", "academic"]
+          },
+          "added_on": { "type": "string", "format": "date" },
+          "approved_by": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

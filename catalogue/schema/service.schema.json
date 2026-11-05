@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://unified-life-services.internal/schemas/service.schema.json",
+  "title": "ServiceCatalogueEntry",
+  "description": "Schema for a service entry in the Unified Life Services Platform catalogue",
+  "type": "object",
+  "required": [
+    "id",
+    "ecosystem",
+    "category",
+    "title",
+    "goal",
+    "summary",
+    "provider",
+    "official_url",
+    "geographic_scope",
+    "eligibility_summary",
+    "documents_required",
+    "fees",
+    "sources",
+    "verification",
+    "integration_classification",
+    "feature_state",
+    "languages_at_destination",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Stable kebab-case unique identifier"
+    },
+    "ecosystem": {
+      "type": "string",
+      "enum": [
+        "government-and-citizen",
+        "healthcare",
+        "education",
+        "finance-and-welfare",
+        "mobility-and-transport",
+        "utilities-and-local"
+      ],
+      "description": "One of the six platform ecosystems"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 50,
+      "description": "Category within the ecosystem"
+    },
+    "title": {
+      "type": "object",
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "string", "minLength": 3 },
+        "hi": { "type": "string" }
+      },
+      "description": "Official service title in supported languages"
+    },
+    "goal": {
+      "type": "object",
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "string", "minLength": 5 },
+        "hi": { "type": "string" }
+      },
+      "description": "The goal in plain language as a user would phrase it"
+    },
+    "summary": {
+      "type": "object",
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "string", "minLength": 10 },
+        "hi": { "type": "string" }
+      },
+      "description": "Plain language explanation (Grade 6-8 reading level, no unexplained acronyms)"
+    },
+    "provider": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": { "type": "string", "minLength": 2 },
+        "type": {
+          "type": "string",
+          "enum": ["central", "state", "municipal", "private-utility", "other"]
+        },
+        "state_or_ut": { "type": "string" }
+      }
+    },
+    "official_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://",
+      "description": "Official destination URL (HTTPS mandatory, allow-listed domain)"
+    },
+    "geographic_scope": {
+      "type": "object",
+      "required": ["level"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["national", "state", "city", "district"]
+        },
+        "state_or_ut": { "type": "string" },
+        "city_or_district": { "type": "string" }
+      }
+    },
+    "eligibility_summary": {
+      "type": "object",
+      "required": ["text", "is_informational_only"],
+      "properties": {
+        "text": {
+          "type": "object",
+          "required": ["en"],
+          "properties": {
+            "en": { "type": "string" },
+            "hi": { "type": "string" }
+          }
+        },
+        "is_informational_only": {
+          "type": "boolean",
+          "const": true,
+          "description": "Must be true — eligibility is informational only, never automated decisions"
+        }
+      }
+    },
+    "documents_required": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Generic document descriptions if sourced; empty array if not explicitly sourced"
+    },
+    "fees": {
+      "type": "object",
+      "required": ["is_fee_required", "details", "source_url"],
+      "properties": {
+        "is_fee_required": { "type": "boolean" },
+        "details": { "type": "string" },
+        "source_url": { "type": "string", "format": "uri" },
+        "last_verified_on": { "type": "string", "format": "date" }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["url", "title", "verified_on"],
+        "properties": {
+          "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+          "title": { "type": "string" },
+          "verified_on": { "type": "string", "format": "date" }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["last_verified_on", "verified_by", "next_review_due"],
+      "properties": {
+        "last_verified_on": { "type": "string", "format": "date" },
+        "verified_by": { "type": "string" },
+        "next_review_due": { "type": "string", "format": "date" },
+        "notes": { "type": "string" }
+      }
+    },
+    "integration_classification": {
+      "type": "integer",
+      "enum": [1, 2, 3, 4, 5, 6],
+      "description": "1: Authorised Prod, 2: Sandbox, 3: Requires Approval/Partnership, 4: Public Info/Directory, 5: Official Link Navigation, 6: Unverified/Future"
+    },
+    "feature_state": {
+      "type": "string",
+      "enum": [
+        "implemented-and-tested",
+        "implemented-not-fully-verified",
+        "sandbox-only",
+        "official-link-only",
+        "awaiting-approval",
+        "planned",
+        "blocked"
+      ]
+    },
+    "languages_at_destination": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "accessibility_notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft-pending-human-review", "active", "needs-review", "retired"]
+    }
+  },
+  "additionalProperties": false
+}

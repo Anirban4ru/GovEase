@@ -3,10 +3,13 @@
 > `PROMPT_FINAL.md` is the full specification; read the relevant section before starting a task.
 
 ## 1. Mission (Three Sentences)
+
 Build an India-first, globally expandable Unified Life Services Platform where anyone can discover, understand, organise, and reach essential digital services of everyday life. The platform does not clone, scrape, or replace existing digital public infrastructure, but enhances accessibility, navigation, and usability through a verified, curated, dated catalogue. It operates as an independent, citizen-centric public-benefit tool with zero advertising, zero commercial data sharing, and uncompromising privacy and accessibility standards.
 
 ## 2. Hard Rules (Verbatim from Section 2 — Non-Negotiable)
+
 You must never:
+
 1. Present simulated, mocked, sandbox, or placeholder behaviour as a real-world action. No fake document retrieval, application submission, identity verification, payment, or status. Mocks must be visibly labelled in the UI and impossible to confuse with real results.
 2. Collect, store, log, or transmit: Aadhaar numbers (beyond what an authorised provider flow strictly requires and legal review has approved), Aadhaar biometrics, Aadhaar or any other OTPs, banking passwords, UPI PINs, card numbers or security codes, government-portal passwords, provider credentials the platform is not authorised to hold, or medical records, unless a human-approved, legally reviewed, consent-based flow exists.
 3. Scrape any website where terms prohibit it, bypass access controls, reverse-engineer undocumented or restricted endpoints, impersonate a provider, automate prohibited workflows, or embed a provider's login page in a frame to capture credentials.
@@ -24,8 +27,10 @@ You must never:
 15. Add a dependency without justification (purpose, maintenance status, licence, size, known vulnerabilities, alternatives considered), recorded in an ADR or the dependency log.
 
 ## 3. Engineering Workflow: Loop Engineering (Section 14)
+
 Every task follows:
 **INSPECT → PLAN → IMPLEMENT → TEST → REVIEW → FIND DEFECTS → FIX → RETEST → DOCUMENT → PROCEED**
+
 - Inspect repo & environment before changing anything; do not delete or overwrite destructively.
 - Plan per milestone (tasks, dependencies, acceptance criteria, risks, evidence) and get approvals.
 - Implement in small increments; test after each change (unit, integration, E2E, a11y, security).
@@ -33,7 +38,9 @@ Every task follows:
 - Definition of Done (§14.3): criteria met, tests executed & passing, a11y & security verified, evidence logged in `IMPLEMENTATION_LEDGER.md`.
 
 ## 4. Human Approval Checkpoints & Risk Decisions (Section 15)
+
 Stop and ask before:
+
 - Approving each milestone plan or release.
 - Adding any paid service, external account, or non-trivial dependency.
 - Choosing hosting provider, domain, or making production deployments.
@@ -43,6 +50,7 @@ Stop and ask before:
 - Exceptions to Hard Rules require written, dated risk decisions with compensating controls recorded in `docs/security/SECURITY_FINDINGS.md` or `docs/decisions/`.
 
 ## 5. Documentation Rules (Section 16)
+
 - Documentation is part of the Definition of Done; update it simultaneously with code changes.
 - Every doc must have a standard header: purpose, owner, status (`draft`, `reviewed`, `approved`), and last-updated date.
 - Unknown/unverified facts must be labelled `"pending verification"` — never invented or assumed.

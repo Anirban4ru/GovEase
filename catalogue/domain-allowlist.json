@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-11-05",
+  "domains": [
+    {
+      "domain": "parivahan.gov.in",
+      "provider": "Ministry of Road Transport and Highways (MoRTH)",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "Official portal for Sarathi and Vahan transport services"
+    },
+    {
+      "domain": "sarathi.parivahan.gov.in",
+      "provider": "Ministry of Road Transport and Highways (MoRTH)",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "Driving licence specific services on Sarathi"
+    },
+    {
+      "domain": "morth.nic.in",
+      "provider": "Ministry of Road Transport and Highways (MoRTH)",
+      "category": "central-gov",
+      "added_on": "2026-11-05",
+      "approved_by": "Founder",
+      "notes": "MoRTH main ministry portal"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "driving-licence-renewal",
+  "ecosystem": "mobility-and-transport",
+  "category": "driving-licence",
+  "title": {
+    "en": "Driving Licence Renewal",
+    "hi": "ड्राइविंग लाइसेंस नवीनीकरण"
+  },
+  "goal": {
+    "en": "Renew an expired or soon-to-expire driving licence",
+    "hi": "अपने समाप्त या समाप्त होने वाले ड्राइविंग लाइसेंस का नवीनीकरण करें"
+  },
+  "summary": {
+    "en": "Apply for the renewal of your existing driving licence through the official Ministry of Road Transport and Highways Sarathi portal. Online applications are accepted within one year before or after licence expiry.",
+    "hi": "सड़क परिवहन और राजमार्ग मंत्रालय के आधिकारिक सारथी पोर्टल के माध्यम से अपने मौजूदा ड्राइविंग लाइसेंस के नवीनीकरण के लिए आवेदन करें।"
+  },
+  "provider": {
+    "name": "Ministry of Road Transport and Highways (MoRTH)",
+    "type": "central"
+  },
+  "official_url": "https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Holders of a valid or recently expired Indian driving licence. Commercial licence renewal may require a medical certificate (Form 1A).",
+      "hi": "वैध या हाल ही में समाप्त हुए भारतीय ड्राइविंग लाइसेंस के धारक।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Original Driving Licence",
+    "Form 1 (Self-declaration as to physical fitness) or Form 1A (Medical Certificate for applicants aged 40+ or transport vehicle licences)",
+    "Passport-sized photograph",
+    "Proof of age and address if address has changed"
+  ],
+  "fees": {
+    "is_fee_required": true,
+    "details": "Statutory renewal fees apply per Central Motor Vehicles Rules; fee amounts vary depending on renewal within grace period or late renewal. Check the official Sarathi portal for your state's exact fee schedule.",
+    "source_url": "https://parivahan.gov.in/parivahan//en/content/driving-licence",
+    "last_verified_on": "2026-11-05"
+  },
+  "sources": [
+    {
+      "url": "https://parivahan.gov.in/parivahan//en/content/driving-licence",
+      "title": "Parivahan Sewa - Driving Licence Overview",
+      "verified_on": "2026-11-05"
+    },
+    {
+      "url": "https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do",
+      "title": "Sarathi Driving Licence Services Portal",
+      "verified_on": "2026-11-05"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-05",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-05",
+    "notes": "Verified against Parivahan Sewa portal on 5 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal provides multi-state dropdown navigation; external site accessibility varies by state transport department.",
+  "status": "draft-pending-human-review"
+}

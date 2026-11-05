@@ -46,3 +46,5 @@ Thumbs.db
 
 # Agent Junction (mirror of .agent)
 .agents/
+
+*.tsbuildinfo
