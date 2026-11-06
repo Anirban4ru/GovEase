@@ -8,3 +8,7 @@ package-lock.json
 .agent/
 .agents/
 coverage/
+src/data/catalogue.json
+docs/catalogue/LINK_HEALTH_REPORT.md
+docs/catalogue/STALENESS_REPORT.md
+
