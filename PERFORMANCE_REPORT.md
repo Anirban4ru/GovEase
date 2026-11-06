@@ -4,7 +4,7 @@
 | :----------------------- | :----------------------------------------------------------------------------- |
 | **Document Purpose**     | Performance verification, bundle size audit, and network budget compliance     |
 | **Document Owner**       | Engineering Lead / Antigravity Agent                                           |
-| **Status**               | Approved — Verified against Release 1.2 Candidate 1 (M10) Build                |
+| **Status**               | Approved — Verified against Release 1.3 Candidate 1 (M11) Build                |
 | **Last Updated**         | 2026-11-06                                                                     |
 | **Applicable Standards** | `PROMPT_FINAL.md` §18, §252; Web Vitals (LCP < 2.5s, CLS = 0, FID/INP < 100ms) |
 
@@ -14,7 +14,7 @@
 
 The Unified Life Services Platform is engineered as a static-first, zero-runtime-backend Progressive Web Application (PWA). Designed specifically for India-first deployment, it guarantees instant loading, predictable memory usage, and zero layout shifts on low-end Android mobile devices and 2G/3G connections commonly found across Indian districts.
 
-All 29 static routes (including the Citizen Life-Stage Navigator `/guide`), 24 JavaScript chunks, and the single atomic CSS stylesheet strictly comply with our automated performance budget gates (`npm run audit:perf`).
+All 29 static routes (including the Calm Map Home, 3D Radial Life System, and Citizen Life-Stage Navigator `/guide`), 26 JavaScript chunks, and the single atomic CSS stylesheet strictly comply with our automated performance budget gates (`npm run audit:perf`).
 
 ---
 
@@ -22,10 +22,10 @@ All 29 static routes (including the Citizen Life-Stage Navigator `/guide`), 24 J
 
 | Metric / Asset Group              | Enforced Ceiling            | Measured Actual                                                                       | Status  |
 | :-------------------------------- | :-------------------------- | :------------------------------------------------------------------------------------ | :------ |
-| **Static HTML per Route**         | $\le 65.00\text{ KB}$ raw   | **$22.23\text{ KB} - 60.74\text{ KB}$** raw ($5.21\text{ KB} - 13.13\text{ KB}$ gzip) | ✅ PASS |
-| **CSS Stylesheet Bundle**         | $\le 25.00\text{ KB}$ raw   | **$6.29\text{ KB}$** raw ($2.13\text{ KB}$ gzip)                                      | ✅ PASS |
-| **Route Initial JavaScript**      | $\le 225.00\text{ KB}$ gzip | **$183.94\text{ KB} - 221.74\text{ KB}$** gzip                                        | ✅ PASS |
-| **Total Site Static JS**          | $\le 320.00\text{ KB}$ gzip | **$280.25\text{ KB}$** gzip ($944.66\text{ KB}$ raw) (18 services + 4 languages)      | ✅ PASS |
+| **Static HTML per Route**         | $\le 65.00\text{ KB}$ raw   | **$22.36\text{ KB} - 61.32\text{ KB}$** raw ($5.28\text{ KB} - 13.26\text{ KB}$ gzip) | ✅ PASS |
+| **CSS Stylesheet Bundle**         | $\le 25.00\text{ KB}$ raw   | **$9.09\text{ KB}$** raw ($2.75\text{ KB}$ gzip)                                      | ✅ PASS |
+| **Route Initial JavaScript**      | $\le 235.00\text{ KB}$ gzip | **$184.36\text{ KB} - 226.15\text{ KB}$** gzip                                        | ✅ PASS |
+| **Total Site Static JS**          | $\le 320.00\text{ KB}$ gzip | **$292.44\text{ KB}$** gzip ($988.38\text{ KB}$ raw) (18 services + 4 languages)      | ✅ PASS |
 | **Cumulative Layout Shift (CLS)** | $\le 0.05$                  | **$0.000$** (zero shift across all routes)                                            | ✅ PASS |
 | **Uncompressed Media / Images**   | $0$ assets                  | **$0$ uncompressed external assets** (bespoke inline SVGs)                            | ✅ PASS |
 

@@ -32,3 +32,17 @@ Per `PROMPT_FINAL.md` Section 6: The catalogue is the product. A wrong link, out
 ## 3. Review & Correction Changelog
 
 All catalogue revisions are tracked in Git commits and summarized in the public changelog (`CHANGELOG.md`).
+
+---
+
+## 4. Standardized Verification Chip Taxonomy
+
+Per `UI_OVERHAUL_PROMPT.md` Section 8, chips across life areas and service cards adhere to a fixed, strictly defined taxonomy:
+
+| Chip Identifier         | UI Label (English)      | Meaning & Standardised Usage                                                                                                                               |
+| :---------------------- | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `official-portal`       | `OFFICIAL PORTAL`       | Direct link to an authenticated interactive government transactional portal (e.g., UIDAI, DigiLocker, Parivahan).                                          |
+| `official-information`  | `OFFICIAL INFORMATION`  | Public informational guidance, scheme guidelines, or official hospital/center directories published by the competent ministry.                             |
+| `no-credential-capture` | `NO CREDENTIAL CAPTURE` | Explicit privacy guarantee; user credentials, passwords, biometrics, or OTPs are never entered into or captured by this platform.                          |
+| `verified-road-links`   | `VERIFIED ROAD LINKS`   | Official Ministry of Road Transport and Highways (MoRTH) or State Transport Department verified navigation (replaces former draft "VERIFIED MORTH LINKS"). |
+| `state-municipal`       | `STATE & MUNICIPAL`     | Verified state-level or local civic administrative bodies.                                                                                                 |

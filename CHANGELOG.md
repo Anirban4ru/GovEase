@@ -5,6 +5,42 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.3.0-rc.1] - 2026-11-06 (Visual, Motion & 3D Spatial Calm Map Overhaul)
+
+### Added
+
+- **Calm Map Design System & Aesthetic Foundation (`UI_OVERHAUL_PROMPT.md` §1):**
+  - **Calm Map Color System (`src/styles/tokens.css`, ADR-0010):** Replaced legacy blues with an editorial cartographic palette: Ink (`#0F1B2D`), Ground (`#FBF8F3`), Ochre (`#A55705` text, `#C8731A` UI), Deep Teal (`#0E7C7B`), Terrakotta Clay (`#9A3412`), and Ink-Blue (`#1D4ED8`). All normal text pairs exceed WCAG 2.2 AA ($>4.5:1$), and Ink on Ground exceeds WCAG 2.2 AAA ($14.8:1$).
+  - **Fluid Typography:** Scaled heading and hero sizes smoothly between mobile (320px) and wide desktop (1440px) using mathematical `clamp()` functions with script-specific line-height compensation for Devanagari, Bengali, and Tamil.
+  - **48px Minimum Touch Targets:** Standardized all interactive elements, nodes, badges, and controls to a minimum 48px touch target with 3px visible focus rings.
+- **12-Moment Motion System (`src/styles/motion.css`, ADR-0009):**
+  - **Hardware-Accelerated Transitions:** Keyframed transitions for `fieldReveal`, `fieldFadeIn`, `popScale`, `checkDraw`, `pinSettle`, `mapShimmer`, and `soundWave` strictly constrained to `transform` and `opacity` with timing $\le 320\text{ ms}$ and cubic-bezier easing (`0.16, 1, 0.3, 1`).
+  - **Comprehensive Reduced-Motion Overrides:** Instant zero-duration switches when `prefers-reduced-motion: reduce` is detected or when Simplified mode is active.
+- **3D Radial Life System (`src/components/LifeAreaRadialSystem.tsx`):**
+  - **CSS 3D Spatial Canvas:** 6-node radial orbit with central citizen anchor ("You are here"), subtle concentric compass guidelines, and interactive pointer tilt ($\pm 6^\circ$).
+  - **WCAG 2.2.2 Ambient Motion Safeguards:** Ambient drift automatically pauses after 5 seconds of inactivity, includes an explicit visible pause/play toggle button with unified label-in-name accessible naming, and falls back to a clean flat presentation in Simplified mode or on reduced-motion devices.
+- **Goal-Phrased Discovery Grid (`src/components/GoalPhrasedGrid.tsx`):**
+  - **8 High-Intent Citizen Tasks:** Replaced department-first framing with citizen intent cards ("Get a Birth Certificate", "Find a Scholarship", "Create ABHA Health Account", "Open Zero-Balance Bank Account", "Register as Unorganised Worker", "Renew Driving Licence", "Check PM-Kisan Status", "Reprint Official PAN Card").
+  - **Multilingual Support:** Complete 4-language parity (English, Hindi, Bengali, Tamil) with direct routing to verified services.
+- **Side-by-Side Comparison Architecture (`src/components/HomeClassicView.tsx`):**
+  - Added `?view=classic` comparison query flag, allowing founders and users to view the classic 6-card grid alongside the new Calm Map, with a top switcher banner to toggle between views.
+- **Remediation of 6 Section 8 Known Issues:**
+  1. _Mobility & Transport Chip:_ Corrected to `"VERIFIED ROAD LINKS"`.
+  2. _Verification Chip Taxonomy:_ Standardized 5 fixed labels documented in `docs/catalogue/CATALOGUE_GOVERNANCE.md`.
+  3. _Install Banner:_ Replaced blocking top banner with a non-blocking, dismissible bottom toast in `PwaRegister.tsx`.
+  4. _Country Code Hero Badge:_ Replaced raw "IN" badge with accessible Field Compass SVG icon and explicit bilingual guide text.
+  5. _Card Heading Wrapping:_ Reserved height (`min-height: 2.75rem`) and standardized two-line clamping across all cards.
+  6. _Governance Audit Record:_ Added verified audit timestamp and teal checkmark to `ServiceDetailView.tsx`.
+
+### Tests & Verification
+
+- Added unit test suite `test/ui-tokens.test.ts` (7 tests) verifying Calm Map token presence, contrast ratios, and touch targets. Total Vitest unit tests now at **58 tests (100% passing)**.
+- Added Playwright E2E spec `e2e/m11-ui-overhaul.spec.ts` (8 tests across 6 viewports, 48 assertions) covering 3D tilt, pause button, reduced motion, goal grid navigation, side-by-side comparison, 4 languages, and automated axe-core accessibility audits.
+- Full Playwright E2E regression suite passes with **60 tests on Desktop and 360 tests across all 6 viewports (100% passing)** with 0 functional failures and 0 WCAG 2.2 AA violations.
+- Performance budget audited across 29 routes: CSS = 9.09 KB (budget <= 25 KB), HTML = 22.36 KB (budget <= 50 KB), All static JS chunks = 292.44 KB (budget <= 320 KB).
+
+---
+
 ## [1.2.0-rc.1] - 2026-11-06 (Citizen Life-Stage Navigator & Informational Eligibility Discovery Guide)
 
 ### Added

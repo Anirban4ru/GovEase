@@ -23,14 +23,16 @@ export function Header() {
         {t("common.skipToContent")}
       </a>
 
-      {/* India-First Civic Tricolor Accent Ribbon */}
-      <div className="civic-tricolor-bar" role="presentation" aria-hidden="true" />
+      {/* Cartographic Field Map Accent Ribbon */}
+      <div className="civic-map-ribbon civic-tricolor-bar" role="presentation" aria-hidden="true" />
 
       {/* Independent Guide Disclaimer Banner */}
       <div
+        role="region"
+        aria-label="Public Benefit Trust Banner"
         style={{
-          backgroundColor: "var(--color-neutral-100)",
-          borderBottom: "1px solid var(--color-border-default)",
+          backgroundColor: "var(--color-ground-muted)",
+          borderBottom: "1px solid var(--color-border-subtle)",
           padding: "0.375rem 1rem",
           fontSize: "0.8125rem",
           color: "var(--color-content-secondary)",
@@ -56,18 +58,28 @@ export function Header() {
                 width: "8px",
                 height: "8px",
                 borderRadius: "50%",
-                backgroundColor: "var(--color-status-warning)",
+                backgroundColor: "var(--color-ochre)",
               }}
               aria-hidden="true"
             />
-            <span style={{ fontWeight: 600 }}>{t("common.disclaimerBadge")}</span>
+            <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
+              {t("common.disclaimerBadge")}
+            </span>
           </div>
-          <span
-            style={{ fontSize: "0.75rem", color: "var(--color-content-tertiary)" }}
+          <div
+            style={{
+              fontSize: "0.75rem",
+              color: "var(--color-content-secondary)",
+              display: "flex",
+              gap: "0.75rem",
+              alignItems: "center",
+            }}
             className="hidden sm:inline"
           >
-            Zero Advertising • Zero Data Sharing • Open Citizen Access
-          </span>
+            <span>Zero Advertising • Zero Data Sharing</span>
+            <span aria-hidden="true">•</span>
+            <span style={{ fontWeight: 600 }}>Catalogue Updated: Nov 2026</span>
+          </div>
         </div>
       </div>
 
@@ -110,36 +122,41 @@ export function Header() {
                 width: "36px",
                 height: "36px",
                 borderRadius: "var(--radius-sm)",
-                backgroundColor: "var(--color-brand-primary-subtle)",
+                backgroundColor: "var(--color-ground-muted)",
                 border: "1px solid var(--color-border-default)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 flexShrink: 0,
-                color: "var(--color-brand-primary)",
+                color: "var(--color-ink)",
               }}
               aria-hidden="true"
             >
+              {/* 6-Node Radial Compass Identity Mark */}
               <svg
-                width="22"
-                height="22"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="1.75"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="12" cy="12" r="3" />
-                <line x1="12" y1="2" x2="12" y2="9" />
-                <line x1="12" y1="15" x2="12" y2="22" />
-                <line x1="2" y1="12" x2="9" y2="12" />
-                <line x1="15" y1="12" x2="22" y2="12" />
-                <line x1="4.93" y1="4.93" x2="9.88" y2="9.88" />
-                <line x1="14.12" y1="14.12" x2="19.07" y2="19.07" />
-                <line x1="4.93" y1="19.07" x2="9.88" y2="14.12" />
-                <line x1="14.12" y1="9.88" x2="19.07" y2="4.93" />
+                <circle cx="12" cy="12" r="2.5" fill="var(--color-ochre)" stroke="none" />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="8.5"
+                  stroke="var(--color-border-strong)"
+                  strokeDasharray="1.5 2.5"
+                />
+                <circle cx="12" cy="3.5" r="1.5" fill="var(--color-ink)" />
+                <circle cx="19.35" cy="7.75" r="1.5" fill="var(--color-ink)" />
+                <circle cx="19.35" cy="16.25" r="1.5" fill="var(--color-ink)" />
+                <circle cx="12" cy="20.5" r="1.5" fill="var(--color-ink)" />
+                <circle cx="4.65" cy="16.25" r="1.5" fill="var(--color-ink)" />
+                <circle cx="4.65" cy="7.75" r="1.5" fill="var(--color-ink)" />
               </svg>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>

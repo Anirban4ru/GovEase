@@ -1,0 +1,192 @@
+/**
+ * motion.css — Purposeful, Eased, Hardware-Accelerated Animations
+ * Conforms strictly to MOTION_SPEC.md & UI_OVERHAUL_PROMPT.md §2
+ */
+
+/* ==========================================================================
+   1. Entrance & Stagger Keyframes
+   ========================================================================== */
+
+@keyframes fieldReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fieldFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popScale {
+  0% {
+    transform: scale(0.92);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes checkDraw {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pinSettle {
+  0% {
+    transform: translateY(-8px);
+    opacity: 0.6;
+  }
+  60% {
+    transform: translateY(2px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes mapShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes ambientOrbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes soundWave {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* ==========================================================================
+   2. Utility Classes
+   ========================================================================== */
+
+.motion-reveal {
+  animation: fieldReveal 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.motion-fade-in {
+  animation: fieldFadeIn 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.motion-pop {
+  animation: popScale 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.motion-pin-settle {
+  animation: pinSettle 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.motion-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-neutral-100) 25%,
+    var(--color-neutral-200) 50%,
+    var(--color-neutral-100) 75%
+  );
+  background-size: 200% 100%;
+  animation: mapShimmer 1.8s infinite linear;
+}
+
+/* Stagger Entrance Classes */
+.stagger-1 {
+  animation: fieldReveal 350ms cubic-bezier(0.16, 1, 0.3, 1) 40ms both;
+}
+
+.stagger-2 {
+  animation: fieldReveal 350ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both;
+}
+
+.stagger-3 {
+  animation: fieldReveal 350ms cubic-bezier(0.16, 1, 0.3, 1) 160ms both;
+}
+
+.stagger-4 {
+  animation: fieldReveal 350ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both;
+}
+
+/* ==========================================================================
+   3. 3D Spatial Canvas Perspective
+   ========================================================================== */
+
+.spatial-canvas-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.spatial-node-3d {
+  transform-style: preserve-3d;
+  transition:
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spatial-node-3d:hover {
+  transform: translateZ(12px) translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(15, 27, 45, 0.12);
+}
+
+/* ==========================================================================
+   4. Reduced Motion Overrides (Zero Delay, Zero Ambient Drift)
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-reveal,
+  .motion-fade-in,
+  .motion-pop,
+  .motion-pin-settle,
+  .stagger-1,
+  .stagger-2,
+  .stagger-3,
+  .stagger-4 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .motion-shimmer {
+    animation: none !important;
+    background: var(--color-neutral-100) !important;
+  }
+
+  .spatial-canvas-3d,
+  .spatial-node-3d {
+    perspective: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

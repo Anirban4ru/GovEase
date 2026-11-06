@@ -1,79 +1,92 @@
 :root {
   /* ==========================================================================
-     Design Tokens: Civic Slate (Option A) & Institutional Design System
-     Strictly zero vibe coding. High contrast, WCAG 2.2 AA compliant.
+     Calm Map of Everyday Life Tokens (UI_OVERHAUL_PROMPT.md §1.4)
+     Authentic field-map aesthetic: Ink, Ground, Ochre, Teal, Clay, Ink-Blue.
+     Strictly WCAG 2.2 AA compliant contrast (>= 4.5:1 text, >= 3:1 UI).
      ========================================================================== */
 
-  /* Brand Colors */
-  --color-brand-primary: #1d4e8f;
-  --color-brand-primary-hover: #163a6b;
-  --color-brand-primary-active: #102a4e;
-  --color-brand-primary-subtle: #ebf0f8;
+  /* Palette Roles */
+  --color-ink: #0f1b2d;
+  --color-ink-hover: #1b2d48;
+  --color-ink-active: #08101c;
+  --color-ground: #fbf8f3;
+  --color-ground-dark: #0b1220;
+  --color-ground-elevated: #ffffff;
+  --color-ground-muted: #f2ece1;
+  --color-ochre: #a55705;
+  --color-ochre-ui: #c8731a;
+  --color-ochre-hover: #8f4b05;
+  --color-ochre-subtle: rgba(165, 87, 5, 0.09);
+  --color-teal: #0e7c7b;
+  --color-teal-text: #0a6e6d;
+  --color-teal-hover: #0b6362;
+  --color-teal-subtle: rgba(14, 124, 123, 0.09);
+  --color-clay: #9a3412;
+  --color-clay-hover: #7c2d12;
+  --color-clay-subtle: rgba(154, 52, 18, 0.09);
+  --color-ink-blue: #1d4ed8;
+  --color-ink-blue-hover: #1e40af;
+
+  /* Semantic Brand & Action Tokens */
+  --color-brand-primary: var(--color-ink);
+  --color-brand-primary-hover: var(--color-ink-hover);
+  --color-brand-primary-active: var(--color-ink-active);
+  --color-brand-primary-subtle: var(--color-ground-muted);
+  --color-brand-accent: var(--color-ochre);
 
   /* Neutral Scale */
   --color-neutral-0: #ffffff;
-  --color-neutral-50: #f7f8fa;
-  --color-neutral-100: #eef0f4;
-  --color-neutral-200: #dde0e8;
-  --color-neutral-300: #bdc3ce;
-  --color-neutral-400: #9aa3b2;
-  --color-neutral-500: #6b7585;
-  --color-neutral-600: #4e5868;
-  --color-neutral-700: #3a4252;
-  --color-neutral-800: #252d3c;
-  --color-neutral-900: #161c28;
-  --color-neutral-950: #0d1119;
+  --color-neutral-50: #fbf8f3;
+  --color-neutral-100: #f2ece1;
+  --color-neutral-200: #e5ded0;
+  --color-neutral-300: #cbbeab;
+  --color-neutral-400: #9e8e7a;
+  --color-neutral-500: #736553;
+  --color-neutral-600: #54493a;
+  --color-neutral-700: #383025;
+  --color-neutral-800: #211c15;
+  --color-neutral-900: #0f1b2d;
+  --color-neutral-950: #08101c;
   --color-neutral-1000: #000000;
 
   /* Surfaces */
-  --color-surface-page: #ffffff;
-  --color-surface-card: #f7f8fa;
-  --color-surface-raised: #ffffff;
-  --color-surface-subtle: #eef0f4;
-  --color-surface-overlay: rgba(13, 17, 25, 0.7);
+  --color-surface-page: var(--color-ground);
+  --color-surface-card: var(--color-ground-elevated);
+  --color-surface-raised: var(--color-ground-elevated);
+  --color-surface-subtle: var(--color-ground-muted);
+  --color-surface-overlay: rgba(15, 27, 45, 0.65);
 
   /* Content / Typography */
-  --color-content-primary: #161c28;
-  --color-content-secondary: #3a4252;
-  --color-content-tertiary: #434c59;
-  --color-content-disabled: #434c59;
+  --color-content-primary: var(--color-ink);
+  --color-content-secondary: #334155;
+  --color-content-tertiary: #52525b;
+  --color-content-disabled: #94a3b8;
   --color-content-inverse: #ffffff;
-  --color-content-link: #1d4e8f;
-  --color-content-link-visited: #5e3a8a;
+  --color-content-link: var(--color-ink-blue);
+  --color-content-link-visited: #5b21b6;
 
   /* Borders */
-  --color-border-subtle: #eef0f4;
-  --color-border-default: #dde0e8;
-  --color-border-strong: #9aa3b2;
-  --color-border-focus: #1d4e8f;
+  --color-border-subtle: #ede5d7;
+  --color-border-default: #ddd4c3;
+  --color-border-strong: #9e8e7a;
+  --color-border-focus: var(--color-ochre);
 
-  /* Status Colors (WCAG AA compliant contrast on white/bg) */
-  --color-status-error: #c0392b;
-  --color-status-error-bg: #fdf3f2;
-  --color-status-error-border: #f5c6cb;
+  /* Status Colors */
+  --color-status-error: var(--color-clay);
+  --color-status-error-bg: var(--color-clay-subtle);
+  --color-status-error-border: #f8c8b9;
 
-  --color-status-warning: #9a5b00;
-  --color-status-warning-bg: #fef7ee;
-  --color-status-warning-border: #ffeeba;
+  --color-status-warning: var(--color-ochre);
+  --color-status-warning-bg: var(--color-ochre-subtle);
+  --color-status-warning-border: #f5d6ae;
 
-  --color-status-success: #1e6b44;
-  --color-status-success-bg: #edf7f2;
-  --color-status-success-border: #c3e6cb;
+  --color-status-success: var(--color-teal-text, #0a6e6d);
+  --color-status-success-bg: var(--color-teal-subtle);
+  --color-status-success-border: #b8dedd;
 
-  --color-status-info: #1d4e8f;
-  --color-status-info-bg: #ebf0f8;
-  --color-status-info-border: #b8daff;
-
-  /* India-First Civic Palette Accents */
-  --color-india-saffron: #e06d10;
-  --color-india-saffron-text: #7a3200;
-  --color-india-saffron-subtle: rgba(224, 109, 16, 0.08);
-  --color-india-white: #ffffff;
-  --color-india-green: #138808;
-  --color-india-green-text: #0e5c06;
-  --color-india-green-subtle: rgba(19, 136, 8, 0.08);
-  --color-india-navy: #1d4e8f;
-  --color-india-ashoka: #0a3d78;
+  --color-status-info: var(--color-ink-blue);
+  --color-status-info-bg: rgba(29, 78, 216, 0.08);
+  --color-status-info-border: #bfdbfe;
 
   /* Spacing Scale (8pt / 4pt grid) */
   --space-0-5: 0.125rem; /* 2px */
@@ -89,19 +102,19 @@
   --space-16: 4rem; /* 64px */
   --space-20: 5rem; /* 80px */
 
-  /* Radii (Deliberate, restrained rounding - never pill or bubble cards) */
+  /* Radii (Deliberate, restrained rounding - field map precision) */
   --radius-xs: 2px;
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
   --radius-full: 9999px;
 
-  /* Elevations (Clean structural borders + subtle ambient shadows) */
+  /* Elevations (Subtle ambient depth, never heavy drop shadows) */
   --shadow-none: none;
-  --shadow-sm: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
-  --shadow-md: 0 2px 4px -1px rgba(16, 24, 40, 0.06), 0 2px 2px -1px rgba(16, 24, 40, 0.03);
-  --shadow-lg: 0 4px 6px -2px rgba(16, 24, 40, 0.08), 0 2px 4px -2px rgba(16, 24, 40, 0.04);
-  --shadow-focus: 0 0 0 3px rgba(29, 78, 143, 0.25);
+  --shadow-sm: 0 1px 2px 0 rgba(15, 27, 45, 0.04);
+  --shadow-md: 0 3px 6px -1px rgba(15, 27, 45, 0.06), 0 2px 4px -1px rgba(15, 27, 45, 0.03);
+  --shadow-lg: 0 6px 16px -2px rgba(15, 27, 45, 0.08), 0 3px 6px -2px rgba(15, 27, 45, 0.04);
+  --shadow-focus: 0 0 0 3px rgba(200, 115, 26, 0.35);
 
   /* Typography Scale */
   --font-family-sans:
@@ -112,17 +125,27 @@
     "Noto Sans Bengali", "Vrinda", "Shonar Bangla", "Lohit Bengali", sans-serif;
   --font-family-tamil: "Noto Sans Tamil", "Latha", "Vijaya", "Lohit Tamil", sans-serif;
 
-  /* Touch Target Floor */
-  --min-touch-target: 44px;
+  /* Fluid Type Scale */
+  --font-size-hero: clamp(1.75rem, 4vw + 1rem, 2.75rem);
+  --font-size-h1: clamp(1.5rem, 3vw + 0.75rem, 2.25rem);
+  --font-size-h2: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+  --font-size-h3: clamp(1.0625rem, 1vw + 0.5rem, 1.25rem);
+  --font-size-body: clamp(1.0625rem, 0.5vw + 0.95rem, 1.125rem); /* >= 17px on mobile */
+  --font-size-sm: 0.9375rem; /* 15px */
+  --font-size-xs: 0.8125rem; /* 13px */
 
-  /* Motion (Respects reduced motion) */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Touch Target Floor */
+  --min-touch-target: 48px;
+
+  /* Motion Standard Durations */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Presentation Mode: Simple */
 body[data-mode="simple"] {
-  font-size: 1.125rem; /* Base 18px */
+  font-size: 1.1875rem; /* Base 19px */
   line-height: 1.7;
   --space-4: 1.25rem;
   --space-6: 1.75rem;
@@ -132,7 +155,8 @@ body[data-mode="simple"] {
 
 /* Presentation Mode: Assisted */
 body[data-mode="assisted"] {
-  line-height: 1.75;
+  font-size: 1.125rem;
+  line-height: 1.8;
   --min-touch-target: 48px;
 }
 
@@ -148,7 +172,7 @@ body[data-mode="assisted"] {
 :lang(bn),
 [lang="bn"] {
   font-family: var(--font-family-bengali), var(--font-family-sans);
-  line-height: 1.75 !important;
+  line-height: 1.8 !important;
   letter-spacing: 0.01em;
 }
 
@@ -172,78 +196,34 @@ body[data-mode="assisted"] {
   }
 }
 
-/* ==========================================================================
-   Micro-Animations: Purposeful, Hardware-Accelerated & Accessible
-   ========================================================================== */
-
-@keyframes soundWave {
-  0%,
-  100% {
-    transform: scaleY(0.25);
-  }
-  50% {
-    transform: scaleY(1);
-  }
-}
-
-@keyframes checkPop {
-  0% {
-    transform: scale(0.8);
-  }
-  50% {
-    transform: scale(1.18);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes progressPulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.85;
-  }
-}
-
-@keyframes fadeInStep {
-  from {
-    opacity: 0.8;
-    transform: translateY(2px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Card Interactive Hover Lift */
+/* Card Interactive 3D Hover Lift */
 .civic-card-interactive {
   transition:
-    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.2s ease;
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+  will-change: transform;
 }
 
-.civic-card-interactive:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.08);
-  border-color: var(--color-brand-primary);
+.civic-card-interactive:hover,
+.civic-card-interactive:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-ochre);
 }
 
-/* Tricolor Ribbon Bar */
-.civic-tricolor-bar {
-  height: 4px;
+/* Cartographic Survey Guide Top Ribbon */
+.civic-tricolor-bar,
+.civic-map-ribbon {
+  height: 3px;
   width: 100%;
   background: linear-gradient(
     to right,
-    var(--color-india-saffron) 0%,
-    var(--color-india-saffron) 33.33%,
-    #ffffff 33.33%,
-    #ffffff 66.66%,
-    var(--color-india-green) 66.66%,
-    var(--color-india-green) 100%
+    var(--color-ochre) 0%,
+    var(--color-ochre) 40%,
+    var(--color-teal) 40%,
+    var(--color-teal) 75%,
+    var(--color-ink) 75%,
+    var(--color-ink) 100%
   );
 }

@@ -1,200 +1,197 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import dynamic from "next/dynamic";
 import { useTranslation, Locale } from "../context/I18nContext";
 import { usePresentationMode } from "../context/ModeContext";
 import { SearchBar } from "../components/SearchBar";
 import { EcosystemBadge } from "../components/EcosystemBadge";
+import { GoalPhrasedGrid } from "../components/GoalPhrasedGrid";
+import { LifeAreaRadialSystem } from "../components/LifeAreaRadialSystem";
 import type { LifeEcosystem } from "../lib/catalogue";
 
-interface EcosystemItem {
+const HomeClassicView = dynamic(
+  () => import("../components/HomeClassicView").then((mod) => mod.HomeClassicView),
+  { ssr: false },
+);
+
+interface LifeAreaSummary {
   id: LifeEcosystem;
+  chipLabel: string;
+  count: number;
   titles: Record<Locale, string>;
-  descs: Record<Locale, string>;
-  badge: string;
+  summaries: Record<Locale, string>;
 }
 
-const ECOSYSTEMS: EcosystemItem[] = [
-  {
-    id: "government-and-citizen",
-    titles: {
-      en: "Government & Citizen Services",
-      hi: "सरकारी और नागरिक सेवाएँ",
-      bn: "সরকারি ও নাগরিক পরিষেবা",
-      ta: "அரசு மற்றும் குடிமக்கள் சேவைகள்",
-    },
-    descs: {
-      en: "Birth certificates, identity documents, PAN, and welfare scheme navigation.",
-      hi: "जन्म प्रमाण पत्र, पहचान पत्र, पैन और कल्याणकारी योजनाएं।",
-      bn: "জন্ম সনদ, পরিচয়পত্র, প্যান কার্ড এবং জনকল্যাণমূলক প্রকল্প সহায়িকা।",
-      ta: "பிறப்புச் சான்றிதழ்கள், அடையாள ஆவணங்கள், பான் மற்றும் நலத்திட்ட வழிகாட்டி.",
-    },
-    badge: "Official Portals",
-  },
+const LIFE_AREAS: LifeAreaSummary[] = [
   {
     id: "healthcare",
+    chipLabel: "OFFICIAL INFORMATION",
+    count: 3,
     titles: {
-      en: "Healthcare",
-      hi: "स्वास्थ्य सेवा",
-      bn: "স্বাস্থ্যসেবা",
-      ta: "சுகாதாரம்",
+      en: "Healthcare & Well-Being",
+      hi: "स्वास्थ्य एवं चिकित्सा",
+      bn: "স্বাস্থ্য ও চিকিৎসা",
+      ta: "சுகாதாரம் மற்றும் நல்வாழ்வு",
     },
-    descs: {
-      en: "ABHA guidance, hospital discovery, and public health schemes.",
-      hi: "आभा (ABHA) मार्गदर्शन, अस्पताल और सार्वजनिक स्वास्थ्य योजनाएँ।",
-      bn: "আভা (ABHA) নির্দেশনা, হাসপাতাল সন্ধান এবং জনস্বাস্থ্য প্রকল্প।",
-      ta: "ஆபா (ABHA) வழிகாட்டுதல், மருத்துவமனை கண்டறிதல் மற்றும் பொது சுகாதார திட்டங்கள்.",
+    summaries: {
+      en: "ABHA health ID setup, Ayushman Bharat navigation, and verified hospital directories.",
+      hi: "आयुष्मान भारत स्वास्थ्य खाता (ABHA) व सरकारी अस्पताल खोज।",
+      bn: "আভা (ABHA) স্বাস্থ্য কার্ড তৈরি ও সরকারি হাসপাতাল সন্ধান।",
+      ta: "ஆபா சுகாதார கணக்கு மற்றும் மருத்துவமனை வழிகாட்டல்.",
     },
-    badge: "Official Information",
   },
   {
     id: "education",
+    chipLabel: "OFFICIAL PORTALS",
+    count: 1,
     titles: {
       en: "Education & Scholarships",
-      hi: "शिक्षा और छात्रवृत्ति",
-      bn: "শিক্ষা ও বৃত্তি",
+      hi: "शिक्षा एवं छात्रवृत्ति",
+      bn: "শিক্ষা ও স্কলারশিপ",
       ta: "கல்வி மற்றும் உதவித்தொகை",
     },
-    descs: {
-      en: "Academic Bank of Credits (ABC), scholarships, and student credentials.",
-      hi: "एकेडमिक बैंक ऑफ क्रेडिट्स (ABC), छात्रवृत्ति और डिग्री सत्यापन।",
-      bn: "একাডেমিক ব্যাংক অফ ক্রেডিট (ABC), বৃত্তি এবং ছাত্র শংসাপত্র যাচাই।",
-      ta: "அகாடமிக் பேங்க் ஆஃப் கிரெடிட்ஸ் (ABC), உதவித்தொகைகள் மற்றும் கல்விச் சான்றுகள்.",
+    summaries: {
+      en: "National Scholarship Portal (NSP OTR) & verified student credential access.",
+      hi: "राष्ट्रीय छात्रवृत्ति पोर्टल (NSP) व छात्र प्रोत्साहन।",
+      bn: "জাতীয় স্কলারশিপ পোর্টাল ও শিক্ষা অনুদান সহায়তা।",
+      ta: "தேசிய உதவித்தொகை போர்டல் மற்றும் கல்விச் சான்றுகள்.",
     },
-    badge: "Official Portals",
   },
   {
     id: "finance-and-welfare",
+    chipLabel: "NO CREDENTIAL CAPTURE",
+    count: 6,
     titles: {
       en: "Finance & Welfare",
-      hi: "वित्त और कल्याण",
+      hi: "वित्त एवं जन-कल्याण",
       bn: "অর্থ ও জনকল্যাণ",
-      ta: "நிதி மற்றும் நலத்திட்டங்கள்",
+      ta: "நிதி மற்றும் மக்கள் நலம்",
     },
-    descs: {
-      en: "Direct Benefit Transfer (DBT) resources and public banking guides.",
-      hi: "प्रत्यक्ष लाभ अंतरण (DBT) और सार्वजनिक बैंकिंग मार्गदर्शिका।",
-      bn: "প্রত্যক্ষ সুবিধা হস্তান্তর (DBT) সম্পদ এবং সরকারি ব্যাংকিং নির্দেশিকা।",
-      ta: "நேரடி பலன் பரிமாற்றம் (DBT) மற்றும் பொது வங்கி வழிகாட்டிகள்.",
+    summaries: {
+      en: "PM Jan Dhan, e-Shram worker UAN, PMSBY accident cover, PM-Kisan & EPFO passbooks.",
+      hi: "जन धन खाता, ई-श्रम, सुरक्षा बीमा, किसान सम्मान निधि व ईपीएफओ।",
+      bn: "জন ধন অ্যাকাউন্ট, ই-শ্রম, বিমা, কিষাণ সুবিধা ও প্রভিডেন্ট ফান্ড।",
+      ta: "ஜன் தன் வங்கி கணக்கு, இ-ஷ்ரம், காப்பீடு மற்றும் நலத்திட்டங்கள்.",
     },
-    badge: "No Financial Storage",
+  },
+  {
+    id: "government-and-citizen",
+    chipLabel: "OFFICIAL PORTALS",
+    count: 4,
+    titles: {
+      en: "Citizen & Identity",
+      hi: "नागरिक पहचान व अभिलेख",
+      bn: "নাগরিক পরিচয় ও নথিপত্র",
+      ta: "குடிமக்கள் அடையாளம் மற்றும் சான்றிதழ்",
+    },
+    summaries: {
+      en: "Birth certificates via CRS, DigiLocker storage, UDID smart card & PAN reprint.",
+      hi: "जन्म प्रमाण पत्र, डिजिलॉकर डिजिटल दस्तावेज, दिव्यांगजन UDID व पैन।",
+      bn: "জন্ম শংসাপত্র, ডিজিলকার, প্রতিবন্ধী কার্ড ও প্যান কার্ড রিপ্রিন্ট।",
+      ta: "பிறப்புச் சான்றிதழ், டிஜிலாக்கர், மாற்றுத்திறனாளி அட்டை மற்றும் பான்.",
+    },
   },
   {
     id: "mobility-and-transport",
+    chipLabel: "VERIFIED ROAD LINKS",
+    count: 2,
     titles: {
       en: "Mobility & Transport",
-      hi: "परिवहन और वाहन",
+      hi: "परिवहन एवं आवागमन",
       bn: "পরিবহন ও যানবাহন",
-      ta: "போக்குவரத்து மற்றும் வாகனம்",
+      ta: "போக்குவரத்து மற்றும் வாகனங்கள்",
     },
-    descs: {
-      en: "Driving licence renewal, Sarathi, and vehicle registration portals.",
-      hi: "ड्राइविंग लाइसेंस नवीनीकरण, सारथी और वाहन पंजीकरण।",
-      bn: "ড্রাইভিং লাইসেন্স নবায়ন, সারথি এবং যানবাহন নিবন্ধন পোর্টাল।",
-      ta: "ஓட்டுநர் உரிம புதுப்பித்தல், சாரதி மற்றும் வாகனப் பதிவு இணையதளங்கள்.",
+    summaries: {
+      en: "Driving licence renewal via Parivahan Sarathi & vehicle RC ownership transfer.",
+      hi: "ड्राइविंग लाइसेंस नवीनीकरण व वाहन आरसी स्वामित्व अंतरण।",
+      bn: "ড্রাইভিং লাইসেন্স নবায়ন ও যানবাহনের আরসি মালিকানা বদল।",
+      ta: "ஓட்டுநர் உரிமம் புதுப்பித்தல் மற்றும் வாகன ஆர்.சி.",
     },
-    badge: "Verified MoRTH Links",
   },
   {
     id: "utilities-and-local",
+    chipLabel: "STATE & MUNICIPAL",
+    count: 1,
     titles: {
-      en: "Utilities & Municipal",
-      hi: "उपयोगिता और नगर निगम",
-      bn: "পৌর ও প্রয়োজনীয় সেবা",
-      ta: "பயன்பாடுகள் மற்றும் நகராட்சி",
+      en: "Public Consumer Rights",
+      hi: "उपभोक्ता अधिकार व शिकायत",
+      bn: "ভোক্তা অধিকার ও অভিযোগ",
+      ta: "நுகர்வோர் உரிமைகள் மற்றும் குறைதீர்ப்பு",
     },
-    descs: {
-      en: "Electricity, piped water, property tax, and civic grievance destinations.",
-      hi: "बिजली, पानी, संपत्ति कर और नागरिक शिकायत निवारण।",
-      bn: "বিদ্যুৎ, পানীয় জল, পৌর কর এবং নাগরিক অভিযোগ নিষ্পত্তি।",
-      ta: "மின்சாரம், குடிநீர், சொத்து வரி மற்றும் குடிமக்கள் குறைகேட்பு.",
+    summaries: {
+      en: "National Consumer Helpline 1915 guidance & official grievance redressal.",
+      hi: "राष्ट्रीय उपभोक्ता हेल्पलाइन 1915 व आधिकारिक शिकायत निवारण।",
+      bn: "জাতীয় ভোক্তা হেল্পলাইন ১৯১৫ ও অভিযোগ প্রতিকার।",
+      ta: "தேசிய நுகர்வோர் உதவி எண் 1915 மற்றும் குறைதீர்ப்பு.",
     },
-    badge: "State & Municipal Portals",
   },
 ];
 
-const PAGE_TEXTS: Record<
-  Locale,
-  {
-    heroTitle: string;
-    heroDesc: string;
-    browseBtn: string;
-    howWorksBtn: string;
-    areasHeading: string;
-    exploreArea: string;
-    trustHeading: string;
-    trustDesc: string;
-    assistedTip: string;
-  }
-> = {
-  en: {
-    heroTitle: "Discover, Understand, and Reach Essential Public Services",
-    heroDesc:
-      "An independent, dated catalogue linking citizens directly to official government portals. Zero advertising, zero document storage, and uncompromising privacy.",
-    browseBtn: "Browse Service Catalogue",
-    howWorksBtn: "How This Guide Works",
-    areasHeading: "Six Essential Life Areas",
-    exploreArea: "Explore area →",
-    trustHeading: "Independence & Privacy Commitments",
-    trustDesc:
-      "This platform is an independent public-benefit technology initiative. We do not capture Aadhaar numbers, biometrics, bank passwords, or OTPs. All outbound links open verified official domains registered on our public domain allow-list.",
-    assistedTip:
-      "Tip: In Assisted Mode, each step of every service guide is explicitly detailed before you visit an external official portal.",
-  },
-  hi: {
-    heroTitle: "आवश्यक सार्वजनिक सेवाओं को आसानी से खोजें और समझें",
-    heroDesc:
-      "एक स्वतंत्र, सत्यापित मार्गदर्शिका जो आपको सीधे आधिकारिक सरकारी और जनोपयोगी पोर्टलों से जोड़ती है। कोई विज्ञापन नहीं, कोई डेटा संग्रह नहीं।",
-    browseBtn: "सेवाएँ ब्राउज़ करें",
-    howWorksBtn: "यह कैसे काम करता है",
-    areasHeading: "छह आवश्यक जीवन क्षेत्र",
-    exploreArea: "सेवाएं देखें →",
-    trustHeading: "स्वतंत्रता और डेटा सुरक्षा नीति",
-    trustDesc:
-      "यह मंच नागरिकों की सहायता के लिए एक निष्पक्ष, स्वतंत्र तकनीकी पहल है। हम आधार नंबर, बायोमेट्रिक्स, बैंक पासवर्ड या ओटीपी कभी भी एकत्र या संग्रहीत नहीं करते हैं। प्रत्येक आउटबाउंड लिंक केवल सरकारी अधिकृत डोमेन (जैसे *.gov.in, *.nic.in) पर ही ले जाता है।",
-    assistedTip:
-      "सुझाव: सहायता प्राप्त मोड में, आधिकारिक पोर्टल पर जाने से पहले प्रत्येक चरण को सरल भाषा में समझाया जाता है।",
-  },
-  bn: {
-    heroTitle: "প্রয়োজনীয় জনসেবাগুলি সহজে খুঁজুন এবং বুঝুন",
-    heroDesc:
-      "একটি স্বাধীন, যাচাইকৃত সহায়িকা যা নাগরিকদের সরাসরি অফিসিয়াল সরকারি পোর্টালে সংযুক্ত করে। কোনো বিজ্ঞাপন নেই, কোনো ডেটা সংগ্রহ নেই।",
-    browseBtn: "পরিষেবা তালিকা দেখুন",
-    howWorksBtn: "এই সহায়িকা কীভাবে কাজ করে",
-    areasHeading: "ছয়টি অপরিহার্য ক্ষেত্র",
-    exploreArea: "অন্বেষণ করুন →",
-    trustHeading: "স্বাধীনতা ও ডেটা সুরক্ষা নীতি",
-    trustDesc:
-      "এই প্ল্যাটফর্মটি নাগরিকদের সহায়তার জন্য একটি নিরপেক্ষ, স্বাধীন প্রযুক্তিগত উদ্যোগ। আমরা কখনোই আধার নম্বর, বায়োমেট্রিক, ব্যাংক পাসওয়ার্ড বা ওটিপি সংগ্রহ বা সংরক্ষণ করি না। সমস্ত বহির্গামী লিঙ্ক আমাদের অনুমোদিত তালিকায় থাকা অফিসিয়াল সরকারি ডোমেনে নিয়ে যায়।",
-    assistedTip:
-      "পরামর্শ: সহায়তাপ্রাপ্ত মোডে, অফিসিয়াল পোর্টালে প্রবেশের আগে প্রতিটি ধাপ সহজ ও বিস্তারিতভাবে ব্যাখ্যা করা হয়।",
-  },
-  ta: {
-    heroTitle: "அத்தியாவசிய பொதுச் சேவைகளை எளிதாகக் கண்டறிந்து புரிந்து கொள்ளுங்கள்",
-    heroDesc:
-      "குடிமக்களை நேரடியாக அதிகாரப்பூர்வ அரசு போர்ட்டல்களுடன் இணைக்கும் ஒரு சுயாதீன, சரிபார்க்கப்பட்ட வழிகாட்டி. விளம்பரங்களோ, தனிநபர் தரவு சேமிப்போ இல்லை.",
-    browseBtn: "சேவைகளை உலாவுங்கள்",
-    howWorksBtn: "இந்த வழிகாட்டி எவ்வாறு செயல்படுகிறது",
-    areasHeading: "ஆறு அத்தியாவசிய வாழ்க்கை பகுதிகள்",
-    exploreArea: "ஆராய்க →",
-    trustHeading: "சுயாதீனம் மற்றும் தனியுரிமை உறுதிமொழிகள்",
-    trustDesc:
-      "இந்த தளம் ஒரு சுயாதீன மக்கள் நல தொழில்நுட்ப முயற்சி. ஆதார் எண்கள், பயோமெட்ரிக்ஸ், வங்கி கடவுச்சொற்கள் அல்லது OTP போன்றவற்றை நாங்கள் ஒருபோதும் சேகரிப்பதோ சேமிப்பதோ இல்லை. அனைத்து வெளி இணைப்புகளும் எங்கள் அனுமதிப்பட்டியலில் உள்ள அரசு அதிகாரப்பூர்வ தளங்களையே திறக்கும்.",
-    assistedTip:
-      "குறிப்பு: உதவி பயன்முறையில், நீங்கள் அதிகாரப்பூர்வ தளத்திற்குச் செல்வதற்கு முன் ஒவ்வொரு படியும் விரிவாக விளக்கப்படுகிறது.",
-  },
-};
-
-export default function HomePage() {
+function HomeContent() {
   const { t, locale } = useTranslation();
   const { mode } = usePresentationMode();
+  const searchParams = useSearchParams();
 
-  const texts = PAGE_TEXTS[locale] || PAGE_TEXTS.en;
+  // Feature Flag for Side-by-Side Comparison (Section 10.3)
+  const isClassicQuery = searchParams.get("view") === "classic";
+  const [viewOverride, setViewOverride] = useState<"overhaul" | "classic">(
+    isClassicQuery ? "classic" : "overhaul",
+  );
+
+  useEffect(() => {
+    if (isClassicQuery) {
+      setViewOverride("classic");
+    }
+  }, [isClassicQuery]);
+
+  if (viewOverride === "classic") {
+    return (
+      <div>
+        <div
+          style={{
+            backgroundColor: "var(--color-ground-muted)",
+            borderBottom: "1px solid var(--color-border-default)",
+            padding: "0.5rem 1rem",
+            textAlign: "center",
+            fontSize: "0.8125rem",
+          }}
+        >
+          <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
+            [Comparison Mode: Classic View Active]
+          </span>{" "}
+          <button
+            type="button"
+            onClick={() => setViewOverride("overhaul")}
+            style={{
+              background: "none",
+              border: "none",
+              color: "var(--color-ink-blue)",
+              fontWeight: 700,
+              cursor: "pointer",
+              textDecoration: "underline",
+              marginLeft: "0.5rem",
+            }}
+          >
+            Switch to Overhaul Map View
+          </button>
+        </div>
+        <HomeClassicView />
+      </div>
+    );
+  }
 
   return (
-    <div className="app-container" style={{ paddingTop: "2rem", paddingBottom: "3rem" }}>
-      {/* Presentation Mode Context Banner if in Simple or Assisted mode */}
+    <div
+      className="app-container"
+      style={{
+        paddingTop: "2rem",
+        paddingBottom: "4rem",
+      }}
+    >
+      {/* Mode Context Notice if Simple or Assisted */}
       {mode === "simple" && (
         <div
           role="region"
@@ -202,10 +199,11 @@ export default function HomePage() {
           style={{
             padding: "1rem",
             marginBottom: "1.5rem",
-            backgroundColor: "var(--color-brand-primary-subtle)",
+            backgroundColor: "var(--color-ground-muted)",
             border: "1px solid var(--color-border-default)",
             borderRadius: "var(--radius-md)",
-            fontSize: "1.0625rem",
+            fontSize: "1.125rem",
+            color: "var(--color-ink)",
           }}
         >
           <strong>{t("modes.simple")}:</strong> {t("modes.simpleDesc")}
@@ -223,296 +221,410 @@ export default function HomePage() {
             border: "1px solid var(--color-status-info-border)",
             borderRadius: "var(--radius-md)",
             fontSize: "1.0625rem",
+            color: "var(--color-ink)",
           }}
         >
           <div
             style={{
               fontWeight: 700,
-              color: "var(--color-brand-primary)",
+              color: "var(--color-ink)",
               marginBottom: "0.25rem",
             }}
           >
             {t("modes.assisted")}: {t("modes.assistedDesc")}
           </div>
-          <p style={{ margin: 0, fontSize: "0.9375rem", color: "var(--color-content-secondary)" }}>
-            {texts.assistedTip}
+          <p
+            style={{
+              margin: 0,
+              fontSize: "0.9375rem",
+              color: "var(--color-content-secondary)",
+            }}
+          >
+            {locale === "hi"
+              ? "सुझाव: प्रत्येक सेवा में आधिकारिक पोर्टल पर जाने से पहले आवश्यक दस्तावेजों की तैयारी सूची दी गई है।"
+              : "Tip: Step-by-step guides detail verified preparation before you visit an external official portal."}
           </p>
         </div>
       )}
 
-      {/* Hero Section */}
-      <section style={{ marginBottom: "3rem", textAlign: mode === "simple" ? "left" : "center" }}>
-        {/* India-First Civic Identity Badge */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            padding: "0.35rem 0.85rem",
-            backgroundColor: "var(--color-india-saffron-subtle)",
-            border: "1px solid rgba(224, 109, 16, 0.3)",
-            borderRadius: "var(--radius-full)",
-            marginBottom: "1rem",
-            fontSize: "0.8125rem",
-            fontWeight: 700,
-            color: "var(--color-india-saffron-text, #7a3200)",
-          }}
-        >
-          <span
-            style={{
-              display: "inline-block",
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              backgroundColor: "var(--color-india-saffron)",
-              animation: "progressPulse 2s ease-in-out infinite",
-            }}
-            aria-hidden="true"
-          />
-          <span>
-            {locale === "hi"
-              ? "🇮🇳 भारत-प्रथम एकीकृत लोक सेवा मार्गदर्शिका"
-              : locale === "bn"
-                ? "🇮🇳 ভারত-প্রথম সমন্বিত জনসেবা নির্দেশিকা"
-                : locale === "ta"
-                  ? "🇮🇳 இந்தியா-முதன்மை ஒருங்கிணைந்த மக்கள் சேவை வழிகாட்டி"
-                  : "🇮🇳 India-First Unified Public Life Services Guide"}
-          </span>
-        </div>
-
-        <h1
-          style={{
-            fontSize: mode === "simple" ? "2.25rem" : "2rem",
-            fontWeight: 800,
-            color: "var(--color-content-primary)",
-            lineHeight: 1.25,
-            marginBottom: "1rem",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          {texts.heroTitle}
-        </h1>
-        <p
-          style={{
-            fontSize: mode === "simple" ? "1.25rem" : "1.125rem",
-            color: "var(--color-content-secondary)",
-            maxWidth: "720px",
-            margin: mode === "simple" ? "0 0 1.5rem 0" : "0 auto 1.5rem auto",
-            lineHeight: 1.6,
-          }}
-        >
-          {texts.heroDesc}
-        </p>
-
-        {/* Prominent Instant Search Bar */}
-        <div
-          style={{
-            maxWidth: "680px",
-            margin: mode === "simple" ? "0 0 1.5rem 0" : "0 auto 1.5rem auto",
-            textAlign: "left",
-          }}
-        >
-          <SearchBar />
-        </div>
-
-        {/* Quick Goal Prompts */}
-        <div
-          style={{
-            display: "inline-flex",
-            flexWrap: "wrap",
-            gap: "0.5rem",
-            justifyContent: mode === "simple" ? "flex-start" : "center",
-          }}
-        >
-          <Link
-            href="/explore"
+      {/* HERO SECTION: Calm Field Map with Spatial Radial Depth */}
+      <section
+        style={{
+          display: "grid",
+          gridTemplateColumns:
+            mode === "simple" ? "1fr" : "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
+          gap: "2.5rem",
+          alignItems: "center",
+          marginBottom: "3.5rem",
+          paddingBottom: "2rem",
+          borderBottom: "1px solid var(--color-border-subtle)",
+        }}
+      >
+        {/* Left Column: Dominant Headline, Promise & Instant Search */}
+        <div style={{ maxWidth: "580px" }}>
+          {/* Calm Field Guide Badge (Replaces former IN badge) */}
+          <div
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "0.5rem",
-              padding: "0.75rem 1.5rem",
-              backgroundColor: "var(--color-brand-primary)",
-              color: "var(--color-content-inverse)",
+              padding: "0.35rem 0.85rem",
+              backgroundColor: "var(--color-ground-muted)",
+              border: "1px solid var(--color-border-default)",
+              borderRadius: "var(--radius-full)",
+              marginBottom: "1rem",
+              fontSize: "0.8125rem",
               fontWeight: 700,
-              fontSize: "1rem",
-              borderRadius: "var(--radius-sm)",
-              textDecoration: "none",
-              boxShadow: "var(--shadow-sm)",
-              minHeight: "var(--min-touch-target)",
+              color: "var(--color-ink)",
             }}
           >
-            <span>{texts.browseBtn}</span>
+            {/* Field Compass Minimal Icon */}
             <svg
-              width="18"
-              height="18"
+              width="14"
+              height="14"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
+              stroke="var(--color-ochre)"
+              strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
               aria-hidden="true"
             >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
+              <circle cx="12" cy="12" r="10" />
+              <polygon
+                points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
+                fill="var(--color-ochre)"
+              />
             </svg>
-          </Link>
-          <Link
-            href="/help"
+            <span>
+              {locale === "hi"
+                ? "नागरिक लोक सेवा मार्गदर्शिका"
+                : locale === "bn"
+                  ? "নাগরিক জনসেবা সহায়িকা"
+                  : locale === "ta"
+                    ? "மக்கள் சேவை வழிகாட்டி"
+                    : "Independent Field Guide to Public Life Services"}
+            </span>
+          </div>
+
+          <h1
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.75rem 1.25rem",
-              backgroundColor: "var(--color-surface-card)",
-              color: "var(--color-content-primary)",
-              fontWeight: 600,
-              fontSize: "1rem",
-              borderRadius: "var(--radius-sm)",
-              textDecoration: "none",
-              border: "1px solid var(--color-border-default)",
-              minHeight: "var(--min-touch-target)",
+              fontSize: "var(--font-size-hero)",
+              fontWeight: 800,
+              color: "var(--color-ink)",
+              lineHeight: 1.2,
+              marginBottom: "1rem",
+              letterSpacing: "-0.025em",
             }}
           >
-            <span>{texts.howWorksBtn}</span>
-          </Link>
+            {locale === "hi"
+              ? "आवश्यक जनसेवाओं का शांत व स्पष्ट मानचित्र"
+              : locale === "bn"
+                ? "প্রয়োজনীয় নাগরিক সেবার স্বচ্ছ ও নির্ভরযোগ্য মানচিত্র"
+                : locale === "ta"
+                  ? "அத்தியாவசிய மக்கள் சேவைகளின் அமைதியான வரைபடம்"
+                  : "A calm map of everyday public life services"}
+          </h1>
+
+          <p
+            style={{
+              fontSize: "var(--font-size-body)",
+              color: "var(--color-content-secondary)",
+              lineHeight: 1.6,
+              marginBottom: "1.75rem",
+              maxWidth: "520px",
+            }}
+          >
+            {locale === "hi"
+              ? "नागरिकों को बिना विज्ञापन या डेटा संग्रह सीधे आधिकारिक सरकारी पोर्टलों से जोड़ने वाली स्वतंत्र, सत्यापित मार्गदर्शिका।"
+              : locale === "bn"
+                ? "বিজ্ঞাপন বা ডেটা ট্র্যাকিং ছাড়াই নাগরিকদের সরাসরি অফিসিয়াল সরকারি পোর্টালে নির্দেশ করার একটি স্বাধীন প্ল্যাটফর্ম।"
+                : locale === "ta"
+                  ? "விளம்பரங்களோ கண்காணிப்போ இன்றி குடிமக்களை நேரடியாக அதிகாரப்பூர்வ அரசு போர்ட்டல்களுக்கு வழிநடத்தும் வழிகாட்டி."
+                  : "An independent, dated catalogue guiding citizens directly to official government portals. Zero advertising, zero document storage, and uncompromising privacy."}
+          </p>
+
+          {/* Dominant Instant Search Bar */}
+          <div style={{ marginBottom: "1.25rem" }}>
+            <SearchBar />
+          </div>
+
+          {/* Quick Action Navigation Buttons */}
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+            <Link
+              href="/guide"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.625rem 1.25rem",
+                backgroundColor: "var(--color-ink)",
+                color: "var(--color-neutral-0)",
+                borderRadius: "var(--radius-sm)",
+                fontWeight: 700,
+                fontSize: "0.9375rem",
+                textDecoration: "none",
+                minHeight: "var(--min-touch-target)",
+                boxShadow: "var(--shadow-sm)",
+              }}
+            >
+              <span>🧭</span>
+              <span>
+                {locale === "hi"
+                  ? "योजना मार्गदर्शिका खोलें"
+                  : locale === "bn"
+                    ? "লাইফ নেভিগেটর শুরু করুন"
+                    : locale === "ta"
+                      ? "வாழ்க்கை வழிகாட்டி"
+                      : "Open Life Navigator"}
+              </span>
+            </Link>
+
+            <Link
+              href="/explore"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.625rem 1.25rem",
+                backgroundColor: "var(--color-ground-elevated)",
+                color: "var(--color-ink)",
+                border: "1px solid var(--color-border-strong)",
+                borderRadius: "var(--radius-sm)",
+                fontWeight: 600,
+                fontSize: "0.9375rem",
+                textDecoration: "none",
+                minHeight: "var(--min-touch-target)",
+              }}
+            >
+              <span>
+                {locale === "hi"
+                  ? "सभी 18 सेवाएँ ब्राउज़ करें"
+                  : locale === "bn"
+                    ? "সব ১৮টি সেবা দেখুন"
+                    : locale === "ta"
+                      ? "18 சேவைகளையும் உலாவுங்கள்"
+                      : "Browse 18 Services"}
+              </span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column: 3D Radial 6-Node Spatial System */}
+        <div>
+          <LifeAreaRadialSystem />
         </div>
       </section>
 
-      {/* Six Ecosystems Grid */}
-      <section aria-labelledby="ecosystems-heading" style={{ marginBottom: "3.5rem" }}>
-        <h2
-          id="ecosystems-heading"
-          style={{
-            fontSize: "1.5rem",
-            fontWeight: 700,
-            color: "var(--color-content-primary)",
-            marginBottom: "1.5rem",
-          }}
-        >
-          {texts.areasHeading}
-        </h2>
+      {/* "WHAT WOULD YOU LIKE TO DO?" (Section 4.1.2 Goal-Phrased Entries) */}
+      <GoalPhrasedGrid />
+
+      {/* SIX ESSENTIAL LIFE AREAS (Connected System Grid - Section 4.1.3) */}
+      <section aria-labelledby="life-areas-heading" style={{ marginBottom: "3.5rem" }}>
+        <div style={{ marginBottom: "1.25rem" }}>
+          <h2
+            id="life-areas-heading"
+            style={{
+              fontSize: "1.375rem",
+              fontWeight: 800,
+              color: "var(--color-ink)",
+              margin: 0,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {locale === "hi"
+              ? "छह आवश्यक जीवन क्षेत्र"
+              : locale === "bn"
+                ? "ছয়টি অপরিহার্য জীবনের ক্ষেত্র"
+                : locale === "ta"
+                  ? "ஆறு அத்தியாவசிய வாழ்க்கை பகுதிகள்"
+                  : "Six Essential Life Areas"}
+          </h2>
+          <p
+            style={{
+              fontSize: "0.875rem",
+              color: "var(--color-content-secondary)",
+              margin: "0.25rem 0 0 0",
+            }}
+          >
+            {locale === "hi"
+              ? "प्रत्येक क्षेत्र में आधिकारिक सरकारी पोर्टलों के लिए सत्यापित सीधे संपर्क।"
+              : locale === "bn"
+                ? "প্রতিটি ক্ষেত্রে যাচাইকৃত অফিসিয়াল সরকারি পোর্টালের সরাসরি সংযোগ।"
+                : locale === "ta"
+                  ? "ஒவ்வொரு பகுதியிலும் சரிபார்க்கப்பட்ட அரசு போர்ட்டல்களின் நேரடி இணைப்புகள்."
+                  : "Verified navigation linking citizens to official central and state portals."}
+          </p>
+        </div>
 
         <div
           style={{
             display: "grid",
             gridTemplateColumns:
-              mode === "simple" ? "1fr" : "repeat(auto-fill, minmax(min(100%, 280px), 1fr))",
+              mode === "simple" ? "1fr" : "repeat(auto-fill, minmax(min(100%, 300px), 1fr))",
             gap: "1.25rem",
           }}
         >
-          {ECOSYSTEMS.map((item) => (
-            <div
-              key={item.id}
-              className="civic-card-interactive"
-              style={{
-                backgroundColor: "var(--color-surface-page)",
-                border: "1px solid var(--color-border-default)",
-                borderRadius: "var(--radius-md)",
-                padding: "1.25rem",
-                display: "flex",
-                flexDirection: "column",
-                boxShadow: "var(--shadow-sm)",
-              }}
-            >
+          {LIFE_AREAS.map((area) => {
+            const title = area.titles[locale] || area.titles.en;
+            const summary = area.summaries[locale] || area.summaries.en;
+
+            return (
               <div
+                key={area.id}
+                className="civic-card-interactive"
                 style={{
                   display: "flex",
+                  flexDirection: "column",
                   justifyContent: "space-between",
-                  alignItems: "flex-start",
-                  marginBottom: "0.75rem",
-                  gap: "0.5rem",
+                  padding: "1.25rem",
+                  backgroundColor: "var(--color-surface-card)",
+                  border: "1px solid var(--color-border-default)",
+                  borderRadius: "var(--radius-md)",
+                  boxShadow: "var(--shadow-sm)",
+                  minHeight: "180px",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <div>
                   <div
                     style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "var(--radius-sm)",
-                      backgroundColor: "var(--color-brand-primary-subtle)",
-                      color: "var(--color-brand-primary)",
                       display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
+                      justifyContent: "space-between",
+                      alignItems: "flex-start",
+                      marginBottom: "0.75rem",
+                      gap: "0.5rem",
                     }}
                   >
-                    <EcosystemBadge ecosystem={item.id} size={18} />
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                      <EcosystemBadge ecosystem={area.id} size={20} />
+                      {/* Fixed 2-Line Height Reservation (Known Issue 5) */}
+                      <h3
+                        style={{
+                          fontSize: "1.0625rem",
+                          fontWeight: 700,
+                          margin: 0,
+                          color: "var(--color-ink)",
+                          lineHeight: 1.35,
+                          minHeight: "2.75rem",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        {title}
+                      </h3>
+                    </div>
+                    {/* Standardized Verification Chip (Known Issue 2) */}
+                    <span
+                      style={{
+                        fontSize: "0.6875rem",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        backgroundColor: "var(--color-ground-muted)",
+                        color: "var(--color-teal-text, #0a6e6d)",
+                        padding: "0.2rem 0.5rem",
+                        borderRadius: "var(--radius-xs)",
+                        flexShrink: 0,
+                        border: "1px solid var(--color-border-subtle)",
+                      }}
+                    >
+                      {area.chipLabel}
+                    </span>
                   </div>
-                  <h3
+
+                  <p
                     style={{
-                      fontSize: "1.0625rem",
-                      fontWeight: 700,
-                      margin: 0,
-                      color: "var(--color-content-primary)",
+                      fontSize: "0.875rem",
+                      color: "var(--color-content-secondary)",
+                      lineHeight: 1.5,
+                      margin: "0 0 1rem 0",
                     }}
                   >
-                    {item.titles[locale] || item.titles.en}
-                  </h3>
+                    {summary}
+                  </p>
                 </div>
-                <span
+
+                {/* Bottom-Aligned Action Link (Known Issue 6) */}
+                <div
                   style={{
-                    fontSize: "0.6875rem",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    backgroundColor: "var(--color-neutral-100)",
-                    color: "var(--color-content-secondary)",
-                    padding: "0.2rem 0.5rem",
-                    borderRadius: "var(--radius-xs)",
-                    flexShrink: 0,
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginTop: "auto",
+                    paddingTop: "0.5rem",
+                    borderTop: "1px solid var(--color-border-subtle)",
                   }}
                 >
-                  {item.badge}
-                </span>
+                  <Link
+                    href={`/explore?category=${area.id}`}
+                    style={{
+                      fontSize: "0.875rem",
+                      fontWeight: 600,
+                      color: "var(--color-ink-blue)",
+                      textDecoration: "none",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.25rem",
+                    }}
+                  >
+                    <span>
+                      {locale === "hi"
+                        ? "क्षेत्र देखें"
+                        : locale === "bn"
+                          ? "অঞ্চল দেখুন"
+                          : locale === "ta"
+                            ? "பகுதியைக் காண்க"
+                            : "Explore area"}
+                    </span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+
+                  <span
+                    style={{
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      color: "var(--color-content-tertiary)",
+                    }}
+                  >
+                    {area.count} {locale === "hi" ? "सेवाएँ" : "services"}
+                  </span>
+                </div>
               </div>
-              <p
-                style={{
-                  fontSize: "0.9375rem",
-                  color: "var(--color-content-secondary)",
-                  lineHeight: 1.5,
-                  margin: "0 0 1rem 0",
-                  flex: 1,
-                }}
-              >
-                {item.descs[locale] || item.descs.en}
-              </p>
-              <Link
-                href="/explore"
-                style={{
-                  fontSize: "0.875rem",
-                  fontWeight: 600,
-                  color: "var(--color-brand-primary)",
-                  textDecoration: "underline",
-                  alignSelf: "flex-start",
-                }}
-              >
-                {texts.exploreArea}
-              </Link>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
-      {/* Trust & Independence Guarantee Box */}
+      {/* Trust & Independence Guarantee Box (Section 4.1.4) */}
       <section
         style={{
           backgroundColor: "var(--color-surface-card)",
           border: "1px solid var(--color-border-default)",
           borderRadius: "var(--radius-md)",
           padding: "1.5rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.5rem",
         }}
       >
-        <h2
-          style={{
-            fontSize: "1.125rem",
-            fontWeight: 700,
-            color: "var(--color-content-primary)",
-            marginBottom: "0.5rem",
-          }}
-        >
-          {texts.trustHeading}
-        </h2>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <span style={{ fontSize: "1.125rem" }}>🛡️</span>
+          <h2
+            style={{
+              fontSize: "1.0625rem",
+              fontWeight: 700,
+              color: "var(--color-ink)",
+              margin: 0,
+            }}
+          >
+            {locale === "hi"
+              ? "स्वतंत्रता, डेटा सुरक्षा व निष्पक्षता की गारंटी"
+              : locale === "bn"
+                ? "স্বাধীনতা, ডেটা নিরাপত্তা ও নিরপেক্ষতার প্রতিশ্রুতি"
+                : locale === "ta"
+                  ? "சுயாதீனம், தரவு பாதுகாப்பு மற்றும் நடுநிலை உறுதிமொழி"
+                  : "Independence & Strict Data Minimisation Commitments"}
+          </h2>
+        </div>
         <p
           style={{
             fontSize: "0.875rem",
@@ -521,9 +633,56 @@ export default function HomePage() {
             margin: 0,
           }}
         >
-          {texts.trustDesc}
+          {locale === "hi"
+            ? "यह मंच नागरिकों के लाभ के लिए एक स्वतंत्र गैर-व्यावसायिक तकनीकी मार्गदर्शिका है। हम कभी भी कोई आधार नंबर, बायोमेट्रिक, बैंकिंग पासवर्ड या ओटीपी एकत्र नहीं करते हैं। सभी आउटबाउंड लिंक केवल हमारी सार्वजनिक श्वेत-सूची में पंजीकृत सत्यापित सरकारी डोमेन पर ही खुलते हैं।"
+            : "This platform is an independent public-benefit technology guide. We never capture Aadhaar numbers, biometrics, bank passwords, or OTPs. All outbound links open verified official government domains registered on our public domain allow-list."}
         </p>
       </section>
+
+      {/* Dev / Founder Comparison Footer Toggle (Section 10.3) */}
+      <div
+        style={{
+          marginTop: "2.5rem",
+          paddingTop: "1rem",
+          borderTop: "1px dashed var(--color-border-default)",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          fontSize: "0.75rem",
+          color: "var(--color-content-tertiary)",
+        }}
+      >
+        <span>Overhaul Version: Release 1.3 Map Engine</span>
+        <button
+          type="button"
+          onClick={() => setViewOverride("classic")}
+          style={{
+            background: "none",
+            border: "1px solid var(--color-border-subtle)",
+            borderRadius: "var(--radius-xs)",
+            padding: "0.25rem 0.5rem",
+            color: "var(--color-content-secondary)",
+            fontSize: "0.75rem",
+            cursor: "pointer",
+          }}
+        >
+          Compare: View Classic Home Layout
+        </button>
+      </div>
     </div>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="app-container" style={{ padding: "4rem 1rem", textAlign: "center" }}>
+          Loading field map...
+        </div>
+      }
+    >
+      <HomeContent />
+    </Suspense>
   );
 }

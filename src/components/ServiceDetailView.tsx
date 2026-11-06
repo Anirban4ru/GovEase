@@ -456,8 +456,8 @@ export function ServiceDetailView({ service, explainerGuide }: ServiceDetailView
           {/* Verification Record Meta */}
           <div
             style={{
-              backgroundColor: "var(--color-surface-page)",
-              border: "1px solid var(--color-border-default)",
+              backgroundColor: "var(--color-ground-muted)",
+              border: "1px solid var(--color-border-subtle)",
               borderRadius: "var(--radius-sm)",
               padding: "0.875rem",
               fontSize: "0.75rem",
@@ -467,12 +467,28 @@ export function ServiceDetailView({ service, explainerGuide }: ServiceDetailView
           >
             <div
               style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.35rem",
                 fontWeight: 700,
-                color: "var(--color-content-primary)",
-                marginBottom: "0.25rem",
+                color: "var(--color-ink)",
+                marginBottom: "0.35rem",
               }}
             >
-              {locale === "hi" ? "सत्यापन रिकॉर्ड" : "Governance & Audit Record"}
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-teal)"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>{locale === "hi" ? "सत्यापन रिकॉर्ड" : "Governance & Audit Record"}</span>
             </div>
             <div>
               <strong>{locale === "hi" ? "सत्यापन तिथि:" : "Last Verified:"}</strong>{" "}

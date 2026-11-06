@@ -20,7 +20,7 @@ test.describe("Milestone M9 - India-First Civic Visual Identity & Fluid Micro-In
   test("home page renders India-first civic badge and ecosystem cards with bespoke SVG badges", async ({
     page,
   }) => {
-    await page.goto("/");
+    await page.goto("/?view=classic");
 
     // Verify India-first hero badge
     const heroBadge = page.locator("text=India-First Unified Public Life Services Guide");

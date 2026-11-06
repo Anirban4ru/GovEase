@@ -19,7 +19,6 @@ export function PwaRegister() {
       navigator.serviceWorker
         .register("/sw.js")
         .then((reg) => {
-          // SW registered
           if (process.env.NODE_ENV !== "production") {
             console.log("[PWA] Service Worker registered:", reg.scope);
           }
@@ -35,9 +34,14 @@ export function PwaRegister() {
       const promptEvent = e as BeforeInstallPromptEvent;
       setInstallPrompt(promptEvent);
 
-      // Check if user previously dismissed
-      const dismissed = localStorage.getItem("uls_pwa_dismissed");
-      if (dismissed !== "true") {
+      // Check if user previously dismissed permanently
+      try {
+        const dismissed = localStorage.getItem("uls_pwa_dismissed");
+        if (dismissed !== "true") {
+          setIsVisible(true);
+        }
+      } catch {
+        // Fallback if localStorage restricted
         setIsVisible(true);
       }
     };
@@ -74,85 +78,118 @@ export function PwaRegister() {
 
   return (
     <aside
-      aria-label="Install App Banner"
-      className="no-print"
+      aria-label="Install App Notice"
+      className="no-print motion-reveal"
       style={{
+        position: "fixed",
+        bottom: "4.5rem", // Clears mobile bottom navigation bar
+        right: "1rem",
+        left: "1rem",
+        maxWidth: "400px",
+        margin: "0 auto",
+        zIndex: 90,
         backgroundColor: "var(--color-surface-card)",
-        borderBottom: "1px solid var(--color-border-default)",
-        padding: "0.75rem 1rem",
-        boxShadow: "var(--shadow-sm)",
+        border: "1px solid var(--color-border-strong)",
+        borderRadius: "var(--radius-lg)",
+        padding: "0.875rem 1rem",
+        boxShadow: "var(--shadow-lg)",
       }}
     >
-      <div
-        className="app-container"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "0.75rem",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+      <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "36px",
+            height: "36px",
+            borderRadius: "var(--radius-md)",
+            backgroundColor: "var(--color-brand-primary-subtle)",
+            color: "var(--color-brand-primary)",
+            flexShrink: 0,
+          }}
+        >
           <svg
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="var(--color-brand-primary)"
+            stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"
           >
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-            <line x1="12" y1="18" x2="12.01" y2="18" />
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
-          <span
-            style={{ fontSize: "0.875rem", fontWeight: 600, color: "var(--color-content-primary)" }}
+        </div>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div
+            style={{
+              fontWeight: 700,
+              fontSize: "0.9375rem",
+              color: "var(--color-content-primary)",
+            }}
           >
             {locale === "hi"
-              ? "ऑफ़लाइन पहुँच के लिए इस ऐप को अपने डिवाइस पर इंस्टॉल करें"
-              : "Install Unified Life Services for instant offline access on your device"}
-          </span>
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <button
-            type="button"
-            onClick={handleInstallClick}
+              ? "ऑफ़लाइन उपयोग के लिए ऐप इंस्टॉल करें"
+              : locale === "bn"
+                ? "অফলাইন ব্যবহারের জন্য ইনস্টল করুন"
+                : locale === "ta"
+                  ? "ஆஃப்லைன் பயன்பாட்டிற்கு நிறுவவும்"
+                  : "Install for Offline Access"}
+          </div>
+          <p
             style={{
-              padding: "0.375rem 0.875rem",
-              backgroundColor: "var(--color-brand-primary)",
-              color: "var(--color-content-inverse)",
-              border: "none",
-              borderRadius: "var(--radius-sm)",
-              fontWeight: 600,
               fontSize: "0.8125rem",
-              cursor: "pointer",
-              minHeight: "var(--min-touch-target)",
-            }}
-          >
-            {locale === "hi" ? "इंस्टॉल करें" : "Install"}
-          </button>
-          <button
-            type="button"
-            onClick={handleDismiss}
-            aria-label="Dismiss install prompt"
-            style={{
-              padding: "0.375rem 0.75rem",
-              backgroundColor: "transparent",
               color: "var(--color-content-secondary)",
-              border: "1px solid var(--color-border-default)",
-              borderRadius: "var(--radius-sm)",
-              fontWeight: 500,
-              fontSize: "0.8125rem",
-              cursor: "pointer",
-              minHeight: "var(--min-touch-target)",
+              margin: "0.2rem 0 0.5rem 0",
+              lineHeight: 1.4,
             }}
           >
-            {locale === "hi" ? "खारिज करें" : "Dismiss"}
-          </button>
+            {locale === "hi"
+              ? "बिना इंटरनेट सीधे अपने फोन से सरकारी सेवा गाइड देखें।"
+              : locale === "bn"
+                ? "ইন্টারনেট ছাড়া সরাসরি আপনার ডিভাইসে অ্যাক্সেস করুন।"
+                : locale === "ta"
+                  ? "இணைய இணைப்பு இல்லாமல் நேரடியாக அணுகவும்."
+                  : "Access essential civic guidance directly on your device without network."}
+          </p>
+          <div style={{ display: "flex", gap: "0.5rem" }}>
+            <button
+              type="button"
+              onClick={handleInstallClick}
+              style={{
+                backgroundColor: "var(--color-brand-primary)",
+                color: "var(--color-neutral-0)",
+                border: "none",
+                borderRadius: "var(--radius-sm)",
+                padding: "0.35rem 0.75rem",
+                fontSize: "0.8125rem",
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
+              {locale === "hi" ? "इंस्टॉल करें" : "Install"}
+            </button>
+            <button
+              type="button"
+              onClick={handleDismiss}
+              style={{
+                backgroundColor: "transparent",
+                color: "var(--color-content-secondary)",
+                border: "1px solid var(--color-border-default)",
+                borderRadius: "var(--radius-sm)",
+                padding: "0.35rem 0.75rem",
+                fontSize: "0.8125rem",
+                cursor: "pointer",
+              }}
+            >
+              {locale === "hi" ? "खारिज करें" : "Dismiss"}
+            </button>
+          </div>
         </div>
       </div>
     </aside>

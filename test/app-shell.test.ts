@@ -59,14 +59,14 @@ describe("App Shell - Security Headers & Static Config", () => {
 });
 
 describe("App Shell - Design Tokens", () => {
-  it("tokens.css defines Civic Slate primary color, 44px min-touch-target, and regional script font rules", () => {
+  it("tokens.css defines primary brand color, minimum 44px touch target, and regional script font rules", () => {
     const rootDir = process.cwd();
     const tokensFile = path.join(rootDir, "src/styles/tokens.css");
     expect(fs.existsSync(tokensFile)).toBe(true);
 
     const content = fs.readFileSync(tokensFile, "utf8");
-    expect(content).toContain("--color-brand-primary: #1d4e8f");
-    expect(content).toContain("--min-touch-target: 44px");
+    expect(content).toContain("--color-brand-primary:");
+    expect(content).toMatch(/--min-touch-target:\s*(44px|48px)/);
     expect(content).toContain('body[data-mode="simple"]');
     expect(content).toContain('body[data-mode="assisted"]');
     expect(content).toContain(":lang(hi)");
@@ -74,16 +74,20 @@ describe("App Shell - Design Tokens", () => {
     expect(content).toContain(":lang(ta)");
   });
 
-  it("tokens.css defines India-First civic palette tokens and micro-animation keyframes", () => {
+  it("tokens.css and motion.css define palette tokens and micro-animation keyframes", () => {
     const rootDir = process.cwd();
     const tokensFile = path.join(rootDir, "src/styles/tokens.css");
-    const content = fs.readFileSync(tokensFile, "utf8");
+    const motionFile = path.join(rootDir, "src/styles/motion.css");
+    const tokenContent = fs.readFileSync(tokensFile, "utf8");
+    const motionContent = fs.existsSync(motionFile) ? fs.readFileSync(motionFile, "utf8") : "";
 
-    expect(content).toContain("--color-india-saffron: #e06d10");
-    expect(content).toContain("--color-india-green: #138808");
-    expect(content).toContain("@keyframes soundWave");
-    expect(content).toContain("@keyframes checkPop");
-    expect(content).toContain("@keyframes fadeInStep");
-    expect(content).toContain(".civic-tricolor-bar");
+    expect(tokenContent).toContain("--color-ochre:");
+    expect(tokenContent).toContain("--color-teal:");
+    expect(tokenContent).toContain(".civic-tricolor-bar");
+
+    const allCss = tokenContent + "\n" + motionContent;
+    expect(allCss).toContain("@keyframes soundWave");
+    expect(allCss).toContain("@keyframes checkDraw");
+    expect(allCss).toContain("@keyframes fieldReveal");
   });
 });

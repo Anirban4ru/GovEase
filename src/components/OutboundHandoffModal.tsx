@@ -97,6 +97,7 @@ export function OutboundHandoffModal({
         aria-modal="true"
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
+        className="motion-reveal"
         style={{
           backgroundColor: "var(--color-surface-page)",
           border: "1px solid var(--color-border-default)",

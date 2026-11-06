@@ -192,6 +192,73 @@ server.listen(3005, async () => {
     console.log("Captured showcase-13-csc-prep-pack.png");
   }
 
+  // 14. Step 1 of Guide for documentation
+  await desktopPage.goto("http://localhost:3005/guide");
+  await desktopPage.screenshot({
+    path: path.join(targetDir, "showcase-14-guide-step1.png"),
+    fullPage: false,
+  });
+
+  // 15. Hindi Mode
+  await desktopPage.goto("http://localhost:3005/");
+  const hiBtn = desktopPage.locator('button:has-text("हिंदी")').first();
+  if ((await hiBtn.count()) > 0) {
+    await hiBtn.click();
+    await desktopPage.waitForTimeout(200);
+    await desktopPage.screenshot({
+      path: path.join(targetDir, "showcase-15-hindi-mode.png"),
+      fullPage: false,
+    });
+  }
+
+  // 16. M11 Overhauled Calm Map Home View (Full Desktop)
+  await desktopPage.goto("http://localhost:3005/");
+  await desktopPage.screenshot({
+    path: path.join(targetDir, "showcase-16-calm-map-home.png"),
+    fullPage: false,
+  });
+  console.log("Captured showcase-16-calm-map-home.png");
+
+  // 17. M11 Side-by-Side Classic Comparison (?view=classic)
+  await desktopPage.goto("http://localhost:3005/?view=classic");
+  await desktopPage.screenshot({
+    path: path.join(targetDir, "showcase-17-classic-comparison.png"),
+    fullPage: false,
+  });
+  console.log("Captured showcase-17-classic-comparison.png");
+
+  // 18. M11 Goal-Phrased Discovery Grid ("What would you like to do?")
+  await desktopPage.goto("http://localhost:3005/");
+  const goalHeading = desktopPage.locator("#quick-goals-heading");
+  await goalHeading.scrollIntoViewIfNeeded();
+  await desktopPage.screenshot({
+    path: path.join(targetDir, "showcase-18-goal-phrased-grid.png"),
+    fullPage: false,
+  });
+  console.log("Captured showcase-18-goal-phrased-grid.png");
+
+  // 19. M11 3D Radial Life System Close-up
+  const radialSystemElem = desktopPage.locator('[aria-label="Interactive Life Areas Map"]');
+  if ((await radialSystemElem.count()) > 0) {
+    await radialSystemElem.scrollIntoViewIfNeeded();
+    await radialSystemElem.screenshot({
+      path: path.join(targetDir, "showcase-19-radial-3d-system.png"),
+    });
+    console.log("Captured showcase-19-radial-3d-system.png");
+  }
+
+  // 20. M11 Bengali Mode Calm Map View
+  const bnBtn = desktopPage.locator('button:has-text("বাংলা")').first();
+  if ((await bnBtn.count()) > 0) {
+    await bnBtn.click();
+    await desktopPage.waitForTimeout(200);
+    await desktopPage.screenshot({
+      path: path.join(targetDir, "showcase-20-bengali-calm-map.png"),
+      fullPage: false,
+    });
+    console.log("Captured showcase-20-bengali-calm-map.png");
+  }
+
   await browser.close();
   server.close(() => {
     console.log("Showcase capture complete.");
