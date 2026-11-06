@@ -25,20 +25,12 @@ test.describe("Milestone M11 - Visual, Motion & 3D Calm Map Overhaul", () => {
     await expect(searchInput).toBeVisible();
   });
 
-  test("3D Radial Life System displays 6 nodes with pause control and reduced-motion compliance", async ({
+  test("displays 6 essential life areas with direct category exploration links", async ({
     page,
   }) => {
     await page.goto("/");
 
-    // Verify 3D system container
-    const radialSystem = page.locator('[aria-label="Interactive Life Areas Map"]');
-    await expect(radialSystem).toBeVisible();
-
-    // Verify central anchor ("You are here" / "6 Life Areas")
-    await expect(radialSystem.locator("text=You are here")).toBeVisible();
-    await expect(radialSystem.locator("text=6 Life Areas")).toBeVisible();
-
-    // Verify 6 radial nodes are visible with category query links
+    // Verify 6 life area nodes are visible with category query links
     const nodeIds = [
       "healthcare",
       "education",
@@ -49,22 +41,9 @@ test.describe("Milestone M11 - Visual, Motion & 3D Calm Map Overhaul", () => {
     ];
 
     for (const id of nodeIds) {
-      const nodeLink = radialSystem.locator(`a[href*="category=${id}"]`);
+      const nodeLink = page.locator(`a[href*="category=${id}"]`).first();
       await expect(nodeLink).toBeVisible();
     }
-
-    // Verify WCAG 2.2.2 compliant visible pause button
-    const pauseBtn = radialSystem.locator('button:has-text("Pause Motion")');
-    await expect(pauseBtn).toBeVisible();
-
-    // Click pause button to stop drift
-    await pauseBtn.click();
-    const resumeBtn = radialSystem.locator('button:has-text("Play Motion")');
-    await expect(resumeBtn).toBeVisible();
-
-    // Resume motion
-    await resumeBtn.click();
-    await expect(radialSystem.locator('button:has-text("Pause Motion")')).toBeVisible();
   });
 
   test("respects prefers-reduced-motion media query", async ({ page }) => {
@@ -72,11 +51,9 @@ test.describe("Milestone M11 - Visual, Motion & 3D Calm Map Overhaul", () => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/");
 
-    const radialSystem = page.locator('[aria-label="Interactive Life Areas Map"]');
-    await expect(radialSystem).toBeVisible();
-
-    // Verify central anchor remains visible in reduced motion
-    await expect(radialSystem.locator("text=You are here")).toBeVisible();
+    const main = page.locator("main");
+    await expect(main).toBeVisible();
+    await expect(page.locator("h1")).toBeVisible();
   });
 
   test("goal-phrased discovery grid renders 8 actionable tasks and navigates to verified service", async ({

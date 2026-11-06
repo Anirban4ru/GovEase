@@ -9,7 +9,6 @@ import { usePresentationMode } from "../context/ModeContext";
 import { SearchBar } from "../components/SearchBar";
 import { EcosystemBadge } from "../components/EcosystemBadge";
 import { GoalPhrasedGrid } from "../components/GoalPhrasedGrid";
-import { LifeAreaRadialSystem } from "../components/LifeAreaRadialSystem";
 import type { LifeEcosystem } from "../lib/catalogue";
 
 const HomeClassicView = dynamic(
@@ -247,200 +246,312 @@ function HomeContent() {
         </div>
       )}
 
-      {/* HERO SECTION: Calm Field Map with Spatial Radial Depth */}
+      {/* HERO SECTION: Authoritative Full-Width Civic Architecture */}
       <section
         style={{
-          display: "grid",
-          gridTemplateColumns:
-            mode === "simple" ? "1fr" : "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
-          gap: "2.5rem",
-          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
           marginBottom: "3.5rem",
-          paddingBottom: "2rem",
+          paddingBottom: "2.5rem",
           borderBottom: "1px solid var(--color-border-subtle)",
+          width: "100%",
         }}
       >
-        {/* Left Column: Dominant Headline, Promise & Instant Search */}
-        <div style={{ maxWidth: "580px" }}>
-          {/* Academic Capstone & Civic Guide Badge */}
-          <div
+        {/* Academic Capstone & Civic Guide Badge */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            padding: "0.35rem 0.85rem",
+            backgroundColor: "var(--color-ground-muted)",
+            border: "1px solid var(--color-border-default)",
+            borderRadius: "var(--radius-full)",
+            marginBottom: "1.25rem",
+            fontSize: "0.8125rem",
+            fontWeight: 700,
+            color: "var(--color-ink)",
+          }}
+        >
+          <span style={{ color: "var(--color-teal-text)", fontSize: "0.625rem" }}>●</span>
+          <span>
+            {locale === "hi"
+              ? "स्वतंत्र लोक सेवा मार्गदर्शिका • बी.टेक कैपस्टोन"
+              : locale === "bn"
+                ? "নাগরিক জনসেবা সহায়িকা • বি.টেক ক্যাপস্টোন"
+                : locale === "ta"
+                  ? "மக்கள் சேவை வழிகாட்டி • கேப்ஸ்டோன்"
+                  : "Independent Public Services Guide • Academic Capstone"}
+          </span>
+        </div>
+
+        <h1
+          style={{
+            fontSize: "var(--font-size-hero)",
+            fontWeight: 800,
+            color: "var(--color-ink)",
+            lineHeight: 1.15,
+            marginBottom: "1rem",
+            letterSpacing: "-0.025em",
+            maxWidth: "920px",
+          }}
+        >
+          {locale === "hi"
+            ? "आवश्यक जनसेवाओं का शांत व स्पष्ट मानचित्र"
+            : locale === "bn"
+              ? "প্রয়োজনীয় নাগরিক সেবার স্বচ্ছ ও নির্ভরযোগ্য মানচিত্র"
+              : locale === "ta"
+                ? "அத்தியாவசிய மக்கள் சேவைகளின் அமைதியான வரைபடம்"
+                : "A calm map of everyday public life services"}
+        </h1>
+
+        <p
+          style={{
+            fontSize: "var(--font-size-body)",
+            color: "var(--color-content-secondary)",
+            lineHeight: 1.6,
+            marginBottom: "1.75rem",
+            maxWidth: "780px",
+          }}
+        >
+          {locale === "hi"
+            ? "नागरिकों को बिना विज्ञापन या डेटा संग्रह सीधे आधिकारिक सरकारी पोर्टलों से जोड़ने वाली स्वतंत्र, सत्यापित मार्गदर्शिका।"
+            : locale === "bn"
+              ? "বিজ্ঞাপন বা ডেটা ট্র্যাকিং ছাড়াই নাগরিকদের সরাসরি অফিসিয়াল সরকারি পোর্টালে নির্দেশ করার একটি স্বাধীন প্ল্যাটফর্ম।"
+              : locale === "ta"
+                ? "விளம்பரங்களோ கண்காணிப்போ இன்றி குடிமக்களை நேரடியாக அதிகாரப்பூர்வ அரசு போர்ட்டல்களுக்கு வழிநடத்தும் வழிகாட்டி."
+                : "An independent, dated catalogue guiding citizens directly to official government portals. Zero advertising, zero document storage, and uncompromising privacy."}
+        </p>
+
+        {/* Dominant Instant Search Bar */}
+        <div style={{ marginBottom: "0.85rem", width: "100%", maxWidth: "720px" }}>
+          <SearchBar />
+        </div>
+
+        {/* Quick Filter Tags */}
+        <div
+          style={{
+            display: "flex",
+            gap: "0.45rem",
+            flexWrap: "wrap",
+            alignItems: "center",
+            marginBottom: "1.75rem",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.75rem",
+              fontWeight: 600,
+              color: "var(--color-content-tertiary)",
+            }}
+          >
+            {locale === "hi" ? "त्वरित खोज:" : "Quick access:"}
+          </span>
+          {[
+            { label: "🚗 Driving Licence", href: "/services/driving-licence-renewal" },
+            { label: "📜 Birth Certificate", href: "/services/birth-certificate-crs" },
+            { label: "🎓 Scholarships", href: "/services/national-scholarship-portal" },
+            { label: "🏥 ABHA Card", href: "/services/abha-health-id" },
+            { label: "🌾 PM-Kisan", href: "/services/pm-kisan-samman-nidhi" },
+            { label: "🏦 Jan Dhan", href: "/services/pm-jan-dhan-yojana-account" },
+          ].map((chip) => (
+            <Link
+              key={chip.href}
+              href={chip.href}
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                color: "var(--color-content-secondary)",
+                backgroundColor: "var(--color-ground-muted)",
+                border: "1px solid var(--color-border-default)",
+                borderRadius: "var(--radius-full)",
+                padding: "0.25rem 0.65rem",
+                textDecoration: "none",
+                transition: "all 150ms ease",
+              }}
+            >
+              {chip.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Quick Action Navigation Buttons */}
+        <div
+          style={{
+            display: "flex",
+            gap: "0.75rem",
+            flexWrap: "wrap",
+            alignItems: "center",
+            marginBottom: "2.25rem",
+          }}
+        >
+          <Link
+            href="/guide"
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "0.5rem",
-              padding: "0.35rem 0.85rem",
-              backgroundColor: "var(--color-ground-muted)",
-              border: "1px solid var(--color-border-default)",
-              borderRadius: "var(--radius-full)",
-              marginBottom: "1rem",
-              fontSize: "0.8125rem",
+              padding: "0.65rem 1.4rem",
+              backgroundColor: "var(--color-ink)",
+              color: "var(--color-neutral-0)",
+              borderRadius: "var(--radius-sm)",
               fontWeight: 700,
-              color: "var(--color-ink)",
+              fontSize: "0.9375rem",
+              textDecoration: "none",
+              minHeight: "var(--min-touch-target)",
+              boxShadow: "var(--shadow-sm)",
             }}
           >
-            <span style={{ color: "var(--color-teal-text)", fontSize: "0.625rem" }}>●</span>
+            <span>🧭</span>
             <span>
               {locale === "hi"
-                ? "स्वतंत्र लोक सेवा मार्गदर्शिका • बी.टेक कैपस्टोन"
+                ? "योजना मार्गदर्शिका खोलें"
                 : locale === "bn"
-                  ? "নাগরিক জনসেবা সহায়িকা • বি.টেক ক্যাপস্টোন"
+                  ? "লাইফ নেভিগেটর শুরু করুন"
                   : locale === "ta"
-                    ? "மக்கள் சேவை வழிகாட்டி • கேப்ஸ்டோன்"
-                    : "Independent Public Services Guide • Academic Capstone"}
+                    ? "வாழ்க்கை வழிகாட்டி"
+                    : "Open Life Navigator"}
             </span>
-          </div>
+          </Link>
 
-          <h1
+          <Link
+            href="/explore"
             style={{
-              fontSize: "var(--font-size-hero)",
-              fontWeight: 800,
-              color: "var(--color-ink)",
-              lineHeight: 1.2,
-              marginBottom: "1rem",
-              letterSpacing: "-0.025em",
-            }}
-          >
-            {locale === "hi"
-              ? "आवश्यक जनसेवाओं का शांत व स्पष्ट मानचित्र"
-              : locale === "bn"
-                ? "প্রয়োজনীয় নাগরিক সেবার স্বচ্ছ ও নির্ভরযোগ্য মানচিত্র"
-                : locale === "ta"
-                  ? "அத்தியாவசிய மக்கள் சேவைகளின் அமைதியான வரைபடம்"
-                  : "A calm map of everyday public life services"}
-          </h1>
-
-          <p
-            style={{
-              fontSize: "var(--font-size-body)",
-              color: "var(--color-content-secondary)",
-              lineHeight: 1.6,
-              marginBottom: "1.5rem",
-              maxWidth: "520px",
-            }}
-          >
-            {locale === "hi"
-              ? "नागरिकों को बिना विज्ञापन या डेटा संग्रह सीधे आधिकारिक सरकारी पोर्टलों से जोड़ने वाली स्वतंत्र, सत्यापित मार्गदर्शिका।"
-              : locale === "bn"
-                ? "বিজ্ঞাপন বা ডেটা ট্র্যাকিং ছাড়াই নাগরিকদের সরাসরি অফিসিয়াল সরকারি পোর্টালে নির্দেশ করার একটি স্বাধীন প্ল্যাটফর্ম।"
-                : locale === "ta"
-                  ? "விளம்பரங்களோ கண்காணிப்போ இன்றி குடிமக்களை நேரடியாக அதிகாரப்பூர்வ அரசு போர்ட்டல்களுக்கு வழிநடத்தும் வழிகாட்டி."
-                  : "An independent, dated catalogue guiding citizens directly to official government portals. Zero advertising, zero document storage, and uncompromising privacy."}
-          </p>
-
-          {/* Dominant Instant Search Bar */}
-          <div style={{ marginBottom: "0.85rem" }}>
-            <SearchBar />
-          </div>
-
-          {/* Quick Filter Tags */}
-          <div
-            style={{
-              display: "flex",
-              gap: "0.4rem",
-              flexWrap: "wrap",
+              display: "inline-flex",
               alignItems: "center",
-              marginBottom: "1.5rem",
+              gap: "0.5rem",
+              padding: "0.65rem 1.4rem",
+              backgroundColor: "var(--color-ground-elevated)",
+              color: "var(--color-ink)",
+              border: "1px solid var(--color-border-strong)",
+              borderRadius: "var(--radius-sm)",
+              fontWeight: 600,
+              fontSize: "0.9375rem",
+              textDecoration: "none",
+              minHeight: "var(--min-touch-target)",
             }}
           >
-            <span
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 600,
-                color: "var(--color-content-tertiary)",
-              }}
-            >
-              {locale === "hi" ? "त्वरित खोज:" : "Quick access:"}
+            <span>
+              {locale === "hi"
+                ? "सभी 18 सेवाएँ ब्राउज़ करें"
+                : locale === "bn"
+                  ? "সব ১৮টি সেবা দেখুন"
+                  : locale === "ta"
+                    ? "18 சேவைகளையும் உலாவுங்கள்"
+                    : "Browse 18 Services"}
             </span>
-            {[
-              { label: "🚗 Driving Licence", href: "/services/driving-licence-renewal" },
-              { label: "📜 Birth Certificate", href: "/services/birth-certificate-crs" },
-              { label: "🎓 Scholarships", href: "/services/national-scholarship-portal" },
-              { label: "🏥 ABHA Card", href: "/services/abha-health-id" },
-              { label: "🌾 PM-Kisan", href: "/services/pm-kisan-samman-nidhi" },
-            ].map((chip) => (
-              <Link
-                key={chip.href}
-                href={chip.href}
-                style={{
-                  fontSize: "0.75rem",
-                  fontWeight: 600,
-                  color: "var(--color-content-secondary)",
-                  backgroundColor: "var(--color-ground-muted)",
-                  border: "1px solid var(--color-border-default)",
-                  borderRadius: "var(--radius-full)",
-                  padding: "0.2rem 0.55rem",
-                  textDecoration: "none",
-                }}
-              >
-                {chip.label}
-              </Link>
-            ))}
-          </div>
+          </Link>
+        </div>
 
-          {/* Quick Action Navigation Buttons */}
-          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
-            <Link
-              href="/guide"
+        {/* 4-Pillar Civic Infrastructure Architecture Grid */}
+        <div
+          style={{
+            width: "100%",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: "1rem",
+            paddingTop: "1.5rem",
+            borderTop: "1px dashed var(--color-border-default)",
+          }}
+        >
+          {[
+            {
+              icon: "🏛️",
+              title: locale === "hi" ? "18 सत्यापित जनसेवाएँ" : "18 Verified Services",
+              desc:
+                locale === "hi"
+                  ? "केवल आधिकारिक .gov.in और .nic.in डोमेन के लिए सीधे सत्यापित लिंक।"
+                  : "Direct navigation to official .gov.in and .nic.in central and state portals.",
+              badge: locale === "hi" ? "आधिकारिक पोर्टल" : "100% Official",
+            },
+            {
+              icon: "🛡️",
+              title: locale === "hi" ? "शून्य व्यक्तिगत डेटा संग्रह" : "Zero Credential Capture",
+              desc:
+                locale === "hi"
+                  ? "आधार, बायोमेट्रिक या पासवर्ड कभी एकत्र या संग्रहित नहीं होते।"
+                  : "Zero document retention, zero Aadhaar/OTP collection, DPDP Act 2023 compliant.",
+              badge: locale === "hi" ? "गोपनीयता प्रथम" : "Privacy First",
+            },
+            {
+              icon: "⚡",
+              title: locale === "hi" ? "100% ऑन-डिवाइस एवं ऑफलाइन" : "100% On-Device & Offline",
+              desc:
+                locale === "hi"
+                  ? "ब्राउज़र में सीधे चलने वाला इन-मेमोरी सर्च इंजन व PWA कैशे।"
+                  : "Instant client-side search engine and offline PWA service worker with 0ms latency.",
+              badge: locale === "hi" ? "PWA समर्थित" : "Offline Ready",
+            },
+            {
+              icon: "🌐",
+              title: locale === "hi" ? "4 क्षेत्रीय भाषाएँ व ऑडियो" : "4 Languages & Audio",
+              desc:
+                locale === "hi"
+                  ? "अंग्रेजी, हिंदी, बांग्ला व तमिल में पूर्ण अनुवाद व वाक्-संश्लेषण।"
+                  : "Full regional parity across EN, HI, BN, and TA with Web Speech audio narration.",
+              badge: locale === "hi" ? "सुलभ नेविगेशन" : "WCAG 2.2 AA",
+            },
+          ].map((pillar) => (
+            <div
+              key={pillar.title}
               style={{
-                display: "inline-flex",
-                alignItems: "center",
+                backgroundColor: "var(--color-surface-card)",
+                border: "1px solid var(--color-border-default)",
+                borderRadius: "var(--radius-md)",
+                padding: "1rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
                 gap: "0.5rem",
-                padding: "0.625rem 1.25rem",
-                backgroundColor: "var(--color-ink)",
-                color: "var(--color-neutral-0)",
-                borderRadius: "var(--radius-sm)",
-                fontWeight: 700,
-                fontSize: "0.9375rem",
-                textDecoration: "none",
-                minHeight: "var(--min-touch-target)",
                 boxShadow: "var(--shadow-sm)",
               }}
             >
-              <span>🧭</span>
-              <span>
-                {locale === "hi"
-                  ? "योजना मार्गदर्शिका खोलें"
-                  : locale === "bn"
-                    ? "লাইফ নেভিগেটর শুরু করুন"
-                    : locale === "ta"
-                      ? "வாழ்க்கை வழிகாட்டி"
-                      : "Open Life Navigator"}
-              </span>
-            </Link>
-
-            <Link
-              href="/explore"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.625rem 1.25rem",
-                backgroundColor: "var(--color-ground-elevated)",
-                color: "var(--color-ink)",
-                border: "1px solid var(--color-border-strong)",
-                borderRadius: "var(--radius-sm)",
-                fontWeight: 600,
-                fontSize: "0.9375rem",
-                textDecoration: "none",
-                minHeight: "var(--min-touch-target)",
-              }}
-            >
-              <span>
-                {locale === "hi"
-                  ? "सभी 18 सेवाएँ ब्राउज़ करें"
-                  : locale === "bn"
-                    ? "সব ১৮টি সেবা দেখুন"
-                    : locale === "ta"
-                      ? "18 சேவைகளையும் உலாவுங்கள்"
-                      : "Browse 18 Services"}
-              </span>
-            </Link>
-          </div>
-        </div>
-
-        {/* Right Column: 3D Radial 6-Node Spatial System */}
-        <div>
-          <LifeAreaRadialSystem />
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <span style={{ fontSize: "1.25rem" }}>{pillar.icon}</span>
+                <span
+                  style={{
+                    fontSize: "0.6875rem",
+                    fontWeight: 700,
+                    color: "var(--color-teal-text)",
+                    backgroundColor: "var(--color-teal-subtle)",
+                    padding: "0.15rem 0.45rem",
+                    borderRadius: "var(--radius-xs)",
+                  }}
+                >
+                  {pillar.badge}
+                </span>
+              </div>
+              <div>
+                <h3
+                  style={{
+                    fontSize: "0.9375rem",
+                    fontWeight: 700,
+                    color: "var(--color-ink)",
+                    margin: "0 0 0.25rem 0",
+                  }}
+                >
+                  {pillar.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "0.8125rem",
+                    color: "var(--color-content-secondary)",
+                    margin: 0,
+                    lineHeight: 1.45,
+                  }}
+                >
+                  {pillar.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
