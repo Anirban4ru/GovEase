@@ -23,7 +23,7 @@ export default function PrivacyPage() {
             marginBottom: "0.75rem",
           }}
         >
-          DRAFT — Pending Qualified Legal Review Before Public Release
+          DRAFT: Pending Qualified Legal Review Before Public Release
         </div>
         <h1
           style={{

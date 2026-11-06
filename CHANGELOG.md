@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- **Calm Map Design System & Aesthetic Foundation (`UI_OVERHAUL_PROMPT.md` §1):**
+- **Calm Map Design System & Aesthetic Foundation (Design System Spec §1):**
   - **Calm Map Color System (`src/styles/tokens.css`, ADR-0010):** Replaced legacy blues with an editorial cartographic palette: Ink (`#0F1B2D`), Ground (`#FBF8F3`), Ochre (`#A55705` text, `#C8731A` UI), Deep Teal (`#0E7C7B`), Terrakotta Clay (`#9A3412`), and Ink-Blue (`#1D4ED8`). All normal text pairs exceed WCAG 2.2 AA ($>4.5:1$), and Ink on Ground exceeds WCAG 2.2 AAA ($14.8:1$).
   - **Fluid Typography:** Scaled heading and hero sizes smoothly between mobile (320px) and wide desktop (1440px) using mathematical `clamp()` functions with script-specific line-height compensation for Devanagari, Bengali, and Tamil.
   - **48px Minimum Touch Targets:** Standardized all interactive elements, nodes, badges, and controls to a minimum 48px touch target with 3px visible focus rings.
@@ -237,6 +237,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Initial project scaffold with Next.js 16 (App Router), React 19, and TypeScript strict mode.
 - ESLint, Prettier, and Vitest test runner configuration.
-- Operational guide (`AGENTS.md`) and non-negotiable Hard Rules 1–15.
+- Project Architecture Governance Guide and non-negotiable Engineering Ethics Rules 1–15.
 - Initial Threat Model v0 (`THREAT_MODEL.md`) and Architecture Decision Records (ADR-0001 to ADR-0008).
 - Service entry JSON Schema and domain allow-list schema.

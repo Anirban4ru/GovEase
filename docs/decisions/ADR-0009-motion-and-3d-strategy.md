@@ -2,7 +2,7 @@
 
 ## Context
 
-Per `UI_OVERHAUL_PROMPT.md` Section 2 & 3, the platform requires meaningful motion and restrained 3D presentation to elevate the user experience from a flat "six-box template" to an authentic "calm map of everyday life." However, the platform must maintain extreme performance on mid-range Android devices common in India, strictly adhere to WCAG 2.2 AA (including 2.2.2 Pause, Stop, Hide and 2.3.3 Animation from Interactions), and stay within tight JavaScript bundle limits ($\le 150\text{ KB}$ initial JS).
+Per `Design System Specification` Section 2 & 3, the platform requires meaningful motion and restrained 3D presentation to elevate the user experience from a flat "six-box template" to an authentic "calm map of everyday life." However, the platform must maintain extreme performance on mid-range Android devices common in India, strictly adhere to WCAG 2.2 AA (including 2.2.2 Pause, Stop, Hide and 2.3.3 Animation from Interactions), and stay within tight JavaScript bundle limits ($\le 150\text{ KB}$ initial JS).
 
 ## Decision
 
@@ -27,3 +27,4 @@ Per `UI_OVERHAUL_PROMPT.md` Section 2 & 3, the platform requires meaningful moti
 
 - Preserves ₹0 runtime infrastructure cost and zero third-party tracking.
 - Guarantees instant load on 2G/3G/4G connections while delivering visual depth on modern devices.
+

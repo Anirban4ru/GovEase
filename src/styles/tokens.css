@@ -196,7 +196,7 @@ body[data-mode="assisted"] {
   }
 }
 
-/* Card Interactive 3D Hover Lift */
+/* Card Interactive Hover: Subtle, restrained engineering precision (no floaty bouncing) */
 .civic-card-interactive {
   transition:
     transform var(--transition-fast),
@@ -207,23 +207,23 @@ body[data-mode="assisted"] {
 
 .civic-card-interactive:hover,
 .civic-card-interactive:focus-visible {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-ochre);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-ink-blue);
 }
 
-/* Cartographic Survey Guide Top Ribbon */
+/* Civic Accent Ribbon */
 .civic-tricolor-bar,
 .civic-map-ribbon {
-  height: 3px;
+  height: 2px;
   width: 100%;
   background: linear-gradient(
-    to right,
+    90deg,
     var(--color-ochre) 0%,
-    var(--color-ochre) 40%,
-    var(--color-teal) 40%,
-    var(--color-teal) 75%,
-    var(--color-ink) 75%,
-    var(--color-ink) 100%
+    var(--color-ochre) 33.3%,
+    var(--color-teal) 33.3%,
+    var(--color-teal) 66.6%,
+    var(--color-ink-blue) 66.6%,
+    var(--color-ink-blue) 100%
   );
 }

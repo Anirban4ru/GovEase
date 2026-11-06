@@ -117,12 +117,12 @@ export default function LifeStageGuidePage() {
         >
           <span>
             {locale === "hi"
-              ? "🇮🇳 नागरिक स्थिति एवं योजना मार्गदर्शिका"
+              ? "नागरिक स्थिति एवं योजना मार्गदर्शिका"
               : locale === "bn"
-                ? "🇮🇳 নাগরিক পরিস্থিতি ও প্রকল্প পথনির্দেশিকা"
+                ? "নাগরিক পরিস্থিতি ও প্রকল্প পথনির্দেশিকা"
                 : locale === "ta"
-                  ? "🇮🇳 குடிமக்கள் நிலை & திட்ட வழிகாட்டி"
-                  : "🇮🇳 Citizen Life-Stage & Scheme Navigator"}
+                  ? "குடிமக்கள் நிலை & திட்ட வழிகாட்டி"
+                  : "Citizen Life-Stage & Scheme Navigator"}
           </span>
         </div>
 
@@ -545,7 +545,21 @@ export default function LifeStageGuidePage() {
                   minHeight: "44px",
                 }}
               >
-                <span>🖨️</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 6 2 18 2 18 9" />
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                  <rect x="6" y="14" width="12" height="8" />
+                </svg>
                 <span>
                   {showCscPack
                     ? locale === "hi"
@@ -611,7 +625,6 @@ export default function LifeStageGuidePage() {
                       margin: 0,
                     }}
                   >
-                    📄{" "}
                     {locale === "hi"
                       ? "सीएससी / जन सेवा केंद्र भौतिक यात्रा तैयारी सूची"
                       : locale === "bn"
@@ -634,6 +647,9 @@ export default function LifeStageGuidePage() {
                   type="button"
                   onClick={() => window.print()}
                   style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
                     backgroundColor: "var(--color-brand-primary)",
                     color: "var(--color-neutral-0)",
                     border: "none",
@@ -645,7 +661,22 @@ export default function LifeStageGuidePage() {
                     minHeight: "44px",
                   }}
                 >
-                  🖨️ {locale === "hi" ? "यह शीट प्रिंट करें" : "Print This Sheet"}
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 6 2 18 2 18 9" />
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                    <rect x="6" y="14" width="12" height="8" />
+                  </svg>
+                  <span>{locale === "hi" ? "यह शीट प्रिंट करें" : "Print This Sheet"}</span>
                 </button>
               </div>
 

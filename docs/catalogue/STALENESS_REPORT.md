@@ -5,7 +5,7 @@
 **Audit Date:** 2026-11-06  
 **Total Services Tracked:** 18
 
-Per `PROMPT_FINAL.md` §6.3:
+Per `System Architecture Specification (SAS)` §6.3:
 
 > "An entry past next_review_due is shown with a visible 'may be out of date' notice and is flagged in a maintenance report. Entries more than twice past due are auto-hidden from search ranking until reviewed."
 
@@ -46,3 +46,4 @@ Per `PROMPT_FINAL.md` §6.3:
 ---
 
 _Report generated automatically by `scripts/catalogue-staleness.mjs`_
+

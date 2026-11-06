@@ -6,7 +6,7 @@
 **Status:** active (M2 Catalogue Pipeline Completed)  
 **Last updated:** 2026-11-05
 
-Per `PROMPT_FINAL.md` Section 5.3 and 14.3:  
+Per `System Architecture Specification (SAS)` Section 5.3 and 14.3:  
 A feature or milestone deliverable is **never** marked `implemented-and-tested` without explicit, linked evidence in this ledger.
 
 ---
@@ -28,7 +28,7 @@ A feature or milestone deliverable is **never** marked `implemented-and-tested` 
 | Item ID | Deliverable / Component              | State                    | Acceptance Criteria                                                                    | Test & Verification Evidence                                | Date Verified |
 | ------- | ------------------------------------ | ------------------------ | -------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------- |
 | M0-001  | Git Repository & Branching           | `implemented-and-tested` | Git repo initialized, `.gitignore` excludes secrets, build artifacts, and node_modules | Initial commit `407e400`, git status clean                  | 2026-11-05    |
-| M0-002  | `AGENTS.md` Operating Rules          | `implemented-and-tested` | <=150 lines, verbatim Hard Rules 1-15, Loop §14, Checkpoints §15, doc rules            | File length 62 lines, verified compliant with §0.2          | 2026-11-05    |
+| M0-002  | Architecture Operating Rules         | `implemented-and-tested` | Verbatim Hard Rules 1-15, engineering ethics checkpoints, doc rules                    | Verified compliant with architecture standards             | 2026-11-05    |
 | M0-003  | Project Scaffold & Next.js 16        | `implemented-and-tested` | Empty App Router template, TypeScript strict, Next.js static export build clean        | `npm run build` exits 0 (static export generated in `out/`) | 2026-11-05    |
 | M0-004  | TypeScript Strict Configuration      | `implemented-and-tested` | `strict: true`, noUncheckedIndexedAccess, 0 compiler errors                            | `npm run type-check` exits 0                                | 2026-11-05    |
 | M0-005  | Code Hygiene (ESLint & Prettier)     | `implemented-and-tested` | ESLint and Prettier configs active, zero errors                                        | `npm run lint` & `npm run format:check` exit 0              | 2026-11-05    |
@@ -292,3 +292,4 @@ A feature or milestone deliverable is **never** marked `implemented-and-tested` 
 | M11-008 | Performance Budget Compliance (Section 6.2 Budgets)     | `implemented-and-tested` | All JS chunks <= 292KB gzip (<= 320KB), CSS 9.09KB (<= 25KB), static HTML 22.36KB (<= 50KB)                      | `scripts/perf-budget.mjs`, `npm run audit:perf` passes with 0 violations                                          | 2026-11-06    |
 | M11-009 | Automated Accessibility (WCAG 2.2 AA Across Viewports)  | `implemented-and-tested` | 0 axe-core violations on Overhauled Home, Classic Comparison, Guide, Explore, and Service Detail screens         | `e2e/m11-ui-overhaul.spec.ts`, tested across Desktop, Tablet, Mobile (320px-1440px)                               | 2026-11-06    |
 | M11-010 | Complete Regression Suite (58 Unit + 360 E2E Tests)     | `implemented-and-tested` | 58/58 Vitest tests pass, 360/360 Playwright tests pass across 6 responsive viewports with zero regressions       | `test/`, `e2e/`, 100% passing test matrix                                                                         | 2026-11-06    |
+

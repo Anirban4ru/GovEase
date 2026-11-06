@@ -6,7 +6,7 @@
 **Status:** active (M5 Explainer Guides & Beta 0.1 Candidate Approved)  
 **Last updated:** 2026-11-06
 
-Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unless explicitly deferred with a written, dated justification signed by the human founder.
+Per `System Architecture Specification (SAS)` Section 18: A release gate failure **blocks release** unless explicitly deferred with a written, dated justification signed by the human founder.
 
 ---
 
@@ -21,7 +21,7 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 | Catalogue Integrity    | JSON Schema validation of services and allowlists      | `npm run validate:catalogue` output     | ✅ Passed (0 errors)                   |
 | Security Baseline      | npm audit reports zero high/critical vulnerabilities   | `npm run audit:ci` output               | ✅ Passed (0 vulnerabilities)          |
 | Threat Model v0        | Assets, actors, STRIDE analysis, trust boundaries      | `THREAT_MODEL.md`                       | ✅ Passed                              |
-| Agent Guidelines       | AGENTS.md <=150 lines, verbatim hard rules             | `AGENTS.md` (62 lines)                  | ✅ Passed                              |
+| Governance Rules       | Core engineering ethics & privacy rules verified       | Architecture Governance                 | ✅ Passed                              |
 | CI Pipeline            | GitHub Actions workflow config in place                | `.github/workflows/ci.yml`              | ✅ Passed                              |
 | Architecture Decisions | ADR-0001 through ADR-0008 documented                   | `docs/decisions/`                       | ✅ Passed                              |
 | Design System Tokens   | Colour palette and typography approved                 | Human approval of ADR-0002/3            | ✅ Approved (Civic Slate & Noto Sans)  |
@@ -220,3 +220,4 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 - **Date:** 2026-11-06
 - **Branch:** `feat/m10-citizen-life-stage-navigator`
 - **Human Approval:** Pending Founder Sign-Off
+

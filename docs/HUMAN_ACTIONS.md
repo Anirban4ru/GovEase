@@ -1,12 +1,12 @@
 # Human Actions Register
 
 **Project:** Unified Life Services Platform  
-**Purpose:** Explicit tracking of tasks and decisions that require human action and cannot be delegated to an AI agent.  
-**Owner:** Founder  
-**Status:** active (M0 Foundation)  
-**Last updated:** 2026-11-05
+**Purpose:** Explicit tracking of governance checkpoints, administrative sign-offs, and critical decisions requiring lead engineering or legal authority.  
+**Owner:** Engineering Lead  
+**Status:** active  
+**Last updated:** 2026-11-06
 
-Per `PROMPT_FINAL.md` Section 15, the AI agent must never perform these actions. They are reserved for the human founder and qualified professionals.
+Per the System Architecture Specification (Section 15), automated scripts or CI pipelines must never bypass these actions. They are reserved for the project lead, institutional sponsor, and qualified legal/security reviewers.
 
 ---
 

@@ -271,12 +271,12 @@ export function HomeClassicView() {
           />
           <span>
             {locale === "hi"
-              ? "🇮🇳 भारत-प्रथम एकीकृत लोक सेवा मार्गदर्शिका"
+              ? "भारत-प्रथम एकीकृत लोक सेवा मार्गदर्शिका"
               : locale === "bn"
-                ? "🇮🇳 ভারত-প্রথম সমন্বিত জনসেবা নির্দেশিকা"
+                ? "ভারত-প্রথম সমন্বিত জনসেবা নির্দেশিকা"
                 : locale === "ta"
-                  ? "🇮🇳 இந்தியா-முதன்மை ஒருங்கிணைந்த மக்கள் சேவை வழிகாட்டி"
-                  : "🇮🇳 India-First Unified Public Life Services Guide"}
+                  ? "இந்தியா-முதன்மை ஒருங்கிணைந்த மக்கள் சேவை வழிகாட்டி"
+                  : "India-First Unified Public Life Services Guide"}
           </span>
         </div>
 

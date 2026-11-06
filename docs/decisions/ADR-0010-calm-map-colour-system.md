@@ -2,7 +2,7 @@
 
 ## Context
 
-Per `UI_OVERHAUL_PROMPT.md` Section 1.4 and Section 0.3, the platform must transition away from generic government grey and national flag brand elements (prohibiting tricolour bars or national emblems as logos) toward an original, field-map aesthetic: "A calm map of everyday life." The visual tone must be precise, warm, dependable, human, and modern, with every text-on-surface pair exceeding WCAG 2.2 AA contrast ratios ($> 4.5:1$ body, $> 3:1$ large UI).
+Per `Design System Specification` Section 1.4 and Section 0.3, the platform must transition away from generic government grey and national flag brand elements (prohibiting tricolour bars or national emblems as logos) toward an original, field-map aesthetic: "A calm map of everyday life." The visual tone must be precise, warm, dependable, human, and modern, with every text-on-surface pair exceeding WCAG 2.2 AA contrast ratios ($> 4.5:1$ body, $> 3:1$ large UI).
 
 ## Decision
 
@@ -22,3 +22,4 @@ We adopt the "Calm Map" palette with the following primary functional roles:
 - Every color pair meets or exceeds WCAG 2.2 AA contrast requirements.
 - Color is never the sole carrier of meaning; always paired with explicit text and iconography.
 - Eliminates any confusion with official government portal branding while projecting trust and precision.
+

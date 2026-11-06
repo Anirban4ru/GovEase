@@ -1,7 +1,7 @@
 # MOTIF_NOTES.md — Original Pattern Language & Cultural Abstraction
 
 **Project:** Unified Life Services Platform  
-**Purpose:** Documentation of original motifs, patterns, and visual abstractions per `UI_OVERHAUL_PROMPT.md` Section 1.5.  
+**Purpose:** Documentation of original motifs, patterns, and visual abstractions per `Design System Specification` Section 1.5.  
 **Status:** Approved  
 **Last Updated:** 2026-11-06
 
@@ -9,7 +9,7 @@
 
 ## 1. Principles of Originality
 
-Per Section 0.3 and Section 1.5 of `UI_OVERHAUL_PROMPT.md`:
+Per Section 0.3 and Section 1.5 of `Design System Specification`:
 
 1. **Zero Copying of Official Symbols:** No use of the State Emblem of India (Lion Capital), no tricolour flag banners used as logos, and no reproduction of any official ministry or department trademarks.
 2. **Field Map Abstraction:** All visual textures are inspired by the precision of cartography, land surveying, contour maps, and traditional geometric folk line-art (Warli geometric lines and Kolam grid geometry), interpreted through pure modern minimalism.
@@ -36,3 +36,4 @@ Per Section 0.3 and Section 1.5 of `UI_OVERHAUL_PROMPT.md`:
 - **Geometry:** Fine coordinate crosshairs ($+$) and dotted baseline guides spaced at $48\text{px}$ intervals.
 - **Symbolism:** Evokes the precision, dependability, and neutral orientation of an official survey map.
 - **Application:** Surrounds the 3D radial area system and service categorization containers.
+

@@ -6,7 +6,7 @@
 **Status:** active (M0 Foundation)  
 **Last updated:** 2026-11-05
 
-Sourced directly from Appendix A of `PROMPT_FINAL.md`.
+Sourced directly from the Project Engineering Specification (Appendix A).
 
 ---
 

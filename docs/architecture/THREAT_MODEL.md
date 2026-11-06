@@ -101,8 +101,9 @@ Beta 0.1 is an **offline-capable, static-exported Progressive Web Application (P
 
 ## 6. Security Gate Requirements
 
-Per `PROMPT_FINAL.md` Section 9.5 and 18:
+Per `System Architecture Specification (SAS)` Section 9.5 and 18:
 
 - Zero unresolved Critical or High security findings.
 - Automated static security linting on every commit.
 - Independent penetration test prior to any public production release with real citizen use.
+

@@ -6,7 +6,7 @@
 **Status:** active (M0 Foundation)  
 **Last updated:** 2026-11-05
 
-Per `PROMPT_FINAL.md` Section 6: The catalogue is the product. A wrong link, outdated fee, or false eligibility threshold harms real citizens.
+Per `System Architecture Specification (SAS)` Section 6: The catalogue is the product. A wrong link, outdated fee, or false eligibility threshold harms real citizens.
 
 ---
 
@@ -37,7 +37,7 @@ All catalogue revisions are tracked in Git commits and summarized in the public 
 
 ## 4. Standardized Verification Chip Taxonomy
 
-Per `UI_OVERHAUL_PROMPT.md` Section 8, chips across life areas and service cards adhere to a fixed, strictly defined taxonomy:
+Per `Design System Specification` Section 8, chips across life areas and service cards adhere to a fixed, strictly defined taxonomy:
 
 | Chip Identifier         | UI Label (English)      | Meaning & Standardised Usage                                                                                                                               |
 | :---------------------- | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -51,7 +51,7 @@ Per `UI_OVERHAUL_PROMPT.md` Section 8, chips across life areas and service cards
 
 ## 4. Standardized Verification Chip Taxonomy
 
-Per `UI_OVERHAUL_PROMPT.md` Section 8, chips across life areas and service cards adhere to a fixed, strictly defined taxonomy:
+Per `Design System Specification` Section 8, chips across life areas and service cards adhere to a fixed, strictly defined taxonomy:
 
 | Chip Identifier         | UI Label (English)      | Meaning & Standardised Usage                                                                                                                               |
 | :---------------------- | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -60,3 +60,4 @@ Per `UI_OVERHAUL_PROMPT.md` Section 8, chips across life areas and service cards
 | `no-credential-capture` | `NO CREDENTIAL CAPTURE` | Explicit privacy guarantee; user credentials, passwords, biometrics, or OTPs are never entered into or captured by this platform.                          |
 | `verified-road-links`   | `VERIFIED ROAD LINKS`   | Official Ministry of Road Transport and Highways (MoRTH) or State Transport Department verified navigation (replaces former draft "VERIFIED MORTH LINKS"). |
 | `state-municipal`       | `STATE & MUNICIPAL`     | Verified state-level or local civic administrative bodies.                                                                                                 |
+

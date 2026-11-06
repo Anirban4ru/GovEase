@@ -300,7 +300,6 @@ export function DocumentReadinessChecklist({
           paddingTop: "0.5rem",
         }}
       >
-        🔒{" "}
         {locale === "hi"
           ? "यह चेकलिस्ट केवल आपके डिवाइस पर सहेजी जाती है। कोई भी डेटा किसी सर्वर पर नहीं भेजा जाता है।"
           : "Saved locally on your device. Zero checklist data is sent to any server."}

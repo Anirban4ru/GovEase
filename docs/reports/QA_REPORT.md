@@ -6,7 +6,7 @@
 | **Document Owner**       | QA Lead / Quality Engineering Team                                                                                   |
 | **Status**               | Approved — Release 1.3 Candidate 1 Baseline (Milestone M11 Complete)                                                 |
 | **Last Updated**         | 2026-11-06                                                                                                           |
-| **Applicable Standards** | `PROMPT_FINAL.md` §14, §18; WCAG 2.2 AA; ISO/IEC/IEEE 29119 Software Testing                                         |
+| **Applicable Standards** | `System Architecture Specification (SAS)` §14, §18; WCAG 2.2 AA; ISO/IEC/IEEE 29119 Software Testing                                         |
 
 ---
 
@@ -121,4 +121,5 @@ Throughout Milestones M0 through M10, all defects identified during loop enginee
 
 ## 5. Formal QA Sign-Off
 
-All quality gates defined in `RELEASE_CHECKLIST.md` and `PROMPT_FINAL.md` §14 & §18 have passed with 100% clean evidence. The codebase is verified ready for the **Release 1.2 Candidate 1 (Milestone M10)** release.
+All quality gates defined in `RELEASE_CHECKLIST.md` and `System Architecture Specification (SAS)` §14 & §18 have passed with 100% clean evidence. The codebase is verified ready for the **Release 1.2 Candidate 1 (Milestone M10)** release.
+

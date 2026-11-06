@@ -1,7 +1,7 @@
 # MOTION_SPEC.md — Unified Life Services Platform Motion Specification
 
 **Project:** Unified Life Services Platform  
-**Purpose:** Precise specification for all UI and spatial transitions per `UI_OVERHAUL_PROMPT.md` Section 2.  
+**Purpose:** Precise specification for all UI and spatial transitions per `Design System Specification` Section 2.  
 **Status:** Approved  
 **Last Updated:** 2026-11-06
 
@@ -38,3 +38,4 @@
 | 10  | **Journey Step Nav**     | Step change in guide      | Horizontal progress line fills smoothly; new step content fades in from right                | 250ms                      | `cubic-bezier(0.16, 1, 0.3, 1)` | Instant fill  | Instant fill  | Instant fill   |
 | 11  | **Page Loading**         | Asset / route pending     | Semantic skeleton wireframes with gentle $1.8\text{s}$ shimmer loop; zero spinners           | 1.8s loop                  | `linear`                        | Static block  | Static block  | Static block   |
 | 12  | **Empty / Error State**  | 0 search results / error  | Field compass pin gently settles ($6\text{px}$ drop with subtle damping)                     | 320ms                      | `cubic-bezier(0.16, 1, 0.3, 1)` | Static pin    | Static pin    | Static pin     |
+

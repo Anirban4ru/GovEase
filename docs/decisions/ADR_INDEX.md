@@ -6,7 +6,7 @@
 **Status:** active  
 **Last updated:** 2026-11-05
 
-Per `PROMPT_FINAL.md` Section 10.1: Technology is chosen by evidence, not fashion. Every significant technical choice requires an ADR evaluated against security, maintainability, low-end device performance, accessibility, solo-developer ergonomics, and zero-budget feasibility.
+Per `System Architecture Specification (SAS)` Section 10.1: Technology is chosen by evidence, not fashion. Every significant technical choice requires an ADR evaluated against security, maintainability, low-end device performance, accessibility, solo-developer ergonomics, and zero-budget feasibility.
 
 ---
 
@@ -24,3 +24,4 @@ Per `PROMPT_FINAL.md` Section 10.1: Technology is chosen by evidence, not fashio
 | [`ADR-0010`](ADR-0010-calm-map-colour-system.md)   | Calm Map of Everyday Life Colour System      | 2026-11-06 | Approved | Ink, Ground, Ochre, Teal, Clay tokens with WCAG 2.2 AA contrast      |
 | [`ADR-0009`](ADR-0009-motion-and-3d-strategy.md)   | Motion & 3D Strategy                         | 2026-11-06 | Approved | CSS 3D baseline with conditional WebGL upgrade & static SVG fallback |
 | [`ADR-0010`](ADR-0010-calm-map-colour-system.md)   | Calm Map of Everyday Life Colour System      | 2026-11-06 | Approved | Ink, Ground, Ochre, Teal, Clay tokens with WCAG 2.2 AA contrast      |
+
