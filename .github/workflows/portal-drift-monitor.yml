@@ -1,0 +1,53 @@
+name: Autonomous Portal Drift & Health Monitor
+
+on:
+  schedule:
+    # Automatically executes weekly every Monday at 03:00 UTC (08:30 AM IST)
+    - cron: "0 3 * * 1"
+  workflow_dispatch: # Allows manual one-click trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  monitor:
+    name: Probe Official Portals & Audit Staleness
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate catalogue schemas & anti-phishing allowlist
+        run: npm run validate:catalogue
+
+      - name: Probe live official government endpoints (HTTP/HTTPS)
+        run: npm run check:links
+        continue-on-error: true
+
+      - name: Generate catalogue freshness & staleness report
+        run: npm run report:staleness
+
+      - name: Check for audit report drift
+        id: git-check
+        run: |
+          git diff --exit-code docs/catalogue/ || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit updated portal audit log
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GovEase Autonomous Monitor Bot"
+          git add docs/catalogue/
+          git commit -m "chore(audit): automated weekly portal drift and staleness update [skip ci]"
+          git push
+

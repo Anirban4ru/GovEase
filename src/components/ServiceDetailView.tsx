@@ -551,6 +551,48 @@ export function ServiceDetailView({ service, explainerGuide }: ServiceDetailView
               <strong>{locale === "hi" ? "गंतव्य भाषाएं:" : "Languages:"}</strong>{" "}
               {service.languages_at_destination.join(", ").toUpperCase()}
             </div>
+
+            {/* Autonomous Community & Drift Reporting */}
+            <div
+              style={{
+                marginTop: "0.75rem",
+                paddingTop: "0.75rem",
+                borderTop: "1px solid var(--color-border-default)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.25rem",
+              }}
+            >
+              <div style={{ fontSize: "0.72rem", color: "var(--color-content-secondary)" }}>
+                {locale === "hi"
+                  ? "क्या पोर्टल का लिंक, शुल्क या नियम बदल गए हैं?"
+                  : "Has a fee, requirement, or official URL changed?"}
+              </div>
+              <a
+                href={`https://github.com/Anirban4ru/GovEase/issues/new?title=%5BPortal+Drift%5D%3A+${encodeURIComponent(
+                  service.title.en,
+                )}+(${service.id})&body=Service+ID%3A+${service.id}%0ACurrent+URL%3A+${encodeURIComponent(
+                  service.official_url,
+                )}%0ANew+URL+or+Fee+Revision%3A+%0AOfficial+Gazette%2FNotification+Source%3A+`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.35rem",
+                  color: "var(--color-govease-navy, #0d3570)",
+                  fontWeight: 700,
+                  fontSize: "0.75rem",
+                  textDecoration: "underline",
+                }}
+              >
+                <span>
+                  {locale === "hi"
+                    ? "आधिकारिक बदलाव रिपोर्ट करें →"
+                    : "Report Verified Portal Change →"}
+                </span>
+              </a>
+            </div>
           </div>
         </aside>
       </div>
