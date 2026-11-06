@@ -1,0 +1,63 @@
+{
+  "id": "pan-card-reprint",
+  "ecosystem": "finance-and-welfare",
+  "category": "tax-identity",
+  "title": {
+    "en": "PAN Card Reprint & e-PAN Download",
+    "hi": "पैन कार्ड दोबारा मंगाना (रीप्रिंट) एवं ई-पैन डाउनलोड"
+  },
+  "goal": {
+    "en": "Order an official physical replacement PAN card or download a digital e-PAN PDF",
+    "hi": "खोया या क्षतिग्रस्त पैन कार्ड आधिकारिक डाक से दोबारा मंगाएं या डिजिटल ई-पैन डाउनलोड करें"
+  },
+  "summary": {
+    "en": "Request an official duplicate physical PAN card or download a digitally signed e-PAN PDF through Protean (formerly NSDL e-Gov), the authorized service provider for the Income Tax Department. A replacement physical PAN card is dispatched directly to the address recorded with the Income Tax Department.",
+    "hi": "आयकर विभाग के अधिकृत सेवा प्रदाता प्रोटीन (पूर्व में NSDL) के माध्यम से खोया हुआ भौतिक पैन कार्ड पुनः प्राप्त करें अथवा डिजिटल ई-पैन डाउनलोड करें। नया कार्ड आयकर रिकॉर्ड में दर्ज पते पर डाक द्वारा सुरक्षित भेजा जाता है।"
+  },
+  "provider": {
+    "name": "Income Tax Department / Protean eGov",
+    "type": "central"
+  },
+  "official_url": "https://www.onlineservices.nsdl.com/paam/ReprintEPan.html",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Available to existing PAN card holders whose latest PAN application was processed through NSDL/Protean, and where no change in PAN demographic data is requested. For updating details (name/address), a formal correction request (Form 49A Change Request) is required instead.",
+      "hi": "उन सभी पैन कार्ड धारकों के लिए उपलब्ध जिनका पैन NSDL/प्रोटीन द्वारा जारी किया गया है और विवरण में कोई बदलाव नहीं करना है। नाम या पते में संशोधन के लिए सुधार फॉर्म भरना होता है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "10-character Permanent Account Number (PAN)",
+    "Aadhaar Number (for individual taxpayers)",
+    "Month and Year of Birth (as per PAN database records)",
+    "Active mobile number linked with Aadhaar or PAN to receive OTP"
+  ],
+  "fees": {
+    "is_fee_required": true,
+    "details": "Government tariff is exactly ₹50 (inclusive of GST and Speed Post delivery) for physical dispatch within India. Downloading an electronic e-PAN PDF incurs a fee of ₹8.26 if the PAN was issued more than 30 days ago.",
+    "source_url": "https://www.onlineservices.nsdl.com/paam/ReprintEPan.html",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://www.onlineservices.nsdl.com/paam/ReprintEPan.html",
+      "title": "Protean eGov - Request for Reprint of PAN Card",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against Protean official portal on 6 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en"],
+  "accessibility_notes": "Official portal provides OTP verification and online fee receipt generation.",
+  "status": "draft-pending-human-review"
+}
+

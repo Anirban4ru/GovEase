@@ -1,0 +1,67 @@
+{
+  "id": "epf-passbook-claim-status",
+  "ecosystem": "finance-and-welfare",
+  "category": "social-security",
+  "title": {
+    "en": "EPF Member Passbook & UAN Claim Status",
+    "hi": "ईपीएफ (PF) पासबुक एवं यूएएन दावा स्थिति"
+  },
+  "goal": {
+    "en": "View monthly provident fund balance, employer contributions, and track withdrawal claims",
+    "hi": "अपने भविष्य निधि (PF) खाते का बैलेंस, जमा अंशदान और निकासी दावे की स्थिति देखें"
+  },
+  "summary": {
+    "en": "Access your official Employees' Provident Fund (EPF) passbook and track the status of settlement, transfer, or advance claims submitted through the EPFO Unified Member Portal. Salaried employees can inspect month-by-month employer and employee contributions, pension share, and annual interest credited by the central government.",
+    "hi": "कर्मचारी भविष्य निधि संगठन (EPFO) के आधिकारिक पोर्टल पर अपनी पीएफ पासबुक देखें तथा निकासी या ट्रांसफर दावों की स्थिति ट्रैक करें। वेतनभोगी कर्मचारी अपने खाते में मासिक अंशदान, पेंशन फंड और सरकार द्वारा जमा किए गए वार्षिक ब्याज का पूरा ब्योरा देख सकते हैं।"
+  },
+  "provider": {
+    "name": "Employees' Provident Fund Organisation (EPFO)",
+    "type": "central"
+  },
+  "official_url": "https://passbook.epfindia.gov.in/MemberPassBook/Login",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Open to all formal sector employees registered with EPFO whose 12-digit Universal Account Number (UAN) has been activated. Passbook access is enabled 6 hours after UAN activation on the Unified Portal.",
+      "hi": "संगठित क्षेत्र के उन सभी कर्मचारियों के लिए उपलब्ध जिनका 12 अंकों का यूनिवर्सल अकाउंट नंबर (UAN) सक्रिय है। यूएएन सक्रिय करने के 6 घंटे बाद पासबुक देखने की सुविधा शुरू होती है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "12-digit Universal Account Number (UAN)",
+    "UAN portal password set during member activation",
+    "Active mobile phone registered with Aadhaar/UAN to receive login and claim status SMS"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Viewing EPF member passbooks and tracking claim settlement status online is 100% free of charge. EPFO does not charge any fee for passbook downloads or online services.",
+    "source_url": "https://epfindia.gov.in/",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://passbook.epfindia.gov.in/MemberPassBook/Login",
+      "title": "EPFO Member Passbook & Claim Status Portal",
+      "verified_on": "2026-11-06"
+    },
+    {
+      "url": "https://epfindia.gov.in/",
+      "title": "Employees' Provident Fund Organisation - Official Website",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against EPFO official portal on 6 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal requires captcha validation and supports PDF statement downloads.",
+  "status": "draft-pending-human-review"
+}
+

@@ -62,6 +62,134 @@
     "status": "draft-pending-human-review"
   },
   {
+    "id": "epf-passbook-claim-status",
+    "ecosystem": "finance-and-welfare",
+    "category": "social-security",
+    "title": {
+      "en": "EPF Member Passbook & UAN Claim Status",
+      "hi": "ईपीएफ (PF) पासबुक एवं यूएएन दावा स्थिति"
+    },
+    "goal": {
+      "en": "View monthly provident fund balance, employer contributions, and track withdrawal claims",
+      "hi": "अपने भविष्य निधि (PF) खाते का बैलेंस, जमा अंशदान और निकासी दावे की स्थिति देखें"
+    },
+    "summary": {
+      "en": "Access your official Employees' Provident Fund (EPF) passbook and track the status of settlement, transfer, or advance claims submitted through the EPFO Unified Member Portal. Salaried employees can inspect month-by-month employer and employee contributions, pension share, and annual interest credited by the central government.",
+      "hi": "कर्मचारी भविष्य निधि संगठन (EPFO) के आधिकारिक पोर्टल पर अपनी पीएफ पासबुक देखें तथा निकासी या ट्रांसफर दावों की स्थिति ट्रैक करें। वेतनभोगी कर्मचारी अपने खाते में मासिक अंशदान, पेंशन फंड और सरकार द्वारा जमा किए गए वार्षिक ब्याज का पूरा ब्योरा देख सकते हैं।"
+    },
+    "provider": {
+      "name": "Employees' Provident Fund Organisation (EPFO)",
+      "type": "central"
+    },
+    "official_url": "https://passbook.epfindia.gov.in/MemberPassBook/Login",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Open to all formal sector employees registered with EPFO whose 12-digit Universal Account Number (UAN) has been activated. Passbook access is enabled 6 hours after UAN activation on the Unified Portal.",
+        "hi": "संगठित क्षेत्र के उन सभी कर्मचारियों के लिए उपलब्ध जिनका 12 अंकों का यूनिवर्सल अकाउंट नंबर (UAN) सक्रिय है। यूएएन सक्रिय करने के 6 घंटे बाद पासबुक देखने की सुविधा शुरू होती है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "12-digit Universal Account Number (UAN)",
+      "UAN portal password set during member activation",
+      "Active mobile phone registered with Aadhaar/UAN to receive login and claim status SMS"
+    ],
+    "fees": {
+      "is_fee_required": false,
+      "details": "Viewing EPF member passbooks and tracking claim settlement status online is 100% free of charge. EPFO does not charge any fee for passbook downloads or online services.",
+      "source_url": "https://epfindia.gov.in/",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://passbook.epfindia.gov.in/MemberPassBook/Login",
+        "title": "EPFO Member Passbook & Claim Status Portal",
+        "verified_on": "2026-11-06"
+      },
+      {
+        "url": "https://epfindia.gov.in/",
+        "title": "Employees' Provident Fund Organisation - Official Website",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against EPFO official portal on 6 Nov 2026; pending human review."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Official portal requires captcha validation and supports PDF statement downloads.",
+    "status": "draft-pending-human-review"
+  },
+  {
+    "id": "pan-card-reprint",
+    "ecosystem": "finance-and-welfare",
+    "category": "tax-identity",
+    "title": {
+      "en": "PAN Card Reprint & e-PAN Download",
+      "hi": "पैन कार्ड दोबारा मंगाना (रीप्रिंट) एवं ई-पैन डाउनलोड"
+    },
+    "goal": {
+      "en": "Order an official physical replacement PAN card or download a digital e-PAN PDF",
+      "hi": "खोया या क्षतिग्रस्त पैन कार्ड आधिकारिक डाक से दोबारा मंगाएं या डिजिटल ई-पैन डाउनलोड करें"
+    },
+    "summary": {
+      "en": "Request an official duplicate physical PAN card or download a digitally signed e-PAN PDF through Protean (formerly NSDL e-Gov), the authorized service provider for the Income Tax Department. A replacement physical PAN card is dispatched directly to the address recorded with the Income Tax Department.",
+      "hi": "आयकर विभाग के अधिकृत सेवा प्रदाता प्रोटीन (पूर्व में NSDL) के माध्यम से खोया हुआ भौतिक पैन कार्ड पुनः प्राप्त करें अथवा डिजिटल ई-पैन डाउनलोड करें। नया कार्ड आयकर रिकॉर्ड में दर्ज पते पर डाक द्वारा सुरक्षित भेजा जाता है।"
+    },
+    "provider": {
+      "name": "Income Tax Department / Protean eGov",
+      "type": "central"
+    },
+    "official_url": "https://www.onlineservices.nsdl.com/paam/ReprintEPan.html",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Available to existing PAN card holders whose latest PAN application was processed through NSDL/Protean, and where no change in PAN demographic data is requested. For updating details (name/address), a formal correction request (Form 49A Change Request) is required instead.",
+        "hi": "उन सभी पैन कार्ड धारकों के लिए उपलब्ध जिनका पैन NSDL/प्रोटीन द्वारा जारी किया गया है और विवरण में कोई बदलाव नहीं करना है। नाम या पते में संशोधन के लिए सुधार फॉर्म भरना होता है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "10-character Permanent Account Number (PAN)",
+      "Aadhaar Number (for individual taxpayers)",
+      "Month and Year of Birth (as per PAN database records)",
+      "Active mobile number linked with Aadhaar or PAN to receive OTP"
+    ],
+    "fees": {
+      "is_fee_required": true,
+      "details": "Government tariff is exactly ₹50 (inclusive of GST and Speed Post delivery) for physical dispatch within India. Downloading an electronic e-PAN PDF incurs a fee of ₹8.26 if the PAN was issued more than 30 days ago.",
+      "source_url": "https://www.onlineservices.nsdl.com/paam/ReprintEPan.html",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://www.onlineservices.nsdl.com/paam/ReprintEPan.html",
+        "title": "Protean eGov - Request for Reprint of PAN Card",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against Protean official portal on 6 Nov 2026; pending human review."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en"],
+    "accessibility_notes": "Official portal provides OTP verification and online fee receipt generation.",
+    "status": "draft-pending-human-review"
+  },
+  {
     "id": "pm-kisan-status",
     "ecosystem": "finance-and-welfare",
     "category": "agriculture-welfare",
@@ -121,6 +249,128 @@
     "feature_state": "official-link-only",
     "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides multi-language interface and voice-assisted helpbot.",
+    "status": "draft-pending-human-review"
+  },
+  {
+    "id": "ration-card-nfsa-status",
+    "ecosystem": "finance-and-welfare",
+    "category": "food-security",
+    "title": {
+      "en": "Ration Card Eligibility & NFSA Entitlement Search",
+      "hi": "राशन कार्ड पात्रता एवं राष्ट्रीय खाद्य सुरक्षा (NFSA) विवरण"
+    },
+    "goal": {
+      "en": "Verify family ration card entitlement, subsidised foodgrain quota, and Fair Price Shop details",
+      "hi": "परिवार का राशन कार्ड कोटा, पात्रता एवं सरकारी राशन दुकान (कोटेदार) का विवरण जांचें"
+    },
+    "summary": {
+      "en": "Check your family ration card details, monthly subsidised grain entitlement, and registered Fair Price Shop (FPS) on the official National Food Security Portal (NFSA). Under the One Nation One Ration Card (ONORC) scheme, eligible beneficiaries can lift their foodgrains from any Fair Price Shop across India.",
+      "hi": "राष्ट्रीय खाद्य सुरक्षा पोर्टल (NFSA) पर अपने राशन कार्ड की स्थिति, मासिक अनाज कोटा और अधिकृत राशन दुकान (उचित दर दुकान) का विवरण देखें। 'एक राष्ट्र एक राशन कार्ड' योजना के तहत पात्र लाभार्थी देश के किसी भी राज्य की राशन दुकान से अपना अनाज प्राप्त कर सकते हैं।"
+    },
+    "provider": {
+      "name": "Department of Food and Public Distribution",
+      "type": "central"
+    },
+    "official_url": "https://nfsa.gov.in/portal/know_your_ration_card",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Beneficiaries covered under Antyodaya Anna Yojana (AAY) or Priority Household (PHH) categories under the National Food Security Act (NFSA), or respective State Food Security Schemes. Requires your 12-digit Ration Card Number or Aadhaar Number.",
+        "hi": "राष्ट्रीय खाद्य सुरक्षा अधिनियम (NFSA) के अंतर्गत अंत्योदय (AAY) या प्राथमिकता गृहस्थी (PHH) श्रेणी में पंजीकृत परिवार। इसके लिए 12 अंकों का राशन कार्ड नंबर अथवा आधार नंबर आवश्यक है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "12-digit Ration Card Number (or Family Head Aadhaar Number)",
+      "Active mobile phone to receive verification captcha or authentication OTP"
+    ],
+    "fees": {
+      "is_fee_required": false,
+      "details": "Online verification of ration card details and monthly grain entitlement is 100% free of charge on the central NFSA portal. Foodgrains under PMGKAY are provided free of cost to eligible beneficiaries.",
+      "source_url": "https://nfsa.gov.in/portal/know_your_ration_card",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://nfsa.gov.in/portal/know_your_ration_card",
+        "title": "National Food Security Portal - Know Your Ration Card Details",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against NFSA central portal on 6 Nov 2026; pending human review."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Official portal provides audio captcha and state-wise direct links.",
+    "status": "draft-pending-human-review"
+  },
+  {
+    "id": "birth-certificate-crs",
+    "ecosystem": "government-and-citizen",
+    "category": "civil-registration",
+    "title": {
+      "en": "Birth & Death Registration via Civil Registration System (CRS)",
+      "hi": "जन्म एवं मृत्यु प्रमाण पत्र पंजीकरण (सिविल रजिस्ट्रेशन सिस्टम - CRS)"
+    },
+    "goal": {
+      "en": "Report a birth or download an official digitally signed birth certificate",
+      "hi": "जन्म की आधिकारिक सूचना दर्ज कराएं अथवा डिजिटल रूप से हस्ताक्षरित जन्म प्रमाण पत्र प्राप्त करें"
+    },
+    "summary": {
+      "en": "Register a birth event or search and download an official birth certificate issued through the national Civil Registration System (CRS), operated by the Office of the Registrar General of India (ORGI). Under the Registration of Births and Deaths Act, 1969, every birth must be reported to the local registrar within 21 days of occurrence.",
+      "hi": "भारत के महारजिस्ट्रार कार्यालय (ORGI) द्वारा संचालित राष्ट्रीय सिविल रजिस्ट्रेशन सिस्टम (CRS) के माध्यम से जन्म की सूचना दें अथवा डिजिटल जन्म प्रमाण पत्र डाउनलोड करें। जन्म एवं मृत्यु पंजीकरण अधिनियम 1969 के अनुसार, जन्म की सूचना 21 दिनों के भीतर स्थानीय रजिस्ट्रार को देना अनिवार्य है।"
+    },
+    "provider": {
+      "name": "Office of the Registrar General of India (ORGI)",
+      "type": "central"
+    },
+    "official_url": "https://crsorgi.gov.in/web/index.php/auth/login",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Parents or legal informants of children born within India. Institutional births in hospitals are reported directly by the hospital medical officer; domiciliary (home) births must be reported by the head of the household to the local Gram Panchayat or Municipal Registrar within 21 days.",
+        "hi": "भारत में जन्मे बच्चों के माता-पिता या कानूनी अभिभावक। अस्पताल में हुए जन्म की सूचना अस्पताल द्वारा सीधे दर्ज की जाती है; घर पर हुए जन्म की सूचना 21 दिनों के भीतर ग्राम पंचायत या नगर पालिका कार्यालय में दर्ज करानी होती है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "Hospital Birth Discharge Slip or Institutional Birth Report Form (Form 1)",
+      "Identity proof of parents (Aadhaar Card, Voter ID, or Passport)",
+      "Marriage Certificate of parents (where applicable by state registrar)",
+      "Proof of permanent or current address of parents"
+    ],
+    "fees": {
+      "is_fee_required": false,
+      "details": "Birth registration and issuance of the first copy of the birth certificate is completely free of charge if reported within 21 days of occurrence. For late registrations (after 21 days up to 30 days), a nominal state late fee (₹2 to ₹10) is charged under the RBD Act.",
+      "source_url": "https://crsorgi.gov.in/web/index.php/auth/login",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://crsorgi.gov.in/web/index.php/auth/login",
+        "title": "Civil Registration System (CRS) - Office of the Registrar General of India",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against ORGI CRS official portal on 6 Nov 2026; pending human review."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Official portal supports citizen public sign-up and online application tracking.",
     "status": "draft-pending-human-review"
   },
   {
@@ -186,6 +436,68 @@
     "feature_state": "official-link-only",
     "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal is compliant with GIGW accessibility standards.",
+    "status": "draft-pending-human-review"
+  },
+  {
+    "id": "voter-id-epic-download",
+    "ecosystem": "government-and-citizen",
+    "category": "electoral-identity",
+    "title": {
+      "en": "Voter ID Registration & e-EPIC Download",
+      "hi": "मतदाता पहचान पत्र (वोटर कार्ड) पंजीकरण एवं ई-ईपीआईसी डाउनलोड"
+    },
+    "goal": {
+      "en": "Register as a voter or download a digital color e-EPIC voter card for elections",
+      "hi": "मतदाता सूची में नाम दर्ज कराएं या चुनावों के लिए डिजिटल ई-ईपीआईसी वोटर कार्ड डाउनलोड करें"
+    },
+    "summary": {
+      "en": "Register as a new voter (Form 6) or download your digital Electoral Photo Identity Card (e-EPIC) from the Election Commission of India. An e-EPIC is a secure, portable PDF version of the voter card that is fully valid as proof of identity and for voting in all Indian elections.",
+      "hi": "भारत निर्वाचन आयोग (ECI) के आधिकारिक पोर्टल पर नए मतदाता के रूप में पंजीकरण (फॉर्म 6) करें अथवा अपना डिजिटल वोटर कार्ड (e-EPIC) डाउनलोड करें। यह डिजिटल कार्ड सभी भारतीय चुनावों में मतदान और पहचान प्रमाण के लिए पूर्णतः मान्य है।"
+    },
+    "provider": {
+      "name": "Election Commission of India (ECI)",
+      "type": "central"
+    },
+    "official_url": "https://voters.eci.gov.in/",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Must be an Indian citizen who is 18 years of age or older on the qualifying date (1st January, 1st April, 1st July, or 1st October). To download e-EPIC, you need your unique 10-digit EPIC number and access to your registered mobile phone for OTP verification.",
+        "hi": "भारतीय नागरिक जिनकी आयु पात्रता तिथि को 18 वर्ष या उससे अधिक हो। ई-ईपीआईसी डाउनलोड के लिए 10 अंकों का ईपीआईसी नंबर और पंजीकृत मोबाइल पर आने वाला ओटीपी आवश्यक है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "Passport-sized colour photograph (for new registration Form 6)",
+      "Proof of age (Birth Certificate, Aadhaar Card, PAN Card, or 10th Marksheet)",
+      "Proof of ordinary residence (Aadhaar Card, Current Electricity/Water Bill, or Bank Passbook)",
+      "Existing 10-digit EPIC Number (for existing voters downloading digital e-EPIC)"
+    ],
+    "fees": {
+      "is_fee_required": false,
+      "details": "Voter registration and electronic e-EPIC download are completely free digital public services provided by the Election Commission of India. No fee is charged for official registration or postal delivery of the physical voter card.",
+      "source_url": "https://voters.eci.gov.in/",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://voters.eci.gov.in/",
+        "title": "Election Commission of India - Voters' Services Portal",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against ECI official voters portal on 6 Nov 2026; pending human review."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Official portal supports captcha audio and OTP-based mobile authentication.",
     "status": "draft-pending-human-review"
   },
   {
@@ -379,6 +691,66 @@
     "feature_state": "official-link-only",
     "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides toll-free telephone support (1915) alongside web and SMS grievance lodging.",
+    "status": "draft-pending-human-review"
+  },
+  {
+    "id": "pmay-beneficiary-status",
+    "ecosystem": "utilities-and-local",
+    "category": "housing-welfare",
+    "title": {
+      "en": "PM Awas Yojana (PMAY-G) Beneficiary Status & Installment Tracking",
+      "hi": "प्रधानमंत्री आवास योजना (ग्रामीण) लाभार्थी स्थिति एवं किस्त विवरण"
+    },
+    "goal": {
+      "en": "Check housing sanction order, construction milestone progress, and financial subsidy transfer status",
+      "hi": "आवास स्वीकृति आदेश, मकान निर्माण की प्रगति और बैंक खाते में भेजी गई किस्त की स्थिति देखें"
+    },
+    "summary": {
+      "en": "Track sanction and financial subsidy status under Pradhan Mantri Awaas Yojana - Gramin (PMAY-G). Eligible rural households can inspect their beneficiary registration number, geotagged house construction stages (foundation, lintel, roof), Fund Transfer Orders (FTO), and direct bank account credits of government assistance.",
+      "hi": "प्रधानमंत्री आवास योजना (ग्रामीण) के तहत आवास स्वीकृति और सरकारी सहायता राशि की स्थिति जांचें। पात्र ग्रामीण परिवार अपना पंजीकरण नंबर, मकान निर्माण के विभिन्न चरणों की जियोटैग तस्वीरें और बैंक खाते में अंतरित सरकारी किस्तों (FTO) का पूरा ब्योरा ऑनलाइन देख सकते हैं।"
+    },
+    "provider": {
+      "name": "Ministry of Rural Development",
+      "type": "central"
+    },
+    "official_url": "https://pmayg.nic.in/netiayHome/home.aspx",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Homeless families and households living in kutcha or dilapidated houses in rural areas, identified through the Socio-Economic and Caste Census (SECC) or Awaas+ survey list. Requires your unique PMAY Registration Number (e.g. state code prefix followed by digits).",
+        "hi": "ग्रामीण क्षेत्रों में बेघर या कच्चे व जर्जर मकानों में रहने वाले परिवार जो सामाजिक-आर्थिक व जाति जनगणना (SECC) या आवास+ सर्वेक्षण में चिन्हित हैं। इसके लिए आपका पीएमएवाई पंजीकरण नंबर आवश्यक है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "PMAY-G Registration Number (or search by State, District, Block, Panchayat, and Family Head Name)",
+      "Aadhaar-seeded bank passbook to reconcile Fund Transfer Order (FTO) credit records"
+    ],
+    "fees": {
+      "is_fee_required": false,
+      "details": "Checking PMAY-G beneficiary status, house inspection records, and financial subsidy installment dates is 100% free of charge on the official central government portal.",
+      "source_url": "https://pmayg.nic.in/netiayHome/home.aspx",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://pmayg.nic.in/netiayHome/home.aspx",
+        "title": "Pradhan Mantri Awaas Yojana - Gramin (PMAY-G) Official Portal",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against Ministry of Rural Development portal on 6 Nov 2026; pending human review."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Official portal provides multi-level geographic drill-downs and PDF export.",
     "status": "draft-pending-human-review"
   }
 ]

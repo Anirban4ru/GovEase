@@ -1,0 +1,61 @@
+{
+  "id": "ration-card-nfsa-status",
+  "ecosystem": "finance-and-welfare",
+  "category": "food-security",
+  "title": {
+    "en": "Ration Card Eligibility & NFSA Entitlement Search",
+    "hi": "राशन कार्ड पात्रता एवं राष्ट्रीय खाद्य सुरक्षा (NFSA) विवरण"
+  },
+  "goal": {
+    "en": "Verify family ration card entitlement, subsidised foodgrain quota, and Fair Price Shop details",
+    "hi": "परिवार का राशन कार्ड कोटा, पात्रता एवं सरकारी राशन दुकान (कोटेदार) का विवरण जांचें"
+  },
+  "summary": {
+    "en": "Check your family ration card details, monthly subsidised grain entitlement, and registered Fair Price Shop (FPS) on the official National Food Security Portal (NFSA). Under the One Nation One Ration Card (ONORC) scheme, eligible beneficiaries can lift their foodgrains from any Fair Price Shop across India.",
+    "hi": "राष्ट्रीय खाद्य सुरक्षा पोर्टल (NFSA) पर अपने राशन कार्ड की स्थिति, मासिक अनाज कोटा और अधिकृत राशन दुकान (उचित दर दुकान) का विवरण देखें। 'एक राष्ट्र एक राशन कार्ड' योजना के तहत पात्र लाभार्थी देश के किसी भी राज्य की राशन दुकान से अपना अनाज प्राप्त कर सकते हैं।"
+  },
+  "provider": {
+    "name": "Department of Food and Public Distribution",
+    "type": "central"
+  },
+  "official_url": "https://nfsa.gov.in/portal/know_your_ration_card",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Beneficiaries covered under Antyodaya Anna Yojana (AAY) or Priority Household (PHH) categories under the National Food Security Act (NFSA), or respective State Food Security Schemes. Requires your 12-digit Ration Card Number or Aadhaar Number.",
+      "hi": "राष्ट्रीय खाद्य सुरक्षा अधिनियम (NFSA) के अंतर्गत अंत्योदय (AAY) या प्राथमिकता गृहस्थी (PHH) श्रेणी में पंजीकृत परिवार। इसके लिए 12 अंकों का राशन कार्ड नंबर अथवा आधार नंबर आवश्यक है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "12-digit Ration Card Number (or Family Head Aadhaar Number)",
+    "Active mobile phone to receive verification captcha or authentication OTP"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Online verification of ration card details and monthly grain entitlement is 100% free of charge on the central NFSA portal. Foodgrains under PMGKAY are provided free of cost to eligible beneficiaries.",
+    "source_url": "https://nfsa.gov.in/portal/know_your_ration_card",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://nfsa.gov.in/portal/know_your_ration_card",
+      "title": "National Food Security Portal - Know Your Ration Card Details",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against NFSA central portal on 6 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal provides audio captcha and state-wise direct links.",
+  "status": "draft-pending-human-review"
+}
+

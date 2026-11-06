@@ -1,0 +1,63 @@
+{
+  "id": "voter-id-epic-download",
+  "ecosystem": "government-and-citizen",
+  "category": "electoral-identity",
+  "title": {
+    "en": "Voter ID Registration & e-EPIC Download",
+    "hi": "मतदाता पहचान पत्र (वोटर कार्ड) पंजीकरण एवं ई-ईपीआईसी डाउनलोड"
+  },
+  "goal": {
+    "en": "Register as a voter or download a digital color e-EPIC voter card for elections",
+    "hi": "मतदाता सूची में नाम दर्ज कराएं या चुनावों के लिए डिजिटल ई-ईपीआईसी वोटर कार्ड डाउनलोड करें"
+  },
+  "summary": {
+    "en": "Register as a new voter (Form 6) or download your digital Electoral Photo Identity Card (e-EPIC) from the Election Commission of India. An e-EPIC is a secure, portable PDF version of the voter card that is fully valid as proof of identity and for voting in all Indian elections.",
+    "hi": "भारत निर्वाचन आयोग (ECI) के आधिकारिक पोर्टल पर नए मतदाता के रूप में पंजीकरण (फॉर्म 6) करें अथवा अपना डिजिटल वोटर कार्ड (e-EPIC) डाउनलोड करें। यह डिजिटल कार्ड सभी भारतीय चुनावों में मतदान और पहचान प्रमाण के लिए पूर्णतः मान्य है।"
+  },
+  "provider": {
+    "name": "Election Commission of India (ECI)",
+    "type": "central"
+  },
+  "official_url": "https://voters.eci.gov.in/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Must be an Indian citizen who is 18 years of age or older on the qualifying date (1st January, 1st April, 1st July, or 1st October). To download e-EPIC, you need your unique 10-digit EPIC number and access to your registered mobile phone for OTP verification.",
+      "hi": "भारतीय नागरिक जिनकी आयु पात्रता तिथि को 18 वर्ष या उससे अधिक हो। ई-ईपीआईसी डाउनलोड के लिए 10 अंकों का ईपीआईसी नंबर और पंजीकृत मोबाइल पर आने वाला ओटीपी आवश्यक है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Passport-sized colour photograph (for new registration Form 6)",
+    "Proof of age (Birth Certificate, Aadhaar Card, PAN Card, or 10th Marksheet)",
+    "Proof of ordinary residence (Aadhaar Card, Current Electricity/Water Bill, or Bank Passbook)",
+    "Existing 10-digit EPIC Number (for existing voters downloading digital e-EPIC)"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Voter registration and electronic e-EPIC download are completely free digital public services provided by the Election Commission of India. No fee is charged for official registration or postal delivery of the physical voter card.",
+    "source_url": "https://voters.eci.gov.in/",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://voters.eci.gov.in/",
+      "title": "Election Commission of India - Voters' Services Portal",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against ECI official voters portal on 6 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal supports captcha audio and OTP-based mobile authentication.",
+  "status": "draft-pending-human-review"
+}
+

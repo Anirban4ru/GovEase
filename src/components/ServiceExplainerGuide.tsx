@@ -3,20 +3,23 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "../context/I18nContext";
 import { usePresentationMode } from "../context/ModeContext";
-import { EXPLAINER_GUIDES, ExplainerStep } from "../lib/service-explainer-data";
+import type {
+  ExplainerStep,
+  ServiceExplainerGuide as IServiceExplainerGuide,
+} from "../lib/service-explainer-data";
 import { getJargon } from "../lib/jargon-glossary";
+import { ReadAloudButton } from "./ReadAloudButton";
 
 interface ServiceExplainerGuideProps {
-  serviceId: string;
+  guide?: IServiceExplainerGuide;
+  serviceId?: string;
 }
 
-export function ServiceExplainerGuide({ serviceId }: ServiceExplainerGuideProps) {
+export function ServiceExplainerGuide({ guide }: ServiceExplainerGuideProps) {
   const { locale } = useTranslation();
   const { mode } = usePresentationMode();
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const guide = EXPLAINER_GUIDES[serviceId];
 
   if (!guide || !guide.steps || guide.steps.length === 0) {
     return null;
@@ -27,6 +30,23 @@ export function ServiceExplainerGuide({ serviceId }: ServiceExplainerGuideProps)
   const relatedJargon = currentStep.relatedJargonKey
     ? getJargon(currentStep.relatedJargonKey)
     : undefined;
+
+  const stepNarrative = [
+    locale === "hi"
+      ? `चरण ${currentStep.stepNumber}: ${currentStep.title.hi}`
+      : `Phase ${currentStep.stepNumber}: ${currentStep.title.en}`,
+    locale === "hi" ? currentStep.summary.hi : currentStep.summary.en,
+    locale === "hi"
+      ? "मुख्य कार्यवाही: " + currentStep.actionItems.hi.join(". ")
+      : "Action steps: " + currentStep.actionItems.en.join(". "),
+    currentStep.commonPitfallWarning
+      ? locale === "hi"
+        ? "सावधानी: " + currentStep.commonPitfallWarning.hi
+        : "Caution: " + currentStep.commonPitfallWarning.en
+      : "",
+  ]
+    .filter(Boolean)
+    .join(". ");
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
     let nextIndex = index;
@@ -192,19 +212,34 @@ export function ServiceExplainerGuide({ serviceId }: ServiceExplainerGuideProps)
       >
         {/* Step Header */}
         <div style={{ marginBottom: "1.25rem" }}>
-          <span
+          <div
             style={{
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              textTransform: "uppercase",
-              color: "var(--color-brand-primary)",
-              letterSpacing: "0.05em",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "0.5rem",
+              marginBottom: "0.25rem",
             }}
           >
-            {locale === "hi"
-              ? `चरण ${currentStep.stepNumber} / ${steps.length}`
-              : `Phase ${currentStep.stepNumber} of ${steps.length}`}
-          </span>
+            <span
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                color: "var(--color-brand-primary)",
+                letterSpacing: "0.05em",
+              }}
+            >
+              {locale === "hi"
+                ? `चरण ${currentStep.stepNumber} / ${steps.length}`
+                : `Phase ${currentStep.stepNumber} of ${steps.length}`}
+            </span>
+            <ReadAloudButton
+              text={stepNarrative}
+              label={locale === "hi" ? "चरण सुनें" : "Listen to step"}
+            />
+          </div>
           <h3
             style={{
               fontSize: "1.1875rem",

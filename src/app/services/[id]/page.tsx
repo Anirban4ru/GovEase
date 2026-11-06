@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllServices, getServiceById } from "../../../lib/catalogue";
+import { getExplainerGuideForService } from "../../../lib/service-explainer-data";
 import { ServiceDetailView } from "../../../components/ServiceDetailView";
 
 interface PageProps {
@@ -38,5 +39,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  return <ServiceDetailView service={service} />;
+  const explainerGuide = getExplainerGuideForService(id);
+
+  return <ServiceDetailView service={service} explainerGuide={explainerGuide} />;
 }

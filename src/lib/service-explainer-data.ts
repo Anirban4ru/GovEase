@@ -37,6 +37,10 @@ export interface ServiceExplainerGuide {
   steps: ExplainerStep[];
 }
 
+export function getExplainerGuideForService(serviceId: string): ServiceExplainerGuide | undefined {
+  return EXPLAINER_GUIDES[serviceId];
+}
+
 export const EXPLAINER_GUIDES: Record<string, ServiceExplainerGuide> = {
   "create-abha-id": {
     serviceId: "create-abha-id",
@@ -805,6 +809,766 @@ export const EXPLAINER_GUIDES: Record<string, ServiceExplainerGuide> = {
             "हेल्पलाइन कंपनी के नोडल अधिकारी को समाधान हेतु सीधे निर्देशित करती है।",
             "डॉकेट नंबर से पोर्टल पर प्रगति ट्रैक करें।",
             "यदि 45 दिनों में समाधान न हो, तो ई-दाखिल पोर्टल के माध्यम से उपभोक्ता अदालत में केस दर्ज किया जा सकता है।",
+          ],
+        },
+      },
+    ],
+  },
+  "voter-id-epic-download": {
+    serviceId: "voter-id-epic-download",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Check Pre-requisites & Eligibility",
+          hi: "चरण 1: आवश्यक पूर्व-तैयारी एवं पात्रता जांचें",
+        },
+        summary: {
+          en: "Ensure you are 18+ and have your 10-digit EPIC number or enrollment details ready.",
+          hi: "सुनिश्चित करें कि आपकी आयु 18 वर्ष पूरी हो चुकी है और अपना 10 अंकों का ईपीआईसी नंबर या संदर्भ पर्ची तैयार रखें।",
+        },
+        actionItems: {
+          en: [
+            "Check that your age is 18 years or older on the qualifying quarterly date.",
+            "If downloading digital e-EPIC, keep your 10-digit EPIC Number (e.g. ABC1234567) ready.",
+            "Make sure your mobile number is mapped to your EPIC on the portal to receive verification OTP.",
+          ],
+          hi: [
+            "जांचें कि आपकी आयु संबंधित तिमाही में 18 वर्ष पूर्ण हो चुकी हो।",
+            "डिजिटल कार्ड डाउनलोड के लिए 10 अंकों का वोटर आईडी नंबर तैयार रखें।",
+            "ओटीपी प्राप्त करने के लिए सुनिश्चित करें कि आपका मोबाइल नंबर वोटर रिकॉर्ड से जुड़ा हो।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "The Election Commission of India provides e-EPIC downloads completely free. Never pay third-party websites offering 'instant plastic voter ID'.",
+          hi: "चुनाव आयोग डिजिटल वोटर कार्ड पूरी तरह निःशुल्क देता है। बाजार की अनधिकृत वेबसाइटों को कोई शुल्क न दें।",
+        },
+        relatedJargonKey: "epic_number",
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Open Official ECI Voters Portal",
+          hi: "चरण 2: आधिकारिक चुनाव आयोग पोर्टल खोलें",
+        },
+        summary: {
+          en: "Visit verified national portal voters.eci.gov.in.",
+          hi: "सत्यापित राष्ट्रीय पोर्टल voters.eci.gov.in पर जाएं।",
+        },
+        actionItems: {
+          en: [
+            "Verify browser address bar displays 'https://voters.eci.gov.in'.",
+            "Log in using your registered mobile number and password (or click 'Sign Up' if first time).",
+            "On the dashboard, click on 'E-EPIC Download'.",
+          ],
+          hi: [
+            "ब्राउज़र में जांचें कि पता 'https://voters.eci.gov.in' ही हो।",
+            "अपने मोबाइल नंबर और पासवर्ड से लॉगिन करें।",
+            "डैशबोर्ड पर 'E-EPIC Download' विकल्प पर क्लिक करें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Enter EPIC Number & Select State",
+          hi: "चरण 3: ईपीआईसी नंबर दर्ज करें और राज्य चुनें",
+        },
+        summary: {
+          en: "Search electoral record by EPIC number or Form Reference Number.",
+          hi: "वोटर आईडी नंबर या आवेदन संदर्भ संख्या से रिकॉर्ड खोजें।",
+        },
+        actionItems: {
+          en: [
+            "Select 'EPIC no.' option and enter your 10-character code.",
+            "Select your State/UT from the drop-down menu.",
+            "Click 'Search' to view your electoral details (Name, Relative's Name, Assembly Constituency).",
+          ],
+          hi: [
+            "'EPIC no.' विकल्प चुनें और अपना 10 अंकों का कोड भरें।",
+            "ड्रॉप-डाउन सूची से अपना राज्य चुनें।",
+            "'Search' पर क्लिक कर अपने नाम और विधानसभा क्षेत्र की पुष्टि करें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Verify Mobile OTP",
+          hi: "चरण 4: मोबाइल ओटीपी सत्यापित करें",
+        },
+        summary: {
+          en: "Enter one-time security code sent to your registered mobile number.",
+          hi: "अपने पंजीकृत मोबाइल पर भेजा गया 6 अंकों का सुरक्षा कोड दर्ज करें।",
+        },
+        actionItems: {
+          en: [
+            "Click 'Send OTP' to request the code on your linked phone.",
+            "Enter the 6-digit OTP received via SMS from ECI.",
+            "Click 'Verify' to complete electronic identity verification.",
+          ],
+          hi: [
+            "'Send OTP' पर क्लिक करें।",
+            "मोबाइल पर प्राप्त 6 अंकों का ओटीपी भरें।",
+            "'Verify' पर क्लिक करके सत्यापन पूरा करें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "If your mobile number is not registered, submit Form 8 (Correction of Entries) online to link your active mobile phone before downloading.",
+          hi: "यदि मोबाइल नंबर लिंक नहीं है, तो पहले फॉर्म 8 भरकर अपना चालू मोबाइल नंबर ऑनलाइन जोड़ें।",
+        },
+        relatedJargonKey: "ekyc",
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Download & Save Color e-EPIC PDF",
+          hi: "चरण 5: रंगीन ई-ईपीआईसी पीडीएफ डाउनलोड करें",
+        },
+        summary: {
+          en: "Download digitally signed PDF voter card containing secure QR code.",
+          hi: "डिजिटल हस्ताक्षरित एवं क्यूआर कोड युक्त आधिकारिक पीडीएफ सुरक्षित करें।",
+        },
+        actionItems: {
+          en: [
+            "Click 'Download e-EPIC' to save the official PDF to your device or DigiLocker.",
+            "The downloaded PDF features a tamper-proof QR code readable by polling officers during elections.",
+            "You can print this PDF or present it on your smartphone at your designated polling station on election day.",
+          ],
+          hi: [
+            "'Download e-EPIC' पर क्लिक करके आधिकारिक पीडीएफ डाउनलोड करें।",
+            "यह पीडीएफ चुनाव के दिन मतदान केंद्र पर पहचान पत्र के रूप में पूरी तरह मान्य है।",
+            "इसे आप अपने फोन में डिजिलॉकर में भी सुरक्षित रख सकते हैं।",
+          ],
+        },
+      },
+    ],
+  },
+  "ration-card-nfsa-status": {
+    serviceId: "ration-card-nfsa-status",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Locate Family Ration Card or Aadhaar",
+          hi: "चरण 1: परिवार का राशन कार्ड या आधार नंबर खोजें",
+        },
+        summary: {
+          en: "Keep your 12-digit Ration Card number or head of family Aadhaar ready.",
+          hi: "अपना 12 अंकों का राशन कार्ड नंबर या मुखिया का आधार नंबर तैयार रखें।",
+        },
+        actionItems: {
+          en: [
+            "Find your 12-digit State Ration Card number printed on your physical card or receipt.",
+            "If card number is misplaced, note down the Aadhaar number of any adult family member listed in the ration unit.",
+            "Note your current district and Fair Price Shop (FPS) dealer name if known.",
+          ],
+          hi: [
+            "पुराने राशन कार्ड पर लिखा 12 अंकों का राशन कार्ड नंबर निकालें।",
+            "यदि कार्ड नंबर नहीं है, तो परिवार के किसी भी सदस्य का आधार नंबर तैयार रखें।",
+            "अपने जिले और स्थानीय राशन डीलर (कोटेदार) का नाम नोट करें।",
+          ],
+        },
+        relatedJargonKey: "nfsa_rc",
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Open Official NFSA Portal",
+          hi: "चरण 2: आधिकारिक राष्ट्रीय खाद्य सुरक्षा पोर्टल खोलें",
+        },
+        summary: {
+          en: "Visit nfsa.gov.in and navigate to Know Your Ration Card.",
+          hi: "nfsa.gov.in पर जाएं और 'Know Your Ration Card' विकल्प चुनें।",
+        },
+        actionItems: {
+          en: [
+            "Open 'https://nfsa.gov.in/portal/know_your_ration_card'.",
+            "Verify the green address bar indicates the official central government domain.",
+            "Select the 'Search with Ration Card No.' radio button.",
+          ],
+          hi: [
+            "वेबसाइट 'https://nfsa.gov.in/portal/know_your_ration_card' खोलें।",
+            "जांचें कि वेबसाइट भारत सरकार के खाद्य मंत्रालय की आधिकारिक साइट हो।",
+            "'Search with Ration Card No.' विकल्प का चयन करें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Enter Card Number & Captcha",
+          hi: "चरण 3: राशन कार्ड नंबर और सुरक्षा कोड दर्ज करें",
+        },
+        summary: {
+          en: "Submit query to fetch live records from State Food Portals.",
+          hi: "राज्य खाद्य पोर्टल से लाइव रिकॉर्ड फेच करने हेतु विवरण भरें।",
+        },
+        actionItems: {
+          en: [
+            "Enter your 12-digit Ration Card Number.",
+            "Enter the visual Captcha characters displayed on screen.",
+            "Click on 'Get RC Details' to query the central database.",
+          ],
+          hi: [
+            "अपना 12 अंकों का राशन कार्ड नंबर भरें।",
+            "स्क्रीन पर दिख रहा कैप्चा कोड भरें।",
+            "'Get RC Details' पर क्लिक करें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Inspect Family Member Seeding & Category",
+          hi: "चरण 4: पारिवारिक सदस्यों के नाम और आधार सीडिंग जांचें",
+        },
+        summary: {
+          en: "Verify scheme category (PHH or AAY) and individual Aadhaar seeding status.",
+          hi: "योजना की श्रेणी (PHH या अंत्योदय) और परिवार के सभी सदस्यों की आधार सीडिंग स्थिति जांचें।",
+        },
+        actionItems: {
+          en: [
+            "Check that Scheme shows 'PHH' (Priority Household) or 'AAY' (Antyodaya).",
+            "Review the list of family members; ensure UID Seeding status shows 'YES' for all members.",
+            "Identify the registered Fair Price Shop (FPS) ID and dealer name for collection.",
+          ],
+          hi: [
+            "जांचें कि योजना की श्रेणी 'PHH' या 'AAY' (अंत्योदय) दर्ज हो।",
+            "जांचें कि परिवार के सभी सदस्यों के नाम के आगे आधार सीडिंग में 'YES' लिखा हो।",
+            "अपनी अधिकृत राशन दुकान (कोटेदार) का नाम और आईडी नोट करें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Under One Nation One Ration Card (ONORC), you can collect your foodgrain entitlement from ANY ration shop in India using biometric ePOS authentication.",
+          hi: "वन नेशन वन राशन कार्ड के तहत आप देश के किसी भी शहर की सरकारी राशन दुकान से बायोमेट्रिक अंगूठा लगाकर अपना राशन ले सकते हैं।",
+        },
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: View Monthly Grain Entitlement & Entitled Quota",
+          hi: "चरण 5: मासिक अनाज कोटा और पात्रता की जांच करें",
+        },
+        summary: {
+          en: "Check exact monthly kilograms of wheat, rice, and coarse grains allocated.",
+          hi: "प्रति सदस्य 5 किलो (या अंत्योदय पर 35 किलो) खाद्यान्न का आधिकारिक कोटा देखें।",
+        },
+        actionItems: {
+          en: [
+            "Verify your monthly allocation: 5 kg per person for PHH cards, or 35 kg per family for AAY cards.",
+            "Government foodgrains under PMGKAY are distributed 100% free of charge; do not pay dealers extra per-kg charges.",
+            "Save or print the RC details sheet to resolve any distribution dispute with the local dealer.",
+          ],
+          hi: [
+            "अपना मासिक कोटा जांचें: प्राथमिकता परिवारों को प्रति व्यक्ति 5 किलो, अंत्योदय परिवारों को 35 किलो।",
+            "पीएम गरीब कल्याण अन्न योजना के तहत अनाज पूरी तरह निःशुल्क है; कोटेदार को कोई पैसा न दें।",
+            "आवश्यकता पड़ने पर विवरण पर्ची का प्रिंट निकालें।",
+          ],
+        },
+      },
+    ],
+  },
+  "pan-card-reprint": {
+    serviceId: "pan-card-reprint",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Check Pre-requisites & Official Fee",
+          hi: "चरण 1: आवश्यक पूर्व-तैयारी एवं सरकारी शुल्क जांचें",
+        },
+        summary: {
+          en: "Keep your 10-character PAN and Aadhaar number ready; fee is exactly ₹50.",
+          hi: "अपना 10 अक्षरों का पैन नंबर और आधार नंबर तैयार रखें; सरकारी शुल्क मात्र ₹50 है।",
+        },
+        actionItems: {
+          en: [
+            "Have your 10-character Permanent Account Number (PAN) ready (format: ABCDE1234F).",
+            "Ensure you have your 12-digit Aadhaar number for individual identity reconciliation.",
+            "Official fee for reprint and postal delivery within India is exactly ₹50 (inclusive of GST).",
+          ],
+          hi: [
+            "अपना 10 अक्षरों का पैन नंबर नोट करके रखें।",
+            "सत्यापन के लिए अपना 12 अंकों का आधार नंबर पास रखें।",
+            "स्पीड पोस्ट से नया कार्ड घर मंगाने का आधिकारिक सरकारी शुल्क मात्र ₹50 है।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Beware of commercial intermediary websites charging ₹150–₹400 for PAN reprint. The official Protean/Income Tax tariff is strictly ₹50.",
+          hi: "निजी एजेंटों और फर्जी वेबसाइटों से बचें जो ₹200 से ₹400 वसूलते हैं। आधिकारिक शुल्क केवल ₹50 है।",
+        },
+        relatedJargonKey: "epan",
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Open Protean Official PAN Portal",
+          hi: "चरण 2: आधिकारिक प्रोटीन (NSDL) पोर्टल खोलें",
+        },
+        summary: {
+          en: "Open onlineservices.nsdl.com reprint page.",
+          hi: "onlineservices.nsdl.com रीप्रिंट पोर्टल पर जाएं।",
+        },
+        actionItems: {
+          en: [
+            "Open 'https://www.onlineservices.nsdl.com/paam/ReprintEPan.html'.",
+            "Confirm the URL begins with the verified domain 'onlineservices.nsdl.com'.",
+            "Read the introductory conditions regarding address dispatch.",
+          ],
+          hi: [
+            "वेबसाइट 'https://www.onlineservices.nsdl.com/paam/ReprintEPan.html' खोलें।",
+            "जांचें कि वेबसाइट प्रोटीन (NSDL) के आधिकारिक डोमेन पर है।",
+            "पते पर कार्ड भेजने संबंधी नियम पढ़ें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Enter PAN, Aadhaar & Date of Birth",
+          hi: "चरण 3: पैन, आधार और जन्मतिथि दर्ज करें",
+        },
+        summary: {
+          en: "Provide taxpayer identifiers to match against Income Tax Department records.",
+          hi: "आयकर रिकॉर्ड से मिलान के लिए पैन और आधार विवरण भरें।",
+        },
+        actionItems: {
+          en: [
+            "Type your 10-character PAN in capital letters.",
+            "Type your 12-digit Aadhaar Number.",
+            "Select Month and Year of Birth matching your PAN record.",
+            "Tick the consent box agreeing to use Aadhaar demographic data for reprint authentication.",
+          ],
+          hi: [
+            "बड़े अक्षरों में अपना पैन नंबर भरें।",
+            "अपना 12 अंकों का आधार नंबर दर्ज करें।",
+            "पैन रिकॉर्ड के अनुसार जन्म का महीना और वर्ष चुनें।",
+            "सहमति चेकबॉक्स पर टिक करें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Verify OTP on Mobile or Email",
+          hi: "चरण 4: मोबाइल या ईमेल पर ओटीपी सत्यापित करें",
+        },
+        summary: {
+          en: "Select destination for security code and verify identity.",
+          hi: "सुरक्षा कोड प्राप्त करने का माध्यम चुनें और सत्यापन पूरा करें।",
+        },
+        actionItems: {
+          en: [
+            "Choose where to receive OTP: 'Mobile Number', 'Email ID', or 'Both'.",
+            "Click 'Generate OTP' and enter the 6-digit code received.",
+            "Click 'Validate' to confirm identity.",
+          ],
+          hi: [
+            "ओटीपी विकल्प चुनें: 'Mobile Number' या 'Email ID'।",
+            "'Generate OTP' दबाएं और प्राप्त कोड भरें।",
+            "'Validate' पर क्लिक करके आगे बढ़ें।",
+          ],
+        },
+        relatedJargonKey: "ekyc",
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Pay Official ₹50 Fee & Download Receipt",
+          hi: "चरण 5: ₹50 सरकारी शुल्क का भुगतान करें और पावती रसीद लें",
+        },
+        summary: {
+          en: "Complete online payment; physical card is dispatched by Speed Post.",
+          hi: "यूपीआई या कार्ड से ₹50 भुगतान करें; कार्ड स्पीड पोस्ट से घर भेजा जाता है।",
+        },
+        actionItems: {
+          en: [
+            "Select payment mode (UPI, Debit Card, Netbanking) via BillDesk / Paytm gateway.",
+            "Pay ₹50.00; do not refresh the browser until confirmation appears.",
+            "Download and save the official Acknowledgement Receipt with your 15-digit Acknowledgement Number to track postal dispatch.",
+          ],
+          hi: [
+            "यूपीआई, डेबिट कार्ड या नेट बैंकिंग से ₹50 का ऑनलाइन भुगतान पूरा करें।",
+            "भुगतान पुष्टि होने तक ब्राउज़र बंद न करें।",
+            "15 अंकों की पावती रसीद डाउनलोड करें जिससे आप डाक विभाग की डिलीवरी ट्रैक कर सकें।",
+          ],
+        },
+      },
+    ],
+  },
+  "epf-passbook-claim-status": {
+    serviceId: "epf-passbook-claim-status",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Locate Active 12-Digit UAN & Password",
+          hi: "चरण 1: अपना 12 अंकों का यूएएन (UAN) और पासवर्ड निकालें",
+        },
+        summary: {
+          en: "Have your activated Universal Account Number and portal password ready.",
+          hi: "अपना सक्रिय यूनिवर्सल अकाउंट नंबर और ईपीएफओ पासवर्ड तैयार रखें।",
+        },
+        actionItems: {
+          en: [
+            "Find your 12-digit UAN printed on your monthly salary slip.",
+            "Ensure your UAN has been activated on the EPFO Unified Portal (unifiedportal-mem.epfindia.gov.in).",
+            "If password is forgotten, use the 'Forgot Password' feature on the Unified Member Portal to reset via Aadhaar OTP.",
+          ],
+          hi: [
+            "अपनी वेतन पर्ची (सैलरी स्लिप) पर लिखा 12 अंकों का यूएएन नंबर निकालें।",
+            "सुनिश्चित करें कि आपका यूएएन नंबर सक्रिय हो चुका है।",
+            "यदि पासवर्ड भूल गए हैं, तो आधार ओटीपी के जरिए पहले नया पासवर्ड बनाएं।",
+          ],
+        },
+        relatedJargonKey: "uan_number",
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Open Official EPFO Passbook Portal",
+          hi: "चरण 2: आधिकारिक ईपीएफओ पासबुक पोर्टल खोलें",
+        },
+        summary: {
+          en: "Visit passbook.epfindia.gov.in.",
+          hi: "passbook.epfindia.gov.in पोर्टल पर जाएं।",
+        },
+        actionItems: {
+          en: [
+            "Open 'https://passbook.epfindia.gov.in/MemberPassBook/Login'.",
+            "Confirm the URL matches the official EPFO subdomain.",
+            "Review service maintenance announcements on the login screen.",
+          ],
+          hi: [
+            "पोर्टल 'https://passbook.epfindia.gov.in/MemberPassBook/Login' खोलें।",
+            "जांचें कि पता आधिकारिक ईपीएफओ पोर्टल का ही है।",
+            "स्क्रीन पर दिए गए निर्देश पढ़ें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Enter UAN, Password & Mathematical Captcha",
+          hi: "चरण 3: यूएएन, पासवर्ड और कैप्चा भरकर लॉगिन करें",
+        },
+        summary: {
+          en: "Authenticate to enter the member financial dashboard.",
+          hi: "अपने सदस्य डैशबोर्ड में प्रवेश करने हेतु लॉगिन करें।",
+        },
+        actionItems: {
+          en: [
+            "Enter your 12-digit UAN.",
+            "Enter your member password.",
+            "Solve the arithmetic calculation captcha (e.g. 45 + 5 = 50).",
+            "Click 'Sign In' to access your account.",
+          ],
+          hi: [
+            "अपना 12 अंकों का यूएएन भरें।",
+            "अपना पासवर्ड भरें।",
+            "गणितीय कैप्चा हल करें।",
+            "'Sign In' पर क्लिक करें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Select Member ID & View Balance Breakdown",
+          hi: "चरण 4: मेंबर आईडी चुनें और पीएफ बैलेंस का विवरण देखें",
+        },
+        summary: {
+          en: "Select employer establishment to inspect month-wise contributions.",
+          hi: "कंपनी का चयन करें और मासिक जमा राशि व ब्याज देखें।",
+        },
+        actionItems: {
+          en: [
+            "From the drop-down menu, select the Member ID of your current or previous employer.",
+            "View the graphical balance overview: Employee Share, Employer Share, and Pension Contribution.",
+            "Click 'Download Passbook' to save the complete year-wise ledger in PDF format.",
+          ],
+          hi: [
+            "ड्रॉप-डाउन सूची से अपनी कंपनी की मेंबर आईडी चुनें।",
+            "कर्मचारी अंशदान, कंपनी अंशदान और पेंशन फंड का अलग-अलग बैलेंस देखें।",
+            "'Download Passbook' पर क्लिक करके वार्षिक पीडीएफ डाउनलोड करें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Track Online Claim Status",
+          hi: "चरण 5: ऑनलाइन निकासी दावे की स्थिति ट्रैक करें",
+        },
+        summary: {
+          en: "Monitor advance, full withdrawal, or transfer claims submitted.",
+          hi: "पीएफ एडवांस या अंतिम निकासी दावे की प्रगति देखें।",
+        },
+        actionItems: {
+          en: [
+            "Click on the 'Claims' tab from the top navigation bar.",
+            "Check status of pending claims (e.g. Under Process, Field Office Approved, or Settled).",
+            "If claim was settled, note the bank payment dispatch date and NEFT reference number.",
+          ],
+          hi: [
+            "शीर्ष मेनू से 'Claims' विकल्प पर क्लिक करें।",
+            "दावे की स्थिति जांचें (जैसे Under Process या Settled)।",
+            "यदि दावा स्वीकृत हो गया है, तो बैंक भुगतान की तारीख और एनईएफटी नंबर देखें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "EPFO never charges any commission or fee for claim settlement. Never share your UAN password or Aadhaar OTP with any agent.",
+          hi: "पीएफ निकासी के लिए ईपीएफओ कोई कमीशन नहीं लेता। अपना यूएएन पासवर्ड या ओटीपी किसी के साथ साझा न करें।",
+        },
+      },
+    ],
+  },
+  "pmay-beneficiary-status": {
+    serviceId: "pmay-beneficiary-status",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Locate PMAY Registration Number",
+          hi: "चरण 1: अपना पीएमएवाई पंजीकरण नंबर खोजें",
+        },
+        summary: {
+          en: "Find your rural housing registration code or search via Gram Panchayat name.",
+          hi: "अपना ग्रामीण आवास रजिस्ट्रेशन नंबर निकालें अथवा ग्राम पंचायत से खोजें।",
+        },
+        actionItems: {
+          en: [
+            "Look for your PMAY-G Registration ID (e.g. UP123456789) on your survey slip or sanction letter.",
+            "If you do not know your registration ID, you can search using your State, District, Block, Panchayat, and Beneficiary Name.",
+            "Keep the beneficiary's bank account number ready for verification.",
+          ],
+          hi: [
+            "अपनी आवास सर्वे पर्ची पर लिखा पीएमएवाई रजिस्ट्रेशन नंबर निकालें।",
+            "यदि नंबर याद नहीं है, तो अपने राज्य, जिले, ब्लॉक और ग्राम पंचायत से खोजें।",
+            "सत्यापन के लिए लाभार्थी का बैंक खाता नंबर पास रखें।",
+          ],
+        },
+        relatedJargonKey: "pmay_fto",
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Open Official PMAY-G Portal",
+          hi: "चरण 2: आधिकारिक पीएमएवाई-जी पोर्टल खोलें",
+        },
+        summary: {
+          en: "Visit pmayg.nic.in official central portal.",
+          hi: "pmayg.nic.in आधिकारिक केंद्रीय पोर्टल पर जाएं।",
+        },
+        actionItems: {
+          en: [
+            "Open 'https://pmayg.nic.in/netiayHome/home.aspx'.",
+            "Ensure the URL belongs to the verified 'pmayg.nic.in' domain.",
+            "In the top navigation menu, hover over 'Stakeholders' and click on 'IAY/PMAYG Beneficiary'.",
+          ],
+          hi: [
+            "वेबसाइट 'https://pmayg.nic.in/netiayHome/home.aspx' खोलें।",
+            "जांचें कि पोर्टल भारत सरकार के ग्रामीण विकास मंत्रालय का हो।",
+            "मेनू में 'Stakeholders' के अंतर्गत 'IAY/PMAYG Beneficiary' पर क्लिक करें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Enter Registration Number & Submit",
+          hi: "चरण 3: पंजीकरण संख्या दर्ज करें और सबमिट करें",
+        },
+        summary: {
+          en: "Input your beneficiary ID to load the complete housing dossier.",
+          hi: "पूरी आवास फाइल देखने के लिए अपना रजिस्ट्रेशन नंबर भरें।",
+        },
+        actionItems: {
+          en: [
+            "Type your complete Registration Number in the search box.",
+            "Click on the 'Submit' button.",
+            "If searching without number, click 'Advanced Search' and select your State, District, Block, and Panchayat.",
+          ],
+          hi: [
+            "सर्च बॉक्स में अपना रजिस्ट्रेशन नंबर भरें।",
+            "'Submit' बटन पर क्लिक करें।",
+            "यदि नंबर नहीं है, तो 'Advanced Search' पर जाकर अपना जिला और ग्राम पंचायत चुनें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Inspect Sanction Order & Geotagged Construction Stages",
+          hi: "चरण 4: आवास स्वीकृति और निर्माण की जियोटैग तस्वीरें जांचें",
+        },
+        summary: {
+          en: "Review house sanctioned amount and field officer inspection photos.",
+          hi: "स्वीकृत सहायता राशि (₹1.20 लाख) और अधिकारी द्वारा ली गई निर्माण की फोटो देखें।",
+        },
+        actionItems: {
+          en: [
+            "Verify personal and bank account details: ensure Bank Account Status reads 'Verified'.",
+            "Inspect Sanction Details: Total Sanctioned Amount (typically ₹1,20,000 in plains / ₹1,30,000 in hilly areas).",
+            "View House Inspection Photographs uploaded by local officials at foundation, lintel, and roof levels.",
+          ],
+          hi: [
+            "जांचें कि बैंक खाता स्थिति में 'Verified' लिखा हो।",
+            "स्वीकृत राशि जांचें (मैदानी क्षेत्रों में ₹1,20,000 / पहाड़ी क्षेत्रों में ₹1,30,000)।",
+            "नींव, खिड़की और छत स्तर पर अधिकारियों द्वारा अपलोड की गई तस्वीरें देखें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Track Installment Payments & Bank FTO Status",
+          hi: "चरण 5: किस्तों का भुगतान और बैंक एफ़टीओ स्थिति ट्रैक करें",
+        },
+        summary: {
+          en: "Verify FTO generation dates and direct bank account credits.",
+          hi: "खाते में भेजी गई पहली, दूसरी और तीसरी किस्त की तारीख और यूटीआर नंबर देखें।",
+        },
+        actionItems: {
+          en: [
+            "Review the Installment Table: Installment 1 (foundation), Installment 2 (lintel), Installment 3 (completion).",
+            "Note down the Fund Transfer Order (FTO) number and bank credit date for each stage.",
+            "If payment shows failed or rejected, report immediately to your Gram Panchayat Secretary or Block Development Officer (BDO).",
+          ],
+          hi: [
+            "किस्त तालिका देखें: पहली किस्त (नींव), दूसरी किस्त (दीवार/छत), तीसरी किस्त (पूर्णता)।",
+            "एफ़टीओ (FTO) नंबर और खाते में पैसा आने की तारीख नोट करें।",
+            "यदि भुगतान रुका हुआ है, तो ग्राम पंचायत सचिव या ब्लॉक अधिकारी से संपर्क करें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "PMAY-G funds are transferred 100% directly from central treasury to your bank account via DBT. Never pay any fee or bribe to local middlemen claiming to sanction housing.",
+          hi: "आवास का पैसा सीधे सरकारी खजाने से आपके बैंक खाते में आता है। आवास स्वीकृत कराने के नाम पर किसी को कोई रिश्वत न दें।",
+        },
+      },
+    ],
+  },
+  "birth-certificate-crs": {
+    serviceId: "birth-certificate-crs",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Check Pre-requisites & 21-Day Rule",
+          hi: "चरण 1: आवश्यक पूर्व-तैयारी एवं 21 दिन का नियम जांचें",
+        },
+        summary: {
+          en: "Ensure birth is reported within 21 days for free registration.",
+          hi: "सुनिश्चित करें कि जन्म की सूचना 21 दिन के भीतर दी जा रही हो जिससे पंजीकरण पूर्णतः निःशुल्क रहे।",
+        },
+        actionItems: {
+          en: [
+            "Under the RBD Act 1969, reporting within 21 days of birth is legally mandated and 100% free of charge.",
+            "Keep the Hospital Birth Discharge Slip or Form 1 (Institutional Birth Report) ready.",
+            "Have scanned copies of parents' identity proofs (Aadhaar Card, Voter ID, or Passport).",
+          ],
+          hi: [
+            "कानूनन 21 दिन के भीतर जन्म की सूचना देना अनिवार्य और पूरी तरह निःशुल्क है।",
+            "अस्पताल की डिस्चार्ज पर्ची या जन्म रिपोर्ट (फॉर्म 1) तैयार रखें।",
+            "माता-पिता के पहचान पत्र (आधार या वोटर कार्ड) की प्रति रखें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "If birth occurred in a hospital, the hospital registrar automatically enters the report on CRS. Do not submit a duplicate home birth application.",
+          hi: "यदि जन्म अस्पताल में हुआ है, तो अस्पताल प्रशासन स्वयं इसे दर्ज करता है। घर पर हुए जन्म का ही अलग से फॉर्म भरें।",
+        },
+        relatedJargonKey: "crs_registration",
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Open Official CRS Portal",
+          hi: "चरण 2: आधिकारिक सिविल रजिस्ट्रेशन सिस्टम पोर्टल खोलें",
+        },
+        summary: {
+          en: "Visit crsorgi.gov.in national portal.",
+          hi: "crsorgi.gov.in राष्ट्रीय पोर्टल पर जाएं।",
+        },
+        actionItems: {
+          en: [
+            "Open 'https://crsorgi.gov.in/web/index.php/auth/login'.",
+            "Verify the domain is 'crsorgi.gov.in' under the Registrar General of India.",
+            "If applying for a home birth, click on 'General Public Signup' to create a citizen account.",
+          ],
+          hi: [
+            "पोर्टल 'https://crsorgi.gov.in/web/index.php/auth/login' खोलें।",
+            "जांचें कि पोर्टल भारत के महारजिस्ट्रार (ORGI) का ही हो।",
+            "घर में हुए जन्म के लिए 'General Public Signup' पर क्लिक करके खाता बनाएं।",
+          ],
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Enter Child & Parents Information",
+          hi: "चरण 3: शिशु एवं माता-पिता का विवरण भरें",
+        },
+        summary: {
+          en: "Provide exact date, place of birth, and parents' permanent address.",
+          hi: "जन्म की सही तारीख, स्थान और माता-पिता का स्थायी पता दर्ज करें।",
+        },
+        actionItems: {
+          en: [
+            "Fill in Date of Birth, Gender, and Child Name (if already named; naming can also be done within 1 year).",
+            "Enter Mother's and Father's full names, Aadhaar numbers, and education levels as required by national statistics.",
+            "Enter the exact address where the birth occurred (House No., Street, Village/Town, District, Pin Code).",
+          ],
+          hi: [
+            "जन्म तिथि, लिंग और शिशु का नाम (यदि तय हो चुका है) भरें।",
+            "माता और पिता का पूरा नाम व आधार नंबर भरें।",
+            "जन्म का सही स्थान (मकान नंबर, गांव/शहर, पिन कोड) भरें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Upload Hospital Report & ID Proofs",
+          hi: "चरण 4: जन्म पर्ची और पहचान पत्र अपलोड करें",
+        },
+        summary: {
+          en: "Upload supporting proof and submit to local registrar.",
+          hi: "प्रमाण पत्र अपलोड करें और स्थानीय रजिस्ट्रार को सबमिट करें।",
+        },
+        actionItems: {
+          en: [
+            "Upload scanned copy of the institutional discharge slip or head of family declaration in PDF.",
+            "Upload identity and address proofs of parents.",
+            "Review the draft summary and click 'Submit' to transmit to the local Gram Panchayat or Municipal Registrar office.",
+          ],
+          hi: [
+            "अस्पताल की पर्ची या घोषणा पत्र की पीडीएफ फाइल अपलोड करें।",
+            "माता-पिता के पहचान पत्र अपलोड करें।",
+            "विवरण जांचने के बाद फॉर्म स्थानीय रजिस्ट्रार (ग्राम पंचायत/नगर पालिका) को सबमिट करें।",
+          ],
+        },
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Track Approval & Download Digitally Signed Certificate",
+          hi: "चरण 5: स्वीकृति ट्रैक करें और डिजिटल प्रमाणपत्र डाउनलोड करें",
+        },
+        summary: {
+          en: "Download official QR-coded birth certificate once approved by the registrar.",
+          hi: "रजिस्ट्रार द्वारा स्वीकृति मिलते ही आधिकारिक क्यूआर कोड वाला प्रमाणपत्र डाउनलोड करें।",
+        },
+        actionItems: {
+          en: [
+            "Track application status using your Application Reference Number.",
+            "The Registrar verifies documents and signs the electronic certificate within 7 to 14 working days.",
+            "Download the official digitally signed Birth Certificate PDF featuring government emblem and verification QR code.",
+          ],
+          hi: [
+            "आवेदन संदर्भ संख्या से पोर्टल पर प्रगति ट्रैक करें।",
+            "रजिस्ट्रार द्वारा 7 से 14 दिनों में डिजिटल हस्ताक्षर कर प्रमाणपत्र जारी किया जाता है।",
+            "आधिकारिक क्यूआर कोड युक्त जन्म प्रमाण पत्र डाउनलोड करें।",
           ],
         },
       },

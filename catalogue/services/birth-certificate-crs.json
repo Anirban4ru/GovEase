@@ -1,0 +1,63 @@
+{
+  "id": "birth-certificate-crs",
+  "ecosystem": "government-and-citizen",
+  "category": "civil-registration",
+  "title": {
+    "en": "Birth & Death Registration via Civil Registration System (CRS)",
+    "hi": "जन्म एवं मृत्यु प्रमाण पत्र पंजीकरण (सिविल रजिस्ट्रेशन सिस्टम - CRS)"
+  },
+  "goal": {
+    "en": "Report a birth or download an official digitally signed birth certificate",
+    "hi": "जन्म की आधिकारिक सूचना दर्ज कराएं अथवा डिजिटल रूप से हस्ताक्षरित जन्म प्रमाण पत्र प्राप्त करें"
+  },
+  "summary": {
+    "en": "Register a birth event or search and download an official birth certificate issued through the national Civil Registration System (CRS), operated by the Office of the Registrar General of India (ORGI). Under the Registration of Births and Deaths Act, 1969, every birth must be reported to the local registrar within 21 days of occurrence.",
+    "hi": "भारत के महारजिस्ट्रार कार्यालय (ORGI) द्वारा संचालित राष्ट्रीय सिविल रजिस्ट्रेशन सिस्टम (CRS) के माध्यम से जन्म की सूचना दें अथवा डिजिटल जन्म प्रमाण पत्र डाउनलोड करें। जन्म एवं मृत्यु पंजीकरण अधिनियम 1969 के अनुसार, जन्म की सूचना 21 दिनों के भीतर स्थानीय रजिस्ट्रार को देना अनिवार्य है।"
+  },
+  "provider": {
+    "name": "Office of the Registrar General of India (ORGI)",
+    "type": "central"
+  },
+  "official_url": "https://crsorgi.gov.in/web/index.php/auth/login",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Parents or legal informants of children born within India. Institutional births in hospitals are reported directly by the hospital medical officer; domiciliary (home) births must be reported by the head of the household to the local Gram Panchayat or Municipal Registrar within 21 days.",
+      "hi": "भारत में जन्मे बच्चों के माता-पिता या कानूनी अभिभावक। अस्पताल में हुए जन्म की सूचना अस्पताल द्वारा सीधे दर्ज की जाती है; घर पर हुए जन्म की सूचना 21 दिनों के भीतर ग्राम पंचायत या नगर पालिका कार्यालय में दर्ज करानी होती है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Hospital Birth Discharge Slip or Institutional Birth Report Form (Form 1)",
+    "Identity proof of parents (Aadhaar Card, Voter ID, or Passport)",
+    "Marriage Certificate of parents (where applicable by state registrar)",
+    "Proof of permanent or current address of parents"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Birth registration and issuance of the first copy of the birth certificate is completely free of charge if reported within 21 days of occurrence. For late registrations (after 21 days up to 30 days), a nominal state late fee (₹2 to ₹10) is charged under the RBD Act.",
+    "source_url": "https://crsorgi.gov.in/web/index.php/auth/login",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://crsorgi.gov.in/web/index.php/auth/login",
+      "title": "Civil Registration System (CRS) - Office of the Registrar General of India",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against ORGI CRS official portal on 6 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal supports citizen public sign-up and online application tracking.",
+  "status": "draft-pending-human-review"
+}
+

@@ -5,6 +5,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [0.1.0-beta.2] - 2026-11-06 (Beta 0.2 Candidate)
+
+### Added
+
+- **Catalogue Expansion (12 Total Services):** Doubled verified coverage from 6 to 12 essential citizen digital services across all 6 life ecosystems:
+  - Voter ID Registration & e-EPIC Download (ECI, `voters.eci.gov.in`)
+  - Ration Card NFSA Eligibility & Ration Quota Status (DFPD, `nfsa.gov.in`)
+  - PAN Card Physical Reprint & e-PAN Download (Income Tax / Protean, `onlineservices.nsdl.com`)
+  - EPF Member Passbook & UAN Claim Tracking (EPFO, `passbook.epfindia.gov.in`)
+  - PM Awas Yojana (PMAY-G) Beneficiary & FTO Installment Tracking (MoRD, `pmayg.nic.in`)
+  - Birth & Death Registration via Civil Registration System (ORGI, `crsorgi.gov.in`)
+- **Domain Allow-list Expansion:** Added 7 verified government domains to `catalogue/domain-allowlist.json` (17 domains total).
+- **Client-Side Voice Read-Aloud Engine (`useSpeechSynthesis`):** Accessible, zero-network speech synthesis using browser `window.speechSynthesis`. Automatically selects localized Hindi (`hi-IN`) and Indian English (`en-IN`) voices, with currency sanitization (₹ &rarr; Rupees) and rate 0.95 civic tempo.
+- **Accessible ReadAloudButton Component:** High-contrast toggle component with WCAG 2.5.3 compliant Label in Name, keyboard triggers (Space/Enter/Esc), and Assisted Mode visual highlighting.
+- **5-Phase Explainer Guides for All 12 Services:** 60 total sequential walkthrough phases in `src/lib/service-explainer-data.ts`.
+- **Bureaucratic Jargon Glossary Expansion:** Added plain 6th-grade definitions for _EPIC_, _NFSA Ration Quota_, _UAN_, _CRS Registration_, _PMAY FTO_, and _e-PAN_.
+- **Search Intent Map & Benchmark Expansion:** Added comprehensive synonyms, vernacular terms, and typos for all 12 services, scaling the benchmark test set to 174 queries. Maintained **100.0% Top-1 accuracy**.
+- **Server Component Explainer Slicing:** Architecture optimization passing sliced guides from Server Component page directly to client view, dropping client JS by ~18KB and keeping all 22 routes within strict performance budgets.
+- **Test Suite Expansion:** 40 Vitest unit tests and 228 Playwright E2E tests passing with 0 axe-core accessibility violations across 6 responsive viewports (320px to 1440px).
+
+---
+
 ## [0.1.0-beta.1] - 2026-11-06 (Beta 0.1 Candidate)
 
 ### Added

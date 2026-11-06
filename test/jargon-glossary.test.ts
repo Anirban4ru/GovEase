@@ -3,7 +3,20 @@ import { JARGON_GLOSSARY, getJargon, getAllJargon } from "../src/lib/jargon-glos
 
 describe("Bureaucratic Jargon Glossary", () => {
   it("should contain all required core public service jargon terms", () => {
-    const requiredKeys = ["ekyc", "otr", "dbt", "abha_address", "sarathi_selection", "pvc_card"];
+    const requiredKeys = [
+      "ekyc",
+      "otr",
+      "dbt",
+      "abha_address",
+      "sarathi_selection",
+      "pvc_card",
+      "epic_number",
+      "nfsa_rc",
+      "uan_number",
+      "pmay_fto",
+      "crs_registration",
+      "epan",
+    ];
     for (const key of requiredKeys) {
       expect(JARGON_GLOSSARY[key]).toBeDefined();
       expect(JARGON_GLOSSARY[key].term).toBeTruthy();

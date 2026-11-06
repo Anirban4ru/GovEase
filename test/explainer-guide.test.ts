@@ -10,9 +10,15 @@ describe("Service Explainer Guide Data", () => {
     "pm-kisan-status",
     "aadhaar-pvc-card",
     "consumer-helpline-grievance",
+    "voter-id-epic-download",
+    "ration-card-nfsa-status",
+    "pan-card-reprint",
+    "epf-passbook-claim-status",
+    "pmay-beneficiary-status",
+    "birth-certificate-crs",
   ];
 
-  it("should have complete 5-step explainer guides for all 6 seed services", () => {
+  it("should have complete 5-step explainer guides for all 12 services", () => {
     for (const serviceId of seedServiceIds) {
       const guide = EXPLAINER_GUIDES[serviceId];
       expect(guide, `Guide missing for ${serviceId}`).toBeDefined();

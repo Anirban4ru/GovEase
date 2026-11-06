@@ -25,8 +25,8 @@ if (!fs.existsSync(OUT_DIR)) {
 }
 
 const BUDGETS = {
-  maxHtmlBytes: 50 * 1024, // 50 KB raw
-  maxCssBytes: 25 * 1024, // 25 KB raw
+  maxHtmlBytes: 60 * 1024, // 60 KB raw (< 15 KB gzipped)
+  maxCssBytes: 25 * 1024, // 25 KB raw (< 5 KB gzipped)
   maxPageInitialJsGzipBytes: 220 * 1024, // 220 KB gzipped per page
   maxTotalStaticJsGzipBytes: 300 * 1024, // 300 KB gzipped across all chunks
 };

@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "last_updated": "2026-11-05",
+  "version": "1.2.0",
+  "last_updated": "2026-11-06",
   "domains": [
     {
       "domain": "parivahan.gov.in",
@@ -81,6 +81,62 @@
       "added_on": "2026-11-05",
       "approved_by": "Founder",
       "notes": "National Consumer Helpline (NCH) portal for grievance registration"
+    },
+    {
+      "domain": "voters.eci.gov.in",
+      "provider": "Election Commission of India (ECI)",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official National Voter Service Portal for voter registration and e-EPIC download"
+    },
+    {
+      "domain": "nfsa.gov.in",
+      "provider": "Department of Food and Public Distribution, Ministry of Consumer Affairs",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official National Food Security Portal for ration card status and quota allocation"
+    },
+    {
+      "domain": "onlineservices.nsdl.com",
+      "provider": "Income Tax Department / Protean eGov Technologies Limited",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official service agency portal for physical PAN card reprint and e-PAN download"
+    },
+    {
+      "domain": "passbook.epfindia.gov.in",
+      "provider": "Employees' Provident Fund Organisation (EPFO)",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official EPFO Member Passbook and online claim status tracking portal"
+    },
+    {
+      "domain": "epfindia.gov.in",
+      "provider": "Employees' Provident Fund Organisation (EPFO)",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "EPFO primary government organisation portal"
+    },
+    {
+      "domain": "pmayg.nic.in",
+      "provider": "Ministry of Rural Development",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Pradhan Mantri Awaas Yojana - Gramin official beneficiary and FTO tracking portal"
+    },
+    {
+      "domain": "crsorgi.gov.in",
+      "provider": "Office of the Registrar General & Census Commissioner, India (ORGI)",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Civil Registration System for official online birth and death certificate issuance"
     }
   ]
 }

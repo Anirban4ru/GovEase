@@ -2,6 +2,7 @@
 
 import React, { useSyncExternalStore, useCallback } from "react";
 import { useTranslation } from "../context/I18nContext";
+import { ReadAloudButton } from "./ReadAloudButton";
 
 interface DocumentReadinessChecklistProps {
   serviceId: string;
@@ -128,26 +129,36 @@ export function DocumentReadinessChecklist({
           </p>
         </div>
 
-        {readyCount > 0 && (
-          <button
-            type="button"
-            onClick={handleReset}
-            style={{
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              color: "var(--color-content-secondary)",
-              backgroundColor: "transparent",
-              border: "1px solid var(--color-border-default)",
-              borderRadius: "var(--radius-xs)",
-              padding: "0.25rem 0.625rem",
-              cursor: "pointer",
-              minHeight: "32px",
-            }}
-            aria-label={locale === "hi" ? "चेकलिस्ट रीसेट करें" : "Reset checklist ticks"}
-          >
-            {locale === "hi" ? "रीसेट करें" : "Reset"}
-          </button>
-        )}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
+          <ReadAloudButton
+            text={
+              locale === "hi"
+                ? `आवश्यक दस्तावेज सूची: ${documents.join(", ")}। कुल ${total} दस्तावेज।`
+                : `Required documents: ${documents.join(", ")}. Total ${total} documents.`
+            }
+            label={locale === "hi" ? "दस्तावेज सुनें" : "Listen to docs"}
+          />
+          {readyCount > 0 && (
+            <button
+              type="button"
+              onClick={handleReset}
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                color: "var(--color-content-secondary)",
+                backgroundColor: "transparent",
+                border: "1px solid var(--color-border-default)",
+                borderRadius: "var(--radius-xs)",
+                padding: "0.25rem 0.625rem",
+                cursor: "pointer",
+                minHeight: "32px",
+              }}
+              aria-label={locale === "hi" ? "चेकलिस्ट रीसेट करें" : "Reset checklist ticks"}
+            >
+              {locale === "hi" ? "रीसेट करें" : "Reset"}
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Progress Metric Bar */}

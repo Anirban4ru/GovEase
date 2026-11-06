@@ -1,0 +1,61 @@
+{
+  "id": "pmay-beneficiary-status",
+  "ecosystem": "utilities-and-local",
+  "category": "housing-welfare",
+  "title": {
+    "en": "PM Awas Yojana (PMAY-G) Beneficiary Status & Installment Tracking",
+    "hi": "प्रधानमंत्री आवास योजना (ग्रामीण) लाभार्थी स्थिति एवं किस्त विवरण"
+  },
+  "goal": {
+    "en": "Check housing sanction order, construction milestone progress, and financial subsidy transfer status",
+    "hi": "आवास स्वीकृति आदेश, मकान निर्माण की प्रगति और बैंक खाते में भेजी गई किस्त की स्थिति देखें"
+  },
+  "summary": {
+    "en": "Track sanction and financial subsidy status under Pradhan Mantri Awaas Yojana - Gramin (PMAY-G). Eligible rural households can inspect their beneficiary registration number, geotagged house construction stages (foundation, lintel, roof), Fund Transfer Orders (FTO), and direct bank account credits of government assistance.",
+    "hi": "प्रधानमंत्री आवास योजना (ग्रामीण) के तहत आवास स्वीकृति और सरकारी सहायता राशि की स्थिति जांचें। पात्र ग्रामीण परिवार अपना पंजीकरण नंबर, मकान निर्माण के विभिन्न चरणों की जियोटैग तस्वीरें और बैंक खाते में अंतरित सरकारी किस्तों (FTO) का पूरा ब्योरा ऑनलाइन देख सकते हैं।"
+  },
+  "provider": {
+    "name": "Ministry of Rural Development",
+    "type": "central"
+  },
+  "official_url": "https://pmayg.nic.in/netiayHome/home.aspx",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Homeless families and households living in kutcha or dilapidated houses in rural areas, identified through the Socio-Economic and Caste Census (SECC) or Awaas+ survey list. Requires your unique PMAY Registration Number (e.g. state code prefix followed by digits).",
+      "hi": "ग्रामीण क्षेत्रों में बेघर या कच्चे व जर्जर मकानों में रहने वाले परिवार जो सामाजिक-आर्थिक व जाति जनगणना (SECC) या आवास+ सर्वेक्षण में चिन्हित हैं। इसके लिए आपका पीएमएवाई पंजीकरण नंबर आवश्यक है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "PMAY-G Registration Number (or search by State, District, Block, Panchayat, and Family Head Name)",
+    "Aadhaar-seeded bank passbook to reconcile Fund Transfer Order (FTO) credit records"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Checking PMAY-G beneficiary status, house inspection records, and financial subsidy installment dates is 100% free of charge on the official central government portal.",
+    "source_url": "https://pmayg.nic.in/netiayHome/home.aspx",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://pmayg.nic.in/netiayHome/home.aspx",
+      "title": "Pradhan Mantri Awaas Yojana - Gramin (PMAY-G) Official Portal",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against Ministry of Rural Development portal on 6 Nov 2026; pending human review."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal provides multi-level geographic drill-downs and PDF export.",
+  "status": "draft-pending-human-review"
+}
+

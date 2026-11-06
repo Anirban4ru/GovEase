@@ -8,12 +8,15 @@ import { useSavedServices } from "../hooks/useSavedServices";
 import { OutboundHandoffModal } from "./OutboundHandoffModal";
 import { DocumentReadinessChecklist } from "./DocumentReadinessChecklist";
 import { ServiceExplainerGuide } from "./ServiceExplainerGuide";
+import { ReadAloudButton } from "./ReadAloudButton";
+import type { ServiceExplainerGuide as IServiceExplainerGuide } from "../lib/service-explainer-data";
 
 interface ServiceDetailViewProps {
   service: CatalogueService;
+  explainerGuide?: IServiceExplainerGuide;
 }
 
-export function ServiceDetailView({ service }: ServiceDetailViewProps) {
+export function ServiceDetailView({ service, explainerGuide }: ServiceDetailViewProps) {
   const { locale } = useTranslation();
   const { isSaved: checkIsSaved, toggleSave } = useSavedServices();
   const [isHandoffModalOpen, setIsHandoffModalOpen] = useState(false);
@@ -214,16 +217,28 @@ export function ServiceDetailView({ service }: ServiceDetailViewProps) {
         <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
           {/* Summary */}
           <section>
-            <h2
+            <div
               style={{
-                fontSize: "1.125rem",
-                fontWeight: 700,
-                color: "var(--color-content-primary)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                flexWrap: "wrap",
+                gap: "0.5rem",
                 marginBottom: "0.5rem",
               }}
             >
-              {locale === "hi" ? "सेवा का विवरण" : "Overview & Purpose"}
-            </h2>
+              <h2
+                style={{
+                  fontSize: "1.125rem",
+                  fontWeight: 700,
+                  color: "var(--color-content-primary)",
+                  margin: 0,
+                }}
+              >
+                {locale === "hi" ? "सेवा का विवरण" : "Overview & Purpose"}
+              </h2>
+              <ReadAloudButton text={`${title}. ${goal}. ${summary}`} />
+            </div>
             <p
               style={{
                 fontSize: "1rem",
@@ -237,7 +252,7 @@ export function ServiceDetailView({ service }: ServiceDetailViewProps) {
           </section>
 
           {/* Interactive Step-by-Step Explainer Guide */}
-          <ServiceExplainerGuide serviceId={service.id} />
+          <ServiceExplainerGuide guide={explainerGuide} serviceId={service.id} />
 
           {/* Interactive Document Readiness Checklist */}
           <DocumentReadinessChecklist
