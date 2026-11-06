@@ -87,6 +87,12 @@ jobs:
       - name: Build Next.js static export
         run: npm run build
 
+      - name: Verify production container packaging & security drill
+        run: npm run docker:verify
+
+      - name: Build production container image
+        run: npm run docker:build
+
   e2e:
     name: End-to-End & Accessibility Tests (Playwright)
     runs-on: ubuntu-latest

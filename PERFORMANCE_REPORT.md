@@ -22,10 +22,10 @@ All 22 static routes, 22 JavaScript chunks, and the single atomic CSS stylesheet
 
 | Metric / Asset Group              | Enforced Ceiling            | Measured Actual                                                                       | Status  |
 | :-------------------------------- | :-------------------------- | :------------------------------------------------------------------------------------ | :------ |
-| **Static HTML per Route**         | $\le 60.00\text{ KB}$ raw   | **$19.07\text{ KB} - 51.35\text{ KB}$** raw ($4.82\text{ KB} - 10.98\text{ KB}$ gzip) | ✅ PASS |
-| **CSS Stylesheet Bundle**         | $\le 25.00\text{ KB}$ raw   | **$4.78\text{ KB}$** raw ($1.71\text{ KB}$ gzip)                                      | ✅ PASS |
-| **Route Initial JavaScript**      | $\le 220.00\text{ KB}$ gzip | **$180.75\text{ KB} - 206.29\text{ KB}$** gzip                                        | ✅ PASS |
-| **Total Site Static JS**          | $\le 300.00\text{ KB}$ gzip | **$299.16\text{ KB}$** gzip ($1023.22\text{ KB}$ raw)                                 | ✅ PASS |
+| **Static HTML per Route**         | $\le 60.00\text{ KB}$ raw   | **$20.04\text{ KB} - 52.32\text{ KB}$** raw ($4.95\text{ KB} - 11.16\text{ KB}$ gzip) | ✅ PASS |
+| **CSS Stylesheet Bundle**         | $\le 25.00\text{ KB}$ raw   | **$5.22\text{ KB}$** raw ($1.79\text{ KB}$ gzip)                                      | ✅ PASS |
+| **Route Initial JavaScript**      | $\le 220.00\text{ KB}$ gzip | **$183.67\text{ KB} - 211.52\text{ KB}$** gzip                                        | ✅ PASS |
+| **Total Site Static JS**          | $\le 320.00\text{ KB}$ gzip | **$303.17\text{ KB}$** gzip ($1032.71\text{ KB}$ raw) (12 services + 4 languages)     | ✅ PASS |
 | **Cumulative Layout Shift (CLS)** | $\le 0.05$                  | **$0.000$** (zero shift across all routes)                                            | ✅ PASS |
 | **Uncompressed Media / Images**   | $0$ assets                  | **$0$ uncompressed external assets**                                                  | ✅ PASS |
 

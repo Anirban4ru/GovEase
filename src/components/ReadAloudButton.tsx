@@ -25,15 +25,27 @@ export function ReadAloudButton({ text, label, size = "sm" }: ReadAloudButtonPro
     if (isPlaying) {
       stop();
     } else {
-      speak(text, locale === "hi" ? "hi" : "en");
+      speak(text, locale);
     }
   };
 
+  const stopLabels: Record<string, string> = {
+    en: "Stop reading",
+    hi: "आवाज बंद करें",
+    bn: "পড়া বন্ধ করুন",
+    ta: "வாசிப்பதை நிறுத்துங்கள்",
+  };
+
+  const defaultReadLabels: Record<string, string> = {
+    en: "Read aloud",
+    hi: "सुनें (बोलकर पढ़ें)",
+    bn: "শুনুন (পড়ে শোনান)",
+    ta: "கேளுங்கள் (சத்தமாக வாசிக்கவும்)",
+  };
+
   const defaultLabel = isPlaying
-    ? locale === "hi"
-      ? "आवाज बंद करें"
-      : "Stop reading"
-    : label || (locale === "hi" ? "सुनें (बोलकर पढ़ें)" : "Read aloud");
+    ? stopLabels[locale] || stopLabels.en
+    : label || defaultReadLabels[locale] || defaultReadLabels.en;
 
   const isAssisted = mode === "assisted";
 

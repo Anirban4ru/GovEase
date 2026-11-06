@@ -41,21 +41,40 @@ test.describe("App Shell - Core Layout & Accessibility", () => {
     expect(criticalOrSerious).toEqual([]);
   });
 
-  test("switches language between English and Hindi while preserving context", async ({ page }) => {
+  test("switches language between English, Hindi, Bengali, and Tamil while preserving context", async ({
+    page,
+  }) => {
     await page.goto("/");
 
     // Default English
     await expect(page.locator("h1")).toContainText("Discover, Understand, and Reach");
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
 
     // Switch to Hindi
-    await page.getByRole("button", { name: "हिंदी" }).click();
-
-    // Verify Hindi content rendered
+    await page.getByRole("button", { name: /Hindi/i }).first().click();
     await expect(page.locator("h1")).toContainText("आवश्यक सार्वजनिक सेवाओं को आसानी से खोजें");
     await expect(page.locator("html")).toHaveAttribute("lang", "hi");
 
+    // Switch to Bengali
+    await page
+      .getByRole("button", { name: /Bengali/i })
+      .first()
+      .click();
+    await expect(page.locator("h1")).toContainText("প্রয়োজনীয় জনসেবাগুলি সহজে খুঁজুন");
+    await expect(page.locator("html")).toHaveAttribute("lang", "bn");
+
+    // Switch to Tamil
+    await page.getByRole("button", { name: /Tamil/i }).first().click();
+    await expect(page.locator("h1")).toContainText(
+      "அத்தியாவசிய பொதுச் சேவைகளை எளிதாகக் கண்டறிந்து",
+    );
+    await expect(page.locator("html")).toHaveAttribute("lang", "ta");
+
     // Switch back to English
-    await page.getByRole("button", { name: "EN" }).click();
+    await page
+      .getByRole("button", { name: /English/i })
+      .first()
+      .click();
     await expect(page.locator("h1")).toContainText("Discover, Understand, and Reach");
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
   });

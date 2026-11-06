@@ -36,7 +36,9 @@
   "languages": {
     "label": "Language",
     "en": "English",
-    "hi": "हिंदी"
+    "hi": "हिंदी",
+    "bn": "বাংলা",
+    "ta": "தமிழ்"
   },
   "footer": {
     "about": "About This Initiative",

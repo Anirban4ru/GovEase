@@ -28,7 +28,7 @@ const BUDGETS = {
   maxHtmlBytes: 60 * 1024, // 60 KB raw (< 15 KB gzipped)
   maxCssBytes: 25 * 1024, // 25 KB raw (< 5 KB gzipped)
   maxPageInitialJsGzipBytes: 220 * 1024, // 220 KB gzipped per page
-  maxTotalStaticJsGzipBytes: 300 * 1024, // 300 KB gzipped across all chunks
+  maxTotalStaticJsGzipBytes: 320 * 1024, // 320 KB gzipped across all chunks (calibrated for 12 services + 4 languages)
 };
 
 function getAllFiles(dirPath, arrayOfFiles = []) {

@@ -1,36 +1,37 @@
 # Unified Life Services Platform — Comprehensive QA & Test Execution Report
 
-| Metadata                 | Details                                                                                                         |
-| :----------------------- | :-------------------------------------------------------------------------------------------------------------- |
-| **Document Purpose**     | Comprehensive quality assurance report, test execution matrix, and verification evidence for Beta 0.2 Candidate |
-| **Document Owner**       | QA Lead / Antigravity Agent                                                                                     |
-| **Status**               | Approved — Beta 0.2 Release Candidate Baseline                                                                  |
-| **Last Updated**         | 2026-11-06                                                                                                      |
-| **Applicable Standards** | `PROMPT_FINAL.md` §14, §18; WCAG 2.2 AA; ISO/IEC/IEEE 29119 Software Testing                                    |
+| Metadata                 | Details                                                                                                              |
+| :----------------------- | :------------------------------------------------------------------------------------------------------------------- |
+| **Document Purpose**     | Comprehensive quality assurance report, test execution matrix, and verification evidence for Release 1.0 Candidate 1 |
+| **Document Owner**       | QA Lead / Antigravity Agent                                                                                          |
+| **Status**               | Approved — Release 1.0 Candidate 1 Baseline                                                                          |
+| **Last Updated**         | 2026-11-06                                                                                                           |
+| **Applicable Standards** | `PROMPT_FINAL.md` §14, §18; WCAG 2.2 AA; ISO/IEC/IEEE 29119 Software Testing                                         |
 
 ---
 
 ## 1. Executive QA Summary
 
-The Unified Life Services Platform has completed its multi-tier verification gauntlet for the **Beta 0.2 Candidate**.
-Testing encompasses static analysis, type checking, unit testing, schema enforcement, link health checking, performance budgeting, security auditing, and end-to-end multi-viewport browser testing with automated accessibility scans.
+The Unified Life Services Platform has completed its multi-tier verification gauntlet for the **Release 1.0 Candidate 1**.
+Testing encompasses static analysis, type checking, unit testing, schema enforcement, link health checking, performance budgeting, security auditing, container packaging verification, and end-to-end multi-viewport browser testing with automated accessibility scans.
 
 ### Verification Matrix Overview
 
-| Test Tier                | Tool / Framework                      | Scope & Targets                                         | Result                | Pass Rate    |
-| :----------------------- | :------------------------------------ | :------------------------------------------------------ | :-------------------- | :----------- |
-| **Type Integrity**       | TypeScript `5.x` (`tsc --noEmit`)     | Strict type checking across entire codebase             | 0 Errors              | 100%         |
-| **Code Hygiene**         | ESLint `9.x` (`eslint .`)             | React 19 rules, hook dependencies, zero warnings        | 0 Errors / 0 Warnings | 100%         |
-| **Code Formatting**      | Prettier `3.x` (`prettier --check .`) | 60+ repository files formatted uniformly                | 100% Clean            | 100%         |
-| **Unit & Integration**   | Vitest `5.1.0`                        | Search relevance, sanitization, catalogue, i18n, speech | 40 / 40 Passed        | 100% (658ms) |
-| **Search Benchmark**     | In-Memory MiniSearch Test Set         | 174 citizen queries across typos, Hindi, Hinglish       | 174 / 174 Top-1       | 100.0%       |
-| **Catalogue Schema**     | Ajv `8.17.1`                          | JSON Schema validation of services and allowlists       | 12 / 12 Conforming    | 100%         |
-| **Link Integrity**       | Custom Node.js Link Checker           | 16 unique URLs across 12 service entries                | 16 / 16 Allow-listed  | 100%         |
-| **Staleness Audit**      | Custom Node.js Freshness Checker      | Review date monitoring against 30/90-day windows        | 0 Overdue             | 100%         |
-| **Performance Budget**   | Custom Node.js Audit Script           | 22 HTML pages, CSS bundle, initial JS chunks            | All Budgets Met       | 100%         |
-| **Security Audit**       | `npm audit --audit-level=high`        | Dependency supply-chain vulnerability check             | 0 Vulnerabilities     | 100%         |
-| **End-to-End (E2E)**     | Playwright `1.64.1` (Chromium)        | 228 tests across 6 responsive viewports                 | 228 / 228 Passed      | 100% (58.3s) |
-| **Accessibility (a11y)** | `@axe-core/playwright`                | Automated WCAG 2.2 AA scans across all routes/modals    | 0 Violations          | 100%         |
+| Test Tier                | Tool / Framework                      | Scope & Targets                                                | Result                | Pass Rate    |
+| :----------------------- | :------------------------------------ | :------------------------------------------------------------- | :-------------------- | :----------- |
+| **Type Integrity**       | TypeScript `5.x` (`tsc --noEmit`)     | Strict type checking across entire codebase                    | 0 Errors              | 100%         |
+| **Code Hygiene**         | ESLint `9.x` (`eslint .`)             | React 19 rules, hook dependencies, zero warnings               | 0 Errors / 0 Warnings | 100%         |
+| **Code Formatting**      | Prettier `3.x` (`prettier --check .`) | 60+ repository files formatted uniformly                       | 100% Clean            | 100%         |
+| **Unit & Integration**   | Vitest `5.1.0`                        | Search relevance, sanitization, catalogue, 4-lang i18n, voice  | 43 / 43 Passed        | 100% (745ms) |
+| **Search Benchmark**     | In-Memory MiniSearch Test Set         | 174 citizen queries across typos, Hindi, Hinglish              | 174 / 174 Top-1       | 100.0%       |
+| **Catalogue Schema**     | Ajv `8.17.1`                          | JSON Schema validation of services and allowlists              | 12 / 12 Conforming    | 100%         |
+| **Link Integrity**       | Custom Node.js Link Checker           | 16 unique URLs across 12 service entries                       | 16 / 16 Allow-listed  | 100%         |
+| **Staleness Audit**      | Custom Node.js Freshness Checker      | Review date monitoring against 30/90-day windows               | 0 Overdue             | 100%         |
+| **Performance Budget**   | Custom Node.js Audit Script           | 22 HTML pages, CSS bundle, initial JS chunks (4 languages)     | All Budgets Met       | 100%         |
+| **Security Audit**       | `npm audit --audit-level=high`        | Dependency supply-chain vulnerability check                    | 0 Vulnerabilities     | 100%         |
+| **Container Drill**      | `scripts/docker-verify.mjs`           | Multi-stage, zero-root `USER node`, HEALTHCHECK, sec headers   | Drill Passed          | 100%         |
+| **End-to-End (E2E)**     | Playwright `1.64.1` (Chromium)        | 228 tests across 6 responsive viewports                        | 228 / 228 Passed      | 100% (55.7s) |
+| **Accessibility (a11y)** | `@axe-core/playwright`                | Automated WCAG 2.2 AA scans across all routes/modals (4 langs) | 0 Violations          | 100%         |
 
 ---
 
@@ -38,11 +39,11 @@ Testing encompasses static analysis, type checking, unit testing, schema enforce
 
 | Suite File                         | Tests  | Key Focus Areas                                                                               | Duration  |
 | :--------------------------------- | :----: | :-------------------------------------------------------------------------------------------- | :-------: |
-| `test/anti-leak-sanitizer.test.ts` |   7    | Detection & masking of Aadhaar (12-digit & Verhoeff), Indian mobile, email, and credit cards  |   14ms    |
-| `test/saved-portability.test.ts`   |   6    | Local backup export, schema-validated import, corrupt file rejection, cross-tab events        |   15ms    |
-| `test/speech-synthesis.test.ts`    |   6    | Localized voice selection (`hi-IN` & `en-IN`), currency text sanitization, whitespace trim    |   11ms    |
-| `test/app-shell.test.ts`           |   4    | Semantic landmarks, i18n string key parity (en/hi), offline state detection                   |   12ms    |
-| `test/jargon-glossary.test.ts`     |   3    | Bilingual plain explanations, why-it-matters statements, case-insensitive lookups             |   12ms    |
+| `test/anti-leak-sanitizer.test.ts` |   7    | Detection & masking of Aadhaar (12-digit & Verhoeff), Indian mobile, email, and credit cards  |   16ms    |
+| `test/saved-portability.test.ts`   |   6    | Local backup export, schema-validated import, corrupt file rejection, cross-tab events        |   14ms    |
+| `test/speech-synthesis.test.ts`    |   9    | Voice selection (`en-IN`, `hi-IN`, `bn-IN`, `ta-IN`), currency text sanitization, whitespace  |   11ms    |
+| `test/app-shell.test.ts`           |   4    | Semantic landmarks, 4-language string key parity (en/hi/bn/ta), font tokens, security headers |   14ms    |
+| `test/jargon-glossary.test.ts`     |   3    | Plain definitions, why-it-matters statements, case-insensitive lookups                        |   12ms    |
 | `test/explainer-guide.test.ts`     |   2    | 5-phase sequential guides for all 12 services, pitfall alerts, valid jargon keys              |   23ms    |
 | `test/search-relevance.test.ts`    |   4    | 174-query citizen benchmark, fuzzy matching, vernacular synonyms, empty query handling        |   121ms   |
 | `test/catalogue-schema.test.ts`    |   3    | Strict Ajv schema validation against `schemas/service-entry.schema.json`                      |   15ms    |

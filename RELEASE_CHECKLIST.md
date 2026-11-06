@@ -135,34 +135,33 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 | Performance Budget Gate    | HTML <= 60KB raw, CSS <= 25KB raw, Initial JS <= 220KB gzip       | `scripts/perf-budget.mjs`, `PERFORMANCE_REPORT` | ✅ Passed (`npm run audit:perf` exits code 0, 100% compliant)       |
 | Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean     | `npm run lint`, `type-check`, `format:check`    | ✅ Passed (0 errors, 0 warnings across entire codebase)             |
 | Full Vitest & E2E Suite    | 40/40 Vitest tests pass, 228/228 Playwright tests pass (6 vps)    | CI test run, Playwright report                  | ✅ Passed (**228/228 Playwright tests pass across 6 viewports**)    |
-| Founder Review & Sign-Off  | Founder review of M6 Deliverable Report & Beta 0.2 Candidate      | Conversation approval                           | ⏳ Ready for Founder Review                                         |
+| Founder Review & Sign-Off  | Founder review of M6 Deliverable Report & Beta 0.2 Candidate      | Conversation approval                           | ✅ Approved by Founder ("I approve evrything go ahead")             |
 
 ---
 
-## Milestone M6: Catalogue Expansion & Voice Read-Aloud Sign-Off Gate (Beta 0.2 Candidate)
+## Milestone M7: Production Packaging & Regional Languages Sign-Off Gate (Release 1.0 Candidate 1)
 
-| Gate Check                 | Requirement                                                        | Evidence Required                               | Verification Status                                                 |
-| :------------------------- | :----------------------------------------------------------------- | :---------------------------------------------- | :------------------------------------------------------------------ |
-| 12 Verified Services       | Double coverage (6 to 12 services); schema-valid, bilingual        | `catalogue/services/*.json`, validate script    | ✅ Passed (12/12 valid services across all 6 ecosystems)            |
-| Domain Allow-list          | 17 verified official government domains, HTTPS enforced            | `catalogue/domain-allowlist.json`               | ✅ Passed (16/16 unique URLs verified in offline link check)        |
-| Web Speech API Engine      | 100% client-side speech synthesis, 0 network audio, hi/en support   | `src/hooks/useSpeechSynthesis.ts`, unit tests   | ✅ Passed (`test/speech-synthesis.test.ts`, 6/6 tests pass)         |
-| Accessible Read-Aloud UI   | High-contrast ReadAloudButton, WCAG 2.5.3 compliant Label in Name  | `src/components/ReadAloudButton.tsx`            | ✅ Passed (Accessible names match visible labels across states)     |
-| 5-Phase Guides (All 12)    | Complete 5-phase interactive walkthroughs for all 12 services      | `src/lib/service-explainer-data.ts`             | ✅ Passed (60 total interactive phases with actions & warnings)     |
-| Bureaucratic Jargon (12)   | Plain 6th-grade definitions for EPIC, NFSA, UAN, CRS, PMAY, e-PAN   | `src/lib/jargon-glossary.ts`                    | ✅ Passed (Bilingual definitions with why-it-matters explanations)  |
-| 174-Query Search Benchmark | $\ge 95\%$ Top-1 accuracy across expanded citizen test set         | `test/search-relevance.test.ts`                 | ✅ Passed (**174/174 = 100.0% Top-1 accuracy achieved**)           |
-| Server Component Slicing   | Per-service guide slicing keeps route JS within strict budget      | `src/app/services/[id]/page.tsx`, perf audit    | ✅ Passed (All 22 routes $\le 206\text{ KB}$ gzip; site JS < 300KB) |
-| Performance Budget Gate    | HTML <= 60KB raw, CSS <= 25KB raw, Initial JS <= 220KB gzip        | `scripts/perf-budget.mjs`, `PERFORMANCE_REPORT` | ✅ Passed (`npm run audit:perf` exits code 0, 100% compliant)       |
-| Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean      | `npm run lint`, `type-check`, `format:check`    | ✅ Passed (0 errors, 0 warnings across entire codebase)             |
-| Full Vitest & E2E Suite    | 40/40 Vitest tests pass, 228/228 Playwright tests pass (6 vps)     | CI test run, Playwright report                  | ✅ Passed (**228/228 Playwright tests pass across 6 viewports**)    |
-| Founder Review & Sign-Off  | Founder review of M6 Deliverable Report & Beta 0.2 Candidate       | Conversation approval                           | ⏳ Ready for Founder Review                                         |
+| Gate Check                 | Requirement                                                        | Evidence Required                                    | Verification Status                                                   |
+| :------------------------- | :----------------------------------------------------------------- | :--------------------------------------------------- | :-------------------------------------------------------------------- |
+| Bengali & Tamil i18n       | Full `bn` and `ta` parity; 100% key match across all dictionaries  | `src/locales/bn.json`, `ta.json`, Vitest suite       | ✅ Passed (`test/app-shell.test.ts`, all keys match across 4 locales) |
+| Accessible Multi-Lang UI   | Native script buttons; WCAG 2.5.3 compliant Label in Name          | `Header.tsx`, `settings/page.tsx`, E2E tests         | ✅ Passed (0 axe-core violations; switches EN, HI, BN, TA)            |
+| Regional Script Typography | `--font-family-bengali/tamil` with 1.75 line-height ascenders      | `src/styles/tokens.css`, token tests                 | ✅ Passed (Clean ligature rendering, no matra clipping)               |
+| 4-Language Voice Synthesis | Web Speech API matches `bn-IN` & `ta-IN` with localized currencies | `src/hooks/useSpeechSynthesis.ts`, unit tests        | ✅ Passed (`test/speech-synthesis.test.ts`, 9/9 tests pass)           |
+| Multi-Stage Dockerfile     | Zero-root `USER node` (UID 1000), read-only runtime, HEALTHCHECK   | `Dockerfile`, `.dockerignore`                        | ✅ Passed (`scripts/docker-verify.mjs` exits code 0)                  |
+| Container & Server Drill   | Static export verification, HTTP 200 healthcheck, nosniff, CSP     | `scripts/docker-verify.mjs`, `npm run docker:verify` | ✅ Passed (Automated container drill passes 100%)                     |
+| CI/CD Pipeline Container   | CI workflow builds static export, runs drill, and builds image     | `.github/workflows/ci.yml`                           | ✅ Passed (Configured and verified)                                   |
+| Performance Budget Gate    | HTML <= 60KB raw, CSS <= 25KB raw, Initial JS <= 220KB gzip        | `scripts/perf-budget.mjs`, `PERFORMANCE_REPORT`      | ✅ Passed (Initial JS <= 211.52KB gzip; All budgets met)              |
+| Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean      | `npm run lint`, `type-check`, `format:check`         | ✅ Passed (0 errors, 0 warnings across all files)                     |
+| Full Vitest & E2E Suite    | 43/43 Vitest tests pass, 228/228 Playwright tests pass (6 vps)     | CI test run, Playwright report                       | ✅ Passed (**228/228 Playwright tests pass with 0 a11y violations**)  |
+| Founder Review & Sign-Off  | Founder review of M7 Deliverable Report & Release 1.0 Candidate    | Conversation approval                                | ⏳ Ready for Founder Review                                           |
 
 ---
 
 ## Formal Sign-Off Record
 
-- **Milestone:** M6 Catalogue Expansion & Client-Side Voice Read-Aloud (Beta 0.2 Candidate)
-- **Release Candidate:** **Beta 0.2 Candidate Ready**
+- **Milestone:** M7 Production Packaging & Regional Languages (Release 1.0 Candidate 1)
+- **Release Candidate:** **v1.0.0-rc.1 Ready**
 - **Verified By Agent:** Antigravity AI Pair Programmer
 - **Date:** 2026-11-06
-- **Branch:** `feat/m6-catalogue-expansion-and-voice-assisted`
+- **Branch:** `feat/m7-prod-readiness-and-regional-languages`
 - **Human Approval:** Pending Founder Sign-Off

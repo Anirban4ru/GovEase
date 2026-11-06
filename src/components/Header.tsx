@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useTranslation } from "../context/I18nContext";
+import { useTranslation, Locale } from "../context/I18nContext";
 import { usePresentationMode, PresentationMode } from "../context/ModeContext";
 import { DesktopNavigation } from "./Navigation";
 
@@ -239,46 +239,40 @@ export function Header() {
                 minHeight: "var(--min-touch-target)",
               }}
             >
-              <button
-                type="button"
-                onClick={() => setLocale("en")}
-                aria-pressed={locale === "en"}
-                style={{
-                  padding: "0.375rem 0.625rem",
-                  fontSize: "0.8125rem",
-                  fontWeight: locale === "en" ? 700 : 500,
-                  backgroundColor:
-                    locale === "en" ? "var(--color-brand-primary)" : "var(--color-surface-page)",
-                  color:
-                    locale === "en"
-                      ? "var(--color-content-inverse)"
-                      : "var(--color-content-primary)",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                EN
-              </button>
-              <button
-                type="button"
-                onClick={() => setLocale("hi")}
-                aria-pressed={locale === "hi"}
-                style={{
-                  padding: "0.375rem 0.625rem",
-                  fontSize: "0.8125rem",
-                  fontWeight: locale === "hi" ? 700 : 500,
-                  backgroundColor:
-                    locale === "hi" ? "var(--color-brand-primary)" : "var(--color-surface-page)",
-                  color:
-                    locale === "hi"
-                      ? "var(--color-content-inverse)"
-                      : "var(--color-content-primary)",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                हिंदी
-              </button>
+              {(
+                [
+                  { id: "en", label: "EN", title: "English" },
+                  { id: "hi", label: "हिंदी", title: "Hindi" },
+                  { id: "bn", label: "বাংলা", title: "Bengali" },
+                  { id: "ta", label: "தமிழ்", title: "Tamil" },
+                ] as const
+              ).map((lang) => (
+                <button
+                  key={lang.id}
+                  type="button"
+                  onClick={() => setLocale(lang.id as Locale)}
+                  aria-pressed={locale === lang.id}
+                  aria-label={`${lang.label} (${lang.title})`}
+                  style={{
+                    padding: "0.375rem 0.5rem",
+                    fontSize: "0.8125rem",
+                    fontWeight: locale === lang.id ? 700 : 500,
+                    backgroundColor:
+                      locale === lang.id
+                        ? "var(--color-brand-primary)"
+                        : "var(--color-surface-page)",
+                    color:
+                      locale === lang.id
+                        ? "var(--color-content-inverse)"
+                        : "var(--color-content-primary)",
+                    border: "none",
+                    cursor: "pointer",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {lang.label}
+                </button>
+              ))}
             </div>
           </div>
         </div>

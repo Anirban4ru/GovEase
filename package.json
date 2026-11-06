@@ -21,7 +21,9 @@
     "check:links:offline": "node scripts/check-links.mjs --offline",
     "report:staleness": "node scripts/catalogue-staleness.mjs",
     "audit:perf": "node scripts/perf-budget.mjs",
-    "audit:ci": "npm audit --audit-level=high"
+    "audit:ci": "npm audit --audit-level=high",
+    "docker:build": "docker build -t unified-life-services:latest .",
+    "docker:verify": "node scripts/docker-verify.mjs"
   },
   "dependencies": {
     "minisearch": "^7.2.0",

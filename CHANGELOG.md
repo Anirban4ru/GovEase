@@ -5,6 +5,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.0.0-rc.1] - 2026-11-06 (Release Candidate 1)
+
+### Added
+
+- **Regional Language Expansion (Bengali `bn` & Tamil `ta`):**
+  - Added complete, dignified vernacular dictionaries (`src/locales/bn.json` and `src/locales/ta.json`) ensuring 100% key parity with English and Hindi.
+  - Expanded `I18nContext` to support 4 official languages (`en`, `hi`, `bn`, `ta`) with persistent on-device selection and dynamic `<html lang>` attribute updates.
+  - Added native script language selectors in Header and Settings (`English`, `हिंदी`, `বাংলা`, `தமிழ்`) with strict WCAG 2.5.3 (Label in Name) compliant accessible names.
+  - Implemented regional script typography tokens in `src/styles/tokens.css` with `--font-family-bengali` and `--font-family-tamil` font stacks and tailored 1.75 line-height ascender clearances.
+  - Extended client-side Web Speech API engine (`useSpeechSynthesis.ts`) to auto-detect and prioritize `bn-IN` (Bengali) and `ta-IN` (Tamil) speech voices, with localized currency tokenization (`টাকা`, `ரூபாய்`, `रुपये`, `Rupees`).
+- **Production Containerization & Hardening:**
+  - Multi-stage Docker build (`Dockerfile`) with `node:22-alpine` builder and minimal zero-root unprivileged runtime (`USER node`, UID 1000).
+  - Hardened container environment: read-only static hosting, zero npm packages in runtime, dropped Linux capabilities, native `HEALTHCHECK` probing `http://localhost:3000/`.
+  - Comprehensive `.dockerignore` excluding developer artifacts, tests, git logs, and caches.
+  - Automated container verification drill (`scripts/docker-verify.mjs`, `npm run docker:verify`) asserting static export integrity, HTTP 200 healthcheck, and audited security headers (`nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, strict CSP).
+- **CI/CD Pipeline Production Packaging:**
+  - Integrated container drill (`npm run docker:verify`) and image build (`npm run docker:build`) into GitHub Actions CI workflow (`.github/workflows/ci.yml`).
+- **Comprehensive Quality Verification:**
+  - 43 / 43 Vitest unit tests pass across 9 test suites in 745ms.
+  - 228 / 228 Playwright E2E and axe-core accessibility tests pass across 6 responsive viewports with 0 accessibility violations.
+  - Performance budgets strictly satisfied across all 22 HTML routes ($\le 52.32\text{ KB}$ raw), CSS ($5.22\text{ KB}$ raw), and route initial JS ($\le 211.52\text{ KB}$ gzip vs 220KB budget).
+  - 0 security vulnerabilities in `npm audit`.
+
+---
+
 ## [0.1.0-beta.2] - 2026-11-06 (Beta 0.2 Candidate)
 
 ### Added

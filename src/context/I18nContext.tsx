@@ -3,14 +3,18 @@
 import React, { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 import enTranslations from "../locales/en.json";
 import hiTranslations from "../locales/hi.json";
+import bnTranslations from "../locales/bn.json";
+import taTranslations from "../locales/ta.json";
 
-export type Locale = "en" | "hi";
+export type Locale = "en" | "hi" | "bn" | "ta";
 
 type TranslationDictionary = typeof enTranslations;
 
 const dictionaries: Record<Locale, TranslationDictionary> = {
   en: enTranslations,
   hi: hiTranslations,
+  bn: bnTranslations,
+  ta: taTranslations,
 };
 
 interface I18nContextType {
@@ -37,7 +41,7 @@ function subscribeLocale(callback: () => void) {
 function getLocaleSnapshot(): Locale {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "hi") return "hi";
+    if (saved === "hi" || saved === "bn" || saved === "ta") return saved as Locale;
   } catch {
     // Storage access restricted
   }

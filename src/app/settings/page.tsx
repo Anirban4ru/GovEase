@@ -5,6 +5,128 @@ import { useTranslation, Locale } from "../../context/I18nContext";
 import { usePresentationMode, PresentationMode } from "../../context/ModeContext";
 import { useSavedServices } from "../../hooks/useSavedServices";
 
+const SETTINGS_STRINGS: Record<
+  Locale,
+  {
+    heading: string;
+    subtitle: string;
+    langSection: string;
+    langDesc: string;
+    modeSection: string;
+    modeDesc: string;
+    inventoryHeading: string;
+    inventoryDesc: string;
+    clearSection: string;
+    clearDesc: string;
+    purgeBtn: string;
+    clearedSuccess: string;
+    clearedError: string;
+    cancel: string;
+    confirmPurge: string;
+    modalTitle: string;
+    modalWarning: string;
+  }
+> = {
+  en: {
+    heading: "Preferences & Settings",
+    subtitle: "Manage your display preferences, language, and transparent on-device data storage.",
+    langSection: "Language",
+    langDesc: "Choose the primary interface language for browsing public services.",
+    modeSection: "Display Mode (WCAG 2.2 Cognitive Accessibility)",
+    modeDesc: "Adjust layout density, font sizing, and assistive guidance across all pages.",
+    inventoryHeading: "On-Device Data Inventory (Transparency)",
+    inventoryDesc:
+      "In accordance with India DPDP Act 2023 principles, the table below discloses all data stored by this platform on your device. Zero personal data or identifiers are transmitted to any remote server.",
+    clearSection: "Data Minimisation & Right to Erasure",
+    clearDesc:
+      "Permanently erase all local bookmarks, UI preferences, and offline cached service worker storage from this device.",
+    purgeBtn: "Purge All Local Data",
+    clearedSuccess: "All local data, cache, and preferences have been cleared from this device.",
+    clearedError: "Error clearing local data.",
+    cancel: "Cancel",
+    confirmPurge: "Yes, Purge Everything",
+    modalTitle: "Confirm Complete Data Purge",
+    modalWarning:
+      "This will immediately delete all local service bookmarks, cache, and preferences from this browser. This action cannot be undone.",
+  },
+  hi: {
+    heading: "प्राथमिकताएं एवं सेटिंग्स",
+    subtitle: "अपनी भाषा, प्रदर्शन मोड और इस डिवाइस पर सहेजे गए डेटा को नियंत्रित करें।",
+    langSection: "भाषा (Language)",
+    langDesc: "वह भाषा चुनें जिसमें आप सेवाओं को देखना चाहते हैं।",
+    modeSection: "प्रदर्शन मोड (सुलभता विकल्प)",
+    modeDesc: "अपनी आवश्यकता अनुसार लेआउट का घनत्व और सहायता स्तर चुनें।",
+    inventoryHeading: "ऑन-डिवाइस डेटा सूची (पारदर्शिता)",
+    inventoryDesc:
+      "डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम (DPDP) के सिद्धांतों के तहत, नीचे वह सभी डेटा सूचीबद्ध है जो यह प्लेटफ़ॉर्म आपके ब्राउज़र में स्थानीय रूप से संग्रहीत करता है। कोई भी डेटा किसी सर्वर पर नहीं भेजा जाता है।",
+    clearSection: "डेटा न्यूनीकरण एवं हटाने का अधिकार",
+    clearDesc:
+      "यह क्रिया इस डिवाइस से आपके द्वारा सहेजी गई सभी सेवाओं, भाषा प्राथमिकताओं और लेआउट सेटिंग्स को स्थायी रूप से हटा देगी।",
+    purgeBtn: "डेटा पूरी तरह साफ़ करें",
+    clearedSuccess: "सभी स्थानीय डेटा और प्राथमिकताएँ इस डिवाइस से साफ़ कर दी गई हैं।",
+    clearedError: "डेटा साफ़ करते समय कोई त्रुटि उत्पन्न हुई।",
+    cancel: "रद्द करें",
+    confirmPurge: "हाँ, डेटा साफ़ करें",
+    modalTitle: "क्या आप वाकई डेटा साफ़ करना चाहते हैं?",
+    modalWarning:
+      "यह आपके सभी सहेजे गए बुकमार्क और प्राथमिकताओं को इस ब्राउज़र से तुरंत हटा देगा। इस क्रिया को पूर्ववत नहीं किया जा सकता है।",
+  },
+  bn: {
+    heading: "পছন্দসমূহ ও সেটিংস",
+    subtitle: "আপনার প্রদর্শন পছন্দ, ভাষা এবং ডিভাইসে সংরক্ষিত স্থানীয় ডেটা পরিচালনা করুন।",
+    langSection: "ভাষা (Language)",
+    langDesc: "জনসেবা অন্বেষণ করতে আপনার পছন্দের প্রাথমিক ভাষা নির্বাচন করুন।",
+    modeSection: "প্রদর্শন মোড (অ্যাক্সেসিবিলিটি বিকল্প)",
+    modeDesc: "আপনার সুবিধামতো ইন্টারফেসের জটিলতা, ফন্ট এবং বিন্যাস সমন্বয় করুন।",
+    inventoryHeading: "অন-ডিভাইস ডেটা তালিকা (স্বচ্ছতা)",
+    inventoryDesc:
+      "ডিজিটাল ব্যক্তিগত ডেটা সুরক্ষা আইন ২০২৩ (DPDP) নীতি অনুসারে, নিচে এই প্ল্যাটফর্ম দ্বারা আপনার ডিভাইসে স্থানীয়ভাবে সংরক্ষিত সমস্ত ডেটার বিবরণ দেওয়া হলো। কোনো তথ্য সার্ভারে পাঠানো হয় না।",
+    clearSection: "ডেটা হ্রাসকরণ ও মুছে ফেলার অধিকার",
+    clearDesc:
+      "এই ব্রাউজার থেকে তাৎক্ষণিকভাবে সমস্ত সংরক্ষিত ডেটা, বুকমার্ক এবং পছন্দসমূহ সম্পূর্ণ মুছে ফেলুন।",
+    purgeBtn: "সমস্ত স্থানীয় ডেটা মুছে ফেলুন",
+    clearedSuccess: "এই ডিভাইস থেকে সমস্ত স্থানীয় ডেটা ও পছন্দসমূহ মুছে ফেলা হয়েছে।",
+    clearedError: "ডেটা মোছার সময় ত্রুটি ঘটেছে।",
+    cancel: "বাতিল করুন",
+    confirmPurge: "হ্যাঁ, সমস্ত তথ্য মুছুন",
+    modalTitle: "ডেটা মোছার নিশ্চিতকরণ",
+    modalWarning:
+      "এটি অবিলম্বে এই ব্রাউজার থেকে সমস্ত সংরক্ষিত বুকমার্ক, ক্যাশ এবং পছন্দ মুছে ফেলবে। এটি পুনর্বহাল করা যাবে না।",
+  },
+  ta: {
+    heading: "விருப்பங்கள் மற்றும் அமைப்புகள்",
+    subtitle:
+      "உங்கள் காட்சி விருப்பங்கள், மொழி மற்றும் சாதனத்தில் சேமிக்கப்பட்ட உள்ளூர் தரவை நிர்வகிக்கவும்.",
+    langSection: "மொழி (Language)",
+    langDesc: "பொதுச் சேவைகளை உலாவுவதற்கான முதன்மை இடைமுக மொழியைத் தேர்வுசெய்யவும்.",
+    modeSection: "காட்சி முறை (அணுகல்தன்மை விருப்பங்கள்)",
+    modeDesc:
+      "உங்கள் விருப்பத்திற்கு ஏற்ப இடைமுக அமைப்பு, எழுத்துருக்கள் மற்றும் அடர்த்தியை மாற்றியமைக்கவும்.",
+    inventoryHeading: "சாதனத் தரவு விவரம் (வெளிப்படைத்தன்மை)",
+    inventoryDesc:
+      "டிஜிட்டல் தனிநபர் தரவு பாதுகாப்புச் சட்டம் 2023 (DPDP) விதிகளின்படி, இந்த தளம் உங்கள் சாதனத்தில் சேமிக்கும் அனைத்து தரவுகளும் கீழே பட்டியலிடப்பட்டுள்ளன. எந்தவொரு தனிப்பட்ட தரவும் தொலைதூர சேவையகத்திற்கு அனுப்பப்படுவதில்லை.",
+    clearSection: "தரவு குறைப்பு மற்றும் நீக்குவதற்கான உரிமை",
+    clearDesc:
+      "இந்த உலாவியிலிருந்து சேமிக்கப்பட்ட அனைத்து தரவு, புக்மார்க்குகள் மற்றும் விருப்பங்களை உடனடியாக நீக்கவும்.",
+    purgeBtn: "அனைத்து உள்ளூர் தரவையும் அழிக்கவும்",
+    clearedSuccess:
+      "அனைத்து உள்ளூர் தரவும் விருப்பத்தேர்வுகளும் இந்த சாதனத்திலிருந்து நீக்கப்பட்டுவிட்டன.",
+    clearedError: "உள்ளூர் தரவை அழிப்பதில் பிழை ஏற்பட்டது.",
+    cancel: "ரத்து செய்",
+    confirmPurge: "ஆம், அனைத்தையும் அழி",
+    modalTitle: "தரவு நீக்கத்தை உறுதிப்படுத்தவும்",
+    modalWarning:
+      "இது உங்கள் அனைத்து சேமிக்கப்பட்ட புக்மார்க்குகள், கேச் மற்றும் விருப்பங்களை உடனடியாக நீக்கிவிடும். இந்த செயலை மாற்றியமைக்க முடியாது.",
+  },
+};
+
+const LANGUAGE_BUTTONS: { id: Locale; label: string; sublabel: string; message: string }[] = [
+  { id: "en", label: "English", sublabel: "English", message: "Language changed to English." },
+  { id: "hi", label: "हिंदी", sublabel: "Hindi", message: "भाषा हिंदी में परिवर्तित कर दी गई है।" },
+  { id: "bn", label: "বাংলা", sublabel: "Bengali", message: "ভাষা বাংলায় পরিবর্তন করা হয়েছে।" },
+  { id: "ta", label: "தமிழ்", sublabel: "Tamil", message: "மொழி தமிழாக மாற்றப்பட்டது." },
+];
+
 export default function SettingsPage() {
   const { t, locale, setLocale } = useTranslation();
   const { mode, setMode } = usePresentationMode();
@@ -14,11 +136,13 @@ export default function SettingsPage() {
   const [statusMessage, setStatusMessage] = useState("");
   const modalRef = useRef<HTMLDivElement>(null);
 
+  const strings = SETTINGS_STRINGS[locale] || SETTINGS_STRINGS.en;
+
   // Compute live on-device storage sizes without cascading effect state
   const isClient = typeof window !== "undefined";
   const savedServicesRaw = isClient ? localStorage.getItem("uls_saved_services") || "" : "";
   const modeRaw = isClient ? localStorage.getItem("uls_presentation_mode") || "" : "";
-  const localeRaw = isClient ? localStorage.getItem("uls_locale") || "" : "";
+  const localeRaw = isClient ? localStorage.getItem("uls_locale_preference") || "" : "";
 
   const savedServicesSize = savedServicesRaw ? `${savedServicesRaw.length} bytes` : "0 bytes";
   const modeSize = modeRaw ? `${modeRaw.length} bytes` : "0 bytes";
@@ -57,17 +181,9 @@ export default function SettingsPage() {
       }
 
       setIsConfirmingClear(false);
-      setStatusMessage(
-        locale === "hi"
-          ? "सभी स्थानीय डेटा और प्राथमिकताएँ इस डिवाइस से साफ़ कर दी गई हैं।"
-          : "All local data, cache, and preferences have been cleared from this device.",
-      );
+      setStatusMessage(strings.clearedSuccess);
     } catch {
-      setStatusMessage(
-        locale === "hi"
-          ? "डेटा साफ़ करते समय कोई त्रुटि उत्पन्न हुई।"
-          : "Error clearing local data.",
-      );
+      setStatusMessage(strings.clearedError);
     }
   };
 
@@ -107,12 +223,10 @@ export default function SettingsPage() {
             marginBottom: "0.5rem",
           }}
         >
-          {locale === "hi" ? "प्राथमिकताएं एवं सेटिंग्स" : "Preferences & Settings"}
+          {strings.heading}
         </h1>
         <p style={{ fontSize: "1.0625rem", color: "var(--color-content-secondary)", margin: 0 }}>
-          {locale === "hi"
-            ? "अपनी भाषा, प्रदर्शन मोड और इस डिवाइस पर सहेजे गए डेटा को नियंत्रित करें।"
-            : "Manage your display preferences, language, and transparent on-device data storage."}
+          {strings.subtitle}
         </p>
       </div>
 
@@ -165,7 +279,7 @@ export default function SettingsPage() {
             id="language-settings-heading"
             style={{ fontSize: "1.25rem", fontWeight: 700, margin: "0 0 0.5rem 0" }}
           >
-            {locale === "hi" ? "भाषा (Language)" : "Language"}
+            {strings.langSection}
           </h2>
           <p
             style={{
@@ -174,67 +288,42 @@ export default function SettingsPage() {
               marginBottom: "1rem",
             }}
           >
-            {locale === "hi"
-              ? "वह भाषा चुनें जिसमें आप सेवाओं को देखना चाहते हैं।"
-              : "Choose the primary interface language for browsing public services."}
+            {strings.langDesc}
           </p>
 
           <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-            <button
-              type="button"
-              onClick={() => {
-                setLocale("en" as Locale);
-                setStatusMessage("Language changed to English.");
-              }}
-              aria-pressed={locale === "en"}
-              style={{
-                padding: "0.625rem 1.25rem",
-                borderRadius: "var(--radius-sm)",
-                border:
-                  locale === "en"
-                    ? "2px solid var(--color-brand-primary)"
-                    : "1px solid var(--color-border-default)",
-                backgroundColor:
-                  locale === "en"
-                    ? "var(--color-brand-primary-subtle)"
-                    : "var(--color-surface-card)",
-                color:
-                  locale === "en" ? "var(--color-brand-primary)" : "var(--color-content-primary)",
-                fontWeight: locale === "en" ? 700 : 500,
-                cursor: "pointer",
-                minHeight: "var(--min-touch-target)",
-              }}
-            >
-              English
-            </button>
-
-            <button
-              type="button"
-              onClick={() => {
-                setLocale("hi" as Locale);
-                setStatusMessage("भाषा हिंदी में परिवर्तित कर दी गई है।");
-              }}
-              aria-pressed={locale === "hi"}
-              style={{
-                padding: "0.625rem 1.25rem",
-                borderRadius: "var(--radius-sm)",
-                border:
-                  locale === "hi"
-                    ? "2px solid var(--color-brand-primary)"
-                    : "1px solid var(--color-border-default)",
-                backgroundColor:
-                  locale === "hi"
-                    ? "var(--color-brand-primary-subtle)"
-                    : "var(--color-surface-card)",
-                color:
-                  locale === "hi" ? "var(--color-brand-primary)" : "var(--color-content-primary)",
-                fontWeight: locale === "hi" ? 700 : 500,
-                cursor: "pointer",
-                minHeight: "var(--min-touch-target)",
-              }}
-            >
-              हिंदी (Hindi)
-            </button>
+            {LANGUAGE_BUTTONS.map((lang) => (
+              <button
+                key={lang.id}
+                type="button"
+                onClick={() => {
+                  setLocale(lang.id);
+                  setStatusMessage(lang.message);
+                }}
+                aria-pressed={locale === lang.id}
+                style={{
+                  padding: "0.625rem 1.25rem",
+                  borderRadius: "var(--radius-sm)",
+                  border:
+                    locale === lang.id
+                      ? "2px solid var(--color-brand-primary)"
+                      : "1px solid var(--color-border-default)",
+                  backgroundColor:
+                    locale === lang.id
+                      ? "var(--color-brand-primary-subtle)"
+                      : "var(--color-surface-card)",
+                  color:
+                    locale === lang.id
+                      ? "var(--color-brand-primary)"
+                      : "var(--color-content-primary)",
+                  fontWeight: locale === lang.id ? 700 : 500,
+                  cursor: "pointer",
+                  minHeight: "var(--min-touch-target)",
+                }}
+              >
+                {lang.label} ({lang.sublabel})
+              </button>
+            ))}
           </div>
         </section>
 
@@ -262,9 +351,7 @@ export default function SettingsPage() {
               marginBottom: "1rem",
             }}
           >
-            {locale === "hi"
-              ? "अपनी आवश्यकता अनुसार लेआउट का घनत्व और सहायता स्तर चुनें।"
-              : "Adjust layout density, font sizing, and assistive guidance across all pages."}
+            {strings.modeDesc}
           </p>
 
           <div
@@ -349,9 +436,7 @@ export default function SettingsPage() {
             }}
           >
             <h2 id="inventory-heading" style={{ fontSize: "1.25rem", fontWeight: 700, margin: 0 }}>
-              {locale === "hi"
-                ? "ऑन-डिवाइस डेटा सूची (पारदर्शिता)"
-                : "On-Device Data Inventory (Transparency)"}
+              {strings.inventoryHeading}
             </h2>
             <span
               style={{
@@ -374,9 +459,7 @@ export default function SettingsPage() {
               marginBottom: "1rem",
             }}
           >
-            {locale === "hi"
-              ? "डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम (DPDP) के सिद्धांतों के तहत, नीचे वह सभी डेटा सूचीबद्ध है जो यह प्लेटफ़ॉर्म आपके ब्राउज़र में स्थानीय रूप से संग्रहीत करता है। कोई भी डेटा किसी सर्वर पर नहीं भेजा जाता है।"
-              : "In accordance with India DPDP Act 2023 principles, the table below discloses all data stored by this platform on your device. Zero personal data or identifiers are transmitted to any remote server."}
+            {strings.inventoryDesc}
           </p>
 
           <div
@@ -437,7 +520,7 @@ export default function SettingsPage() {
                 </tr>
                 <tr style={{ borderBottom: "1px solid var(--color-border-default)" }}>
                   <td style={{ padding: "0.75rem 1rem", fontFamily: "monospace", fontWeight: 600 }}>
-                    uls_locale
+                    uls_locale_preference
                   </td>
                   <td style={{ padding: "0.75rem 1rem", color: "var(--color-content-secondary)" }}>
                     Remembers your selected language ({locale})
@@ -474,7 +557,7 @@ export default function SettingsPage() {
               color: "#dc2626",
             }}
           >
-            {locale === "hi" ? "मेरा स्थानीय डेटा साफ़ करें" : "Clear All My Stored Data"}
+            {strings.clearSection}
           </h2>
           <p
             style={{
@@ -483,9 +566,7 @@ export default function SettingsPage() {
               marginBottom: "1.25rem",
             }}
           >
-            {locale === "hi"
-              ? "यह क्रिया इस डिवाइस से आपके द्वारा सहेजी गई सभी सेवाओं, भाषा प्राथमिकताओं और लेआउट सेटिंग्स को स्थायी रूप से हटा देगी।"
-              : "Permanently erase all local bookmarks, UI preferences, and offline cached service worker storage from this device."}
+            {strings.clearDesc}
           </p>
 
           <button
@@ -503,7 +584,7 @@ export default function SettingsPage() {
               minHeight: "var(--min-touch-target)",
             }}
           >
-            {locale === "hi" ? "डेटा पूरी तरह साफ़ करें" : "Purge All Local Data"}
+            {strings.purgeBtn}
           </button>
         </section>
       </div>
@@ -550,9 +631,7 @@ export default function SettingsPage() {
                 marginBottom: "0.75rem",
               }}
             >
-              {locale === "hi"
-                ? "क्या आप वाकई डेटा साफ़ करना चाहते हैं?"
-                : "Confirm Complete Data Purge"}
+              {strings.modalTitle}
             </h2>
             <p
               style={{
@@ -562,9 +641,7 @@ export default function SettingsPage() {
                 lineHeight: 1.5,
               }}
             >
-              {locale === "hi"
-                ? "यह आपके सभी सहेजे गए बुकमार्क और प्राथमिकताओं को इस ब्राउज़र से तुरंत हटा देगा। इस क्रिया को पूर्ववत नहीं किया जा सकता है।"
-                : "This will immediately delete all local service bookmarks, cache, and preferences from this browser. This action cannot be undone."}
+              {strings.modalWarning}
             </p>
             <div style={{ display: "flex", justifyContent: "flex-end", gap: "0.75rem" }}>
               <button
@@ -582,7 +659,7 @@ export default function SettingsPage() {
                   minHeight: "var(--min-touch-target)",
                 }}
               >
-                {locale === "hi" ? "रद्द करें" : "Cancel"}
+                {strings.cancel}
               </button>
               <button
                 type="button"
@@ -599,7 +676,7 @@ export default function SettingsPage() {
                   minHeight: "var(--min-touch-target)",
                 }}
               >
-                {locale === "hi" ? "हाँ, डेटा साफ़ करें" : "Yes, Purge Everything"}
+                {strings.confirmPurge}
               </button>
             </div>
           </div>
