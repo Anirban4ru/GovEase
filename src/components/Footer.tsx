@@ -41,16 +41,38 @@ export function Footer() {
           }}
         >
           <div>
-            <h2
+            <div
               style={{
-                fontSize: "1rem",
-                fontWeight: 700,
-                color: "var(--color-content-primary)",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.625rem",
                 marginBottom: "0.75rem",
               }}
             >
-              {t("footer.about")}
-            </h2>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/apple-touch-icon.png"
+                alt="GovEase"
+                width="32"
+                height="32"
+                style={{
+                  borderRadius: "var(--radius-sm)",
+                  border: "1px solid var(--color-border-default)",
+                  backgroundColor: "#ffffff",
+                }}
+              />
+              <h2
+                style={{
+                  fontSize: "1.0625rem",
+                  fontWeight: 800,
+                  margin: 0,
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                <span style={{ color: "var(--color-govease-navy, #0c2340)" }}>Gov</span>
+                <span style={{ color: "var(--color-govease-saffron, #f26a1b)" }}>Ease</span>
+              </h2>
+            </div>
             <p style={{ lineHeight: 1.6, margin: 0 }}>{t("footer.aboutText")}</p>
             <div
               style={{

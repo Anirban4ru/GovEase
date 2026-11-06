@@ -27,6 +27,14 @@
   --color-ink-blue: #1d4ed8;
   --color-ink-blue-hover: #1e40af;
 
+  /* GovEase Official Sovereign Brand Palette */
+  --color-govease-navy: #0c2340;
+  --color-govease-blue: #0a3678;
+  --color-govease-saffron: #f26a1b;
+  --color-govease-saffron-dark: #c2410c;
+  --color-govease-green: #0f7638;
+  --color-govease-ivory: #f8f9fa;
+
   /* Semantic Brand & Action Tokens */
   --color-brand-primary: var(--color-ink);
   --color-brand-primary-hover: var(--color-ink-hover);

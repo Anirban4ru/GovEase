@@ -1,33 +1,39 @@
 {
-  "name": "GovEase - Independent Public Services Guide",
+  "name": "GovEase - India-First Civic Navigation Architecture",
   "short_name": "GovEase",
-  "description": "GovEase: Citizen-centric navigation and discovery for essential public services in India.",
+  "description": "Independent citizen-centric navigation, anti-scam verification, and document preparation for essential Indian public services.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#f8fafc",
-  "theme_color": "#1e293b",
+  "background_color": "#f8f9fa",
+  "theme_color": "#0c2340",
   "lang": "en-IN",
   "dir": "ltr",
   "categories": ["government", "utilities", "public service", "education"],
   "icons": [
     {
-      "src": "/icons/icon-192.svg",
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.svg",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-maskable.svg",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ]

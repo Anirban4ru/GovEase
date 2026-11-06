@@ -117,65 +117,37 @@ export function Header() {
               flexShrink: 1,
             }}
           >
-            <div
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/apple-touch-icon.png"
+              alt="GovEase Official Seal"
+              width="38"
+              height="38"
               style={{
-                width: "36px",
-                height: "36px",
                 borderRadius: "var(--radius-sm)",
-                backgroundColor: "var(--color-ground-muted)",
                 border: "1px solid var(--color-border-default)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                backgroundColor: "#ffffff",
                 flexShrink: 0,
-                color: "var(--color-ink)",
               }}
-              aria-hidden="true"
-            >
-              {/* 6-Node Radial Compass Identity Mark */}
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="2.5" fill="var(--color-ochre)" stroke="none" />
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="8.5"
-                  stroke="var(--color-border-strong)"
-                  strokeDasharray="1.5 2.5"
-                />
-                <circle cx="12" cy="3.5" r="1.5" fill="var(--color-ink)" />
-                <circle cx="19.35" cy="7.75" r="1.5" fill="var(--color-ink)" />
-                <circle cx="19.35" cy="16.25" r="1.5" fill="var(--color-ink)" />
-                <circle cx="12" cy="20.5" r="1.5" fill="var(--color-ink)" />
-                <circle cx="4.65" cy="16.25" r="1.5" fill="var(--color-ink)" />
-                <circle cx="4.65" cy="7.75" r="1.5" fill="var(--color-ink)" />
-              </svg>
-            </div>
+            />
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span
                 style={{
-                  fontSize: "1.0625rem",
-                  fontWeight: 700,
-                  color: "var(--color-brand-primary)",
-                  letterSpacing: "-0.01em",
-                  wordBreak: "break-word",
+                  fontSize: "1.125rem",
+                  fontWeight: 800,
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1.2,
                 }}
               >
-                {t("common.appName")}
+                <span style={{ color: "var(--color-govease-navy, #0c2340)" }}>Gov</span>
+                <span style={{ color: "var(--color-govease-saffron, #f26a1b)" }}>Ease</span>
               </span>
               <span
                 style={{
-                  fontSize: "0.75rem",
+                  fontSize: "0.72rem",
                   color: "var(--color-content-secondary)",
-                  fontWeight: 500,
+                  fontWeight: 600,
+                  letterSpacing: "-0.01em",
                 }}
               >
                 {t("common.tagline")}
