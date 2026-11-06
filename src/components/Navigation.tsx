@@ -12,6 +12,7 @@ export function DesktopNavigation() {
   const navItems = [
     { href: "/", label: t("nav.home") },
     { href: "/explore", label: t("nav.explore") },
+    { href: "/eligibility", label: t("nav.eligibility") || "Check Eligibility" },
     { href: "/journeys", label: t("nav.journeys") || "Life Journeys" },
     { href: "/prep-studio", label: t("nav.prepStudio") || "Doc Studio" },
     { href: "/guide", label: t("nav.guide") },

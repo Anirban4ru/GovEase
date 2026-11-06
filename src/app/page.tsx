@@ -9,7 +9,16 @@ import { usePresentationMode } from "../context/ModeContext";
 import { SearchBar } from "../components/SearchBar";
 import { EcosystemBadge } from "../components/EcosystemBadge";
 import { GoalPhrasedGrid } from "../components/GoalPhrasedGrid";
+import { QUICK_DEMO_PROFILES } from "../lib/eligibility-matcher";
 import type { LifeEcosystem } from "../lib/catalogue";
+
+const PersonalizedEligibilityModal = dynamic(
+  () =>
+    import("../components/PersonalizedEligibilityModal").then(
+      (mod) => mod.PersonalizedEligibilityModal,
+    ),
+  { ssr: false },
+);
 
 const HomeClassicView = dynamic(
   () => import("../components/HomeClassicView").then((mod) => mod.HomeClassicView),
@@ -138,6 +147,9 @@ function HomeContent() {
   const isClassicQuery = searchParams.get("view") === "classic";
   const [viewOverride, setViewOverride] = useState<"overhaul" | "classic" | null>(null);
   const activeView = viewOverride ?? (isClassicQuery ? "classic" : "overhaul");
+
+  const [eligibilityModalOpen, setEligibilityModalOpen] = useState(false);
+  const [selectedDemoProfileId, setSelectedDemoProfileId] = useState<string | undefined>(undefined);
 
   if (activeView === "classic") {
     return (
@@ -381,6 +393,39 @@ function HomeContent() {
             marginBottom: "2rem",
           }}
         >
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedDemoProfileId(undefined);
+              setEligibilityModalOpen(true);
+            }}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              padding: "0.65rem 1.4rem",
+              backgroundColor: "#047857",
+              color: "#ffffff",
+              borderRadius: "var(--radius-sm)",
+              fontWeight: 700,
+              fontSize: "0.9375rem",
+              border: "none",
+              cursor: "pointer",
+              minHeight: "var(--min-touch-target)",
+              boxShadow: "0 2px 4px rgba(4, 120, 87, 0.25)",
+            }}
+          >
+            <span>
+              {locale === "hi"
+                ? "🎯 पात्रता जांचें"
+                : locale === "bn"
+                  ? "🎯 যোগ্যতা যাচাই করুন"
+                  : locale === "ta"
+                    ? "🎯 தகுதி சரிபார்க்கவும்"
+                    : "🎯 Check Eligibility"}
+            </span>
+          </button>
+
           <Link
             href="/guide"
             style={{
@@ -558,6 +603,199 @@ function HomeContent() {
               {locale === "hi" ? "4 क्षेत्रीय भाषाएँ व वाक्-संश्लेषण" : "4 Regional Languages"}
             </span>
             <span style={{ color: "var(--color-content-tertiary)" }}>(EN, HI, BN, TA)</span>
+          </div>
+        </div>
+      </section>
+
+      {/* PERSONALIZED ELIGIBILITY CHECK & CITIZEN PROFILE SPOTLIGHT */}
+      <section
+        aria-labelledby="eligibility-spotlight-heading"
+        style={{
+          marginBottom: "3.5rem",
+          backgroundColor: "#ffffff",
+          borderRadius: "var(--radius-lg, 12px)",
+          border: "1.5px solid rgba(5, 150, 105, 0.25)",
+          boxShadow: "0 4px 20px rgba(5, 150, 105, 0.08)",
+          padding: "1.75rem",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "4px",
+            background: "linear-gradient(90deg, #059669 0%, #10b981 50%, #34d399 100%)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "1.25rem",
+            marginBottom: "1.25rem",
+          }}
+        >
+          <div style={{ maxWidth: "680px" }}>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.4rem",
+                padding: "0.25rem 0.65rem",
+                backgroundColor: "#ecfdf5",
+                border: "1px solid #a7f3d0",
+                borderRadius: "var(--radius-full, 9999px)",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                color: "#065f46",
+                marginBottom: "0.5rem",
+              }}
+            >
+              <span>🎯 NEW: Zero-Knowledge Matching Engine • DPDP Act 2023 Compliant</span>
+            </div>
+            <h2
+              id="eligibility-spotlight-heading"
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: 800,
+                color: "var(--color-govease-navy, #0d3570)",
+                margin: "0 0 0.5rem 0",
+                lineHeight: 1.25,
+              }}
+            >
+              {locale === "hi"
+                ? "व्यक्तिगत पात्रता जांच एवं कल्याणकारी योजना खोज"
+                : locale === "bn"
+                  ? "ব্যক্তিগত যোগ্যতা যাচাই ও সরকারি প্রকল্প সন্ধান"
+                  : locale === "ta"
+                    ? "தனிப்பயனாக்கப்பட்ட தகுதி சரிபார்ப்பு மற்றும் திட்டங்கள்"
+                    : "Personalized Eligibility Check & Schemes Discovery"}
+            </h2>
+            <p
+              style={{
+                margin: 0,
+                fontSize: "0.9375rem",
+                color: "var(--color-content-secondary)",
+                lineHeight: 1.6,
+              }}
+            >
+              {locale === "hi"
+                ? "अपनी आयु, लिंग, शिक्षा, पारिवारिक आय, राशन कार्ड (BPL/APL) और राज्य दर्ज करें और जानें कि आप किन-किन सरकारी योजनाओं और छात्रवृत्तियों के हकदार हैं।"
+                : "Create a citizen profile with your age, gender, education, family income, ration card category (BPL/AAY/PHH/APL), and state to discover every central and state scheme you qualify for — with clear rationales."}
+            </p>
+          </div>
+
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedDemoProfileId(undefined);
+                setEligibilityModalOpen(true);
+              }}
+              style={{
+                padding: "0.75rem 1.5rem",
+                backgroundColor: "#047857",
+                color: "#ffffff",
+                border: "none",
+                borderRadius: "var(--radius-sm, 6px)",
+                fontWeight: 700,
+                fontSize: "0.9375rem",
+                cursor: "pointer",
+                boxShadow: "0 2px 6px rgba(4, 120, 87, 0.3)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                transition: "all 0.15s ease",
+              }}
+            >
+              <span>Check My Eligibility 🎯</span>
+              <span aria-hidden="true">→</span>
+            </button>
+            <Link
+              href="/eligibility"
+              style={{
+                padding: "0.75rem 1.25rem",
+                backgroundColor: "var(--color-ground-muted)",
+                color: "var(--color-ink)",
+                border: "1px solid var(--color-border-default)",
+                borderRadius: "var(--radius-sm, 6px)",
+                fontWeight: 600,
+                fontSize: "0.9375rem",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+              }}
+            >
+              Full Page Screener
+            </Link>
+          </div>
+        </div>
+
+        {/* Quick 1-Click Demo Profiles Strip */}
+        <div
+          style={{
+            padding: "0.85rem 1rem",
+            backgroundColor: "#f8fafc",
+            borderRadius: "var(--radius-md, 8px)",
+            border: "1px solid var(--color-border-subtle)",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+            flexWrap: "wrap",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.75rem",
+              fontWeight: 700,
+              color: "#475569",
+              textTransform: "uppercase",
+              letterSpacing: "0.03em",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "4px",
+              flexShrink: 0,
+            }}
+          >
+            ⚡ Try 1-Click Demo Profiles:
+          </span>
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+            {QUICK_DEMO_PROFILES.map((demo) => (
+              <button
+                key={demo.id}
+                type="button"
+                onClick={() => {
+                  setSelectedDemoProfileId(demo.id);
+                  setEligibilityModalOpen(true);
+                }}
+                style={{
+                  padding: "0.35rem 0.75rem",
+                  fontSize: "0.8125rem",
+                  fontWeight: 600,
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #cbd5e1",
+                  borderRadius: "var(--radius-full, 9999px)",
+                  color: "#1e293b",
+                  cursor: "pointer",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.35rem",
+                  boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
+                  transition: "all 0.15s ease",
+                }}
+              >
+                <span>{demo.icon}</span>
+                <span>{demo.label[locale] || demo.label.en}</span>
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -1133,6 +1371,12 @@ function HomeContent() {
           Compare: View Classic Home Layout
         </button>
       </div>
+
+      <PersonalizedEligibilityModal
+        isOpen={eligibilityModalOpen}
+        onClose={() => setEligibilityModalOpen(false)}
+        initialDemoId={selectedDemoProfileId}
+      />
     </div>
   );
 }

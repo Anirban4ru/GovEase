@@ -302,20 +302,39 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Desktop Primary Nav & Action Button */}
+          {/* Desktop Primary Nav & Action Buttons */}
           <div
             className="hidden lg:flex"
             style={{
               alignItems: "center",
-              gap: "1.75rem",
+              gap: "1.25rem",
               flexShrink: 0,
             }}
           >
             <DesktopNavigation />
             <Link
+              href="/eligibility"
+              style={{
+                padding: "0.45rem 0.85rem",
+                backgroundColor: "#047857",
+                color: "#ffffff",
+                borderRadius: "var(--radius-sm)",
+                fontWeight: 700,
+                fontSize: "0.8125rem",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.35rem",
+                boxShadow: "0 1px 2px rgba(4, 120, 87, 0.2)",
+                transition: "background-color 0.15s ease",
+              }}
+            >
+              <span>🎯 {t("nav.eligibility") || "Check Eligibility"}</span>
+            </Link>
+            <Link
               href="/explore"
               style={{
-                padding: "0.5rem 1rem",
+                padding: "0.45rem 0.85rem",
                 backgroundColor: "var(--color-govease-navy, #0d3570)",
                 color: "#ffffff",
                 borderRadius: "var(--radius-sm)",

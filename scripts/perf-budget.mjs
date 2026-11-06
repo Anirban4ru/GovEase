@@ -27,8 +27,8 @@ if (!fs.existsSync(OUT_DIR)) {
 const BUDGETS = {
   maxHtmlBytes: 75 * 1024, // 75 KB raw (< 15 KB gzipped, calibrated for 18 services + full 5-phase journeys + 20-state portal resolver)
   maxCssBytes: 25 * 1024, // 25 KB raw (< 5 KB gzipped)
-  maxPageInitialJsGzipBytes: 235 * 1024, // 235 KB gzipped per page (Next.js 16 + React 19 + MiniSearch + 4 Locales + 3D Radial)
-  maxTotalStaticJsGzipBytes: 350 * 1024, // 350 KB gzipped across all chunks (calibrated for 18 services, 4 languages + document studio & life journeys)
+  maxPageInitialJsGzipBytes: 250 * 1024, // 250 KB gzipped per page (Next.js 16 + React 19 + MiniSearch + 4 Locales + 3D Radial + Eligibility Engine)
+  maxTotalStaticJsGzipBytes: 380 * 1024, // 380 KB gzipped across all chunks (calibrated for 18 services, 4 languages + document studio, life journeys & eligibility matcher)
 };
 
 function getAllFiles(dirPath, arrayOfFiles = []) {
