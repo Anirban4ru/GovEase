@@ -183,5 +183,47 @@
   { "query": "civil registration system birth", "expectedId": "birth-certificate-crs" },
   { "query": "janam patrika online", "expectedId": "birth-certificate-crs" },
   { "query": "जन्म प्रमाण पत्र", "expectedId": "birth-certificate-crs" },
-  { "query": "जन्म पंजीकरण ऑनलाइन", "expectedId": "birth-certificate-crs" }
+  { "query": "जन्म पंजीकरण ऑनलाइन", "expectedId": "birth-certificate-crs" },
+
+  { "query": "digilocker", "expectedId": "digilocker-account-setup" },
+  { "query": "digi locker account", "expectedId": "digilocker-account-setup" },
+  { "query": "digital document wallet", "expectedId": "digilocker-account-setup" },
+  { "query": "download marksheet digilocker", "expectedId": "digilocker-account-setup" },
+  { "query": "डिजीलॉकर", "expectedId": "digilocker-account-setup" },
+  { "query": "digilocker login kaise kare", "expectedId": "digilocker-account-setup" },
+
+  { "query": "jan dhan yojana", "expectedId": "pm-jan-dhan-yojana-account" },
+  { "query": "pmjdy zero balance account", "expectedId": "pm-jan-dhan-yojana-account" },
+  { "query": "jan dhan khata", "expectedId": "pm-jan-dhan-yojana-account" },
+  { "query": "rupay debit card bima", "expectedId": "pm-jan-dhan-yojana-account" },
+  { "query": "प्रधानमंत्री जन-धन योजना", "expectedId": "pm-jan-dhan-yojana-account" },
+  { "query": "zero balance bank account", "expectedId": "pm-jan-dhan-yojana-account" },
+
+  { "query": "eshram card", "expectedId": "eshram-card-registration" },
+  { "query": "e shram registration", "expectedId": "eshram-card-registration" },
+  { "query": "unorganised worker card", "expectedId": "eshram-card-registration" },
+  { "query": "shramik card online apply", "expectedId": "eshram-card-registration" },
+  { "query": "ई-श्रम कार्ड", "expectedId": "eshram-card-registration" },
+  { "query": "eshram uan download", "expectedId": "eshram-card-registration" },
+
+  { "query": "suraksha bima yojana", "expectedId": "pm-suraksha-bima-yojana" },
+  { "query": "pmsby accidental insurance", "expectedId": "pm-suraksha-bima-yojana" },
+  { "query": "20 rs insurance government", "expectedId": "pm-suraksha-bima-yojana" },
+  { "query": "2 lakh accidental cover", "expectedId": "pm-suraksha-bima-yojana" },
+  { "query": "प्रधानमंत्री सुरक्षा बीमा योजना", "expectedId": "pm-suraksha-bima-yojana" },
+  { "query": "jansuraksha insurance", "expectedId": "pm-suraksha-bima-yojana" },
+
+  { "query": "udid card", "expectedId": "swavlamban-udid-card" },
+  { "query": "disability certificate online", "expectedId": "swavlamban-udid-card" },
+  { "query": "swavlamban card apply", "expectedId": "swavlamban-udid-card" },
+  { "query": "divyang smart card", "expectedId": "swavlamban-udid-card" },
+  { "query": "यूडीआईडी कार्ड", "expectedId": "swavlamban-udid-card" },
+  { "query": "handicap certificate", "expectedId": "swavlamban-udid-card" },
+
+  { "query": "rc transfer", "expectedId": "parivahan-rc-transfer" },
+  { "query": "vehicle ownership transfer", "expectedId": "parivahan-rc-transfer" },
+  { "query": "car rc name change", "expectedId": "parivahan-rc-transfer" },
+  { "query": "form 29 30 rc transfer", "expectedId": "parivahan-rc-transfer" },
+  { "query": "वाहन आरसी ट्रांसफर", "expectedId": "parivahan-rc-transfer" },
+  { "query": "gadi rc transfer kaise kare", "expectedId": "parivahan-rc-transfer" }
 ]

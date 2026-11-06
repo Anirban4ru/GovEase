@@ -1,0 +1,63 @@
+{
+  "id": "eshram-card-registration",
+  "ecosystem": "finance-and-welfare",
+  "category": "labour-welfare",
+  "title": {
+    "en": "e-Shram Card Registration for Unorganised Workers",
+    "hi": "ई-श्रम कार्ड पंजीकरण (असंगठित श्रमिक राष्ट्रीय डेटाबेस)"
+  },
+  "goal": {
+    "en": "Register on the National Database of Unorganised Workers to receive a 12-digit UAN e-Shram card and social security benefits",
+    "hi": "सामाजिक सुरक्षा लाभ प्राप्त करने और 12 अंकों का ई-श्रम कार्ड पाने के लिए राष्ट्रीय असंगठित श्रमिक डेटाबेस में पंजीकरण करें"
+  },
+  "summary": {
+    "en": "e-Shram is the comprehensive National Database of Unorganised Workers (NDUW) developed by the Ministry of Labour & Employment (MoLE). Registered unorganised workers (construction labourers, gig workers, domestic helpers, street vendors, agricultural workers) receive a universal 12-digit Universal Account Number (UAN) e-Shram card, accidental death insurance cover under PMSBY, and direct social welfare linkages during national emergencies.",
+    "hi": "ई-श्रम श्रम एवं रोजगार मंत्रालय (MoLE) द्वारा विकसित असंगठित कामगारों का व्यापक राष्ट्रीय डेटाबेस (NDUW) है। पंजीकृत असंगठित श्रमिकों (निर्माण मजदूर, गिग वर्कर, घरेलू सहायिका, रेहड़ी-पटरी विक्रेता, कृषि मजदूर) को 12 अंकों का यूनिवर्सल अकाउंट नंबर (UAN) ई-श्रम कार्ड, आकस्मिक मृत्यु बीमा कवर और प्रत्यक्ष सामाजिक कल्याण योजनाओं का लाभ मिलता है।"
+  },
+  "provider": {
+    "name": "Ministry of Labour and Employment (MoLE)",
+    "type": "central"
+  },
+  "official_url": "https://eshram.gov.in/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Any unorganised worker aged between 16 and 59 years who is not a member of EPFO or ESIC, and is not an income tax payee, is eligible to register for an e-Shram card.",
+      "hi": "16 से 59 वर्ष की आयु के असंगठित श्रमिक जो ईपीएफओ (EPFO) या ईएसआईसी (ESIC) के सदस्य नहीं हैं और आयकर दाता नहीं हैं, ई-श्रम कार्ड के लिए पात्र हैं।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "12-digit Aadhaar Number",
+    "Active mobile number linked to Aadhaar (for OTP authentication)",
+    "Bank Account Number with IFSC code (for receiving direct welfare transfers)",
+    "Age verification proof (16-59 years as recorded in Aadhaar)"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Self-registration on the official eshram.gov.in portal is 100% free of charge. If registered through an assisted Common Service Centre (CSC), the Government reimburses the VLE and no fee should be charged to the worker for initial registration.",
+    "source_url": "https://eshram.gov.in/",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://eshram.gov.in/",
+      "title": "Ministry of Labour & Employment - e-Shram National Portal",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against Ministry of Labour & Employment e-Shram portal rules."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Portal features bilingual instructions and text-to-speech accessibility.",
+  "status": "draft-pending-human-review"
+}
+

@@ -1,0 +1,66 @@
+{
+  "id": "parivahan-rc-transfer",
+  "ecosystem": "mobility-and-transport",
+  "category": "vehicle-registration",
+  "title": {
+    "en": "Vehicle Registration Certificate (RC) Ownership Transfer",
+    "hi": "वाहन पंजीकरण प्रमाण पत्र (आरसी) स्वामित्व हस्तांतरण (फॉर्म 29 एवं 30)"
+  },
+  "goal": {
+    "en": "Transfer vehicle registration certificate (RC) ownership upon sale, succession, or auction via Vahan",
+    "hi": "वाहन बिक्री, उत्तराधिकार या नीलामी के उपरांत वाहन आरसी का स्वामित्व हस्तांतरण करें"
+  },
+  "summary": {
+    "en": "Transfer the ownership of a motor vehicle through the Ministry of Road Transport & Highways (MoRTH) centralized Vahan Citizen Portal. Under Sections 50 and 51 of the Motor Vehicles Act 1988, both the buyer and seller must notify the registering authority within 30 days of sale using Form 29 (Notice of Transfer) and Form 30 (Application for Transfer). The service supports Aadhaar eKYC, digital fee payment, and automated status tracking across all state RTOs.",
+    "hi": "सड़क परिवहन एवं राजमार्ग मंत्रालय (MoRTH) के एकीकृत वाहन नागरिक पोर्टल पर मोटर वाहन का स्वामित्व हस्तांतरित करें। मोटर वाहन अधिनियम 1988 की धारा 50 एवं 51 के अनुसार, वाहन बिक्री के 30 दिनों के भीतर फॉर्म 29 और फॉर्म 30 द्वारा आरटीओ को सूचित करना अनिवार्य है। यह सेवा आधार eKYC, डिजिटल शुल्क भुगतान और ऑनलाइन स्थिति ट्रैकिंग की सुविधा देती है।"
+  },
+  "provider": {
+    "name": "Ministry of Road Transport and Highways (MoRTH)",
+    "type": "central"
+  },
+  "official_url": "https://parivahan.gov.in/parivahan/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Available to the registered seller and prospective buyer of any registered vehicle in India. Vehicles subject to an existing bank loan or hypothecation require a No Objection Certificate (NOC) Form 35 from the financier before transfer can be completed.",
+      "hi": "भारत में किसी भी पंजीकृत वाहन के विक्रेता और खरीदार के लिए उपलब्ध। यदि वाहन पर बैंक ऋण या दृष्टिबंधक है, तो हस्तांतरण से पहले ऋणदाता से अनापत्ति प्रमाण पत्र (NOC फॉर्म 35) प्राप्त करना आवश्यक है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Original Registration Certificate (RC) book or smart card",
+    "Form 29 (Notice of Transfer of Ownership) signed in duplicate by both parties",
+    "Form 30 (Application for Transfer of Ownership) with buyer and seller signatures",
+    "Valid Vehicle Insurance Certificate",
+    "Valid Pollution Under Control (PUC) Certificate",
+    "Address and Identity Proof of the Buyer (Aadhaar Card, Voter ID, or Passport)",
+    "Financier NOC in Form 35 (if vehicle had hypothecation/loan)"
+  ],
+  "fees": {
+    "is_fee_required": true,
+    "details": "Official central statutory transfer fee is ₹150 for two-wheelers and ₹300 - ₹500 for light motor vehicles (cars) under Central Motor Vehicle Rule 81, plus nominal state postal smart card delivery charges (₹100 - ₹200).",
+    "source_url": "https://parivahan.gov.in/parivahan/",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://parivahan.gov.in/parivahan/",
+      "title": "Ministry of Road Transport and Highways - Parivahan Sewa",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against Central Motor Vehicles Rules 1989 Rule 81 fee schedule and Vahan portal workflow."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Vahan portal supports Aadhaar OTP validation, digital application fee payment, and online slot booking.",
+  "status": "draft-pending-human-review"
+}
+

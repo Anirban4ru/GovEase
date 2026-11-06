@@ -34,9 +34,9 @@ const isDomainAllowed = (urlStr: string): boolean => {
 };
 
 describe("Catalogue Engine & Seed Integrity", () => {
-  it("loads 12 verified seed services across 6 life ecosystems", () => {
+  it("loads 18 verified services across 6 life ecosystems", () => {
     const services = getAllServices();
-    expect(services.length).toBe(12);
+    expect(services.length).toBe(18);
 
     const ecosystems = new Set(services.map((s) => s.ecosystem));
     expect(ecosystems.size).toBe(6);

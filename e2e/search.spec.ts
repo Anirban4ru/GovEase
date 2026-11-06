@@ -58,7 +58,7 @@ test.describe("Milestone M3 - Search & Discovery Engine", () => {
     const clearBtn = page.locator('button[aria-label="Clear search query"]');
     await expect(clearBtn).toBeVisible();
     await clearBtn.click();
-    await expect(page.locator("h2 a")).toHaveCount(12);
+    await expect(page.locator("h2 a")).toHaveCount(18);
 
     // Test common typo: "adhaar"
     await exploreSearchInput.fill("adhaar");
@@ -81,7 +81,7 @@ test.describe("Milestone M3 - Search & Discovery Engine", () => {
     await expect(resetBtn).toBeVisible();
     await resetBtn.click();
 
-    await expect(page.locator("h2 a")).toHaveCount(12);
+    await expect(page.locator("h2 a")).toHaveCount(18);
   });
 
   test("passes axe-core accessibility audit with search dropdown open", async ({ page }) => {

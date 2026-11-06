@@ -23,7 +23,8 @@
     "audit:perf": "node scripts/perf-budget.mjs",
     "audit:ci": "npm audit --audit-level=high",
     "docker:build": "docker build -t unified-life-services:latest .",
-    "docker:verify": "node scripts/docker-verify.mjs"
+    "docker:verify": "node scripts/docker-verify.mjs",
+    "deploy:drill": "node scripts/deploy-drill.mjs"
   },
   "dependencies": {
     "minisearch": "^7.2.0",

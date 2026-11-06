@@ -1574,6 +1574,850 @@ export const EXPLAINER_GUIDES: Record<string, ServiceExplainerGuide> = {
       },
     ],
   },
+  "digilocker-account-setup": {
+    serviceId: "digilocker-account-setup",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Verify Pre-requisites",
+          hi: "चरण 1: आवश्यक पूर्व-तैयारी की जांच करें",
+        },
+        summary: {
+          en: "Ensure you have your 12-digit Aadhaar number and the linked mobile phone ready.",
+          hi: "सुनिश्चित करें कि आपके पास 12 अंकों का आधार नंबर और उससे जुड़ा सक्रिय मोबाइल फोन तैयार है।",
+        },
+        actionItems: {
+          en: [
+            "Keep your 12-digit Aadhaar card number at hand.",
+            "Ensure the mobile number registered with your Aadhaar is switched on and able to receive SMS OTPs.",
+            "Think of a memorable 6-digit security PIN for securing your account login.",
+          ],
+          hi: [
+            "अपना 12 अंकों का आधार नंबर पास रखें।",
+            "जांच लें कि आधार से जुड़ा मोबाइल नंबर चालू है और एसएमएस ओटीपी प्राप्त कर सकता है।",
+            "लॉगिन सुरक्षित करने के लिए 6 अंकों का एक गोपनीय सुरक्षा पिन सोच लें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "If your mobile number has changed, update it first at an Aadhaar Seva Kendra; DigiLocker cannot send OTPs to unlinked numbers.",
+          hi: "यदि आपका मोबाइल नंबर बदल चुका है, तो पहले आधार सेवा केंद्र पर इसे अपडेट कराएं; डिजीलॉकर केवल पंजीकृत नंबर पर ही ओटीपी भेजता है।",
+        },
+        relatedJargonKey: "ekyc",
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Navigate to Official DigiLocker Portal",
+          hi: "चरण 2: आधिकारिक डिजीलॉकर पोर्टल पर जाएं",
+        },
+        summary: {
+          en: "Access the authentic government website and click on 'Sign Up'.",
+          hi: "आधिकारिक सरकारी वेबसाइट पर जाएं और 'साइन अप' पर क्लिक करें।",
+        },
+        actionItems: {
+          en: [
+            "Open your browser and navigate strictly to https://www.digilocker.gov.in/.",
+            "Verify the browser address bar confirms the secure HTTPS connection and government domain .gov.in.",
+            "Click on the blue 'Sign Up' button located in the top navigation header.",
+          ],
+          hi: [
+            "ब्राउज़र में केवल आधिकारिक पोर्टल https://www.digilocker.gov.in/ खोलें।",
+            "जांचें कि एड्रेस बार में सुरक्षित एचटीटीपीएस (HTTPS) और सरकारी डोमेन .gov.in प्रदर्शित हो रहा है।",
+            "शीर्ष हेडर में स्थित नीले 'साइन अप' (Sign Up) बटन पर क्लिक करें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Never install unofficial APKs or third-party apps requesting money to download certificates; DigiLocker is completely free.",
+          hi: "प्रमाणपत्र डाउनलोड के नाम पर पैसे मांगने वाले किसी अनाधिकृत ऐप या पोर्टल पर विश्वास न करें; डिजीलॉकर पूर्णतः निःशुल्क है।",
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Account Creation & Aadhaar OTP Authentication",
+          hi: "चरण 3: खाता निर्माण एवं आधार ओटीपी प्रमाणीकरण",
+        },
+        summary: {
+          en: "Fill in your demographic details exactly as in Aadhaar and verify via OTP.",
+          hi: "आधार के अनुसार अपना नाम, जन्मतिथि दर्ज करें और ओटीपी द्वारा सत्यापित करें।",
+        },
+        actionItems: {
+          en: [
+            "Enter your full name, date of birth (DD/MM/YYYY), and gender exactly matching your Aadhaar card.",
+            "Enter your active mobile number and set your 6-digit security PIN.",
+            "Optionally provide an email ID for communication and password recovery.",
+            "Enter the 6-digit one-time password (OTP) sent to your mobile phone and click 'Submit'.",
+          ],
+          hi: [
+            "आधार कार्ड के अनुसार अपना पूरा नाम, जन्मतिथि और लिंग दर्ज करें।",
+            "अपना सक्रिय मोबाइल नंबर दर्ज करें और 6 अंकों का सुरक्षा पिन सेट करें।",
+            "ईमेल आईडी दर्ज करें ताकि खाता पुनः प्राप्ति में आसानी हो।",
+            "मोबाइल पर आया 6 अंकों का ओटीपी दर्ज कर 'सबमिट' पर क्लिक करें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Names with spelling differences compared to Aadhaar will cause authentication to fail.",
+          hi: "आधार में दर्ज नाम की वर्तनी में अंतर होने पर खाता प्रमाणीकरण विफल हो जाएगा।",
+        },
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Search & Pull Official Documents",
+          hi: "चरण 4: आधिकारिक दस्तावेज़ खोजें और जारी कराएं",
+        },
+        summary: {
+          en: "Link and fetch digital certificates directly from government issuer databases.",
+          hi: "सरकारी विभागों के डेटाबेस से सीधे अपने डिजिटल प्रमाणपत्र खोजकर जोड़ें।",
+        },
+        actionItems: {
+          en: [
+            "Navigate to the 'Search Documents' section from your dashboard.",
+            "Select the issuing department (e.g., MoRTH for Driving Licence/RC, Income Tax for PAN, CBSE for Marksheets).",
+            "Enter the document roll number, registration number, or PAN.",
+            "Provide consent to fetch the electronic document directly from the issuer repository.",
+          ],
+          hi: [
+            "डैशबोर्ड से 'दस्तावेज़ खोजें' (Search Documents) विकल्प पर जाएं।",
+            "संबंधित सरकारी विभाग (जैसे परिवहन, आयकर, या शिक्षा बोर्ड) का चयन करें।",
+            "रोल नंबर, वाहन नंबर या पैन नंबर दर्ज करें।",
+            "सरकारी डेटाबेस से दस्तावेज़ फेच करने के लिए सहमति दें।",
+          ],
+        },
+        relatedJargonKey: "digilocker_uri",
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Access Issued Documents with Legal Validity",
+          hi: "चरण 5: जारी दस्तावेज़ देखें और कानूनी प्रमाण के रूप में उपयोग करें",
+        },
+        summary: {
+          en: "Access your legally binding electronic certificates under Rule 9A of IT Rules 2016.",
+          hi: "आईटी नियम 2016 के नियम 9A के तहत मूल दस्तावेज़ों के समान वैध डिजिटल प्रतियों का उपयोग करें।",
+        },
+        actionItems: {
+          en: [
+            "View all fetched certificates inside the 'Issued Documents' section.",
+            "Download the tamper-proof PDF with the embedded DigiLocker verification QR code and digital signature.",
+            "Present these electronic documents directly to traffic police, airport security, or university admissions without carrying physical papers.",
+          ],
+          hi: [
+            "'जारी किए गए दस्तावेज़' (Issued Documents) टैब में अपने सभी प्रमाणपत्र देखें।",
+            "डिजिटल हस्ताक्षर और क्यूआर कोड युक्त सुरक्षित पीडीएफ डाउनलोड करें।",
+            "यातायात पुलिस, हवाई अड्डे या कॉलेज में मूल कागजात के बदले इसे डिजिटल रूप में दिखाएं।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Self-uploaded files in 'Drive' are storage only; only certificates fetched under 'Issued Documents' have legal statutory standing under IT Rules 2016.",
+          hi: "'ड्राइव' में खुद अपलोड की गई स्कैन प्रतियां कानूनी तौर पर मान्य नहीं होतीं; केवल 'जारी दस्तावेज़' ही कानूनी प्रमाण माने जाते हैं।",
+        },
+      },
+    ],
+  },
+  "pm-jan-dhan-yojana-account": {
+    serviceId: "pm-jan-dhan-yojana-account",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Check Eligibility & Gather Identity Documents",
+          hi: "चरण 1: पात्रता जांचें और आवश्यक पहचान पत्र एकत्र करें",
+        },
+        summary: {
+          en: "Verify that you are aged 10 or above and gather your basic KYC documents.",
+          hi: "जांचें कि आपकी आयु 10 वर्ष या अधिक है और मूल पहचान पत्र तैयार रखें।",
+        },
+        actionItems: {
+          en: [
+            "Verify you do not already have an active basic savings bank account at any commercial bank.",
+            "Keep your Aadhaar Card ready as the primary officially valid document (OVD).",
+            "If Aadhaar is not available, gather Voter ID, PAN card, NREGA job card, or passport.",
+            "Keep two recent passport-size color photographs ready.",
+          ],
+          hi: [
+            "सुनिश्चित करें कि किसी अन्य बैंक में आपका पहले से बुनियादी बचत खाता नहीं है।",
+            "पहचान और पते के प्रमाण के रूप में अपना आधार कार्ड तैयार रखें।",
+            "आधार न होने पर मतदाता पहचान पत्र, पैन कार्ड, नरेगा जॉब कार्ड या पासपोर्ट का उपयोग किया जा सकता है।",
+            "पासपोर्ट साइज के दो हालिया रंगीन फोटो साथ रखें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Even if you lack standard official documents, you can still open a 'Small Account' with just two self-attested photographs, valid for 12 months.",
+          hi: "यदि कोई आधिकारिक दस्तावेज़ नहीं है, तो भी आप केवल दो फोटो देकर 12 महीने के लिए 'छोटा खाता' (Small Account) खुलवा सकते हैं।",
+        },
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Visit Authorized Bank Branch or Bank Mitra Kiosk",
+          hi: "चरण 2: अधिकृत बैंक शाखा या बैंक मित्र (CSP) केंद्र पर जाएं",
+        },
+        summary: {
+          en: "Locate a participating public/private bank branch or rural Business Correspondent.",
+          hi: "किसी भी सरकारी अथवा निजी बैंक शाखा या नजदीकी ग्राहक सेवा केंद्र (CSP) पर जाएं।",
+        },
+        actionItems: {
+          en: [
+            "Visit any public sector bank (SBI, PNB, BoB, etc.) or authorized private bank branch.",
+            "In rural areas, you can directly visit a Bank Mitra (Business Correspondent kiosk).",
+            "Request the official 'Pradhan Mantri Jan-Dhan Yojana (PMJDY) Account Opening Form'.",
+          ],
+          hi: [
+            "किसी भी सार्वजनिक क्षेत्र के बैंक या अधिकृत बैंक शाखा में जाएं।",
+            "ग्रामीण क्षेत्रों में सीधे अधिकृत बैंक मित्र (ग्राहक सेवा केंद्र) से संपर्क करें।",
+            "'प्रधानमंत्री जन-धन योजना खाता खोलने का फॉर्म' प्राप्त करें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "PMJDY account opening is 100% free; do not pay any agent fees or minimum deposit to anyone.",
+          hi: "जन-धन खाता खोलना पूर्णतः निःशुल्क है; किसी भी दलाल को खाता खोलने के नाम पर पैसे न दें।",
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Fill Account Opening Form & Nominee Details",
+          hi: "चरण 3: खाता खोलने का फॉर्म भरें और नॉमिनी का नाम दर्ज करें",
+        },
+        summary: {
+          en: "Enter personal details and nominate a family member for insurance coverage.",
+          hi: "व्यक्तिगत विवरण भरें और बीमा सुरक्षा के लिए परिवार के सदस्य को नामांकित करें।",
+        },
+        actionItems: {
+          en: [
+            "Fill in your full name, date of birth, father's/spouse's name, and residential address.",
+            "Ensure the nominee section is completed with name, relationship, and date of birth.",
+            "Affix your recent passport photographs and sign or place your thumb impression.",
+          ],
+          hi: [
+            "अपना नाम, जन्मतिथि, पिता/पति का नाम और वर्तमान पता साफ अक्षरों में भरें।",
+            "नॉमिनी (वारिस) का नाम, संबंध और जन्मतिथि अवश्य दर्ज करें।",
+            "फोटो चिपकाएं और निर्धारित स्थान पर हस्ताक्षर या अंगूठे का निशान लगाएं।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Never skip the nominee section; nominating a family member is essential to claim the ₹2 lakh accidental insurance benefit smoothly.",
+          hi: "नॉमिनी का नाम खाली न छोड़ें; ₹2 लाख के दुर्घटना बीमा दावे के लिए नॉमिनी का विवरण अनिवार्य है।",
+        },
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Biometric Authentication & Account Generation",
+          hi: "चरण 4: बायोमेट्रिक सत्यापन एवं खाता निर्माण",
+        },
+        summary: {
+          en: "Complete instant Aadhaar e-KYC using biometric fingerprint or iris scan.",
+          hi: "फिंगरप्रिंट या आईरिस स्कैनर के माध्यम से तुरंत आधार e-KYC पूरा करें।",
+        },
+        actionItems: {
+          en: [
+            "Provide your Aadhaar number to the bank official or Bank Mitra.",
+            "Complete biometric fingerprint or OTP verification.",
+            "The bank official links your demographic details directly from UIDAI.",
+            "Account number is generated with zero minimum balance requirement.",
+          ],
+          hi: [
+            "बैंक अधिकारी या बैंक मित्र को अपना आधार नंबर बताएं।",
+            "फिंगरप्रिंट या मोबाइल ओटीपी द्वारा पहचान प्रमाणित करें।",
+            "बैंक अधिकारी सीधे यूआईडीएआई (UIDAI) से विवरण सत्यापित कर खाता खोलता है।",
+            "बिना किसी न्यूनतम राशि की शर्त के आपका खाता तुरंत सक्रिय हो जाता है।",
+          ],
+        },
+        relatedJargonKey: "ekyc",
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Receive Passbook, RuPay Card & Activate Benefits",
+          hi: "चरण 5: पासबुक एवं रुपे कार्ड प्राप्त करें तथा लाभ सक्रिय रखें",
+        },
+        summary: {
+          en: "Collect your free bank passbook and RuPay debit card with ₹2 lakh accidental cover.",
+          hi: "निःशुल्क पासबुक और ₹2 लाख दुर्घटना बीमा युक्त रुपे डेबिट कार्ड प्राप्त करें।",
+        },
+        actionItems: {
+          en: [
+            "Collect your physical bank passbook with your 11-digit account number and IFSC code.",
+            "Receive your free RuPay Debit Card.",
+            "Perform at least one financial or non-financial transaction at an ATM or PoS machine every 90 days to keep the ₹2 lakh accidental insurance cover active.",
+            "Maintain active, satisfactory operations for 6 months to become eligible for the ₹10,000 overdraft facility.",
+          ],
+          hi: [
+            "खाता नंबर और आईएफएससी कोड दर्ज वाली अपनी पासबुक प्राप्त करें।",
+            "अपना निःशुल्क रुपे (RuPay) डेबिट कार्ड लें।",
+            "₹2 लाख का दुर्घटना बीमा चालू रखने के लिए प्रत्येक 90 दिन में कम से कम एक बार कार्ड से लेनदेन अवश्य करें।",
+            "खाते को 6 महीने तक सक्रिय रखने पर ₹10,000 तक की ओवरड्राफ्ट सुविधा प्राप्त करें।",
+          ],
+        },
+        relatedJargonKey: "pmjdy_od",
+      },
+    ],
+  },
+  "eshram-card-registration": {
+    serviceId: "eshram-card-registration",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Confirm Eligibility Criteria",
+          hi: "चरण 1: पात्रता शर्तों की पुष्टि करें",
+        },
+        summary: {
+          en: "Verify that you are an unorganised worker aged between 16 and 59 years.",
+          hi: "जांचें कि आप 16 से 59 वर्ष की आयु के असंगठित कामगार हैं।",
+        },
+        actionItems: {
+          en: [
+            "Confirm that your age is between 16 and 59 years.",
+            "Confirm that you are not a registered member of EPFO (EPF) or ESIC.",
+            "Confirm that you are not an income tax assessee.",
+            "Keep your Aadhaar number, Aadhaar-linked mobile phone, and bank savings account details ready.",
+          ],
+          hi: [
+            "पुष्टि करें कि आपकी आयु 16 से 59 वर्ष के मध्य है।",
+            "सुनिश्चित करें कि आप ईपीएफओ (EPFO) या ईएसआईसी (ESIC) के सदस्य नहीं हैं।",
+            "सुनिश्चित करें कि आप आयकर दाता नहीं हैं।",
+            "अपना आधार नंबर, आधार से जुड़ा मोबाइल फोन और बैंक खाता पास रखें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Salaried employees already contributing to EPFO/ESIC or paying income tax are not eligible for e-Shram registration.",
+          hi: "वेतनभोगी कर्मचारी जिनका पीएफ या ईएसआईसी कटता है अथवा जो इनकम टैक्स भरते हैं, वे ई-श्रम के पात्र नहीं हैं।",
+        },
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Access Official e-Shram Portal",
+          hi: "चरण 2: आधिकारिक ई-श्रम पोर्टल पर जाएं",
+        },
+        summary: {
+          en: "Navigate to the official Ministry of Labour & Employment portal.",
+          hi: "श्रम एवं रोजगार मंत्रालय के आधिकारिक पोर्टल पर जाएं।",
+        },
+        actionItems: {
+          en: [
+            "Open your web browser and go to https://eshram.gov.in/.",
+            "Verify the .gov.in domain in the browser address bar.",
+            "Click on the 'Register on e-Shram' button on the homepage.",
+          ],
+          hi: [
+            "ब्राउज़र में आधिकारिक वेबसाइट https://eshram.gov.in/ खोलें।",
+            "एड्रेस बार में .gov.in डोमेन की जांच करें।",
+            "होमपेज पर दिए गए 'Register on e-Shram' (ई-श्रम पर पंजीकरण करें) पर क्लिक करें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Self-registration on the official portal is 100% free of charge. Do not pay any money to online cafes for portal access.",
+          hi: "आधिकारिक पोर्टल पर स्वयं पंजीकरण पूरी तरह फ्री है; किसी भी साइबर कैफे को पोर्टल शुल्क के नाम पर अतिरिक्त पैसे न दें।",
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Aadhaar Authentication via OTP",
+          hi: "चरण 3: आधार ओटीपी द्वारा पहचान सत्यापन",
+        },
+        summary: {
+          en: "Authenticate your identity using your Aadhaar-linked mobile number.",
+          hi: "आधार से जुड़े मोबाइल नंबर पर प्राप्त ओटीपी से पहचान सत्यापित करें।",
+        },
+        actionItems: {
+          en: [
+            "Enter your Aadhaar-linked mobile number and captcha code.",
+            "Confirm you are not an EPFO/ESIC member by selecting 'No'.",
+            "Click 'Send OTP' and enter the 6-digit verification code received on your phone.",
+            "Enter your 12-digit Aadhaar number, accept the consent declaration, and submit.",
+          ],
+          hi: [
+            "आधार से जुड़ा मोबाइल नंबर और कैप्चा कोड भरें।",
+            "ईपीएफओ/ईएसआईसी के विकल्प में 'नहीं' (No) चुनें।",
+            "'सेंड ओटीपी' पर क्लिक कर मोबाइल पर आया 6 अंकों का कोड दर्ज करें।",
+            "अपना 12 अंकों का आधार नंबर डालें और सहमति देकर सबमिट करें।",
+          ],
+        },
+        relatedJargonKey: "ekyc",
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Enter Occupation, Skills & Bank Details",
+          hi: "चरण 4: व्यवसाय, कौशल और बैंक खाते का विवरण भरें",
+        },
+        summary: {
+          en: "Select your primary occupation from the national list and enter your bank account.",
+          hi: "राष्ट्रीय सूची से अपने काम का चयन करें और बैंक खाता नंबर दर्ज करें।",
+        },
+        actionItems: {
+          en: [
+            "Review pre-filled demographic details fetched automatically from UIDAI.",
+            "Enter your current address and education qualification.",
+            "Select your primary occupation/skill (e.g., construction, agriculture, driver, domestic worker, street vendor).",
+            "Enter your active bank account number and IFSC code for direct welfare transfers.",
+          ],
+          hi: [
+            "आधार से स्वतः लिए गए अपने नाम और पते की जांच करें।",
+            "वर्तमान निवास और शैक्षणिक योग्यता का चयन करें।",
+            "अपने मुख्य व्यवसाय का चयन करें (जैसे निर्माण श्रमिक, किसान, चालक, घरेलू कामगार, रेहड़ी-पटरी)।",
+            "सरकारी आर्थिक लाभ सीधे प्राप्त करने के लिए बैंक खाता और IFSC कोड दर्ज करें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Ensure your bank account is Aadhaar-seeded so direct benefit transfers (DBT) credit smoothly during relief distributions.",
+          hi: "सुनिश्चित करें कि बैंक खाता आधार से लिंक हो ताकि सरकारी सहायता सीधे खाते में आ सके।",
+        },
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Review Self-Declaration & Download 12-Digit UAN Card",
+          hi: "चरण 5: घोषणा पत्र जांचें और 12 अंकों का ई-श्रम UAN कार्ड डाउनलोड करें",
+        },
+        summary: {
+          en: "Download your permanent national e-Shram card with photo and QR code.",
+          hi: "फोटो और क्यूआर कोड युक्त अपना स्थायी राष्ट्रीय ई-श्रम कार्ड डाउनलोड करें।",
+        },
+        actionItems: {
+          en: [
+            "Preview the complete self-declaration form on screen and verify all details.",
+            "Click 'Submit' to generate your permanent 12-digit Universal Account Number (UAN).",
+            "Download your digital e-Shram Card PDF containing your photo, UAN, and QR code.",
+            "Save the card in your mobile phone or print a physical copy for safe keeping.",
+          ],
+          hi: [
+            "स्क्रीन पर पूरा विवरण जांचें और घोषणा पत्र स्वीकार करें।",
+            "'सबमिट' पर क्लिक करते ही 12 अंकों का यूनिवर्सल अकाउंट नंबर (UAN) बन जाएगा।",
+            "अपनी फोटो और क्यूआर कोड वाला ई-श्रम कार्ड पीडीएफ तुरंत डाउनलोड करें।",
+            "कार्ड को फोन में सुरक्षित रखें या प्रिंट करवाकर अपने पास रख लें।",
+          ],
+        },
+        relatedJargonKey: "eshram_uan",
+      },
+    ],
+  },
+  "pm-suraksha-bima-yojana": {
+    serviceId: "pm-suraksha-bima-yojana",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Check Eligibility & Bank Account Standing",
+          hi: "चरण 1: पात्रता और बैंक खाते की स्थिति जांचें",
+        },
+        summary: {
+          en: "Confirm you are between 18 and 70 years old with an active savings account.",
+          hi: "जांचें कि आपकी आयु 18 से 70 वर्ष के बीच है और आपका बचत खाता सक्रिय है।",
+        },
+        actionItems: {
+          en: [
+            "Ensure you are between 18 and 70 years of age.",
+            "Hold an active individual or joint savings bank account in any participating bank or post office.",
+            "Keep your Aadhaar card and active bank account passbook ready.",
+            "Decide on your nominee's name, age, and relationship.",
+          ],
+          hi: [
+            "पुष्टि करें कि आपकी उम्र 18 से 70 वर्ष के बीच है।",
+            "किसी भी बैंक या डाकघर में सक्रिय बचत खाता होना अनिवार्य है।",
+            "अपना आधार कार्ड और बैंक पासबुक तैयार रखें।",
+            "अपने नॉमिनी (वारिस) का नाम, आयु और संबंध तय कर लें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "A person can enroll in PMSBY through only one bank account; having multiple enrollments in different banks will forfeit extra premiums without additional coverage.",
+          hi: "एक व्यक्ति केवल एक ही बैंक खाते से इस योजना में जुड़ सकता है; अलग-अलग बैंकों से जुड़ने पर अतिरिक्त प्रीमियम व्यर्थ जाएगा और क्लेम केवल एक ही मिलेगा।",
+        },
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Choose Enrolment Mode (Online or Branch)",
+          hi: "चरण 2: नामांकन का तरीका चुनें (ऑनलाइन अथवा शाखा)",
+        },
+        summary: {
+          en: "Enrol instantly through internet banking or by submitting a physical form at the branch.",
+          hi: "नेटबैंकिंग के माध्यम से तुरंत ऑनलाइन अथवा बैंक शाखा में फॉर्म जमा कर नामांकन करें।",
+        },
+        actionItems: {
+          en: [
+            "Option A (Online): Log in to your bank's net banking or mobile banking app, navigate to 'Government / Social Security Schemes', and select 'PMSBY'.",
+            "Option B (Branch): Download the official bilingual consent form from https://jansuraksha.gov.in/ or collect it from your bank branch.",
+            "In rural areas, you can also enroll through a customer service point (CSP) or Post Office savings bank.",
+          ],
+          hi: [
+            "विकल्प क (ऑनलाइन): अपने बैंक की नेटबैंकिंग या मोबाइल ऐप में लॉगिन करें, 'सामाजिक सुरक्षा योजनाएं' में जाकर 'PMSBY' चुनें।",
+            "विकल्प ख (शाखा): आधिकारिक पोर्टल https://jansuraksha.gov.in/ से फॉर्म डाउनलोड करें या बैंक शाखा से प्राप्त करें।",
+            "डाकघर या ग्राहक सेवा केंद्र (CSP) पर जाकर भी नामांकन कराया जा सकता है।",
+          ],
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Fill Nominee Details & Address",
+          hi: "चरण 3: नॉमिनी का विवरण और पता दर्ज करें",
+        },
+        summary: {
+          en: "Designate a legal nominee to receive the ₹2 lakh insurance settlement in case of death.",
+          hi: "आकस्मिक मृत्यु की स्थिति में ₹2 लाख का क्लेम पाने के लिए नॉमिनी का स्पष्ट विवरण भरें।",
+        },
+        actionItems: {
+          en: [
+            "Enter nominee's full legal name, relationship to you, and date of birth.",
+            "If the nominee is a minor (under 18), name an appointed guardian with relationship details.",
+            "Provide nominee's bank account details if available for seamless claim credit.",
+          ],
+          hi: [
+            "नॉमिनी का पूरा नाम, आपके साथ संबंध और जन्मतिथि भरें।",
+            "यदि नॉमिनी 18 वर्ष से कम उम्र का है, तो अभिभावक (गार्जियन) का नाम दर्ज करें।",
+            "शीघ्र क्लेम निपटान के लिए नॉमिनी का बैंक खाता विवरण भी साथ में जोड़ें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Failing to specify nominee details makes it difficult for families to claim the benefit in an emergency.",
+          hi: "नॉमिनी का नाम स्पष्ट रूप से दर्ज न होने पर परिवार को क्लेम राशि मिलने में भारी परेशानी होती है।",
+        },
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Authorize ₹20 Annual Auto-Debit Consent",
+          hi: "चरण 4: वार्षिक ₹20 ऑटो-डेबिट की सहमति दें",
+        },
+        summary: {
+          en: "Grant recurring permission to debit ₹20 annually on or before May 31st.",
+          hi: "प्रत्येक वर्ष 31 मई से पहले खाते से ₹20 स्वतः काटने की स्थायी अनुमति दें।",
+        },
+        actionItems: {
+          en: [
+            "Sign the auto-debit authorization clause on the form or accept the electronic consent prompt online.",
+            "Confirm that ₹20 will be deducted annually from your account between May 25 and May 31.",
+            "The insurance cover runs from June 1st to May 31st of the following year.",
+          ],
+          hi: [
+            "फॉर्म पर ऑटो-डेबिट सहमति पर हस्ताक्षर करें या नेटबैंकिंग में सहमति बटन पर क्लिक करें।",
+            "स्वीकार करें कि प्रत्येक वर्ष 25 से 31 मई के बीच आपके खाते से ₹20 कटेंगे।",
+            "बीमा कवर की अवधि 1 जून से अगले वर्ष 31 मई तक की होती है।",
+          ],
+        },
+        relatedJargonKey: "pmsby_autodebit",
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Collect Policy Acknowledgment & Maintain Annual Balance",
+          hi: "चरण 5: पॉलिसी पावती प्राप्त करें और खाते में न्यूनतम शेष बनाए रखें",
+        },
+        summary: {
+          en: "Keep the acknowledgment slip and ensure ₹20 balance in May to avoid policy lapse.",
+          hi: "रसीद संभालकर रखें और मई में खाते में ₹20 अवश्य रखें ताकि बीमा बंद न हो।",
+        },
+        actionItems: {
+          en: [
+            "Collect the stamped counterfoil acknowledgment from the branch or save the online transaction reference.",
+            "Check your bank statement in June to confirm the ₹20 premium deduction.",
+            "Keep the acknowledgment with family members so they have the bank policy number for claims.",
+            "Ensure your bank account always has at least ₹20 balance before May 31st every year.",
+          ],
+          hi: [
+            "बैंक से मुहर लगी पावती रसीद लें अथवा ऑनलाइन ट्रांजैक्शन रसीद सुरक्षित रखें।",
+            "जून माह में बैंक पासबुक में ₹20 प्रीमियम कटने की पुष्टि करें।",
+            "पावती रसीद परिवार के पास सुरक्षित रखें ताकि आपातकाल में दावा किया जा सके।",
+            "हर साल मई के अंत में खाते में कम से कम ₹20 जरूर रखें ताकि पॉलिसी स्वतः रिन्यू होती रहे।",
+          ],
+        },
+      },
+    ],
+  },
+  "swavlamban-udid-card": {
+    serviceId: "swavlamban-udid-card",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Check RPwD Act Eligibility & Gather Documents",
+          hi: "चरण 1: RPwD अधिनियम के तहत पात्रता जांचें और दस्तावेज एकत्र करें",
+        },
+        summary: {
+          en: "Verify that disability is 40% or more under the 21 categories recognized by law.",
+          hi: "जांचें कि दिव्यांगता कानून द्वारा मान्यता प्राप्त 21 श्रेणियों में 40% या अधिक है।",
+        },
+        actionItems: {
+          en: [
+            "Verify eligibility under any of the 21 recognized disabilities in the RPwD Act 2016.",
+            "Keep a clear passport-size photograph ready (showing disability if physical/visible).",
+            "Keep proof of identity and address ready (Aadhaar Card, Voter ID, or Ration Card).",
+            "If you already hold a state-issued hospital disability certificate, keep a scanned copy ready.",
+            "Keep a scanned specimen signature or thumb impression ready.",
+          ],
+          hi: [
+            "पुष्टि करें कि दिव्यांगता RPwD कानून 2016 की 21 श्रेणियों में से किसी एक में आती है।",
+            "पासपोर्ट साइज का स्पष्ट फोटो तैयार रखें (शारीरिक दिव्यांगता दिखने वाली)।",
+            "पहचान और पते के प्रमाण के रूप में आधार कार्ड या वोटर आईडी तैयार रखें।",
+            "यदि पुराना अस्पताल प्रमाण पत्र पहले से बना है, तो उसकी स्कैन कॉपी रखें।",
+            "हस्ताक्षर अथवा अंगूठे के निशान की स्कैन कॉपी तैयार रखें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Make sure scanned files are under 2 MB and clearly legible in JPG or PDF format.",
+          hi: "दस्तावेजों की स्कैन फाइलें स्पष्ट और 2 एमबी से कम आकार की होनी चाहिए।",
+        },
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Access Official Swavlamban Portal",
+          hi: "चरण 2: आधिकारिक स्वावलंबन पोर्टल पर जाएं",
+        },
+        summary: {
+          en: "Navigate to https://www.swavlambancard.gov.in/ and start online registration.",
+          hi: "पोर्टल https://www.swavlambancard.gov.in/ पर जाएं और ऑनलाइन आवेदन शुरू करें।",
+        },
+        actionItems: {
+          en: [
+            "Open your web browser and navigate strictly to https://www.swavlambancard.gov.in/.",
+            "Verify the .gov.in domain in the browser address bar.",
+            "Click on the 'Apply for Disability Certificate & UDID Card' link on the homepage.",
+          ],
+          hi: [
+            "ब्राउज़र में आधिकारिक वेबसाइट https://www.swavlambancard.gov.in/ खोलें।",
+            "एड्रेस बार में सरकारी .gov.in डोमेन की पुष्टि करें।",
+            "होमपेज पर 'Apply for Disability Certificate & UDID Card' लिंक पर क्लिक करें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "UDID registration and smart card delivery are completely free; avoid any middlemen claiming to guarantee faster certification for a fee.",
+          hi: "UDID कार्ड और सरकारी प्रमाण पत्र पूर्णतः निःशुल्क है; किसी भी दलाल को पैसे न दें।",
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Fill Application Form & Upload Proofs",
+          hi: "चरण 3: आवेदन पत्र भरें और प्रमाण पत्र अपलोड करें",
+        },
+        summary: {
+          en: "Enter personal, address, and disability details and upload documents.",
+          hi: "व्यक्तिगत जानकारी, पता और दिव्यांगता का प्रकार दर्ज कर फाइलें अपलोड करें।",
+        },
+        actionItems: {
+          en: [
+            "Enter applicant's personal details (name, father/mother name, date of birth, gender, blood group).",
+            "Provide complete residential address matching your proof of address.",
+            "Select disability type from the drop-down (locomotor, visual, hearing, intellectual, etc.).",
+            "Upload photograph, signature/thumb impression, and identity/address proofs.",
+            "Submit the application and note down your 17-digit Enrolment / Application Number.",
+          ],
+          hi: [
+            "आवेदक का पूरा नाम, माता-पिता का नाम, जन्मतिथि और रक्त समूह भरें।",
+            "प्रमाण पत्र के अनुसार पूरा वर्तमान और स्थायी पता दर्ज करें।",
+            "दिव्यांगता की श्रेणी चुनें (जैसे दृष्टिबाधित, श्रवणबाधित, अस्थि दिव्यांगता आदि)।",
+            "फोटो, हस्ताक्षर/अंगूठे का निशान और पहचान पत्र अपलोड करें।",
+            "आवेदन सबमिट करें और 17 अंकों की आवेदन संख्या (Enrolment Number) सुरक्षित लिख लें।",
+          ],
+        },
+        relatedJargonKey: "udid_card",
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Hospital Assessment by Medical Board",
+          hi: "चरण 4: मेडिकल बोर्ड द्वारा अस्पताल में परीक्षण",
+        },
+        summary: {
+          en: "Visit designated district hospital on the scheduled date for medical evaluation.",
+          hi: "निर्धारित तिथि पर जिला अस्पताल में मेडिकल बोर्ड के समक्ष परीक्षण के लिए उपस्थित हों।",
+        },
+        actionItems: {
+          en: [
+            "The portal assigns your application to your district Chief Medical Officer (CMO) or Civil Hospital.",
+            "Check SMS notification or portal status for your allotted assessment date and time.",
+            "Visit the designated government hospital with original documents and old medical records.",
+            "The specialist medical board examines the applicant and determines the percentage of disability.",
+          ],
+          hi: [
+            "पोर्टल आपके आवेदन को आपके जिले के मुख्य चिकित्सा अधिकारी (CMO) या सिविल अस्पताल को भेजता है।",
+            "एसएमएस या पोर्टल द्वारा दी गई तारीख और समय पर अस्पताल जाएं।",
+            "मूल दस्तावेज और पुराने इलाज की पर्चियां साथ लेकर जाएं।",
+            "चिकित्सा बोर्ड द्वारा जांच कर दिव्यांगता का प्रतिशत तय किया जाता है।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "If you already possess a valid permanent disability certificate from an authorized government hospital, mention this during application to avoid re-examination.",
+          hi: "यदि आपके पास पहले से स्थायी सरकारी प्रमाण पत्र है, तो फॉर्म में उसका उल्लेख करें ताकि दोबारा परीक्षण से बचा जा सके।",
+        },
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Download e-UDID & Receive Physical Smart Card",
+          hi: "चरण 5: ई-यूडीआईडी डाउनलोड करें और डाक से स्मार्ट कार्ड प्राप्त करें",
+        },
+        summary: {
+          en: "Download digitally signed certificate and receive national smart card via India Post.",
+          hi: "डिजिटल प्रमाण पत्र तुरंत डाउनलोड करें और डाक द्वारा स्मार्ट कार्ड घर पर प्राप्त करें।",
+        },
+        actionItems: {
+          en: [
+            "Once approved by the CMO, log in to the Swavlamban portal using your enrolment number.",
+            "Download your official e-Disability Certificate and e-UDID Card with tamper-proof QR code.",
+            "The permanent physical UDID Smart Card is printed centrally and delivered free of charge to your address via India Post speed post.",
+            "Use the card nationwide for railway concessions, education quotas, and state pension benefits.",
+          ],
+          hi: [
+            "सीएमओ द्वारा स्वीकृति मिलने के बाद पोर्टल से अपना ई-दिव्यांगता प्रमाण पत्र डाउनलोड करें।",
+            "क्यूआर कोड युक्त डिजिटल ई-यूडीआईडी कार्ड अपने फोन में रखें।",
+            "प्लास्टिक स्मार्ट कार्ड भारत सरकार द्वारा भारतीय डाक (स्पीड पोस्ट) से आपके पते पर निःशुल्क भेजा जाएगा।",
+            "पूरे देश में रेलवे पास, छात्रवृत्ति, पेंशन और आरक्षण के लिए इस एक कार्ड का उपयोग करें।",
+          ],
+        },
+      },
+    ],
+  },
+  "parivahan-rc-transfer": {
+    serviceId: "parivahan-rc-transfer",
+    steps: [
+      {
+        stepNumber: 1,
+        title: {
+          en: "Step 1: Gather Statutory Documents & Form 29/30",
+          hi: "चरण 1: आवश्यक वैधानिक दस्तावेज एवं फॉर्म 29/30 तैयार करें",
+        },
+        summary: {
+          en: "Prepare original RC, insurance, PUC, and signed statutory transfer forms.",
+          hi: "मूल आरसी, बीमा, प्रदूषण प्रमाण पत्र और हस्ताक्षरित फॉर्म 29 व 30 तैयार रखें।",
+        },
+        actionItems: {
+          en: [
+            "Keep the original vehicle Registration Certificate (RC book or smart card).",
+            "Download and get Form 29 (Notice of Transfer) and Form 30 (Application for Transfer) signed by both buyer and seller.",
+            "Ensure vehicle insurance and Pollution Under Control (PUC) certificate are both active and valid.",
+            "If the vehicle had an active bank loan, obtain Form 35 and NOC from the financing bank.",
+            "Keep buyer's Aadhaar card or valid address and identity proof ready.",
+          ],
+          hi: [
+            "वाहन का मूल पंजीकरण प्रमाण पत्र (आरसी बुक या स्मार्ट कार्ड) पास रखें।",
+            "फॉर्म 29 (बिक्री सूचना) और फॉर्म 30 (हस्तांतरण आवेदन) पर खरीदार और विक्रेता दोनों के हस्ताक्षर कराएं।",
+            "जांच लें कि वाहन बीमा और प्रदूषण प्रमाण पत्र (PUC) दोनों चालू और वैध हैं।",
+            "यदि गाड़ी पर बैंक लोन था, तो बैंक से एनओसी (NOC) और फॉर्म 35 अवश्य लें।",
+            "खरीदार का आधार कार्ड या वैध पते का प्रमाण तैयार रखें।",
+          ],
+        },
+        relatedJargonKey: "form_29_30",
+        commonPitfallWarning: {
+          en: "Always execute RC transfer within 30 days of sale. Delaying transfer exposes the seller to legal and challan liability for accidents caused by the buyer.",
+          hi: "गाड़ी बेचने के 30 दिनों के भीतर आरसी ट्रांसफर की प्रक्रिया शुरू करें, अन्यथा चालान या दुर्घटना की जिम्मेदारी पुराने मालिक पर बनी रहेगी।",
+        },
+      },
+      {
+        stepNumber: 2,
+        title: {
+          en: "Step 2: Access Parivahan Sewa Portal",
+          hi: "चरण 2: आधिकारिक परिवहन सेवा पोर्टल पर जाएं",
+        },
+        summary: {
+          en: "Navigate to the MoRTH centralized Vahan citizen portal.",
+          hi: "सड़क परिवहन मंत्रालय के एकीकृत वाहन पोर्टल पर जाएं।",
+        },
+        actionItems: {
+          en: [
+            "Navigate strictly to the official portal: https://parivahan.gov.in/parivahan/.",
+            "Go to 'Online Services' -> 'Vehicle Related Services'.",
+            "Select the State and the registering RTO authority where the vehicle is registered.",
+          ],
+          hi: [
+            "केवल आधिकारिक वेबसाइट https://parivahan.gov.in/parivahan/ पर जाएं।",
+            "'ऑनलाइन सेवाएं' में जाकर 'वाहन संबंधित सेवाएं' (Vehicle Related Services) चुनें।",
+            "अपना राज्य और संबंधित आरटीओ (RTO) कार्यालय चुनें जहां गाड़ी दर्ज है।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Beware of deceptive look-alike websites charging exorbitant consultancy fees; use only the official parivahan.gov.in portal.",
+          hi: "निजी दलालों और नकली वेबसाइटों से बचें; केवल आधिकारिक सरकारी परिवहन पोर्टल का उपयोग करें।",
+        },
+      },
+      {
+        stepNumber: 3,
+        title: {
+          en: "Step 3: Enter Vehicle Details & Complete Aadhaar Authentication",
+          hi: "चरण 3: वाहन विवरण दर्ज करें और आधार सत्यापन पूरा करें",
+        },
+        summary: {
+          en: "Enter vehicle registration number and chassis details to initiate transfer.",
+          hi: "गाड़ी नंबर और चेसिस नंबर दर्ज कर ऑनलाइन आवेदन शुरू करें।",
+        },
+        actionItems: {
+          en: [
+            "Enter the Vehicle Registration Number and the last 5 digits of the Chassis Number.",
+            "Select 'Transfer of Ownership (TO)' from the list of citizen services.",
+            "In participating states, opt for 'Aadhaar e-KYC (Faceless Service)' for instant paperless identity verification.",
+            "Enter buyer details, sale consideration amount, and date of transfer as recorded in Form 29.",
+          ],
+          hi: [
+            "वाहन संख्या और चेसिस नंबर के अंतिम 5 अंक दर्ज करें।",
+            "सेवा सूची में से 'स्वामित्व का हस्तांतरण' (Transfer of Ownership) चुनें।",
+            "उपलब्ध होने पर 'आधार e-KYC' चुनें ताकि आरटीओ के चक्कर न काटने पड़ें।",
+            "खरीदार का विवरण, बिक्री मूल्य और बिक्री की तिथि दर्ज करें।",
+          ],
+        },
+        relatedJargonKey: "ekyc",
+      },
+      {
+        stepNumber: 4,
+        title: {
+          en: "Step 4: Pay Official Statutory Fees",
+          hi: "चरण 4: आधिकारिक सरकारी शुल्क का भुगतान करें",
+        },
+        summary: {
+          en: "Pay the prescribed central and state statutory transfer fees securely online.",
+          hi: "पोर्टल पर निर्धारित सरकारी हस्तांतरण शुल्क का सुरक्षित ऑनलाइन भुगतान करें।",
+        },
+        actionItems: {
+          en: [
+            "Review the fee breakdown calculated as per Central Motor Vehicle Rule 81 (typically ₹150 for two-wheelers, ₹300-₹500 for cars, plus state smart card/postal charges).",
+            "Pay the exact fee through the integrated government payment gateway (UPI, Net Banking, or Debit Card).",
+            "Download and print the payment receipt (Form 29/30 e-receipt) and application acknowledgment slip.",
+          ],
+          hi: [
+            "नियम 81 के तहत निर्धारित सरकारी शुल्क की जांच करें (दोपहिया ₹150, कार ₹300-500, साथ ही डाक व स्मार्ट कार्ड शुल्क)।",
+            "सरकारी पेमेंट गेटवे द्वारा नेटबैंकिंग, यूपीआई या डेबिट कार्ड से भुगतान करें।",
+            "भुगतान रसीद और आवेदन पावती पर्ची डाउनलोड कर प्रिंट कर लें।",
+          ],
+        },
+        commonPitfallWarning: {
+          en: "Always save and print the payment receipt; it contains the Application Number needed to track progress and serves as proof of statutory submission.",
+          hi: "भुगतान रसीद अवश्य प्रिंट करें; इसमें आवेदन संख्या होती है जो स्टेटस चेक करने के काम आती है।",
+        },
+      },
+      {
+        stepNumber: 5,
+        title: {
+          en: "Step 5: Track Application & Receive Updated RC Smart Card",
+          hi: "चरण 5: आवेदन की प्रगति ट्रैक करें और नई आरसी प्राप्त करें",
+        },
+        summary: {
+          en: "Track RTO approval and receive the new RC smart card with updated owner name.",
+          hi: "आरटीओ अनुमोदन ट्रैक करें और नए मालिक के नाम वाली आरसी प्राप्त करें।",
+        },
+        actionItems: {
+          en: [
+            "For non-faceless states, submit physical dossier (original RC, signed Form 29/30, fee receipt) at the RTO counter or book an appointment.",
+            "For Aadhaar faceless applications, the RTO officer reviews and approves the application electronically.",
+            "Track status under 'Status' -> 'Know Your Application Status' on the Parivahan portal.",
+            "Upon approval, the new RC smart card is dispatched via Speed Post to the buyer's registered address, and the digital RC is instantly updated on DigiLocker and mParivahan.",
+          ],
+          hi: [
+            "गैर-फेसलेस राज्यों में मूल दस्तावेज आरटीओ में जमा करें अथवा ऑनलाइन अपॉइंटमेंट लें।",
+            "आधार फेसलेस सेवा में आरटीओ अधिकारी ऑनलाइन सत्यापन कर सीधे स्वीकृति देते हैं।",
+            "परिवहन पोर्टल पर 'Know Your Application Status' से प्रगति देखें।",
+            "स्वीकृति के बाद नया स्मार्ट कार्ड स्पीड पोस्ट से खरीदार के घर पहुंचेगा और डिजीलॉकर पर भी नया नाम तुरंत दिखने लगेगा।",
+          ],
+        },
+      },
+    ],
+  },
 };
 
 export function getExplainerGuide(serviceId: string): ServiceExplainerGuide | undefined {

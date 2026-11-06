@@ -1,0 +1,62 @@
+{
+  "id": "pm-jan-dhan-yojana-account",
+  "ecosystem": "finance-and-welfare",
+  "category": "financial-inclusion",
+  "title": {
+    "en": "PM Jan Dhan Yojana (PMJDY) Zero-Balance Bank Account",
+    "hi": "प्रधानमंत्री जन-धन योजना (PMJDY) शून्य शेष बचत बैंक खाता"
+  },
+  "goal": {
+    "en": "Open a zero-balance basic savings bank account with RuPay debit card and accidental insurance",
+    "hi": "रुपे डेबिट कार्ड और दुर्घटना बीमा के साथ शून्य शेष बुनियादी बचत बैंक खाता खोलें"
+  },
+  "summary": {
+    "en": "Pradhan Mantri Jan Dhan Yojana (PMJDY) is the National Mission for Financial Inclusion led by the Department of Financial Services (DFS), Ministry of Finance. It provides universal banking access with a zero-minimum-balance basic savings bank deposit (BSBD) account, a free RuPay debit card with ₹2 lakh built-in accidental insurance cover, and an overdraft (OD) facility up to ₹10,000 for eligible account holders.",
+    "hi": "प्रधानमंत्री जन-धन योजना (PMJDY) वित्तीय समावेशन के लिए राष्ट्रीय मिशन है जो वित्त मंत्रालय के वित्तीय सेवा विभाग (DFS) द्वारा संचालित है। यह शून्य न्यूनतम शेष राशि वाले बचत खाते की सुविधा, 2 लाख रुपये के इन-बिल्ट दुर्घटना बीमा कवर के साथ निःशुल्क रुपे डेबिट कार्ड, और पात्र खाताधारकों के लिए 10,000 रुपये तक की ओवरड्राफ्ट (OD) सुविधा प्रदान करता है।"
+  },
+  "provider": {
+    "name": "Department of Financial Services, Ministry of Finance",
+    "type": "central"
+  },
+  "official_url": "https://pmjdy.gov.in/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Any Indian citizen aged 10 years or older who does not already have a basic savings bank account can open a PMJDY account. Individuals without standard official identity documents can open a 'Small Account' valid for 12 months using a self-attested photograph.",
+      "hi": "10 वर्ष या उससे अधिक आयु का कोई भी भारतीय नागरिक जिसका कोई अन्य बुनियादी बैंक खाता नहीं है, जन-धन खाता खोल सकता है। बिना आधिकारिक दस्तावेज़ों के भी स्व-प्रमाणित फोटो के साथ 12 महीने के लिए 'छोटा खाता' खोला जा सकता है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Officially Valid Document (OVD): Aadhaar Card, Voter ID, PAN Card, Passport, or NREGA Job Card",
+    "Two recent passport-sized color photographs",
+    "Address proof (if not updated on the identity document)"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Opening a PMJDY zero-balance account and issuance of the first RuPay debit card is completely free of charge. No minimum balance fee is ever levied by any bank under PMJDY guidelines.",
+    "source_url": "https://pmjdy.gov.in/",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://pmjdy.gov.in/",
+      "title": "Department of Financial Services - Pradhan Mantri Jan-Dhan Yojana",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against Department of Financial Services PMJDY scheme guidelines."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Official portal provides screen reader accessibility and downloadable account opening forms in regional languages.",
+  "status": "draft-pending-human-review"
+}
+

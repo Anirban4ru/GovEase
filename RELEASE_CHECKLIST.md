@@ -153,15 +153,51 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 | Performance Budget Gate    | HTML <= 60KB raw, CSS <= 25KB raw, Initial JS <= 220KB gzip        | `scripts/perf-budget.mjs`, `PERFORMANCE_REPORT`      | ✅ Passed (Initial JS <= 211.52KB gzip; All budgets met)              |
 | Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean      | `npm run lint`, `type-check`, `format:check`         | ✅ Passed (0 errors, 0 warnings across all files)                     |
 | Full Vitest & E2E Suite    | 43/43 Vitest tests pass, 228/228 Playwright tests pass (6 vps)     | CI test run, Playwright report                       | ✅ Passed (**228/228 Playwright tests pass with 0 a11y violations**)  |
-| Founder Review & Sign-Off  | Founder review of M7 Deliverable Report & Release 1.0 Candidate    | Conversation approval                                | ⏳ Ready for Founder Review                                           |
+| Founder Review & Sign-Off  | Founder review of M7 Deliverable Report & Release 1.0 Candidate    | Conversation approval                                | ✅ Approved by Founder ("Go ahead with both advice 1 and 2")          |
+
+---
+
+## Milestone M8: Deployment Automation & Catalogue Expansion (Release 1.0 Candidate 2)
+
+| Gate Check                 | Requirement                                                        | Evidence Required                                  | Verification Status                                                  |
+| :------------------------- | :----------------------------------------------------------------- | :------------------------------------------------- | :------------------------------------------------------------------- |
+| Multi-Target Deploy Drill  | Verified `.nojekyll`, `_headers`, manifest, 404, security headers  | `scripts/deploy-drill.mjs`, `npm run deploy:drill` | ✅ Passed (12/12 deployment checks verified green)                   |
+| GitHub Pages Automation    | CI/CD workflow triggers on `v*` tags & manual dispatch             | `.github/workflows/deploy.yml`                     | ✅ Passed (Schema and permissions validated)                         |
+| 18 Verified Services       | 6 new high-impact services across 6 life ecosystems                | `catalogue/services/*.json`, validate script       | ✅ Passed (18/18 valid services across all 6 ecosystems)             |
+| Domain Allow-list (22)     | 5 new official government domains allow-listed                     | `catalogue/domain-allowlist.json` v1.3.0           | ✅ Passed (22/22 unique allow-listed URLs verified offline)          |
+| 5-Phase Guides (All 18)    | Standardized 5-phase practical journeys across all 18 services     | `src/lib/service-explainer-data.ts`                | ✅ Passed (90 total interactive phases with actions & warnings)      |
+| Bureaucratic Jargon (18)   | Plain 6th-grade bilingual definitions for DigiLocker, OD, UAN, etc | `src/lib/jargon-glossary.ts`                       | ✅ Passed (Bilingual definitions with why-it-matters explanations)   |
+| 210-Query Search Benchmark | $\ge 95\%$ Top-1 accuracy across expanded citizen test set         | `test/search-relevance.test.ts`                    | ✅ Passed (**210/210 = 100.0% Top-1 accuracy achieved**)             |
+| Performance Budget Gate    | HTML <= 60KB raw, CSS <= 25KB raw, Initial JS <= 220KB gzip        | `scripts/perf-budget.mjs`, `npm run audit:perf`    | ✅ Passed (All 28 routes $\le 217\text{ KB}$ gzip; site JS 258KB)    |
+| Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean      | `npm run lint`, `type-check`, `format:check`       | ✅ Passed (0 errors, 0 warnings across entire codebase)              |
+| Full Vitest & E2E Suite    | 43/43 Vitest tests pass, 264/264 Playwright tests pass (6 vps)     | CI test run, Playwright report                     | ✅ Passed (**264/264 Playwright tests pass with 0 a11y violations**) |
+| Founder Review & Sign-Off  | Founder review of M8 Deliverable Report & Release 1.0 Candidate 2  | Conversation approval                              | ⏳ Ready for Founder Review                                          |
+
+---
+
+## Milestone M8: Deployment Automation & Catalogue Expansion (Release 1.0 Candidate 2)
+
+| Gate Check                 | Requirement                                                        | Evidence Required                                    | Verification Status                                                   |
+| :------------------------- | :----------------------------------------------------------------- | :--------------------------------------------------- | :-------------------------------------------------------------------- |
+| Multi-Target Deploy Drill  | Verified `.nojekyll`, `_headers`, manifest, 404, security headers  | `scripts/deploy-drill.mjs`, `npm run deploy:drill`   | ✅ Passed (12/12 deployment checks verified green)                    |
+| GitHub Pages Automation    | CI/CD workflow triggers on `v*` tags & manual dispatch             | `.github/workflows/deploy.yml`                       | ✅ Passed (Schema and permissions validated)                          |
+| 18 Verified Services       | 6 new high-impact services across 6 life ecosystems                | `catalogue/services/*.json`, validate script         | ✅ Passed (18/18 valid services across all 6 ecosystems)              |
+| Domain Allow-list (22)     | 5 new official government domains allow-listed                     | `catalogue/domain-allowlist.json` v1.3.0             | ✅ Passed (22/22 unique allow-listed URLs verified offline)           |
+| 5-Phase Guides (All 18)    | Standardized 5-phase practical journeys across all 18 services     | `src/lib/service-explainer-data.ts`                  | ✅ Passed (90 total interactive phases with actions & warnings)       |
+| Bureaucratic Jargon (18)   | Plain 6th-grade bilingual definitions for DigiLocker, OD, UAN, etc | `src/lib/jargon-glossary.ts`                         | ✅ Passed (Bilingual definitions with why-it-matters explanations)    |
+| 210-Query Search Benchmark | $\ge 95\%$ Top-1 accuracy across expanded citizen test set         | `test/search-relevance.test.ts`                      | ✅ Passed (**210/210 = 100.0% Top-1 accuracy achieved**)             |
+| Performance Budget Gate    | HTML <= 60KB raw, CSS <= 25KB raw, Initial JS <= 220KB gzip         | `scripts/perf-budget.mjs`, `npm run audit:perf`      | ✅ Passed (All 28 routes $\le 217\text{ KB}$ gzip; site JS 258KB)     |
+| Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean      | `npm run lint`, `type-check`, `format:check`          | ✅ Passed (0 errors, 0 warnings across entire codebase)               |
+| Full Vitest & E2E Suite    | 43/43 Vitest tests pass, 264/264 Playwright tests pass (6 vps)     | CI test run, Playwright report                       | ✅ Passed (**264/264 Playwright tests pass with 0 a11y violations**)  |
+| Founder Review & Sign-Off  | Founder review of M8 Deliverable Report & Release 1.0 Candidate 2  | Conversation approval                                | ⏳ Ready for Founder Review                                           |
 
 ---
 
 ## Formal Sign-Off Record
 
-- **Milestone:** M7 Production Packaging & Regional Languages (Release 1.0 Candidate 1)
-- **Release Candidate:** **v1.0.0-rc.1 Ready**
+- **Milestone:** M8 Production Deployment Automation & Service Catalogue Expansion (Release 1.0 Candidate 2)
+- **Release Candidate:** **v1.0.0-rc.2 Ready**
 - **Verified By Agent:** Antigravity AI Pair Programmer
 - **Date:** 2026-11-06
-- **Branch:** `feat/m7-prod-readiness-and-regional-languages`
+- **Branch:** `feat/m8-catalogue-18-and-deployment-drill`
 - **Human Approval:** Pending Founder Sign-Off

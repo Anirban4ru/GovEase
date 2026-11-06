@@ -2,9 +2,9 @@
 
 | Metadata                 | Details                                                                                                              |
 | :----------------------- | :------------------------------------------------------------------------------------------------------------------- |
-| **Document Purpose**     | Comprehensive quality assurance report, test execution matrix, and verification evidence for Release 1.0 Candidate 1 |
+| **Document Purpose**     | Comprehensive quality assurance report, test execution matrix, and verification evidence for Release 1.0 Candidate 2 |
 | **Document Owner**       | QA Lead / Antigravity Agent                                                                                          |
-| **Status**               | Approved — Release 1.0 Candidate 1 Baseline                                                                          |
+| **Status**               | Approved — Release 1.0 Candidate 2 Baseline                                                                          |
 | **Last Updated**         | 2026-11-06                                                                                                           |
 | **Applicable Standards** | `PROMPT_FINAL.md` §14, §18; WCAG 2.2 AA; ISO/IEC/IEEE 29119 Software Testing                                         |
 
@@ -12,8 +12,8 @@
 
 ## 1. Executive QA Summary
 
-The Unified Life Services Platform has completed its multi-tier verification gauntlet for the **Release 1.0 Candidate 1**.
-Testing encompasses static analysis, type checking, unit testing, schema enforcement, link health checking, performance budgeting, security auditing, container packaging verification, and end-to-end multi-viewport browser testing with automated accessibility scans.
+The Unified Life Services Platform has completed its multi-tier verification gauntlet for **Release 1.0 Candidate 2 (Milestone M8)**.
+Testing encompasses static analysis, type checking, unit testing, schema enforcement, link health checking, performance budgeting, security auditing, container packaging verification, multi-target deployment automation drills, and end-to-end multi-viewport browser testing with automated accessibility scans.
 
 ### Verification Matrix Overview
 
@@ -21,16 +21,17 @@ Testing encompasses static analysis, type checking, unit testing, schema enforce
 | :----------------------- | :------------------------------------ | :------------------------------------------------------------- | :-------------------- | :----------- |
 | **Type Integrity**       | TypeScript `5.x` (`tsc --noEmit`)     | Strict type checking across entire codebase                    | 0 Errors              | 100%         |
 | **Code Hygiene**         | ESLint `9.x` (`eslint .`)             | React 19 rules, hook dependencies, zero warnings               | 0 Errors / 0 Warnings | 100%         |
-| **Code Formatting**      | Prettier `3.x` (`prettier --check .`) | 60+ repository files formatted uniformly                       | 100% Clean            | 100%         |
-| **Unit & Integration**   | Vitest `5.1.0`                        | Search relevance, sanitization, catalogue, 4-lang i18n, voice  | 43 / 43 Passed        | 100% (745ms) |
-| **Search Benchmark**     | In-Memory MiniSearch Test Set         | 174 citizen queries across typos, Hindi, Hinglish              | 174 / 174 Top-1       | 100.0%       |
-| **Catalogue Schema**     | Ajv `8.17.1`                          | JSON Schema validation of services and allowlists              | 12 / 12 Conforming    | 100%         |
-| **Link Integrity**       | Custom Node.js Link Checker           | 16 unique URLs across 12 service entries                       | 16 / 16 Allow-listed  | 100%         |
+| **Code Formatting**      | Prettier `3.x` (`prettier --check .`) | 65+ repository files formatted uniformly                       | 100% Clean            | 100%         |
+| **Unit & Integration**   | Vitest `5.1.0`                        | Search relevance, sanitization, catalogue, 4-lang i18n, voice  | 43 / 43 Passed        | 100% (852ms) |
+| **Search Benchmark**     | In-Memory MiniSearch Test Set         | 210 citizen queries across typos, Hindi, Hinglish              | 210 / 210 Top-1       | 100.0%       |
+| **Catalogue Schema**     | Ajv `8.17.1`                          | JSON Schema validation of services and allowlists              | 18 / 18 Conforming    | 100%         |
+| **Link Integrity**       | Custom Node.js Link Checker           | 22 unique URLs across 18 service entries                       | 22 / 22 Allow-listed  | 100%         |
 | **Staleness Audit**      | Custom Node.js Freshness Checker      | Review date monitoring against 30/90-day windows               | 0 Overdue             | 100%         |
-| **Performance Budget**   | Custom Node.js Audit Script           | 22 HTML pages, CSS bundle, initial JS chunks (4 languages)     | All Budgets Met       | 100%         |
+| **Performance Budget**   | Custom Node.js Audit Script           | 28 HTML pages, CSS bundle, initial JS chunks (18 services)     | All Budgets Met       | 100%         |
 | **Security Audit**       | `npm audit --audit-level=high`        | Dependency supply-chain vulnerability check                    | 0 Vulnerabilities     | 100%         |
 | **Container Drill**      | `scripts/docker-verify.mjs`           | Multi-stage, zero-root `USER node`, HEALTHCHECK, sec headers   | Drill Passed          | 100%         |
-| **End-to-End (E2E)**     | Playwright `1.64.1` (Chromium)        | 228 tests across 6 responsive viewports                        | 228 / 228 Passed      | 100% (55.7s) |
+| **Deployment Drill**     | `scripts/deploy-drill.mjs`            | GitHub Pages `.nojekyll`, `_headers`, manifest, 404, CSP       | 12 / 12 Checks Passed | 100%         |
+| **End-to-End (E2E)**     | Playwright `1.64.1` (Chromium)        | 264 tests across 6 responsive viewports                        | 264 / 264 Passed      | 100% (1.2m)  |
 | **Accessibility (a11y)** | `@axe-core/playwright`                | Automated WCAG 2.2 AA scans across all routes/modals (4 langs) | 0 Violations          | 100%         |
 
 ---

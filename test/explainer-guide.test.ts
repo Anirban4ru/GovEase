@@ -3,7 +3,7 @@ import { EXPLAINER_GUIDES } from "../src/lib/service-explainer-data";
 import { JARGON_GLOSSARY } from "../src/lib/jargon-glossary";
 
 describe("Service Explainer Guide Data", () => {
-  const seedServiceIds = [
+  const allServiceIds = [
     "create-abha-id",
     "driving-licence-renewal",
     "nsp-scholarship-discovery",
@@ -16,10 +16,16 @@ describe("Service Explainer Guide Data", () => {
     "epf-passbook-claim-status",
     "pmay-beneficiary-status",
     "birth-certificate-crs",
+    "digilocker-account-setup",
+    "pm-jan-dhan-yojana-account",
+    "eshram-card-registration",
+    "pm-suraksha-bima-yojana",
+    "swavlamban-udid-card",
+    "parivahan-rc-transfer",
   ];
 
-  it("should have complete 5-step explainer guides for all 12 services", () => {
-    for (const serviceId of seedServiceIds) {
+  it("should have complete 5-step explainer guides for all 18 services", () => {
+    for (const serviceId of allServiceIds) {
       const guide = EXPLAINER_GUIDES[serviceId];
       expect(guide, `Guide missing for ${serviceId}`).toBeDefined();
       expect(guide.steps).toHaveLength(5);

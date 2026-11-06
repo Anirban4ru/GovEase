@@ -5,6 +5,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.0.0-rc.2] - 2026-11-06 (Release Candidate 2)
+
+### Added
+
+- **Multi-Target Deployment Automation & Drills:**
+  - Added `public/.nojekyll` to bypass Jekyll processing on GitHub Pages, ensuring static `_next/` chunk directories are correctly indexed and served.
+  - Added `.webmanifest` MIME type mapping (`application/manifest+json; charset=utf-8`) in `scripts/static-server.mjs` for seamless PWA compliance.
+  - Added `.github/workflows/deploy.yml` for automated GitHub Pages static artifact deployment triggered by version tags (`v*`) or manual workflow dispatch.
+  - Created automated multi-target deployment drill script (`scripts/deploy-drill.mjs`, `npm run deploy:drill`) validating `.nojekyll`, `_headers`, `manifest.webmanifest`, `sw.js`, 404 static fallbacks, clean URL subroutes, and security headers (`nosniff`, `DENY`, `strict-origin-when-cross-origin`, strict CSP).
+- **Service Catalogue Expansion to 18 Services:**
+  - Added 6 new schema-valid, allow-listed public services across 6 life ecosystems:
+    1. `digilocker-account-setup.json`: DigiLocker Citizen Account Setup & Digital Document Access (`government-and-citizen`)
+    2. `pm-jan-dhan-yojana-account.json`: PM Jan Dhan Yojana (PMJDY) Zero-Balance Bank Account (`finance-and-welfare`)
+    3. `eshram-card-registration.json`: e-Shram Registration for Unorganised Workers (`finance-and-welfare`)
+    4. `pm-suraksha-bima-yojana.json`: PM Suraksha Bima Yojana (PMSBY) ₹2 Lakh Accidental Insurance (`finance-and-welfare`)
+    5. `swavlamban-udid-card.json`: Unique Disability ID (UDID) Card & Disability Certificate (`government-and-citizen`)
+    6. `parivahan-rc-transfer.json`: Vehicle Registration Certificate (RC) Ownership Transfer (`mobility-and-transport`)
+  - Updated `catalogue/domain-allowlist.json` to `v1.3.0` with 5 new verified government domains (total 22 allowed domains): `digilocker.gov.in`, `pmjdy.gov.in`, `eshram.gov.in`, `jansuraksha.gov.in`, `swavlambancard.gov.in`.
+  - Added 5-phase practical journeys to `src/lib/service-explainer-data.ts` for all 6 new services (total 18 services, 90 phases) with actions, steps, and pitfall warnings.
+  - Expanded plain-language bureaucratic jargon in `src/lib/jargon-glossary.ts` with 6th-grade definitions and why-it-matters explanations for: _DigiLocker URI_, _PMJDY Overdraft (OD)_, _UAN (e-Shram)_, _PMSBY Auto-Debit_, _UDID Card_, _Form 29 and 30_.
+  - Expanded multilingual synonyms, acronyms, and natural language queries in `src/lib/search-synonyms.ts` and `test/search-test-set.json` (210 queries total).
+- **Test Suite & Quality Verification:**
+  - Vitest search relevance benchmark achieved **100.0% Top-1 accuracy** (210/210 queries) and 100.0% Top-3 accuracy.
+  - Added new E2E specification `e2e/m8-catalogue-expansion.spec.ts` covering verified metadata, 5-phase journey navigation, and outbound handoff modal for all 6 new services.
+  - All 43 Vitest unit tests passing in <850ms.
+  - All 264 Playwright E2E tests passing across 6 responsive viewports with 0 axe-core accessibility violations.
+  - Performance budgets 100% compliant across all 28 HTML routes and static bundles (Route JS <= 217.08KB gzip vs 220KB budget, Total static JS 258.25KB gzip vs 320KB budget).
+  - 0 high or critical vulnerabilities in dependency tree.
+
+---
+
 ## [1.0.0-rc.1] - 2026-11-06 (Release Candidate 1)
 
 ### Added

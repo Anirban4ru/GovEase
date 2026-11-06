@@ -1,0 +1,64 @@
+{
+  "id": "swavlamban-udid-card",
+  "ecosystem": "government-and-citizen",
+  "category": "disability-inclusion",
+  "title": {
+    "en": "Unique Disability ID (UDID) Card & Disability Certificate",
+    "hi": "विशिष्ट दिव्यांगता पहचान पत्र (UDID कार्ड) एवं दिव्यांगता प्रमाण पत्र"
+  },
+  "goal": {
+    "en": "Apply for or download your national Unique Disability Identity (UDID) card for government schemes and reservations",
+    "hi": "सरकारी योजनाओं और लाभों के लिए अपना राष्ट्रीय विशिष्ट दिव्यांगता पहचान पत्र (UDID कार्ड) प्राप्त करें"
+  },
+  "summary": {
+    "en": "The Unique Disability ID (UDID) project is initiated by the Department of Empowerment of Persons with Disabilities (DEPwD), Ministry of Social Justice & Empowerment. It creates a unified national database and provides a single smart card that serves as universal proof of disability across all Indian states and Union Territories, eliminating the need to carry physical state medical certificates to access reservations, travel concessions, and government welfare schemes under the RPwD Act 2016.",
+    "hi": "विशिष्ट दिव्यांगता पहचान पत्र (UDID) परियोजना सामाजिक न्याय और अधिकारिता मंत्रालय के दिव्यांगजन सशक्तिकरण विभाग (DEPwD) द्वारा संचालित है। यह एक राष्ट्रीय डेटाबेस तैयार कर एक स्मार्ट कार्ड प्रदान करती है जो पूरे भारत में दिव्यांगता का सार्वभौमिक प्रमाण है। यह RPwD अधिनियम 2016 के तहत आरक्षण, यात्रा रियायतों और सरकारी योजनाओं का लाभ उठाने के लिए अलग-अलग चिकित्सा प्रमाण पत्र साथ रखने की आवश्यकता को समाप्त करता है।"
+  },
+  "provider": {
+    "name": "Department of Empowerment of Persons with Disabilities, MSJE",
+    "type": "central"
+  },
+  "official_url": "https://www.swavlambancard.gov.in/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Any person with a benchmark disability of 40% or more as specified under the 21 categories recognized by the Rights of Persons with Disabilities (RPwD) Act 2016 is eligible for a UDID card.",
+      "hi": "दिव्यांगजन अधिकार अधिनियम 2016 के तहत मान्यता प्राप्त 21 श्रेणियों में से 40% या उससे अधिक की दिव्यांगता वाले नागरिक UDID कार्ड के लिए पात्र हैं।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Recent color passport photograph (showing disability if visible)",
+    "Proof of Identity (Aadhaar Card, Voter ID, PAN Card, or Birth Certificate)",
+    "Proof of Address (Aadhaar Card, Ration Card, Domicile Certificate, or Utility Bill)",
+    "Existing Disability Certificate issued by a competent Chief Medical Officer (CMO) or Government Medical Authority (if already available)",
+    "Signature or thumb impression"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "Application, hospital assessment, and physical postal delivery of the UDID card are completely free public services provided by the Government of India.",
+    "source_url": "https://www.swavlambancard.gov.in/",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://www.swavlambancard.gov.in/",
+      "title": "Swavlamban Portal - Unique Disability ID (UDID)",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against DEPwD Swavlamban official guidelines under RPwD Act 2016."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Portal is GIGW compliant, supports screen readers, text re-sizing, and high contrast options.",
+  "status": "draft-pending-human-review"
+}
+

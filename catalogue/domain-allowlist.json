@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "last_updated": "2026-11-06",
   "domains": [
     {
@@ -137,6 +137,46 @@
       "added_on": "2026-11-06",
       "approved_by": "Founder",
       "notes": "Civil Registration System for official online birth and death certificate issuance"
+    },
+    {
+      "domain": "digilocker.gov.in",
+      "provider": "Ministry of Electronics and Information Technology (MeitY) / NeGD",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official National Digital Locker portal for authentic digital document issuance and storage"
+    },
+    {
+      "domain": "pmjdy.gov.in",
+      "provider": "Department of Financial Services (DFS), Ministry of Finance",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official Pradhan Mantri Jan-Dhan Yojana financial inclusion portal"
+    },
+    {
+      "domain": "eshram.gov.in",
+      "provider": "Ministry of Labour and Employment (MoLE)",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "National Database of Unorganised Workers (NDUW) self-registration portal"
+    },
+    {
+      "domain": "jansuraksha.gov.in",
+      "provider": "Department of Financial Services (DFS), Ministry of Finance",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official Jansuraksha portal for PMSBY and PMJJBY social security insurance"
+    },
+    {
+      "domain": "swavlambancard.gov.in",
+      "provider": "Department of Empowerment of Persons with Disabilities, MSJE",
+      "category": "central-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Unique Disability ID (UDID) application and disability certificate portal"
     }
   ]
 }

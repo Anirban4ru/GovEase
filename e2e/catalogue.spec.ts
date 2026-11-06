@@ -2,13 +2,15 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 test.describe("Milestone M2 - Catalogue Pipeline & Service Pages", () => {
-  test("loads /explore with all 12 seed services and filters by ecosystem", async ({ page }) => {
+  test("loads /explore with all 18 verified services and filters by ecosystem", async ({
+    page,
+  }) => {
     await page.goto("/explore");
     await expect(page.locator("h1")).toContainText(/Explore Public Services/i);
 
-    // Verify all 12 service headings are present
+    // Verify all 18 service headings are present
     const headings = page.locator("h2 a");
-    await expect(headings).toHaveCount(12);
+    await expect(headings).toHaveCount(18);
 
     // Filter by Healthcare
     const healthTab = page.locator('button[role="tab"]:has-text("Health & Well-being")');
@@ -21,7 +23,7 @@ test.describe("Milestone M2 - Catalogue Pipeline & Service Pages", () => {
     // Reset filter to All
     const allTab = page.locator('button[role="tab"]:has-text("All Services")');
     await allTab.click();
-    await expect(page.locator("h2 a")).toHaveCount(12);
+    await expect(page.locator("h2 a")).toHaveCount(18);
   });
 
   test("navigates to service detail page and renders full verified metadata", async ({ page }) => {

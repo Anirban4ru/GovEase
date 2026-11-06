@@ -217,6 +217,102 @@ export const JARGON_GLOSSARY: Record<string, JargonDefinition> = {
       hi: "बैंक खाता खोलने या वित्तीय कार्यों के लिए आप इसे तुरंत फोन में डाउनलोड कर उपयोग कर सकते हैं, डाक से कार्ड आने का इंतजार नहीं करना पड़ता।",
     },
   },
+  digilocker_uri: {
+    term: "DigiLocker URI",
+    acronym: "Uniform Resource Identifier",
+    title: {
+      en: "DigiLocker URI (Digital Document Link)",
+      hi: "डिजीलॉकर यूआरआई (डिजिटल दस्तावेज़ संदर्भ)",
+    },
+    plainExplanation: {
+      en: "A unique digital code that directly links to your official document in government issuer databases. It acts as electronic proof without holding a paper copy.",
+      hi: "सरकारी विभागों के डेटाबेस में आपके आधिकारिक दस्तावेज़ का एक विशिष्ट डिजिटल पता। यह कागजी कॉपी रखे बिना इलेक्ट्रॉनिक प्रमाण का काम करता है।",
+    },
+    whyItMatters: {
+      en: "Under Rule 9A of the IT Rules 2016, presenting a DigiLocker issued document has the exact same legal validity as carrying the original physical certificate.",
+      hi: "आईटी नियम 2016 के नियम 9A के तहत, डिजीलॉकर द्वारा जारी दस्तावेज़ को मूल प्रमाण पत्र के बराबर कानूनी मान्यता प्राप्त है।",
+    },
+  },
+  pmjdy_od: {
+    term: "Overdraft (OD)",
+    acronym: "Overdraft Facility",
+    title: {
+      en: "PMJDY Overdraft Facility (Up to ₹10,000)",
+      hi: "जन-धन ओवरड्राफ्ट सुविधा (₹10,000 तक)",
+    },
+    plainExplanation: {
+      en: "A credit feature allowing Jan Dhan account holders to withdraw money even when their account balance is zero, designed to cover urgent emergency expenses.",
+      hi: "खाते में शून्य बैलेंस होने पर भी बैंक से आपातकालीन जरूरतों के लिए ₹10,000 तक निकालने की सुविधा।",
+    },
+    whyItMatters: {
+      en: "Eligible after 6 months of active account operations with regular transactions, protecting families from high-interest informal moneylenders.",
+      hi: "खाता 6 महीने तक नियमित चलाने पर उपलब्ध, जो नागरिकों को ऊंचे ब्याज वाले साहूकारों के कर्ज से बचाता है।",
+    },
+  },
+  eshram_uan: {
+    term: "UAN",
+    acronym: "Universal Account Number (e-Shram)",
+    title: {
+      en: "e-Shram 12-Digit Universal Account Number",
+      hi: "ई-श्रम 12-अंकीय यूनिवर्सल खाता संख्या (UAN)",
+    },
+    plainExplanation: {
+      en: "A permanent 12-digit number issued to unorganised workers that stays with them throughout their life, across any job or state.",
+      hi: "असंगठित क्षेत्र के कामगारों को जारी किया गया 12 अंकों का स्थायी नंबर, जो किसी भी राज्य या व्यवसाय में बदलने पर भी वही रहता है।",
+    },
+    whyItMatters: {
+      en: "Acts as single window identity for social security benefits, accidental death insurance under PMSBY, and pandemic relief distributions.",
+      hi: "भविष्य की सभी सामाजिक सुरक्षा योजनाओं, दुर्घटना बीमा और संकटकालीन आर्थिक सहायता प्राप्त करने का एकल पहचान पत्र है।",
+    },
+  },
+  pmsby_autodebit: {
+    term: "Auto-Debit",
+    acronym: "Automatic Bank Deduction",
+    title: {
+      en: "PMSBY Auto-Debit (₹20/year)",
+      hi: "ऑटो-डेबिट (वार्षिक ₹20 की स्वतः कटौती)",
+    },
+    plainExplanation: {
+      en: "A standing instruction where your bank automatically deducts the ₹20 annual insurance premium from your savings account every May.",
+      hi: "बैंक को दी गई स्थायी सहमति जिससे वह हर साल मई के महीने में आपके खाते से ₹20 का बीमा प्रीमियम अपने आप काट लेता है।",
+    },
+    whyItMatters: {
+      en: "You must keep at least ₹20 in your account before May 31st each year so your ₹2 lakh accidental death and disability cover stays active.",
+      hi: "मई महीने में खाते में कम से कम ₹20 रखना जरूरी है ताकि आपका ₹2 लाख का दुर्घटना बीमा बंद न हो।",
+    },
+  },
+  udid_card: {
+    term: "UDID",
+    acronym: "Unique Disability Identity",
+    title: {
+      en: "UDID Card (National Disability Smart Card)",
+      hi: "यूडीआईडी कार्ड (विशिष्ट दिव्यांगता पहचान पत्र)",
+    },
+    plainExplanation: {
+      en: "A national smart card and certificate for persons with disabilities that contains a QR code and is recognized across all Indian states and Union Territories.",
+      hi: "दिव्यांगजनों के लिए एक राष्ट्रीय स्मार्ट कार्ड और डिजिटल प्रमाणपत्र जो पूरे देश के सभी राज्यों में मान्य है।",
+    },
+    whyItMatters: {
+      en: "Eliminates the need to carry separate state medical certificates or undergo fresh medical boards when seeking welfare, rail concessions, or job reservations.",
+      hi: "रेलवे छूट, सरकारी आरक्षण और पेंशन के लिए बार-बार अलग-अलग मेडिकल बोर्ड के चक्कर काटने और कागजी दस्तावेज ले जाने की जरूरत खत्म हो जाती है।",
+    },
+  },
+  form_29_30: {
+    term: "Form 29 & 30",
+    acronym: "Motor Vehicle Transfer Forms",
+    title: {
+      en: "Form 29 (Notice) & Form 30 (Application for RC Transfer)",
+      hi: "फॉर्म 29 (बिक्री सूचना) एवं फॉर्म 30 (आरसी हस्तांतरण आवेदन)",
+    },
+    plainExplanation: {
+      en: "The two statutory forms submitted to the RTO to record vehicle resale. Form 29 is the seller's notice of sale; Form 30 is the joint application to transfer the RC.",
+      hi: "वाहन बेचने पर आरटीओ में जमा होने वाले दो अनिवार्य कानूनी फॉर्म। फॉर्म 29 विक्रेता की सूचना है और फॉर्म 30 खरीदार के नाम आरसी करने का संयुक्त आवेदन है।",
+    },
+    whyItMatters: {
+      en: "Must be submitted within 30 days of sale. Failing to submit leaves the seller legally responsible for any traffic accidents or criminal misuse caused by the new buyer.",
+      hi: "बिक्री के 30 दिनों में जमा करना आवश्यक है, अन्यथा नए खरीदार द्वारा किए गए किसी भी चालान या दुर्घटना की कानूनी जिम्मेदारी पुराने मालिक पर ही रहती है।",
+    },
+  },
 };
 
 export function getJargon(key: string): JargonDefinition | undefined {

@@ -1,0 +1,63 @@
+{
+  "id": "pm-suraksha-bima-yojana",
+  "ecosystem": "finance-and-welfare",
+  "category": "social-security-insurance",
+  "title": {
+    "en": "PM Suraksha Bima Yojana (PMSBY) Accidental Insurance",
+    "hi": "प्रधानमंत्री सुरक्षा बीमा योजना (PMSBY) दुर्घटना बीमा"
+  },
+  "goal": {
+    "en": "Enrol in annual ₹2 lakh accidental death and full disability insurance cover for ₹20 per year",
+    "hi": "मात्र ₹20 प्रति वर्ष के प्रीमियम पर ₹2 लाख का आकस्मिक मृत्यु और दिव्यांगता बीमा कवर प्राप्त करें"
+  },
+  "summary": {
+    "en": "Pradhan Mantri Suraksha Bima Yojana (PMSBY) is a flagship social security insurance scheme offered by the Government of India through public and private sector banks. It provides ₹2,00,000 for accidental death or permanent total disability and ₹1,00,000 for permanent partial disability. The annual premium of ₹20 is auto-debited in a single installment from the citizen's linked bank account on or before 31st May each year.",
+    "hi": "प्रधानमंत्री सुरक्षा बीमा योजना (PMSBY) भारत सरकार द्वारा बैंकों के माध्यम से संचालित एक प्रमुख सामाजिक सुरक्षा बीमा योजना है। यह दुर्घटना में मृत्यु या स्थायी पूर्ण दिव्यांगता पर ₹2,00,000 और आंशिक दिव्यांगता पर ₹1,00,000 का जोखिम कवर प्रदान करती है। मात्र ₹20 का वार्षिक प्रीमियम प्रत्येक वर्ष 31 मई को नागरिक के बैंक खाते से ऑटो-डेबिट किया जाता है।"
+  },
+  "provider": {
+    "name": "Department of Financial Services, Ministry of Finance",
+    "type": "central"
+  },
+  "official_url": "https://jansuraksha.gov.in/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Any individual aged between 18 and 70 years who has a savings bank account with a participating bank and gives consent for annual auto-debit of the ₹20 premium is eligible for PMSBY.",
+      "hi": "18 से 70 वर्ष की आयु का कोई भी व्यक्ति जिसका किसी सहभागी बैंक में बचत खाता है और जो ₹20 प्रीमियम के वार्षिक ऑटो-डेबिट की सहमति देता है, इस योजना के लिए पात्र है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "Savings Bank Account number with auto-debit facility enabled",
+    "12-digit Aadhaar Card (primary KYC document)",
+    "Nominee details (Name, relationship, date of birth, and identity proof)",
+    "PMSBY consent-cum-declaration form (signed or electronically approved via netbanking/mobile banking)"
+  ],
+  "fees": {
+    "is_fee_required": true,
+    "details": "The official premium is ₹20 per annum per subscriber, auto-debited annually from the citizen's bank account. There are zero enrollment or agent commissions payable by the citizen.",
+    "source_url": "https://jansuraksha.gov.in/",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://jansuraksha.gov.in/",
+      "title": "Jansuraksha - National Social Security Portal (PMSBY & PMJJBY)",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against DFS revised PMSBY guidelines (premium revised from ₹12 to ₹20 w.e.f. 1 June 2022)."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "Jansuraksha portal offers bilingual claim guidelines, rulebooks, and application forms.",
+  "status": "draft-pending-human-review"
+}
+

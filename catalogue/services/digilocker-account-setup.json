@@ -1,0 +1,62 @@
+{
+  "id": "digilocker-account-setup",
+  "ecosystem": "government-and-citizen",
+  "category": "identity-documents",
+  "title": {
+    "en": "DigiLocker Account Setup & Digital Document Access",
+    "hi": "डिजीलॉकर खाता पंजीकरण एवं डिजिटल दस्तावेज़ प्राप्ति"
+  },
+  "goal": {
+    "en": "Set up your official DigiLocker account to access legally valid electronic documents",
+    "hi": "कानूनी रूप से मान्य इलेक्ट्रॉनिक दस्तावेज़ प्राप्त करने के लिए अपना आधिकारिक डिजीलॉकर खाता बनाएं"
+  },
+  "summary": {
+    "en": "Create your official DigiLocker account powered by the Ministry of Electronics & IT (MeitY). DigiLocker provides 1 GB of secure cloud storage and allows citizens to fetch legally valid digital certificates (Aadhaar, Driving Licence, PAN Card, Class X/XII Marksheets, Vehicle RC) directly from government issuers under Rule 9A of the IT Rules 2016.",
+    "hi": "इलेक्ट्रॉनिक्स और सूचना प्रौद्योगिकी मंत्रालय (MeitY) के आधिकारिक डिजीलॉकर पोर्टल पर खाता बनाएं। डिजीलॉकर नागरिकों को 1 जीबी सुरक्षित क्लाउड स्टोरेज प्रदान करता है तथा सूचना प्रौद्योगिकी नियम 2016 के नियम 9A के तहत सीधे सरकारी जारीकर्ताओं से कानूनी रूप से वैध डिजिटल प्रमाण पत्र (आधार, ड्राइविंग लाइसेंस, पैन कार्ड, अंकतालिकाएं) प्राप्त करने की सुविधा देता है।"
+  },
+  "provider": {
+    "name": "Ministry of Electronics & Information Technology (MeitY) / NeGD",
+    "type": "central"
+  },
+  "official_url": "https://www.digilocker.gov.in/",
+  "geographic_scope": {
+    "level": "national"
+  },
+  "eligibility_summary": {
+    "text": {
+      "en": "Any Indian resident with a mobile number linked to their Aadhaar card can register for DigiLocker. To pull official documents, your Aadhaar must be linked to your DigiLocker profile.",
+      "hi": "कोई भी भारतीय निवासी जिसका मोबाइल नंबर आधार से जुड़ा हो, डिजीलॉकर पर पंजीकरण कर सकता है। आधिकारिक दस्तावेज़ प्राप्त करने के लिए आधार प्रमाणीकरण आवश्यक है।"
+    },
+    "is_informational_only": true
+  },
+  "documents_required": [
+    "12-digit Aadhaar Number (for identity verification and document pulling)",
+    "Aadhaar-linked active Mobile Number (for receiving one-time passwords / OTP)",
+    "6-digit Security PIN (created by citizen during registration for secure login)"
+  ],
+  "fees": {
+    "is_fee_required": false,
+    "details": "DigiLocker is a free Digital Public Infrastructure (DPI) platform provided by the Government of India. There are zero registration fees, zero subscription charges, and document issuance is free.",
+    "source_url": "https://www.digilocker.gov.in/",
+    "last_verified_on": "2026-11-06"
+  },
+  "sources": [
+    {
+      "url": "https://www.digilocker.gov.in/",
+      "title": "DigiLocker - Official National Digital Document Wallet",
+      "verified_on": "2026-11-06"
+    }
+  ],
+  "verification": {
+    "last_verified_on": "2026-11-06",
+    "verified_by": "agent-draft-pending-human-review",
+    "next_review_due": "2027-02-06",
+    "notes": "Verified against MeitY DigiLocker official guidelines under IT Rules 2016 Rule 9A."
+  },
+  "integration_classification": 5,
+  "feature_state": "official-link-only",
+  "languages_at_destination": ["en", "hi"],
+  "accessibility_notes": "DigiLocker supports high contrast mode, screen readers, and multilingual language switching.",
+  "status": "draft-pending-human-review"
+}
+

@@ -62,6 +62,68 @@
     "status": "draft-pending-human-review"
   },
   {
+    "id": "eshram-card-registration",
+    "ecosystem": "finance-and-welfare",
+    "category": "labour-welfare",
+    "title": {
+      "en": "e-Shram Card Registration for Unorganised Workers",
+      "hi": "ई-श्रम कार्ड पंजीकरण (असंगठित श्रमिक राष्ट्रीय डेटाबेस)"
+    },
+    "goal": {
+      "en": "Register on the National Database of Unorganised Workers to receive a 12-digit UAN e-Shram card and social security benefits",
+      "hi": "सामाजिक सुरक्षा लाभ प्राप्त करने और 12 अंकों का ई-श्रम कार्ड पाने के लिए राष्ट्रीय असंगठित श्रमिक डेटाबेस में पंजीकरण करें"
+    },
+    "summary": {
+      "en": "e-Shram is the comprehensive National Database of Unorganised Workers (NDUW) developed by the Ministry of Labour & Employment (MoLE). Registered unorganised workers (construction labourers, gig workers, domestic helpers, street vendors, agricultural workers) receive a universal 12-digit Universal Account Number (UAN) e-Shram card, accidental death insurance cover under PMSBY, and direct social welfare linkages during national emergencies.",
+      "hi": "ई-श्रम श्रम एवं रोजगार मंत्रालय (MoLE) द्वारा विकसित असंगठित कामगारों का व्यापक राष्ट्रीय डेटाबेस (NDUW) है। पंजीकृत असंगठित श्रमिकों (निर्माण मजदूर, गिग वर्कर, घरेलू सहायिका, रेहड़ी-पटरी विक्रेता, कृषि मजदूर) को 12 अंकों का यूनिवर्सल अकाउंट नंबर (UAN) ई-श्रम कार्ड, आकस्मिक मृत्यु बीमा कवर और प्रत्यक्ष सामाजिक कल्याण योजनाओं का लाभ मिलता है।"
+    },
+    "provider": {
+      "name": "Ministry of Labour and Employment (MoLE)",
+      "type": "central"
+    },
+    "official_url": "https://eshram.gov.in/",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Any unorganised worker aged between 16 and 59 years who is not a member of EPFO or ESIC, and is not an income tax payee, is eligible to register for an e-Shram card.",
+        "hi": "16 से 59 वर्ष की आयु के असंगठित श्रमिक जो ईपीएफओ (EPFO) या ईएसआईसी (ESIC) के सदस्य नहीं हैं और आयकर दाता नहीं हैं, ई-श्रम कार्ड के लिए पात्र हैं।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "12-digit Aadhaar Number",
+      "Active mobile number linked to Aadhaar (for OTP authentication)",
+      "Bank Account Number with IFSC code (for receiving direct welfare transfers)",
+      "Age verification proof (16-59 years as recorded in Aadhaar)"
+    ],
+    "fees": {
+      "is_fee_required": false,
+      "details": "Self-registration on the official eshram.gov.in portal is 100% free of charge. If registered through an assisted Common Service Centre (CSC), the Government reimburses the VLE and no fee should be charged to the worker for initial registration.",
+      "source_url": "https://eshram.gov.in/",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://eshram.gov.in/",
+        "title": "Ministry of Labour & Employment - e-Shram National Portal",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against Ministry of Labour & Employment e-Shram portal rules."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Portal features bilingual instructions and text-to-speech accessibility.",
+    "status": "draft-pending-human-review"
+  },
+  {
     "id": "epf-passbook-claim-status",
     "ecosystem": "finance-and-welfare",
     "category": "social-security",
@@ -187,6 +249,129 @@
     "feature_state": "official-link-only",
     "languages_at_destination": ["en"],
     "accessibility_notes": "Official portal provides OTP verification and online fee receipt generation.",
+    "status": "draft-pending-human-review"
+  },
+  {
+    "id": "pm-jan-dhan-yojana-account",
+    "ecosystem": "finance-and-welfare",
+    "category": "financial-inclusion",
+    "title": {
+      "en": "PM Jan Dhan Yojana (PMJDY) Zero-Balance Bank Account",
+      "hi": "प्रधानमंत्री जन-धन योजना (PMJDY) शून्य शेष बचत बैंक खाता"
+    },
+    "goal": {
+      "en": "Open a zero-balance basic savings bank account with RuPay debit card and accidental insurance",
+      "hi": "रुपे डेबिट कार्ड और दुर्घटना बीमा के साथ शून्य शेष बुनियादी बचत बैंक खाता खोलें"
+    },
+    "summary": {
+      "en": "Pradhan Mantri Jan Dhan Yojana (PMJDY) is the National Mission for Financial Inclusion led by the Department of Financial Services (DFS), Ministry of Finance. It provides universal banking access with a zero-minimum-balance basic savings bank deposit (BSBD) account, a free RuPay debit card with ₹2 lakh built-in accidental insurance cover, and an overdraft (OD) facility up to ₹10,000 for eligible account holders.",
+      "hi": "प्रधानमंत्री जन-धन योजना (PMJDY) वित्तीय समावेशन के लिए राष्ट्रीय मिशन है जो वित्त मंत्रालय के वित्तीय सेवा विभाग (DFS) द्वारा संचालित है। यह शून्य न्यूनतम शेष राशि वाले बचत खाते की सुविधा, 2 लाख रुपये के इन-बिल्ट दुर्घटना बीमा कवर के साथ निःशुल्क रुपे डेबिट कार्ड, और पात्र खाताधारकों के लिए 10,000 रुपये तक की ओवरड्राफ्ट (OD) सुविधा प्रदान करता है।"
+    },
+    "provider": {
+      "name": "Department of Financial Services, Ministry of Finance",
+      "type": "central"
+    },
+    "official_url": "https://pmjdy.gov.in/",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Any Indian citizen aged 10 years or older who does not already have a basic savings bank account can open a PMJDY account. Individuals without standard official identity documents can open a 'Small Account' valid for 12 months using a self-attested photograph.",
+        "hi": "10 वर्ष या उससे अधिक आयु का कोई भी भारतीय नागरिक जिसका कोई अन्य बुनियादी बैंक खाता नहीं है, जन-धन खाता खोल सकता है। बिना आधिकारिक दस्तावेज़ों के भी स्व-प्रमाणित फोटो के साथ 12 महीने के लिए 'छोटा खाता' खोला जा सकता है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "Officially Valid Document (OVD): Aadhaar Card, Voter ID, PAN Card, Passport, or NREGA Job Card",
+      "Two recent passport-sized color photographs",
+      "Address proof (if not updated on the identity document)"
+    ],
+    "fees": {
+      "is_fee_required": false,
+      "details": "Opening a PMJDY zero-balance account and issuance of the first RuPay debit card is completely free of charge. No minimum balance fee is ever levied by any bank under PMJDY guidelines.",
+      "source_url": "https://pmjdy.gov.in/",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://pmjdy.gov.in/",
+        "title": "Department of Financial Services - Pradhan Mantri Jan-Dhan Yojana",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against Department of Financial Services PMJDY scheme guidelines."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Official portal provides screen reader accessibility and downloadable account opening forms in regional languages.",
+    "status": "draft-pending-human-review"
+  },
+  {
+    "id": "pm-suraksha-bima-yojana",
+    "ecosystem": "finance-and-welfare",
+    "category": "social-security-insurance",
+    "title": {
+      "en": "PM Suraksha Bima Yojana (PMSBY) Accidental Insurance",
+      "hi": "प्रधानमंत्री सुरक्षा बीमा योजना (PMSBY) दुर्घटना बीमा"
+    },
+    "goal": {
+      "en": "Enrol in annual ₹2 lakh accidental death and full disability insurance cover for ₹20 per year",
+      "hi": "मात्र ₹20 प्रति वर्ष के प्रीमियम पर ₹2 लाख का आकस्मिक मृत्यु और दिव्यांगता बीमा कवर प्राप्त करें"
+    },
+    "summary": {
+      "en": "Pradhan Mantri Suraksha Bima Yojana (PMSBY) is a flagship social security insurance scheme offered by the Government of India through public and private sector banks. It provides ₹2,00,000 for accidental death or permanent total disability and ₹1,00,000 for permanent partial disability. The annual premium of ₹20 is auto-debited in a single installment from the citizen's linked bank account on or before 31st May each year.",
+      "hi": "प्रधानमंत्री सुरक्षा बीमा योजना (PMSBY) भारत सरकार द्वारा बैंकों के माध्यम से संचालित एक प्रमुख सामाजिक सुरक्षा बीमा योजना है। यह दुर्घटना में मृत्यु या स्थायी पूर्ण दिव्यांगता पर ₹2,00,000 और आंशिक दिव्यांगता पर ₹1,00,000 का जोखिम कवर प्रदान करती है। मात्र ₹20 का वार्षिक प्रीमियम प्रत्येक वर्ष 31 मई को नागरिक के बैंक खाते से ऑटो-डेबिट किया जाता है।"
+    },
+    "provider": {
+      "name": "Department of Financial Services, Ministry of Finance",
+      "type": "central"
+    },
+    "official_url": "https://jansuraksha.gov.in/",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Any individual aged between 18 and 70 years who has a savings bank account with a participating bank and gives consent for annual auto-debit of the ₹20 premium is eligible for PMSBY.",
+        "hi": "18 से 70 वर्ष की आयु का कोई भी व्यक्ति जिसका किसी सहभागी बैंक में बचत खाता है और जो ₹20 प्रीमियम के वार्षिक ऑटो-डेबिट की सहमति देता है, इस योजना के लिए पात्र है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "Savings Bank Account number with auto-debit facility enabled",
+      "12-digit Aadhaar Card (primary KYC document)",
+      "Nominee details (Name, relationship, date of birth, and identity proof)",
+      "PMSBY consent-cum-declaration form (signed or electronically approved via netbanking/mobile banking)"
+    ],
+    "fees": {
+      "is_fee_required": true,
+      "details": "The official premium is ₹20 per annum per subscriber, auto-debited annually from the citizen's bank account. There are zero enrollment or agent commissions payable by the citizen.",
+      "source_url": "https://jansuraksha.gov.in/",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://jansuraksha.gov.in/",
+        "title": "Jansuraksha - National Social Security Portal (PMSBY & PMJJBY)",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against DFS revised PMSBY guidelines (premium revised from ₹12 to ₹20 w.e.f. 1 June 2022)."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Jansuraksha portal offers bilingual claim guidelines, rulebooks, and application forms.",
     "status": "draft-pending-human-review"
   },
   {
@@ -374,6 +559,67 @@
     "status": "draft-pending-human-review"
   },
   {
+    "id": "digilocker-account-setup",
+    "ecosystem": "government-and-citizen",
+    "category": "identity-documents",
+    "title": {
+      "en": "DigiLocker Account Setup & Digital Document Access",
+      "hi": "डिजीलॉकर खाता पंजीकरण एवं डिजिटल दस्तावेज़ प्राप्ति"
+    },
+    "goal": {
+      "en": "Set up your official DigiLocker account to access legally valid electronic documents",
+      "hi": "कानूनी रूप से मान्य इलेक्ट्रॉनिक दस्तावेज़ प्राप्त करने के लिए अपना आधिकारिक डिजीलॉकर खाता बनाएं"
+    },
+    "summary": {
+      "en": "Create your official DigiLocker account powered by the Ministry of Electronics & IT (MeitY). DigiLocker provides 1 GB of secure cloud storage and allows citizens to fetch legally valid digital certificates (Aadhaar, Driving Licence, PAN Card, Class X/XII Marksheets, Vehicle RC) directly from government issuers under Rule 9A of the IT Rules 2016.",
+      "hi": "इलेक्ट्रॉनिक्स और सूचना प्रौद्योगिकी मंत्रालय (MeitY) के आधिकारिक डिजीलॉकर पोर्टल पर खाता बनाएं। डिजीलॉकर नागरिकों को 1 जीबी सुरक्षित क्लाउड स्टोरेज प्रदान करता है तथा सूचना प्रौद्योगिकी नियम 2016 के नियम 9A के तहत सीधे सरकारी जारीकर्ताओं से कानूनी रूप से वैध डिजिटल प्रमाण पत्र (आधार, ड्राइविंग लाइसेंस, पैन कार्ड, अंकतालिकाएं) प्राप्त करने की सुविधा देता है।"
+    },
+    "provider": {
+      "name": "Ministry of Electronics & Information Technology (MeitY) / NeGD",
+      "type": "central"
+    },
+    "official_url": "https://www.digilocker.gov.in/",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Any Indian resident with a mobile number linked to their Aadhaar card can register for DigiLocker. To pull official documents, your Aadhaar must be linked to your DigiLocker profile.",
+        "hi": "कोई भी भारतीय निवासी जिसका मोबाइल नंबर आधार से जुड़ा हो, डिजीलॉकर पर पंजीकरण कर सकता है। आधिकारिक दस्तावेज़ प्राप्त करने के लिए आधार प्रमाणीकरण आवश्यक है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "12-digit Aadhaar Number (for identity verification and document pulling)",
+      "Aadhaar-linked active Mobile Number (for receiving one-time passwords / OTP)",
+      "6-digit Security PIN (created by citizen during registration for secure login)"
+    ],
+    "fees": {
+      "is_fee_required": false,
+      "details": "DigiLocker is a free Digital Public Infrastructure (DPI) platform provided by the Government of India. There are zero registration fees, zero subscription charges, and document issuance is free.",
+      "source_url": "https://www.digilocker.gov.in/",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://www.digilocker.gov.in/",
+        "title": "DigiLocker - Official National Digital Document Wallet",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against MeitY DigiLocker official guidelines under IT Rules 2016 Rule 9A."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "DigiLocker supports high contrast mode, screen readers, and multilingual language switching.",
+    "status": "draft-pending-human-review"
+  },
+  {
     "id": "aadhaar-pvc-card",
     "ecosystem": "government-and-citizen",
     "category": "civil-identity",
@@ -436,6 +682,69 @@
     "feature_state": "official-link-only",
     "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal is compliant with GIGW accessibility standards.",
+    "status": "draft-pending-human-review"
+  },
+  {
+    "id": "swavlamban-udid-card",
+    "ecosystem": "government-and-citizen",
+    "category": "disability-inclusion",
+    "title": {
+      "en": "Unique Disability ID (UDID) Card & Disability Certificate",
+      "hi": "विशिष्ट दिव्यांगता पहचान पत्र (UDID कार्ड) एवं दिव्यांगता प्रमाण पत्र"
+    },
+    "goal": {
+      "en": "Apply for or download your national Unique Disability Identity (UDID) card for government schemes and reservations",
+      "hi": "सरकारी योजनाओं और लाभों के लिए अपना राष्ट्रीय विशिष्ट दिव्यांगता पहचान पत्र (UDID कार्ड) प्राप्त करें"
+    },
+    "summary": {
+      "en": "The Unique Disability ID (UDID) project is initiated by the Department of Empowerment of Persons with Disabilities (DEPwD), Ministry of Social Justice & Empowerment. It creates a unified national database and provides a single smart card that serves as universal proof of disability across all Indian states and Union Territories, eliminating the need to carry physical state medical certificates to access reservations, travel concessions, and government welfare schemes under the RPwD Act 2016.",
+      "hi": "विशिष्ट दिव्यांगता पहचान पत्र (UDID) परियोजना सामाजिक न्याय और अधिकारिता मंत्रालय के दिव्यांगजन सशक्तिकरण विभाग (DEPwD) द्वारा संचालित है। यह एक राष्ट्रीय डेटाबेस तैयार कर एक स्मार्ट कार्ड प्रदान करती है जो पूरे भारत में दिव्यांगता का सार्वभौमिक प्रमाण है। यह RPwD अधिनियम 2016 के तहत आरक्षण, यात्रा रियायतों और सरकारी योजनाओं का लाभ उठाने के लिए अलग-अलग चिकित्सा प्रमाण पत्र साथ रखने की आवश्यकता को समाप्त करता है।"
+    },
+    "provider": {
+      "name": "Department of Empowerment of Persons with Disabilities, MSJE",
+      "type": "central"
+    },
+    "official_url": "https://www.swavlambancard.gov.in/",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Any person with a benchmark disability of 40% or more as specified under the 21 categories recognized by the Rights of Persons with Disabilities (RPwD) Act 2016 is eligible for a UDID card.",
+        "hi": "दिव्यांगजन अधिकार अधिनियम 2016 के तहत मान्यता प्राप्त 21 श्रेणियों में से 40% या उससे अधिक की दिव्यांगता वाले नागरिक UDID कार्ड के लिए पात्र हैं।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "Recent color passport photograph (showing disability if visible)",
+      "Proof of Identity (Aadhaar Card, Voter ID, PAN Card, or Birth Certificate)",
+      "Proof of Address (Aadhaar Card, Ration Card, Domicile Certificate, or Utility Bill)",
+      "Existing Disability Certificate issued by a competent Chief Medical Officer (CMO) or Government Medical Authority (if already available)",
+      "Signature or thumb impression"
+    ],
+    "fees": {
+      "is_fee_required": false,
+      "details": "Application, hospital assessment, and physical postal delivery of the UDID card are completely free public services provided by the Government of India.",
+      "source_url": "https://www.swavlambancard.gov.in/",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://www.swavlambancard.gov.in/",
+        "title": "Swavlamban Portal - Unique Disability ID (UDID)",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against DEPwD Swavlamban official guidelines under RPwD Act 2016."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Portal is GIGW compliant, supports screen readers, text re-sizing, and high contrast options.",
     "status": "draft-pending-human-review"
   },
   {
@@ -630,6 +939,71 @@
     "feature_state": "official-link-only",
     "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides multi-state dropdown navigation; external site accessibility varies by state transport department.",
+    "status": "draft-pending-human-review"
+  },
+  {
+    "id": "parivahan-rc-transfer",
+    "ecosystem": "mobility-and-transport",
+    "category": "vehicle-registration",
+    "title": {
+      "en": "Vehicle Registration Certificate (RC) Ownership Transfer",
+      "hi": "वाहन पंजीकरण प्रमाण पत्र (आरसी) स्वामित्व हस्तांतरण (फॉर्म 29 एवं 30)"
+    },
+    "goal": {
+      "en": "Transfer vehicle registration certificate (RC) ownership upon sale, succession, or auction via Vahan",
+      "hi": "वाहन बिक्री, उत्तराधिकार या नीलामी के उपरांत वाहन आरसी का स्वामित्व हस्तांतरण करें"
+    },
+    "summary": {
+      "en": "Transfer the ownership of a motor vehicle through the Ministry of Road Transport & Highways (MoRTH) centralized Vahan Citizen Portal. Under Sections 50 and 51 of the Motor Vehicles Act 1988, both the buyer and seller must notify the registering authority within 30 days of sale using Form 29 (Notice of Transfer) and Form 30 (Application for Transfer). The service supports Aadhaar eKYC, digital fee payment, and automated status tracking across all state RTOs.",
+      "hi": "सड़क परिवहन एवं राजमार्ग मंत्रालय (MoRTH) के एकीकृत वाहन नागरिक पोर्टल पर मोटर वाहन का स्वामित्व हस्तांतरित करें। मोटर वाहन अधिनियम 1988 की धारा 50 एवं 51 के अनुसार, वाहन बिक्री के 30 दिनों के भीतर फॉर्म 29 और फॉर्म 30 द्वारा आरटीओ को सूचित करना अनिवार्य है। यह सेवा आधार eKYC, डिजिटल शुल्क भुगतान और ऑनलाइन स्थिति ट्रैकिंग की सुविधा देती है।"
+    },
+    "provider": {
+      "name": "Ministry of Road Transport and Highways (MoRTH)",
+      "type": "central"
+    },
+    "official_url": "https://parivahan.gov.in/parivahan/",
+    "geographic_scope": {
+      "level": "national"
+    },
+    "eligibility_summary": {
+      "text": {
+        "en": "Available to the registered seller and prospective buyer of any registered vehicle in India. Vehicles subject to an existing bank loan or hypothecation require a No Objection Certificate (NOC) Form 35 from the financier before transfer can be completed.",
+        "hi": "भारत में किसी भी पंजीकृत वाहन के विक्रेता और खरीदार के लिए उपलब्ध। यदि वाहन पर बैंक ऋण या दृष्टिबंधक है, तो हस्तांतरण से पहले ऋणदाता से अनापत्ति प्रमाण पत्र (NOC फॉर्म 35) प्राप्त करना आवश्यक है।"
+      },
+      "is_informational_only": true
+    },
+    "documents_required": [
+      "Original Registration Certificate (RC) book or smart card",
+      "Form 29 (Notice of Transfer of Ownership) signed in duplicate by both parties",
+      "Form 30 (Application for Transfer of Ownership) with buyer and seller signatures",
+      "Valid Vehicle Insurance Certificate",
+      "Valid Pollution Under Control (PUC) Certificate",
+      "Address and Identity Proof of the Buyer (Aadhaar Card, Voter ID, or Passport)",
+      "Financier NOC in Form 35 (if vehicle had hypothecation/loan)"
+    ],
+    "fees": {
+      "is_fee_required": true,
+      "details": "Official central statutory transfer fee is ₹150 for two-wheelers and ₹300 - ₹500 for light motor vehicles (cars) under Central Motor Vehicle Rule 81, plus nominal state postal smart card delivery charges (₹100 - ₹200).",
+      "source_url": "https://parivahan.gov.in/parivahan/",
+      "last_verified_on": "2026-11-06"
+    },
+    "sources": [
+      {
+        "url": "https://parivahan.gov.in/parivahan/",
+        "title": "Ministry of Road Transport and Highways - Parivahan Sewa",
+        "verified_on": "2026-11-06"
+      }
+    ],
+    "verification": {
+      "last_verified_on": "2026-11-06",
+      "verified_by": "agent-draft-pending-human-review",
+      "next_review_due": "2027-02-06",
+      "notes": "Verified against Central Motor Vehicles Rules 1989 Rule 81 fee schedule and Vahan portal workflow."
+    },
+    "integration_classification": 5,
+    "feature_state": "official-link-only",
+    "languages_at_destination": ["en", "hi"],
+    "accessibility_notes": "Vahan portal supports Aadhaar OTP validation, digital application fee payment, and online slot booking.",
     "status": "draft-pending-human-review"
   },
   {
