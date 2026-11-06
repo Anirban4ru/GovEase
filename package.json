@@ -20,6 +20,7 @@
     "check:links": "node scripts/check-links.mjs",
     "check:links:offline": "node scripts/check-links.mjs --offline",
     "report:staleness": "node scripts/catalogue-staleness.mjs",
+    "audit:perf": "node scripts/perf-budget.mjs",
     "audit:ci": "npm audit --audit-level=high"
   },
   "dependencies": {

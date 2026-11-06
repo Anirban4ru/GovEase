@@ -2,7 +2,7 @@
 
 **Project:** Unified Life Services Platform  
 **Purpose:** Living audit of catalogue freshness, review schedules, and staleness alerts  
-**Audit Date:** 2026-11-05  
+**Audit Date:** 2026-11-06  
 **Total Services Tracked:** 6
 
 Per `PROMPT_FINAL.md` §6.3:
@@ -24,12 +24,12 @@ Per `PROMPT_FINAL.md` §6.3:
 
 | Service ID                    | Title                                                   | Ecosystem              | Last Verified | Review Due | Days Left | Review Status             |
 | :---------------------------- | :------------------------------------------------------ | :--------------------- | :------------ | :--------- | :-------- | :------------------------ |
-| `aadhaar-pvc-card`            | Order Aadhaar PVC Card Guide                            | government-and-citizen | 2026-11-05    | 2027-02-05 | 92d       | ⏳ Draft (Pending Review) |
-| `consumer-helpline-grievance` | National Consumer Helpline Grievance Registration       | utilities-and-local    | 2026-11-05    | 2027-02-05 | 92d       | ⏳ Draft (Pending Review) |
-| `create-abha-id`              | Ayushman Bharat Health Account (ABHA) Creation          | healthcare             | 2026-11-05    | 2027-02-05 | 92d       | ⏳ Draft (Pending Review) |
-| `driving-licence-renewal`     | Driving Licence Renewal                                 | mobility-and-transport | 2026-11-05    | 2027-02-05 | 92d       | ⏳ Draft (Pending Review) |
-| `nsp-scholarship-discovery`   | National Scholarship Portal (NSP) Application Discovery | education              | 2026-11-05    | 2027-02-05 | 92d       | ⏳ Draft (Pending Review) |
-| `pm-kisan-status`             | PM-Kisan Samman Nidhi Status & Registration             | finance-and-welfare    | 2026-11-05    | 2027-02-05 | 92d       | ⏳ Draft (Pending Review) |
+| `aadhaar-pvc-card`            | Order Aadhaar PVC Card Guide                            | government-and-citizen | 2026-11-05    | 2027-02-05 | 91d       | ⏳ Draft (Pending Review) |
+| `consumer-helpline-grievance` | National Consumer Helpline Grievance Registration       | utilities-and-local    | 2026-11-05    | 2027-02-05 | 91d       | ⏳ Draft (Pending Review) |
+| `create-abha-id`              | Ayushman Bharat Health Account (ABHA) Creation          | healthcare             | 2026-11-05    | 2027-02-05 | 91d       | ⏳ Draft (Pending Review) |
+| `driving-licence-renewal`     | Driving Licence Renewal                                 | mobility-and-transport | 2026-11-05    | 2027-02-05 | 91d       | ⏳ Draft (Pending Review) |
+| `nsp-scholarship-discovery`   | National Scholarship Portal (NSP) Application Discovery | education              | 2026-11-05    | 2027-02-05 | 91d       | ⏳ Draft (Pending Review) |
+| `pm-kisan-status`             | PM-Kisan Samman Nidhi Status & Registration             | finance-and-welfare    | 2026-11-05    | 2027-02-05 | 91d       | ⏳ Draft (Pending Review) |
 
 ---
 

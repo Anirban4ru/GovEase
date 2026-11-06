@@ -6,6 +6,8 @@ import { CatalogueService, ECOSYSTEMS } from "../lib/catalogue";
 import { useTranslation } from "../context/I18nContext";
 import { useSavedServices } from "../hooks/useSavedServices";
 import { OutboundHandoffModal } from "./OutboundHandoffModal";
+import { DocumentReadinessChecklist } from "./DocumentReadinessChecklist";
+import { ServiceExplainerGuide } from "./ServiceExplainerGuide";
 
 interface ServiceDetailViewProps {
   service: CatalogueService;
@@ -234,6 +236,15 @@ export function ServiceDetailView({ service }: ServiceDetailViewProps) {
             </p>
           </section>
 
+          {/* Interactive Step-by-Step Explainer Guide */}
+          <ServiceExplainerGuide serviceId={service.id} />
+
+          {/* Interactive Document Readiness Checklist */}
+          <DocumentReadinessChecklist
+            serviceId={service.id}
+            documents={service.documents_required}
+          />
+
           {/* Eligibility Guidance (Informational Only Disclaimer) */}
           <section
             style={{
@@ -296,36 +307,6 @@ export function ServiceDetailView({ service }: ServiceDetailViewProps) {
                 ? "* अंतिम पात्रता और नियम केवल आधिकारिक सरकारी पोर्टल पर ही निर्धारित किए जाते हैं।"
                 : "* Final eligibility and rules are determined exclusively by the official portal."}
             </p>
-          </section>
-
-          {/* Required Documents Checklist */}
-          <section>
-            <h2
-              style={{
-                fontSize: "1.125rem",
-                fontWeight: 700,
-                color: "var(--color-content-primary)",
-                marginBottom: "0.5rem",
-              }}
-            >
-              {locale === "hi"
-                ? "आवश्यक दस्तावेज एवं जानकारी"
-                : "What You May Need (Documents Checklist)"}
-            </h2>
-            <ul
-              style={{
-                paddingLeft: "1.25rem",
-                margin: 0,
-                color: "var(--color-content-secondary)",
-                lineHeight: 1.6,
-              }}
-            >
-              {service.documents_required.map((doc, idx) => (
-                <li key={idx} style={{ marginBottom: "0.375rem" }}>
-                  {doc}
-                </li>
-              ))}
-            </ul>
           </section>
 
           {/* Fees & Processing Schedule */}

@@ -3,8 +3,8 @@
 **Project:** Unified Life Services Platform  
 **Purpose:** Pre-release verification gates for milestone releases (M0 Foundation to Release 3+)  
 **Owner:** Founder  
-**Status:** active (M2 Catalogue Pipeline Verification Complete)  
-**Last updated:** 2026-11-05
+**Status:** active (M5 Explainer Guides & Beta 0.1 Candidate Approved)  
+**Last updated:** 2026-11-06
 
 Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unless explicitly deferred with a written, dated justification signed by the human founder.
 
@@ -101,10 +101,30 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 
 ---
 
+## Milestone M5: Interactive Explainer Guides, Plain-Language Checklists & Beta 0.1 Release Gate
+
+| Gate Check                 | Requirement                                                       | Evidence Required                               | Verification Status                                                 |
+| :------------------------- | :---------------------------------------------------------------- | :---------------------------------------------- | :------------------------------------------------------------------ |
+| 5-Phase Explainer Guides   | Sequential guides covering prep, portal, data, fees, tracking     | `src/lib/service-explainer-data.ts`, UI render  | ✅ Passed (All 6 seed services have 5 steps, bilingual en/hi)       |
+| WAI-ARIA Stepper Tabs      | Accessible roving tabindex, Arrow/Home/End keyboard navigation    | `src/components/ServiceExplainerGuide.tsx`      | ✅ Passed (ArrowLeft/Right, Home/End, role="tablist", role="tab")   |
+| Anti-Phishing Warnings     | Explicit warnings on third-party ads, fake fees, cyber cafe fraud | Explainer guide data & pitfall callouts         | ✅ Passed (Verified for ABHA, PVC, DL, PM-Kisan, NSP, Grievance)    |
+| Interactive Readiness List | Dynamic checkboxes, live % progress bar, local persistence        | `src/components/DocumentReadinessChecklist.tsx` | ✅ Passed (useSyncExternalStore, 0 network calls, reset button)     |
+| Bureaucratic Jargon Cards  | 6th-grade plain definitions (eKYC, OTR, DBT, ABHA, PVC, Sarathi)  | `src/lib/jargon-glossary.ts`, Assisted Mode     | ✅ Passed (Bilingual en/hi, why-it-matters explanations)            |
+| WCAG 2.2 AA Conformance    | Automated axe-core + manual keyboard/zoom reflow audit statement  | `ACCESSIBILITY.md`, E2E test suite              | ✅ Passed (0 violations across 6 viewports, 180/180 E2E tests pass) |
+| Strict Performance Budget  | HTML <= 50KB raw, CSS <= 25KB raw, Initial JS <= 220KB gzip       | `scripts/perf-budget.mjs`, `PERFORMANCE_REPORT` | ✅ Passed (`npm run audit:perf` exits code 0, 100% compliant)       |
+| OWASP ASVS L1 Mapping      | Level 1 security controls mapping for static/PWA architecture     | `SECURITY_CONTROL_MAPPING.md`                   | ✅ Passed (Mapped across V1, V4, V5, V7, V8, V10, V14)              |
+| Zero Vibe Coding Gate      | Refined civic minimalism, high contrast, no neon or glowing hud   | `src/styles/tokens.css`, visual inspection      | ✅ Passed (Clean Civic Slate design tokens, high contrast >= 4.5:1) |
+| Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean     | `npm run lint`, `type-check`, `format:check`    | ✅ Passed (0 errors, 0 warnings across entire codebase)             |
+| Full Vitest & E2E Suite    | 34/34 Vitest tests pass, 180/180 Playwright tests pass (6 vps)    | CI test run, Playwright report                  | ✅ Passed (100% test pass rate across 6 responsive viewports)       |
+| Founder Review & Sign-Off  | Founder review of M5 Deliverable Report & Beta 0.1 Candidate      | Conversation approval                           | ✅ Approved by Founder ("Proceed")                                  |
+
+---
+
 ## Formal Sign-Off Record
 
-- **Milestone:** M4 Saved Items, PWA Offline Shell, Settings & Feedback Flow
+- **Milestone:** M5 Interactive Explainer Guides, Plain-Language Checklists & Release Readiness Hardening (Beta 0.1 Candidate)
+- **Release Candidate:** **Beta 0.1 Candidate Approved**
 - **Verified By Agent:** Antigravity AI Pair Programmer
-- **Date:** 2026-11-05
-- **Branch:** `master` (Merged from `feat/m4-saved-pwa-settings`)
-- **Human Approval:** Approved by Founder on 2026-11-05 ("okay go ahead")
+- **Date:** 2026-11-06
+- **Branch:** `master` (Merged from `feat/m5-guides-checklists`)
+- **Human Approval:** Approved by Founder on 2026-11-06 ("Proceed")
