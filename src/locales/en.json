@@ -20,9 +20,11 @@
   "nav": {
     "home": "Home",
     "explore": "Explore",
+    "journeys": "Life Journeys",
+    "prepStudio": "Doc Studio",
     "guide": "Life Navigator",
     "saved": "Saved",
-    "help": "Help",
+    "help": "Help & Helplines",
     "settings": "Settings"
   },
   "modes": {

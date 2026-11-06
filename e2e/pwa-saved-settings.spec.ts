@@ -134,8 +134,8 @@ test.describe("Milestone M4 - Saved Items, PWA Shell, Settings & Feedback Flow",
     expect(response.status()).toBe(200);
 
     const manifest = await response.json();
-    expect(manifest.name).toBe("Unified Life Services Platform");
-    expect(manifest.short_name).toBe("Life Services");
+    expect(manifest.name).toBe("GovEase - Independent Public Services Guide");
+    expect(manifest.short_name).toBe("GovEase");
     expect(manifest.display).toBe("standalone");
     expect(manifest.start_url).toBe("/");
     expect(manifest.icons.length).toBeGreaterThanOrEqual(2);

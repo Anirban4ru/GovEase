@@ -7,7 +7,7 @@
 [![TypeScript Strict](https://img.shields.io/badge/Language-TypeScript%205%20Strict-3178C6.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![PWA Ready](<https://img.shields.io/badge/Platform-PWA%20(Windows%20%7C%20iOS%20%7C%20Android)-orange.svg?style=flat-square>)](#cross-platform--app-support)
 [![WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA%20Compliant-047857.svg?style=flat-square)](#accessibility--inclusive-design)
-[![Test Suite](https://img.shields.io/badge/Tests-58%20Unit%20%7C%2048%20E2E%20Passing-brightgreen.svg?style=flat-square)](#test-suite--quality-assurance)
+[![Test Suite](https://img.shields.io/badge/Tests-81%20Unit%20%7C%2066%20E2E%20Passing-brightgreen.svg?style=flat-square)](#test-suite--quality-assurance)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/Security-Strict%20CSP%20%7C%20DPDP%202023-red.svg?style=flat-square)](SECURITY.md)
 
@@ -122,7 +122,47 @@ The application adheres to an uncompromising, multi-layered security model detai
 
 ---
 
-## 6. Repository Organization
+## 6. Advanced Civic Utilities & Zero-Cost Architecture
+
+GovEase incorporates high-utility citizen assistance modules operating with **zero infrastructure cost ($0 / ₹0)** and zero server-side telemetry:
+
+1. **In-Browser Civic Document Prep Studio (`/prep-studio`):**
+   - Automatically resizes, crops, and compresses applicant photos and signature scans to exact government portal byte budgets (e.g., 20 KB – 50 KB for UPSC, SSC, and Parivahan).
+   - Operates 100% in local browser RAM using offscreen HTML5 Canvas. Zero bytes ever leave the client device, achieving strict DPDP Act 2023 compliance.
+
+2. **Composite Multi-Service "Life Event" Journeys (`/journeys`):**
+   - Chains individual services into sequential, dependency-aware milestone workflows with verified prerequisites:
+     - **Newborn Child in Family:** CRS Birth Certificate $\rightarrow$ Blue Baal Aadhaar $\rightarrow$ Infant ABHA Health ID.
+     - **Higher Education & Employment:** DigiLocker Records $\rightarrow$ National Scholarship Portal $\rightarrow$ PAN Card $\rightarrow$ Voter e-EPIC.
+     - **Informal & Gig Worker Safety Net:** e-Shram 12-digit UAN $\rightarrow$ PM Jan Dhan Zero-Balance Account $\rightarrow$ PMSBY Accidental Cover.
+     - **Senior Citizen Dignity:** EPF Pension Settlement $\rightarrow$ Senior Citizen Ayushman Bharat $\rightarrow$ National Consumer Grievance.
+   - Includes on-device milestone tracking with progress indicators and local state persistence.
+
+3. **Smart Voice Search via Web Speech Recognition API:**
+   - Enables hands-free civic discovery with microphone voice search in Hindi, English, Bengali, and Tamil.
+   - Features animated soundwave feedback and graceful fallback for browsers without speech recognition.
+
+4. **Emergency Helplines & Anti-Scam SMS Header Verifier (`/help`):**
+   - **One-Tap Statutory Helplines:** Offline dialers for 1930 (Cybercrime Golden Hour), 1915 (Consumer Helpline), 14555 (Ayushman Bharat), 1947 (UIDAI Aadhaar), and 14443 (e-Shram).
+   - **TRAI Alphanumeric SMS Verifier:** Validates incoming SMS headers against registered government departments (e.g. `AX-PARIVH`, `VK-UIDAI`, `CPGRAM`) and immediately flags personal 10-digit mobile numbers as high-risk phishing scams.
+
+5. **Statutory Tariff & Grace Period Penalty Calculator:**
+   - Implements Section 15 of the Motor Vehicles (Amendment) Act 2019 and CMVR Rule 32 to dynamically calculate driving licence renewal grace periods and statutory late fees.
+   - Transparently highlights official costs (₹50 PAN reprint, ₹0 e-Shram, ₹0 child biometrics) against inflated market tout charges.
+
+6. **Common Service Center (CSC) Statutory Rate Charter:**
+   - Publishes MeitY maximum fee schedules (₹5 print, ₹10 scan, ₹0 Ayushman card) to protect rural and semi-urban citizens against cyber-cafe extortion.
+   - Includes direct links to authorized CSC and Aadhaar Seva Kendra locators.
+
+7. **Instant QR Code Cross-Device Synchronization:**
+   - Generates compact, compressed QR codes (`?sync=id1,id2`) allowing instant peer-to-peer bookmark transfer between mobile devices and desktop computers without user accounts or cloud storage.
+
+8. **State & UT Civic Resolver:**
+   - Bridges central initiatives with state-administered services across 20 Indian states and union territories, routing citizens directly to verified state subdomains.
+
+---
+
+## 7. Repository Organization
 
 The repository is organized following clean architectural boundaries:
 
@@ -153,7 +193,7 @@ Gov Project/
 │   ├── integrations/             # Official Provider Access Specifications
 │   ├── security/                 # Vulnerability Tracking & Threat Analysis
 │   └── screenshots/              # Visual Regression & Showcase Artifacts
-├── e2e/                          # Playwright End-to-End Test Suite (48 tests)
+├── e2e/                          # Playwright End-to-End Test Suite (66 tests across 6 viewports)
 ├── public/                       # Static Public Assets, PWA Icons & Service Worker
 │   ├── icons/                    # High-DPI Maskable & Adaptive PWA Icons
 │   ├── manifest.webmanifest      # W3C Web App Manifest
@@ -168,10 +208,10 @@ Gov Project/
 │   ├── components/               # Accessible Component Library
 │   ├── context/                  # Global Context Providers (i18n, Presentation Mode)
 │   ├── data/                     # Compiled Catalogue Snapshots
-│   ├── lib/                      # Core Logic (Search, Sanitizer, Life-Stage Engine)
+│   ├── lib/                      # Core Logic (Search, Sanitizer, Life-Stage Engine, Fee Calculator)
 │   ├── locales/                  # Localized Dictionaries (EN, HI, BN, TA)
 │   └── styles/                   # Modern Civic CSS Tokens & Hardware-Accelerated Motion
-├── test/                         # Vitest Unit & Integration Tests (58 tests)
+├── test/                         # Vitest Unit & Integration Tests (81 tests across 17 suites)
 ├── Dockerfile                    # Multi-stage Hardened Container Specification
 ├── LICENSE                       # MIT License
 ├── package.json                  # Dependencies & NPM Scripts
@@ -182,15 +222,15 @@ Gov Project/
 
 ---
 
-## 7. Test Suite & Quality Assurance
+## 8. Test Suite & Quality Assurance
 
 The project enforces automated test gates ensuring zero regression, zero broken links, and zero accessibility violations:
 
 ```bash
-# Execute full Vitest unit & integration test suite (58 passing tests)
+# Execute full Vitest unit & integration test suite (81 passing tests across 17 test suites)
 npm test
 
-# Execute Playwright E2E suite across 6 viewports (48 passing tests)
+# Execute Playwright E2E suite across 6 viewports (66 passing tests)
 npm run test:e2e
 
 # Perform strict TypeScript compilation check (0 errors)
@@ -205,15 +245,15 @@ npm run audit:perf
 
 ### Verified Test Metrics:
 
-- **Vitest Unit Suite:** 58 / 58 passing (100% pass rate).
-- **Playwright E2E Suite:** 48 / 48 passing across Desktop (1440px, 1024px), Tablet (768px), and Mobile (390px, 360px, 320px).
-- **Automated Axe Accessibility Audits:** 0 WCAG 2.2 Level AA violations across all views and comparison modes.
+- **Vitest Unit Suite:** 81 / 81 passing across 17 test suites (100% pass rate).
+- **Playwright E2E Suite:** 66 / 66 passing across Desktop (1440px, 1024px), Tablet (768px), and Mobile (390px, 360px, 320px).
+- **Automated Axe Accessibility Audits:** 0 WCAG 2.2 Level AA violations across all views, tools, and comparison modes.
 - **Search Benchmark Accuracy:** 210 / 210 queries (100.0% Top-1 accuracy).
 - **Lighthouse Performance Score:** 100/100 across Accessibility, Best Practices, and SEO.
 
 ---
 
-## 8. Getting Started & Local Development
+## 9. Getting Started & Local Development
 
 ### Prerequisites
 
@@ -224,8 +264,8 @@ npm run audit:perf
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/anirbanchatterjee/unified-life-services.git
-cd unified-life-services
+git clone https://github.com/anirbanchatterjee/govease.git
+cd govease
 
 # 2. Install dependencies
 npm install
@@ -247,21 +287,21 @@ npm run build
 npm run serve:static
 
 # Build hardened multi-stage Docker container
-docker build -t unified-life-services:latest .
+docker build -t govease:latest .
 ```
 
 ---
 
-## 9. Academic Context & Authorship
+## 10. Academic Context & Authorship
 
-- **Project Title:** Unified Public Life Services Platform
+- **Project Title:** GovEase (Independent Civic Discovery & Navigation Architecture)
 - **Academic Level:** 3rd Year B.Tech Computer Science & Engineering Capstone
 - **Focus Areas:** Human-Computer Interaction (HCI), Public Digital Infrastructure, Client-Side Cryptographic Data Minimisation, Progressive Web Applications (PWA), Web Accessibility (WCAG 2.2 AA).
 - **Author & Lead Developer:** **Anirban Chatterjee**
 
 ---
 
-## 10. License & Security
+## 11. License & Security
 
 - **Licensing:** Licensed under the open-source [MIT License](LICENSE). Copyright &copy; 2026 Anirban Chatterjee and Contributors.
 - **Security & Vulnerability Disclosure:** Please review [SECURITY.md](SECURITY.md) for responsible disclosure guidelines and security contacts.

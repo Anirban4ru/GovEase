@@ -23,9 +23,71 @@ export function SearchBar({
   const [query, setQuery] = useState(initialQuery);
   const [isDismissed, setIsDismissed] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+  const [isListening, setIsListening] = useState<boolean>(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const recognitionRef = useRef<any>(null);
+
+  // Initialize Speech Recognition if supported
+  const handleVoiceSearch = () => {
+    if (typeof window === "undefined") return;
+
+    const SpeechRecognition =
+      (window as unknown as { SpeechRecognition?: any }).SpeechRecognition ||
+      (window as unknown as { webkitSpeechRecognition?: any }).webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert(
+        locale === "hi"
+          ? "आपके ब्राउज़र में वॉइस सर्च समर्थित नहीं है। कृपया गूगल क्रोम या एज का उपयोग करें।"
+          : "Voice search is not supported on this browser. Please use Chrome, Edge, or Android WebView.",
+      );
+      return;
+    }
+
+    if (isListening) {
+      recognitionRef.current?.stop();
+      setIsListening(false);
+      return;
+    }
+
+    try {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang =
+        locale === "hi" ? "hi-IN" : locale === "bn" ? "bn-IN" : locale === "ta" ? "ta-IN" : "en-IN";
+
+      recognition.onstart = () => {
+        setIsListening(true);
+      };
+
+      recognition.onresult = (event: any) => {
+        const transcript = event.results?.[0]?.[0]?.transcript || "";
+        if (transcript.trim()) {
+          setQuery(transcript);
+          setIsDismissed(false);
+          if (onSearchChange) {
+            onSearchChange(transcript);
+          }
+        }
+      };
+
+      recognition.onerror = () => {
+        setIsListening(false);
+      };
+
+      recognition.onend = () => {
+        setIsListening(false);
+      };
+
+      recognitionRef.current = recognition;
+      recognition.start();
+    } catch {
+      setIsListening(false);
+    }
+  };
 
   // Derive results directly during rendering
   const results = query.trim().length > 0 ? searchServices(query) : [];
@@ -178,6 +240,60 @@ export function SearchBar({
             minHeight: "var(--min-touch-target)",
           }}
         />
+
+        {/* Voice Search Microphone Button */}
+        <button
+          type="button"
+          onClick={handleVoiceSearch}
+          aria-label={
+            isListening
+              ? locale === "hi"
+                ? "सुन रहा हूँ... बोलिए"
+                : "Listening... speak now"
+              : locale === "hi"
+                ? "आवाज से खोजें"
+                : "Search by voice"
+          }
+          style={{
+            background: isListening ? "rgba(220, 38, 38, 0.12)" : "transparent",
+            border: isListening ? "1px solid #dc2626" : "none",
+            borderRadius: "var(--radius-xs)",
+            color: isListening ? "#dc2626" : "var(--color-content-tertiary)",
+            cursor: "pointer",
+            padding: "0.5rem",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "var(--min-touch-target)",
+            minWidth: "var(--min-touch-target)",
+            transition: "all 150ms ease",
+          }}
+          title={
+            isListening
+              ? locale === "hi"
+                ? "सुन रहा हूँ... बोलिए"
+                : "Listening... speak now"
+              : locale === "hi"
+                ? "आवाज से खोजें"
+                : "Search by voice"
+          }
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+            <line x1="12" y1="19" x2="12" y2="22" />
+          </svg>
+        </button>
 
         {query.length > 0 && (
           <button

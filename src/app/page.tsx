@@ -743,6 +743,229 @@ function HomeContent() {
         </div>
       </section>
 
+      {/* Civic Utility & Verification Tools */}
+      <section aria-labelledby="civic-tools-heading" style={{ marginBottom: "3.5rem" }}>
+        <div style={{ marginBottom: "1.25rem" }}>
+          <h2
+            id="civic-tools-heading"
+            style={{
+              fontSize: "1.375rem",
+              fontWeight: 800,
+              color: "var(--color-ink)",
+              margin: 0,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {locale === "hi"
+              ? "नागरिक सुविधा एवं सत्यापन उपकरण"
+              : locale === "bn"
+                ? "নাগরিক সুবিধা ও যাচাইকরণ টুলস"
+                : locale === "ta"
+                  ? "குடிமக்கள் பயன்பாடு மற்றும் சரிபார்ப்பு கருவிகள்"
+                  : "Civic Utility & Verification Tools"}
+          </h2>
+          <p
+            style={{
+              fontSize: "0.875rem",
+              color: "var(--color-content-secondary)",
+              margin: "0.25rem 0 0 0",
+            }}
+          >
+            {locale === "hi"
+              ? "दस्तावेज़ आकार सुधार, जीवन-घटना बहु-सेवा अनुक्रम, एवं फर्जी चालान/घोटाला जांच उपकरण - पूर्णतः निःशुल्क व ऑन-डिवाइस।"
+              : "Zero-cost, privacy-preserving utilities for document compression, multi-service milestones, and fraud prevention."}
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              mode === "simple" ? "1fr" : "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "1.25rem",
+          }}
+        >
+          {/* Tool 1: Doc Prep Studio */}
+          <div
+            className="civic-card-interactive"
+            style={{
+              padding: "1.25rem",
+              backgroundColor: "var(--color-surface-card)",
+              border: "1px solid var(--color-border-default)",
+              borderRadius: "var(--radius-md)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "var(--radius-sm)",
+                    backgroundColor: "rgba(10, 110, 109, 0.12)",
+                    color: "var(--color-teal-text, #0a6e6d)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                  aria-hidden="true"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                </div>
+                <h3 style={{ fontSize: "1rem", fontWeight: 700, margin: 0, color: "var(--color-ink)" }}>
+                  {locale === "hi" ? "दस्तावेज़ एवं फ़ोटो स्टूडियो" : "Doc Prep Studio"}
+                </h3>
+              </div>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: "0 0 1rem 0" }}>
+                {locale === "hi"
+                  ? "पासपोर्ट फोटो, हस्ताक्षर व प्रमाणपत्रों को सरकारी पोर्टल नियमों (20KB - 50KB) के अनुसार बिना सर्वर अपलोड के काटें व आकार दें।"
+                  : "Crop and compress passport photos and signatures to strict government portal specs (20KB - 50KB). 100% in-browser Canvas, zero network transmission."}
+              </p>
+            </div>
+            <Link
+              href="/prep-studio"
+              style={{
+                fontSize: "0.8125rem",
+                fontWeight: 600,
+                color: "var(--color-ink-blue)",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.25rem",
+              }}
+            >
+              <span>{locale === "hi" ? "स्टूडियो खोलें" : "Open Studio"}</span>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+
+          {/* Tool 2: Composite Life Journeys */}
+          <div
+            className="civic-card-interactive"
+            style={{
+              padding: "1.25rem",
+              backgroundColor: "var(--color-surface-card)",
+              border: "1px solid var(--color-border-default)",
+              borderRadius: "var(--radius-md)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "var(--radius-sm)",
+                    backgroundColor: "rgba(30, 64, 175, 0.12)",
+                    color: "var(--color-ink-blue, #1e40af)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                  aria-hidden="true"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  </svg>
+                </div>
+                <h3 style={{ fontSize: "1rem", fontWeight: 700, margin: 0, color: "var(--color-ink)" }}>
+                  {locale === "hi" ? "जीवन-घटना समग्र यात्राएँ" : "Life Event Journeys"}
+                </h3>
+              </div>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: "0 0 1rem 0" }}>
+                {locale === "hi"
+                  ? "नवजात शिशु, उच्च शिक्षा, असंगठित श्रमिक, व वरिष्ठ नागरिकों के लिए अनुक्रमिक सेवा मार्गदर्शिका।"
+                  : "Multi-service dependency workflows with verified prerequisites: Newborn Child, College Graduate, Informal Worker, and Senior Citizen."}
+              </p>
+            </div>
+            <Link
+              href="/journeys"
+              style={{
+                fontSize: "0.8125rem",
+                fontWeight: 600,
+                color: "var(--color-ink-blue)",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.25rem",
+              }}
+            >
+              <span>{locale === "hi" ? "यात्राएँ देखें" : "View Journeys"}</span>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+
+          {/* Tool 3: Anti-Scam & Helplines */}
+          <div
+            className="civic-card-interactive"
+            style={{
+              padding: "1.25rem",
+              backgroundColor: "var(--color-surface-card)",
+              border: "1px solid var(--color-border-default)",
+              borderRadius: "var(--radius-md)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "var(--radius-sm)",
+                    backgroundColor: "rgba(180, 83, 9, 0.12)",
+                    color: "var(--color-ochre, #b45309)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                  aria-hidden="true"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <h3 style={{ fontSize: "1rem", fontWeight: 700, margin: 0, color: "var(--color-ink)" }}>
+                  {locale === "hi" ? "हेल्पलाइन एवं एंटी-स्कैम" : "Anti-Scam & Helplines"}
+                </h3>
+              </div>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: "0 0 1rem 0" }}>
+                {locale === "hi"
+                  ? "TRAI अधिकृत SMS हेडर सत्यापन, 1930 साइबर हेल्पलाइन, आधिकारिक सरकारी फीस व CSC दर चार्टर।"
+                  : "TRAI SMS sender verification, 10-digit phishing detection, 1-tap emergency helplines (1930, 1915), and official fee calculators."}
+              </p>
+            </div>
+            <Link
+              href="/help"
+              style={{
+                fontSize: "0.8125rem",
+                fontWeight: 600,
+                color: "var(--color-ink-blue)",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.25rem",
+              }}
+            >
+              <span>{locale === "hi" ? "सहायता व सत्यापन केंद्र" : "Verify & Helplines"}</span>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Trust & Independence Guarantee Box (Section 4.1.4) */}
       <section
         style={{

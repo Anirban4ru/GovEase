@@ -3,6 +3,10 @@
 import React, { useState } from "react";
 import { useTranslation } from "../../context/I18nContext";
 import { FeedbackModal } from "../../components/FeedbackModal";
+import { EmergencyHelplineSection } from "../../components/EmergencyHelplineSection";
+import { AntiScamVerifier } from "../../components/AntiScamVerifier";
+import { CivicTariffCalculator } from "../../components/CivicTariffCalculator";
+import { CscPriceCharter } from "../../components/CscPriceCharter";
 
 export default function HelpPage() {
   const { locale } = useTranslation();
@@ -19,70 +23,37 @@ export default function HelpPage() {
             marginBottom: "0.5rem",
           }}
         >
-          {locale === "hi" ? "सहायता और मार्गदर्शन" : "Help & Information"}
+          {locale === "hi" ? "सहायता, सुरक्षा और हेल्पलाइन" : "Civic Help, Helplines & Anti-Scam Verification"}
         </h1>
-        <p style={{ fontSize: "1.0625rem", color: "var(--color-content-secondary)", margin: 0 }}>
+        <p style={{ fontSize: "1.0625rem", color: "var(--color-content-secondary)", margin: 0, maxWidth: "760px" }}>
           {locale === "hi"
-            ? "इस स्वतंत्र सार्वजनिक सेवा मार्गदर्शिका का उपयोग कैसे करें।"
-            : "How to use this independent public service discovery guide."}
+            ? "आपातकालीन टोल-फ्री हेल्पलाइन, संदिग्ध सरकारी SMS और ई-चालान सत्यापन, आधिकारिक सरकारी शुल्क कैलकुलेटर, और जन सेवा केंद्र (CSC) की कानूनी दरें।"
+            : "Statutory national emergency helplines, TRAI-verified SMS scam detection, official civic tariff calculations, and the MeitY Common Service Center rate charter."}
         </p>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", maxWidth: "800px" }}>
-        <section
-          style={{
-            border: "1px solid var(--color-border-default)",
-            borderRadius: "var(--radius-md)",
-            padding: "1.5rem",
-            backgroundColor: "var(--color-surface-page)",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "1.125rem",
-              fontWeight: 700,
-              color: "var(--color-brand-primary)",
-              marginTop: 0,
-              marginBottom: "0.5rem",
-            }}
-          >
-            {locale === "hi" ? "1. यह क्या है और क्या नहीं है?" : "1. What is this platform?"}
-          </h2>
-          <p style={{ lineHeight: 1.6, color: "var(--color-content-secondary)", margin: 0 }}>
-            {locale === "hi"
-              ? "यह मंच एक स्वतंत्र नागरिक मार्गदर्शिका है। यह आधिकारिक सरकारी पोर्टल नहीं है और किसी भी सरकारी विभाग का प्रतिनिधित्व नहीं करता है। हमारा उद्देश्य नागरिकों को बिना किसी भ्रामक विज्ञापन के सही आधिकारिक वेबसाइट और आवश्यक दस्तावेजों की जानकारी प्रदान करना है।"
-              : "This platform is an independent citizen guide. It is NOT an official government portal and does not replace official infrastructure. Our purpose is to help citizens discover services in plain language and direct them safely to the verified official destination."}
-          </p>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+        {/* Statutory Emergency Helplines */}
+        <section>
+          <EmergencyHelplineSection />
         </section>
 
-        <section
-          style={{
-            border: "1px solid var(--color-border-default)",
-            borderRadius: "var(--radius-md)",
-            padding: "1.5rem",
-            backgroundColor: "var(--color-surface-page)",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "1.125rem",
-              fontWeight: 700,
-              color: "var(--color-brand-primary)",
-              marginTop: 0,
-              marginBottom: "0.5rem",
-            }}
-          >
-            {locale === "hi"
-              ? "2. आधिकारिक लिंक सुरक्षा और डोमेन अनुमति सूची"
-              : "2. Official Link Safety & Allowed Domains"}
-          </h2>
-          <p style={{ lineHeight: 1.6, color: "var(--color-content-secondary)", margin: 0 }}>
-            {locale === "hi"
-              ? "हम केवल आधिकारिक सरकारी डोमेन (जैसे *.gov.in, *.nic.in) के लिंक प्रदान करते हैं। फर्जी या क्लोन वेबसाइटों से बचने के लिए प्रत्येक लिंक का नियमित रूप से परीक्षण किया जाता है।"
-              : "Every outbound link in our catalogue must match our verified domain allow-list (such as *.gov.in and *.nic.in). Outbound links open in a new window with strict security attributes to protect you against spoofing and phishing."}
-          </p>
+        {/* Anti-Scam & SMS Phishing Verifier */}
+        <section>
+          <AntiScamVerifier />
         </section>
 
+        {/* Statutory Civic Fee & Grace Period Penalty Calculator */}
+        <section>
+          <CivicTariffCalculator />
+        </section>
+
+        {/* Authorized CSC Price Charter */}
+        <section>
+          <CscPriceCharter />
+        </section>
+
+        {/* Core Principles & Trust Model */}
         <section
           style={{
             border: "1px solid var(--color-border-default)",
@@ -93,59 +64,67 @@ export default function HelpPage() {
         >
           <h2
             style={{
-              fontSize: "1.125rem",
+              fontSize: "1.25rem",
               fontWeight: 700,
-              color: "var(--color-brand-primary)",
+              color: "var(--color-content-primary)",
               marginTop: 0,
-              marginBottom: "0.5rem",
+              marginBottom: "1rem",
             }}
           >
-            {locale === "hi"
-              ? "3. गलत लिंक या पुरानी जानकारी की सूचना दें"
-              : "3. Report an Outdated Link or Information"}
+            {locale === "hi" ? "मंच के मूल सिद्धांत एवं सुरक्षा वास्तुकला" : "GovEase Architectural Trust Principles"}
           </h2>
-          <p
+
+          <div
             style={{
-              lineHeight: 1.6,
-              color: "var(--color-content-secondary)",
-              margin: "0 0 1rem 0",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "1.25rem",
             }}
           >
-            {locale === "hi"
-              ? "यदि आपको किसी सेवा के लिंक या विवरण में कोई विसंगति दिखाई देती है, तो आप हमारी सार्वजनिक रिपोजिटरी में सुधार का सुझाव दे सकते हैं।"
-              : "If you notice a broken link, outdated fee schedule, or inaccurate eligibility description, let us know through our open correction register."}
-          </p>
-          <button
-            type="button"
-            onClick={() => setFeedbackOpen(true)}
-            style={{
-              padding: "0.625rem 1.25rem",
-              backgroundColor: "var(--color-brand-primary)",
-              color: "var(--color-content-inverse)",
-              border: "none",
-              borderRadius: "var(--radius-sm)",
-              fontWeight: 700,
-              fontSize: "0.875rem",
-              cursor: "pointer",
-              minHeight: "var(--min-touch-target)",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              aria-hidden="true"
-            >
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-            </svg>
-            {locale === "hi" ? "सुझाव या सुधार भेजें" : "Submit Feedback / Correction"}
-          </button>
+            <div>
+              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-brand-primary)", margin: "0 0 0.25rem 0" }}>
+                1. Zero-Intermediary Handoff
+              </h3>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: 0 }}>
+                GovEase never acts as a broker or payment gateway. All citizen actions redirect strictly to verified sovereign portals (*.gov.in / *.nic.in) registered under national DNS.
+              </p>
+            </div>
+
+            <div>
+              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-brand-primary)", margin: "0 0 0.25rem 0" }}>
+                2. DPDP Act 2023 Compliance
+              </h3>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: 0 }}>
+                Zero personal data retention. All tools, photo cropping, and document compression occur strictly in your local browser memory using offscreen HTML5 Canvas. No bytes leave your device.
+              </p>
+            </div>
+
+            <div>
+              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-brand-primary)", margin: "0 0 0.25rem 0" }}>
+                3. Open Correction Register
+              </h3>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: 0 }}>
+                If you encounter a broken government endpoint or an updated state fee rule, submit a correction to our public registry.
+              </p>
+              <button
+                type="button"
+                onClick={() => setFeedbackOpen(true)}
+                style={{
+                  marginTop: "0.75rem",
+                  padding: "0.4rem 0.75rem",
+                  backgroundColor: "var(--color-surface-card)",
+                  color: "var(--color-content-primary)",
+                  border: "1px solid var(--color-border-default)",
+                  borderRadius: "var(--radius-xs, 4px)",
+                  fontWeight: 600,
+                  fontSize: "0.75rem",
+                  cursor: "pointer",
+                }}
+              >
+                Submit Feedback / Suggest Correction
+              </button>
+            </div>
+          </div>
         </section>
       </div>
 
