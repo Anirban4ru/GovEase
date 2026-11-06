@@ -74,7 +74,7 @@ export function Footer() {
                   }}
                 >
                   <span style={{ color: "var(--color-govease-navy, #0d3570)" }}>Gov</span>
-                  <span style={{ color: "var(--color-govease-saffron, #fc7d1b)" }}>Ease</span>
+                  <span style={{ color: "var(--color-govease-saffron-text, #c2410c)" }}>Ease</span>
                 </h2>
                 <span
                   style={{
