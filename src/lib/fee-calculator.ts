@@ -186,3 +186,4 @@ export function calculateCivicFee(input: FeeCalculationInput): FeeCalculationRes
     }
   }
 }
+
