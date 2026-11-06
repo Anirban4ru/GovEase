@@ -47,3 +47,4 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
 
 # Launch static server with audited security headers
 CMD ["node", "scripts/static-server.mjs", "3000"]
+
