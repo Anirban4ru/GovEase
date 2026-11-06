@@ -177,6 +177,110 @@
       "added_on": "2026-11-06",
       "approved_by": "Founder",
       "notes": "Unique Disability ID (UDID) application and disability certificate portal"
+    },
+    {
+      "domain": "delhi.gov.in",
+      "provider": "Government of NCT of Delhi",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official state portal for GNCTD e-ration and transport services"
+    },
+    {
+      "domain": "mcdonline.nic.in",
+      "provider": "Municipal Corporation of Delhi",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official civic registration and birth certificate portal for Delhi"
+    },
+    {
+      "domain": "mahafood.gov.in",
+      "provider": "Government of Maharashtra",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Food and Civil Supplies portal for Maharashtra PDS ration services"
+    },
+    {
+      "domain": "maharashtra.gov.in",
+      "provider": "Government of Maharashtra",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official state portal and MahaDBT scholarship services"
+    },
+    {
+      "domain": "mahaonline.gov.in",
+      "provider": "Government of Maharashtra",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Aaple Sarkar citizen facilitation portal for Maharashtra"
+    },
+    {
+      "domain": "up.gov.in",
+      "provider": "Government of Uttar Pradesh",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Food, civil registration, and scholarship services for Uttar Pradesh"
+    },
+    {
+      "domain": "wb.gov.in",
+      "provider": "Government of West Bengal",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "WBPDS Khadya Sathi, Janma-Mrityu Tathya, and transport services for West Bengal"
+    },
+    {
+      "domain": "oasis.gov.in",
+      "provider": "Government of West Bengal",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Official state scholarship portal for West Bengal"
+    },
+    {
+      "domain": "tnpds.gov.in",
+      "provider": "Government of Tamil Nadu",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Tamil Nadu Public Distribution System smart card portal"
+    },
+    {
+      "domain": "karnataka.gov.in",
+      "provider": "Government of Karnataka",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Seva Sindhu and State Scholarship Portal for Karnataka"
+    },
+    {
+      "domain": "kar.nic.in",
+      "provider": "Government of Karnataka / NIC",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Ahara PDS portal for Karnataka"
+    },
+    {
+      "domain": "rajasthan.gov.in",
+      "provider": "Government of Rajasthan",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "Food and Civil Supplies portal for Rajasthan"
+    },
+    {
+      "domain": "bihar.gov.in",
+      "provider": "Government of Bihar",
+      "category": "state-gov",
+      "added_on": "2026-11-06",
+      "approved_by": "Founder",
+      "notes": "e-PDS portal for Bihar"
     }
   ]
 }

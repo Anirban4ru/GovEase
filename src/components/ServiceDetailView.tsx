@@ -10,6 +10,7 @@ import { DocumentReadinessChecklist } from "./DocumentReadinessChecklist";
 import { ServiceExplainerGuide } from "./ServiceExplainerGuide";
 import { ReadAloudButton } from "./ReadAloudButton";
 import { EcosystemBadge } from "./EcosystemBadge";
+import { StatePortalSection } from "./StatePortalSection";
 import type { ServiceExplainerGuide as IServiceExplainerGuide } from "../lib/service-explainer-data";
 
 interface ServiceDetailViewProps {
@@ -132,58 +133,99 @@ export function ServiceDetailView({ service, explainerGuide }: ServiceDetailView
             </span>
           </div>
 
-          <button
-            type="button"
-            onClick={() => toggleSave(service.id)}
-            aria-label={
-              isSaved
-                ? locale === "hi"
-                  ? "सहेजा गया"
-                  : "Saved locally"
-                : locale === "hi"
-                  ? "सहेजें"
-                  : "Save reference"
-            }
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.5rem 0.875rem",
-              fontSize: "0.8125rem",
-              fontWeight: 600,
-              color: isSaved ? "var(--color-brand-primary)" : "var(--color-content-secondary)",
-              backgroundColor: isSaved ? "var(--color-brand-primary-subtle)" : "transparent",
-              border: `1px solid ${
-                isSaved ? "var(--color-brand-primary)" : "var(--color-border-default)"
-              }`,
-              borderRadius: "var(--radius-sm)",
-              cursor: "pointer",
-              minHeight: "var(--min-touch-target)",
-            }}
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill={isSaved ? "currentColor" : "none"}
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
+            <button
+              type="button"
+              onClick={() => {
+                if (typeof window !== "undefined") window.print();
+              }}
+              aria-label={locale === "hi" ? "चेकलिस्ट प्रिंट करें" : "Print CSC Citizen Prep Pack"}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.5rem 0.875rem",
+                fontSize: "0.8125rem",
+                fontWeight: 600,
+                color: "var(--color-content-secondary)",
+                backgroundColor: "var(--color-surface-card)",
+                border: "1px solid var(--color-border-default)",
+                borderRadius: "var(--radius-sm)",
+                cursor: "pointer",
+                minHeight: "var(--min-touch-target)",
+              }}
             >
-              <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-            </svg>
-            <span>
-              {isSaved
-                ? locale === "hi"
-                  ? "सहेजा गया"
-                  : "Saved locally"
-                : locale === "hi"
-                  ? "सहेजें"
-                  : "Save reference"}
-            </span>
-          </button>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 6 2 18 2 18 9" />
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                <rect x="6" y="14" width="12" height="8" />
+              </svg>
+              <span>{locale === "hi" ? "CSC पैक प्रिंट करें" : "Print CSC Prep Pack"}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => toggleSave(service.id)}
+              aria-label={
+                isSaved
+                  ? locale === "hi"
+                    ? "सहेजा गया"
+                    : "Saved locally"
+                  : locale === "hi"
+                    ? "सहेजें"
+                    : "Save reference"
+              }
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.5rem 0.875rem",
+                fontSize: "0.8125rem",
+                fontWeight: 600,
+                color: isSaved ? "var(--color-brand-primary)" : "var(--color-content-secondary)",
+                backgroundColor: isSaved ? "var(--color-brand-primary-subtle)" : "transparent",
+                border: `1px solid ${
+                  isSaved ? "var(--color-brand-primary)" : "var(--color-border-default)"
+                }`,
+                borderRadius: "var(--radius-sm)",
+                cursor: "pointer",
+                minHeight: "var(--min-touch-target)",
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill={isSaved ? "currentColor" : "none"}
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+              </svg>
+              <span>
+                {isSaved
+                  ? locale === "hi"
+                    ? "सहेजा गया"
+                    : "Saved locally"
+                  : locale === "hi"
+                    ? "सहेजें"
+                    : "Save reference"}
+              </span>
+            </button>
+          </div>
         </div>
 
         <h1
@@ -265,6 +307,9 @@ export function ServiceDetailView({ service, explainerGuide }: ServiceDetailView
             serviceId={service.id}
             documents={service.documents_required}
           />
+
+          {/* Regional & State-Administered Portal Resolver */}
+          <StatePortalSection serviceId={service.id} locale={locale} />
 
           {/* Eligibility Guidance (Informational Only Disclaimer) */}
           <section

@@ -9,6 +9,7 @@ import type {
 } from "../lib/service-explainer-data";
 import { getJargon } from "../lib/jargon-glossary";
 import { ReadAloudButton } from "./ReadAloudButton";
+import { useSpeechSynthesis } from "../hooks/useSpeechSynthesis";
 
 interface ServiceExplainerGuideProps {
   guide?: IServiceExplainerGuide;
@@ -18,6 +19,7 @@ interface ServiceExplainerGuideProps {
 export function ServiceExplainerGuide({ guide }: ServiceExplainerGuideProps) {
   const { locale } = useTranslation();
   const { mode } = usePresentationMode();
+  const { isPlaying, hasVoiceForLocale } = useSpeechSynthesis();
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -265,28 +267,71 @@ export function ServiceExplainerGuide({ guide }: ServiceExplainerGuideProps) {
           </p>
         </div>
 
-        {/* Action Items List */}
+        {/* Action Items List with Karaoke-style Visual Read-Along Focus */}
         <div
           style={{
-            backgroundColor: "var(--color-surface-page)",
-            border: "1px solid var(--color-border-default)",
+            backgroundColor: isPlaying
+              ? "var(--color-brand-primary-subtle)"
+              : "var(--color-surface-page)",
+            border: "1px solid",
+            borderColor: isPlaying ? "var(--color-brand-primary)" : "var(--color-border-default)",
+            borderLeft: isPlaying
+              ? "4px solid var(--color-ink-blue)"
+              : "1px solid var(--color-border-default)",
             borderRadius: "var(--radius-sm)",
             padding: "1rem 1.25rem",
             marginBottom: "1.25rem",
+            transition: "all 200ms ease",
           }}
         >
-          <h4
+          <div
             style={{
-              fontSize: "0.875rem",
-              fontWeight: 700,
-              color: "var(--color-content-primary)",
-              margin: "0 0 0.5rem 0",
-              textTransform: "uppercase",
-              letterSpacing: "0.04em",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "0.5rem",
+              flexWrap: "wrap",
+              gap: "0.5rem",
             }}
           >
-            {locale === "hi" ? "कार्यवाही के मुख्य बिंदु:" : "Key Action Steps:"}
-          </h4>
+            <h4
+              style={{
+                fontSize: "0.875rem",
+                fontWeight: 700,
+                color: "var(--color-content-primary)",
+                margin: 0,
+                textTransform: "uppercase",
+                letterSpacing: "0.04em",
+              }}
+            >
+              {locale === "hi" ? "कार्यवाही के मुख्य बिंदु:" : "Key Action Steps:"}
+            </h4>
+
+            {isPlaying && (
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.35rem",
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  color: "var(--color-ink-blue)",
+                }}
+              >
+                <span
+                  style={{
+                    width: "8px",
+                    height: "8px",
+                    borderRadius: "50%",
+                    backgroundColor: "var(--color-ink-blue)",
+                  }}
+                />
+                <span>
+                  {locale === "hi" ? "सक्रिय दृश्य वाचन" : "Active Read-Along Focus"}
+                </span>
+              </span>
+            )}
+          </div>
           <ol
             style={{
               paddingLeft: "1.25rem",
@@ -305,6 +350,22 @@ export function ServiceExplainerGuide({ guide }: ServiceExplainerGuideProps) {
               ),
             )}
           </ol>
+
+          {!hasVoiceForLocale(locale) && (
+            <div
+              style={{
+                fontSize: "0.75rem",
+                color: "var(--color-content-tertiary)",
+                marginTop: "0.75rem",
+                paddingTop: "0.5rem",
+                borderTop: "1px dashed var(--color-border-subtle)",
+              }}
+            >
+              {locale === "hi"
+                ? "💡 डिवाइस सूचना: क्षेत्रीय वॉयस इंजन अनुपलब्ध होने पर दृश्य फोकस मोड सक्रिय रहता है।"
+                : "💡 Accessibility Notice: When a device lacks Indian regional voice packs, visual focus read-along guides you step-by-step."}
+            </div>
+          )}
         </div>
 
         {/* Common Pitfall Warning Banner */}

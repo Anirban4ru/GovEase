@@ -94,7 +94,7 @@ test.describe("Milestone M11 - Visual, Motion & 3D Calm Map Overhaul", () => {
     await expect(viewSwitch).toBeVisible();
 
     // Verify classic view ecosystem grid is rendered
-    await expect(page.locator("text=India-First Unified Public Life Services Guide")).toBeVisible();
+    await expect(page.locator("text=India-First GovEase Public Life Services Guide")).toBeVisible();
     await expect(page.locator("text=Six Essential Life Areas")).toBeVisible();
 
     // Switch back to Overhaul Map view

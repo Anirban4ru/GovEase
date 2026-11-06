@@ -106,6 +106,15 @@ export function useSavedServices() {
     return result;
   };
 
+  const importIds = (incomingIds: string[]): number => {
+    const validIncoming = incomingIds.filter(Boolean);
+    if (validIncoming.length === 0) return 0;
+    const current = getSavedSnapshot();
+    const merged = Array.from(new Set([...current, ...validIncoming]));
+    notifyListeners(merged);
+    return validIncoming.length;
+  };
+
   const isSaved = (id: string) => savedIds.includes(id);
 
   return {
@@ -115,6 +124,7 @@ export function useSavedServices() {
     clearAll,
     exportBackup,
     importBackup,
+    importIds,
     isSaved,
   };
 }

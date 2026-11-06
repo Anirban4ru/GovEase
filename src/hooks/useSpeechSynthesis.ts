@@ -7,6 +7,7 @@ export interface SpeechSynthesisState {
   isSupported: boolean;
   isPlaying: boolean;
   isPaused: boolean;
+  hasVoiceForLocale: (lang?: Locale) => boolean;
   speak: (text: string, lang?: Locale) => void;
   pause: () => void;
   resume: () => void;
@@ -201,10 +202,18 @@ export function useSpeechSynthesis(): SpeechSynthesisState {
     }
   }, []);
 
+  const hasVoiceForLocale = useCallback((lang: Locale = "en") => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return false;
+    const voices =
+      voicesRef.current.length > 0 ? voicesRef.current : window.speechSynthesis.getVoices();
+    return !!selectBestVoice(voices, lang);
+  }, []);
+
   return {
     isSupported,
     isPlaying,
     isPaused,
+    hasVoiceForLocale,
     speak,
     pause,
     resume,

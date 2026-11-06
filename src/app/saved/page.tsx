@@ -5,18 +5,41 @@ import Link from "next/link";
 import { useTranslation } from "../../context/I18nContext";
 import { getAllServices, ECOSYSTEMS } from "../../lib/catalogue";
 import { useSavedServices } from "../../hooks/useSavedServices";
+import { QrSyncModal } from "../../components/QrSyncModal";
 
 export default function SavedPage() {
   const { locale } = useTranslation();
-  const { savedIds, removeSave, clearAll, exportBackup, importBackup } = useSavedServices();
+  const { savedIds, removeSave, clearAll, exportBackup, importBackup, importIds } = useSavedServices();
 
   const [statusMessage, setStatusMessage] = useState<string>("");
   const [isConfirmingClear, setIsConfirmingClear] = useState<boolean>(false);
+  const [isQrModalOpen, setIsQrModalOpen] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
   const allServices = getAllServices();
   const savedServices = allServices.filter((s) => savedIds.includes(s.id));
+
+  // Listen for ?sync=id1,id2 from QR Code or link sharing
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const syncParam = params.get("sync");
+    if (syncParam) {
+      const incoming = syncParam.split(",").map((s) => s.trim()).filter(Boolean);
+      const validCatalogueIds = new Set(allServices.map((s) => s.id));
+      const validIncoming = incoming.filter((id) => validCatalogueIds.has(id));
+      if (validIncoming.length > 0) {
+        importIds(validIncoming);
+        setStatusMessage(
+          locale === "hi"
+            ? `✓ क्यूआर कोड सिंक सफल: ${validIncoming.length} सेवा संदर्भ इस डिवाइस में आयात किए गए!`
+            : `✓ QR Sync Successful: ${validIncoming.length} service references cloned to this device!`
+        );
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+  }, [allServices, importIds, locale]);
 
   // Escape listener for clear modal
   useEffect(() => {
@@ -255,6 +278,41 @@ export default function SavedPage() {
 
               <button
                 type="button"
+                onClick={() => setIsQrModalOpen(true)}
+                style={{
+                  padding: "0.5rem 1rem",
+                  backgroundColor: "var(--color-surface-card)",
+                  color: "var(--color-content-primary)",
+                  border: "1px solid var(--color-border-default)",
+                  borderRadius: "var(--radius-sm)",
+                  fontWeight: 600,
+                  fontSize: "0.875rem",
+                  cursor: "pointer",
+                  minHeight: "var(--min-touch-target)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="14" width="7" height="7" rx="1" />
+                  <rect x="3" y="14" width="7" height="7" rx="1" />
+                </svg>
+                {locale === "hi" ? "फोन में भेजें (QR)" : "Sync to Mobile (QR)"}
+              </button>
+
+              <button
+                type="button"
                 onClick={handlePrint}
                 style={{
                   padding: "0.5rem 1rem",
@@ -396,7 +454,8 @@ export default function SavedPage() {
           </Link>
         </div>
       ) : (
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           {savedServices.map((service) => {
             const ecosystemMeta = ECOSYSTEMS.find((e) => e.id === service.ecosystem);
             const ecosystemTitle =
@@ -542,7 +601,38 @@ export default function SavedPage() {
             );
           })}
         </div>
-      )}
+
+        {/* Printable CSC Prep Pack Verification Sign-off & Anti-Exploitation Warning */}
+        <div
+          className="print-only"
+          style={{
+            marginTop: "2.5rem",
+            paddingTop: "1.25rem",
+            borderTop: "2px dashed #000",
+            fontSize: "9pt",
+            lineHeight: 1.6,
+          }}
+        >
+          <div style={{ fontWeight: 800, fontSize: "10pt", marginBottom: "0.25rem" }}>
+            CITIZEN PROTECTION & OFFICIAL FEE COMPLIANCE:
+          </div>
+          <p style={{ margin: "0 0 0.5rem 0" }}>
+            Common Service Centers (CSC), cyber-cafes, and kiosk operators are legally prohibited from charging more than the government-mandated tariffs printed above. In case of bribery, intermediary extortion, or overcharging, report immediately to the National Consumer Helpline at <strong>1915</strong> or National Cybercrime Reporting Portal at <strong>1930</strong>.
+          </p>
+          <div style={{ display: "flex", justifyContent: "space-between", marginTop: "2rem" }}>
+            <div>
+              <span>Citizen Name: ___________________________</span>
+            </div>
+            <div>
+              <span>Signature / Verification: ___________________________</span>
+            </div>
+            <div>
+              <span>Date: ____ / ____ / 2026</span>
+            </div>
+          </div>
+        </div>
+      </>
+    )}
 
       {/* Accessible Clear All Confirmation Modal */}
       {isConfirmingClear && (
@@ -641,6 +731,14 @@ export default function SavedPage() {
           </div>
         </div>
       )}
+
+      {/* Zero-Knowledge QR Code Sync Modal */}
+      <QrSyncModal
+        isOpen={isQrModalOpen}
+        onClose={() => setIsQrModalOpen(false)}
+        savedIds={savedIds}
+        locale={locale}
+      />
     </div>
   );
 }

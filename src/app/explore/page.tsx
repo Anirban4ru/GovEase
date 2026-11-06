@@ -9,6 +9,7 @@ import { getAllServices, ECOSYSTEMS } from "../../lib/catalogue";
 import { searchServices } from "../../lib/search";
 import { SearchBar } from "../../components/SearchBar";
 import { EcosystemBadge } from "../../components/EcosystemBadge";
+import { INDIAN_STATES, getStatePortalsForService } from "../../lib/state-resolver";
 
 function ExploreContent() {
   const { t, locale } = useTranslation();
@@ -19,6 +20,7 @@ function ExploreContent() {
   // Track user input query; fall back to URL param if not typed yet
   const [typedQuery, setTypedQuery] = useState<string | null>(null);
   const [selectedEcosystem, setSelectedEcosystem] = useState<string>("all");
+  const [selectedState, setSelectedState] = useState<string>("ALL");
 
   const searchQuery = typedQuery !== null ? typedQuery : paramQuery;
 
@@ -45,6 +47,7 @@ function ExploreContent() {
   const clearAllFilters = () => {
     setTypedQuery("");
     setSelectedEcosystem("all");
+    setSelectedState("ALL");
   };
 
   return (
@@ -127,12 +130,14 @@ function ExploreContent() {
         })}
       </div>
 
-      {/* Results Count / Filter Indicator */}
+      {/* Results Count & State / UT Filter Indicator */}
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          flexWrap: "wrap",
+          gap: "1rem",
           marginBottom: "1.25rem",
           fontSize: "0.875rem",
           color: "var(--color-content-secondary)",
@@ -155,7 +160,35 @@ function ExploreContent() {
           )}
         </div>
 
-        {(searchQuery || selectedEcosystem !== "all") && (
+        {/* State / UT Resolver Dropdown */}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <label htmlFor="explore-state-select" style={{ fontSize: "0.8125rem", fontWeight: 600 }}>
+            {locale === "hi" ? "राज्य पोर्टल फ़िल्टर:" : "State / UT Resolver:"}
+          </label>
+          <select
+            id="explore-state-select"
+            value={selectedState}
+            onChange={(e) => setSelectedState(e.target.value)}
+            style={{
+              padding: "0.35rem 0.65rem",
+              borderRadius: "var(--radius-sm)",
+              border: "1px solid var(--color-border-strong)",
+              backgroundColor: "var(--color-surface-page)",
+              color: "var(--color-content-primary)",
+              fontWeight: 600,
+              fontSize: "0.8125rem",
+              cursor: "pointer",
+            }}
+          >
+            {INDIAN_STATES.map((st) => (
+              <option key={st.code} value={st.code}>
+                {st.name[locale] || st.name.en}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {(searchQuery || selectedEcosystem !== "all" || selectedState !== "ALL") && (
           <button
             type="button"
             onClick={clearAllFilters}
@@ -259,6 +292,7 @@ function ExploreContent() {
                 : ecosystemMeta?.titleEn || service.ecosystem;
             const title = locale === "hi" && service.title.hi ? service.title.hi : service.title.en;
             const goal = locale === "hi" && service.goal.hi ? service.goal.hi : service.goal.en;
+            const statePortals = getStatePortalsForService(service.id, selectedState);
 
             return (
               <div
@@ -302,6 +336,24 @@ function ExploreContent() {
                     <EcosystemBadge ecosystem={service.ecosystem} size={14} />
                     <span>{ecosystemLabel}</span>
                   </span>
+
+                  {selectedState !== "ALL" && statePortals.length > 0 && (
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        fontSize: "0.6875rem",
+                        fontWeight: 700,
+                        backgroundColor: "var(--color-status-success-bg)",
+                        color: "var(--color-status-success-text)",
+                        border: "1px solid var(--color-status-success-border)",
+                        padding: "0.15rem 0.45rem",
+                        borderRadius: "var(--radius-xs)",
+                      }}
+                    >
+                      ✓ {selectedState} Direct Portal
+                    </span>
+                  )}
 
                   <span
                     style={{
