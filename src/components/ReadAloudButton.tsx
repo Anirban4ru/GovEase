@@ -110,6 +110,53 @@ export function ReadAloudButton({ text, label, size = "sm" }: ReadAloudButtonPro
         </svg>
       )}
       <span>{defaultLabel}</span>
+      {isPlaying && (
+        <span
+          data-testid="audio-wave-animation"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "2px",
+            height: "12px",
+            marginLeft: "0.25rem",
+          }}
+          aria-hidden="true"
+        >
+          <span
+            style={{
+              display: "inline-block",
+              width: "3px",
+              height: "12px",
+              backgroundColor: "currentColor",
+              borderRadius: "1px",
+              animation: "soundWave 0.8s ease-in-out infinite",
+              animationDelay: "0s",
+            }}
+          />
+          <span
+            style={{
+              display: "inline-block",
+              width: "3px",
+              height: "12px",
+              backgroundColor: "currentColor",
+              borderRadius: "1px",
+              animation: "soundWave 0.8s ease-in-out infinite",
+              animationDelay: "0.2s",
+            }}
+          />
+          <span
+            style={{
+              display: "inline-block",
+              width: "3px",
+              height: "12px",
+              backgroundColor: "currentColor",
+              borderRadius: "1px",
+              animation: "soundWave 0.8s ease-in-out infinite",
+              animationDelay: "0.4s",
+            }}
+          />
+        </span>
+      )}
       {isAssisted && !isPlaying && (
         <span
           aria-hidden="true"

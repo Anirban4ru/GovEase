@@ -5,6 +5,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.1.0-rc.1] - 2026-11-06 (India-First Visual Identity & Fluid Micro-Interactions)
+
+### Added
+
+- **India-First Civic Visual Identity & SVG Motifs (Milestone M9):**
+  - **Civic Tricolor Ribbon (`.civic-tricolor-bar`):** Added a dignified 4px horizontal accent bar across the top of the header featuring civic saffron (`#e06d10`), white (`#ffffff`), and green (`#138808`). Resilient across sticky headers, responsive viewports, and mobile viewports.
+  - **Geometric Ashoka Chakra Wheel Motif SVG:** Integrated a bespoke 24-spoke navy geometric Ashoka Chakra SVG motif adjacent to the platform brand title in the header, honoring national public service heritage while remaining strictly compliant with the _State Emblem of India (Prohibition of Improper Use) Act, 2005_ (zero counterfeit government seals or unauthorized lion capital emblems).
+  - **Multilingual India-First Civic Hero Badge:** Added a civic identity badge in the home page hero section (`🇮🇳 India-First Unified Public Life Services Guide` / `🇮🇳 भारत-प्रथम एकीकृत लोक सेवा मार्गदर्शिका` / `🇮🇳 ভারত-প্রথম সমন্বিত জনসেবা নির্দেশিকা` / `🇮🇳 இந்தியா-முதன்மை ஒருங்கிணைந்த மக்கள் சேவை வழிகாட்டி`) with an animated pulsing indicator. Text color (`--color-india-saffron-text: #7a3200`) strictly calibrated for WCAG 2.2 AA compliant contrast (8.35:1).
+  - **Bespoke Ecosystem SVG Component (`src/components/EcosystemBadge.tsx`):** Hand-crafted inline SVG icons for all 6 life areas (`healthcare`, `education`, `finance-and-welfare`, `government-and-citizen`, `mobility-and-transport`, `utilities-and-local`). High visual fidelity with zero external icon font dependencies, zero layout shifts (CLS = 0.000). Integrated across Home, Explore, and Service Detail screens.
+  - **Interactive Hover Lift Micro-Interactions:** Added hardware-accelerated CSS lift (`.civic-card-interactive`, `transform: translateY(-2px)`, subtle elevation shadow) on ecosystem navigation cards and action buttons.
+  - **Soundwave Equalizer Audio Animation:** Added a 3-bar animated soundwave equalizer inside `ReadAloudButton` (`@keyframes soundWave`) indicating active speech synthesis in real time; effortlessly pauses on idle.
+  - **Fluid Document Readiness Checklist Progress:** Enhanced `DocumentReadinessChecklist` with a smooth 350ms ease-out progress bar fill and a playful `checkPop` animation on checkbox toggle.
+  - **Step Transition Fade-In Animation:** Added a subtle 200ms `fadeInStep` transition when switching explainer guide tabs in `ServiceExplainerGuide`.
+  - **Prefers-Reduced-Motion Support:** All animations instantly collapse to 0.01ms whenever `prefers-reduced-motion: reduce` is detected in user or system settings, adhering to WCAG 2.2 Guideline 2.3.
+
+### Tests & Verification
+
+- Added E2E test suite `e2e/m9-visual-motion.spec.ts` testing the tricolor bar, brand icon, hero badge, interactive cards, audio equalizer animation, checklist transitions, and automated axe-core audits.
+- Full E2E suite expanded to **294 Playwright tests** across 6 responsive viewports (Desktop 1440px, Desktop 1024px, Tablet 768px, Mobile 390px, Mobile 360px, Mobile 320px) — 100% passing with 0 failures and 0 accessibility violations.
+- Vitest suite running 44/44 unit tests with 210/210 search benchmark at 100.0% accuracy.
+- Performance budget fully preserved: CSS bundle <= 6.29 KB raw, Route initial JS <= 219.92 KB gzip, zero added third-party JS libraries.
+
+---
+
 ## [1.0.0-rc.2] - 2026-11-06 (Release Candidate 2)
 
 ### Added

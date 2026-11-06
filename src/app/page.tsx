@@ -5,9 +5,11 @@ import Link from "next/link";
 import { useTranslation, Locale } from "../context/I18nContext";
 import { usePresentationMode } from "../context/ModeContext";
 import { SearchBar } from "../components/SearchBar";
+import { EcosystemBadge } from "../components/EcosystemBadge";
+import type { LifeEcosystem } from "../lib/catalogue";
 
 interface EcosystemItem {
-  id: string;
+  id: LifeEcosystem;
   titles: Record<Locale, string>;
   descs: Record<Locale, string>;
   badge: string;
@@ -240,6 +242,44 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section style={{ marginBottom: "3rem", textAlign: mode === "simple" ? "left" : "center" }}>
+        {/* India-First Civic Identity Badge */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            padding: "0.35rem 0.85rem",
+            backgroundColor: "var(--color-india-saffron-subtle)",
+            border: "1px solid rgba(224, 109, 16, 0.3)",
+            borderRadius: "var(--radius-full)",
+            marginBottom: "1rem",
+            fontSize: "0.8125rem",
+            fontWeight: 700,
+            color: "var(--color-india-saffron-text, #7a3200)",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-block",
+              width: "8px",
+              height: "8px",
+              borderRadius: "50%",
+              backgroundColor: "var(--color-india-saffron)",
+              animation: "progressPulse 2s ease-in-out infinite",
+            }}
+            aria-hidden="true"
+          />
+          <span>
+            {locale === "hi"
+              ? "🇮🇳 भारत-प्रथम एकीकृत लोक सेवा मार्गदर्शिका"
+              : locale === "bn"
+                ? "🇮🇳 ভারত-প্রথম সমন্বিত জনসেবা নির্দেশিকা"
+                : locale === "ta"
+                  ? "🇮🇳 இந்தியா-முதன்மை ஒருங்கிணைந்த மக்கள் சேவை வழிகாட்டி"
+                  : "🇮🇳 India-First Unified Public Life Services Guide"}
+          </span>
+        </div>
+
         <h1
           style={{
             fontSize: mode === "simple" ? "2.25rem" : "2rem",
@@ -364,6 +404,7 @@ export default function HomePage() {
           {ECOSYSTEMS.map((item) => (
             <div
               key={item.id}
+              className="civic-card-interactive"
               style={{
                 backgroundColor: "var(--color-surface-page)",
                 border: "1px solid var(--color-border-default)",
@@ -372,7 +413,6 @@ export default function HomePage() {
                 display: "flex",
                 flexDirection: "column",
                 boxShadow: "var(--shadow-sm)",
-                transition: "border-color var(--transition-fast)",
               }}
             >
               <div
@@ -381,18 +421,36 @@ export default function HomePage() {
                   justifyContent: "space-between",
                   alignItems: "flex-start",
                   marginBottom: "0.75rem",
+                  gap: "0.5rem",
                 }}
               >
-                <h3
-                  style={{
-                    fontSize: "1.125rem",
-                    fontWeight: 700,
-                    margin: 0,
-                    color: "var(--color-content-primary)",
-                  }}
-                >
-                  {item.titles[locale] || item.titles.en}
-                </h3>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                  <div
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "var(--radius-sm)",
+                      backgroundColor: "var(--color-brand-primary-subtle)",
+                      color: "var(--color-brand-primary)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <EcosystemBadge ecosystem={item.id} size={18} />
+                  </div>
+                  <h3
+                    style={{
+                      fontSize: "1.0625rem",
+                      fontWeight: 700,
+                      margin: 0,
+                      color: "var(--color-content-primary)",
+                    }}
+                  >
+                    {item.titles[locale] || item.titles.en}
+                  </h3>
+                </div>
                 <span
                   style={{
                     fontSize: "0.6875rem",
@@ -402,6 +460,7 @@ export default function HomePage() {
                     color: "var(--color-content-secondary)",
                     padding: "0.2rem 0.5rem",
                     borderRadius: "var(--radius-xs)",
+                    flexShrink: 0,
                   }}
                 >
                   {item.badge}

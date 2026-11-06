@@ -12,21 +12,32 @@ An India-first, globally expandable platform where a person can discover, unders
 
 ---
 
-## Current Status: Release 1.0 Candidate (Milestones M0 – M8 Complete)
+## Current Status: Release 1.1 Candidate (Milestones M0 – M9 Complete)
 
-- **Release Version:** **v1.0.0-rc.2** (Release Candidate 2)
-- **Architecture:** Static-First Progressive Web Application (PWA) with zero runtime backend, multi-target deployment automation & production containerization
+- **Release Version:** **v1.1.0-rc.1** (Release Candidate 1)
+- **Architecture:** Static-First Progressive Web Application (PWA) with zero runtime backend, India-first visual identity & fluid micro-interactions, multi-target deployment automation & production containerization
 - **Budget:** ₹0 infrastructure cost (pure client-side static execution)
-- **Quality Gates:** 100% passing across unit (43/43), E2E (264/264), deployment drill (12/12), container packaging, performance, security, and accessibility suites
+- **Quality Gates:** 100% passing across unit (44/44), E2E (294/294), deployment drill (12/12), container packaging, performance, security, and accessibility suites
 
-### What works today (Release 1.0 Candidate 2)
+### What works today (Release 1.1 Candidate 1)
 
-1. **Production Deployment Automation & Multi-Target Drill:**
+1. **India-First Civic Visual Identity & Fluid Micro-Interactions (Milestone M9):**
+   - **Civic Tricolor Ribbon (`.civic-tricolor-bar`):** Dignified 4px saffron (`#e06d10`), white (`#ffffff`), and green (`#138808`) accent ribbon pinned to the header across all viewports.
+   - **Geometric Ashoka Chakra Wheel Motif SVG:** Bespoke 24-spoke navy geometric SVG motif beside the brand name, strictly compliant with the _State Emblem of India (Prohibition of Improper Use) Act, 2005_ (zero counterfeit government seals or unauthorized lion capital emblems).
+   - **Multilingual India-First Civic Hero Badge:** Pulsing indicator badge in the hero section (`🇮🇳 India-First Unified Public Life Services Guide` / `🇮🇳 भारत-प्रथम एकीकृत लोक सेवा मार्गदर्शिका` / `🇮🇳 ভারত-প্রথম সমন্বিত জনসেবা নির্দেশিকা` / `🇮🇳 இந்தியா-முதன்மை ஒருங்கிணைந்த மக்கள் சேவை வழிகாட்டி`) with WCAG 2.2 AA compliant contrast (8.35:1).
+   - **Bespoke Ecosystem SVG Component (`src/components/EcosystemBadge.tsx`):** Hand-crafted inline SVG icons for all 6 life areas with 0 external icon fonts and 0 layout shifts (CLS = 0.000).
+   - **Interactive Card Lift Micro-Interactions:** Hardware-accelerated CSS lift (`.civic-card-interactive`, `translateY(-2px)`, elevation shadow) on ecosystem navigation cards.
+   - **Soundwave Equalizer Audio Animation:** 3-bar animated soundwave equalizer inside `ReadAloudButton` indicating active speech synthesis in real time; pauses on idle.
+   - **Fluid Document Readiness Checklist Progress:** 350ms ease-out progress bar fill + playful `checkPop` animation on checkbox toggle.
+   - **Step Transition Fade-In Animation:** Subtle 200ms `fadeInStep` transition when switching explainer guide tabs.
+   - **Prefers-Reduced-Motion:** Instantly collapses all animations to 0.01ms when user/system requests reduced motion.
+
+2. **Production Deployment Automation & Multi-Target Drill:**
    - Automated GitHub Pages deployment pipeline (`.github/workflows/deploy.yml`) on release tags (`v*`) or manual dispatch.
    - Built-in `.nojekyll` configuration for Jekyll bypass on GitHub Pages.
    - Multi-target deployment drill script (`scripts/deploy-drill.mjs`, `npm run deploy:drill`) validating `.nojekyll`, `_headers`, `manifest.webmanifest`, `sw.js`, 404 static fallbacks, clean URL subroutes, and security headers (`nosniff`, `DENY`, `strict-origin-when-cross-origin`, strict CSP).
 
-2. **Verified Public Service Catalogue (18 Services across 6 Ecosystems):**
+3. **Verified Public Service Catalogue (18 Services across 6 Ecosystems):**
    - 18 essential services across all 6 public life ecosystems:
      - **Identity & Documents:** DigiLocker Account Setup & Electronic Document Access (`digilocker.gov.in`), Voter ID Registration & e-EPIC Download (`voters.eci.gov.in`), Official Aadhaar PVC Card Order (`uidai.gov.in`), Unique Disability ID / UDID Smart Card (`swavlambancard.gov.in`)
      - **Civil Records:** Birth & Death Registration via Civil Registration System (`crsorgi.gov.in`)
@@ -40,54 +51,54 @@ An India-first, globally expandable platform where a person can discover, unders
    - Standardized 5-phase practical journeys (Preparation, Portal Navigation, Data Entry, Fees & Receipts, Status Tracking) for all 18 services (90 phases total).
    - Bureaucratic Jargon Glossary providing plain 6th-grade explanations for DigiLocker URI, PMJDY OD, UAN, PMSBY Auto-Debit, UDID, Form 29/30, and more.
 
-3. **In-Memory Full-Text Search Engine (210 Benchmark Queries):**
+4. **In-Memory Full-Text Search Engine (210 Benchmark Queries):**
    - 100% client-side index powered by `minisearch`. Zero search queries sent to any server.
    - Vernacular, transliteration, and typo tolerance for Hindi (Devanagari), Hinglish, acronyms, and misspelled keywords.
    - **Relevance Benchmark:** 210 / 210 queries (**100.0% Top-1 accuracy**) across all 18 services (`test/search-relevance.test.ts`).
    - Accessible WAI-ARIA combobox with keyboard navigation (`ArrowDown`/`ArrowUp`/`Enter`/`Escape`) and live screen-reader regions.
 
-4. **Inclusive App Shell, Responsive Layout & 4-Language Regional Expansion:**
+5. **Inclusive App Shell, Responsive Layout & 4-Language Regional Expansion:**
    - Triple presentation modes: **Standard**, **Simple** (large typography), and **Assisted** (plain-language explanations, audio highlights).
    - Instant 4-language regional switching: **English**, **हिंदी (Hindi)**, **বাংলা (Bengali)**, and **தமிழ் (Tamil)** with 100% dictionary key parity and dynamic `<html lang>` sync.
    - Regional typography with `--font-family-bengali` and `--font-family-tamil` font stacks and tailored 1.75 line-height ascender clearances.
    - Verified across 6 responsive viewports (320px, 360px, 390px, 768px, 1024px, 1440px) with zero horizontal overflow.
    - High-contrast Civic Slate design tokens (contrast ratios $\ge 4.5:1$, up to 18.6:1), visible 3px focus rings (`:focus-visible`), and touch targets $\ge 44 \times 44\text{ px}$.
 
-5. **Client-Side Voice Read-Aloud Engine (Assisted Mode):**
+6. **Client-Side Voice Read-Aloud Engine (Assisted Mode):**
    - 100% in-browser Web Speech API synthesis (`window.speechSynthesis`). Zero server audio calls, zero audio tracking.
    - Auto-selects localized Indian voices: `en-IN` (Indian English), `hi-IN` (Hindi), `bn-IN` (Bengali), and `ta-IN` (Tamil) with currency tokenization (₹ &rarr; Rupees, रुपये, টাকা, ரூபாய்) and accessible rate 0.95 tempo.
    - Accessible `ReadAloudButton` conforming to WCAG 2.5.3 (Label in Name), keyboard triggers (Space/Enter/Esc), and toggle states.
    - Integrated into Service Overview, 5-Phase Explainer Guides, and Document Checklists.
 
-6. **Production Containerization & Hardening:**
+7. **Production Containerization & Hardening:**
    - Multi-stage zero-root `Dockerfile` with `node:22-alpine` builder and minimal unprivileged runner (`USER node`, UID 1000).
    - Zero-dependency hardened static runtime with pre-configured HTTP security headers (`nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, strict CSP).
    - Automated container drill (`npm run docker:verify`) asserting static export, healthcheck endpoint, and security headers.
 
-7. **Saved Items & Citizen Data Portability:**
+8. **Saved Items & Citizen Data Portability:**
    - On-device bookmarks persisted in `localStorage` without tracking or user accounts.
    - Export backup as schema-validated JSON (`life-services-backup.json`) and restore capability.
    - High-contrast `@media print` printable document checklist for physical Citizen Service Centre (CSC) visits.
 
-8. **PWA Offline Shell & Settings:**
+9. **PWA Offline Shell & Settings:**
    - Service worker pre-caching (`public/sw.js`) and W3C Web App Manifest (`public/manifest.webmanifest`).
    - `/offline` fallback page with dated snapshot disclaimer (§252).
    - Dedicated `/settings` route featuring a transparent **DPDP Act On-Device Data Inventory** showing every stored key, byte size, purpose, and verified **zero cookies**.
    - Two-step permanent local data purge modal.
 
-9. **Interactive Explainer Guides & Document Checklists:**
-   - Standardized 5-phase sequential guides (Preparation &rarr; Portal Navigation &rarr; Data Entry &rarr; Official Fees &rarr; Post-Submission Tracking) for all 12 services.
-   - WAI-ARIA roving tabindex stepper tabs with keyboard arrow navigation.
-   - Interactive document readiness checklists calculating live completion percentages.
-   - Plain-language bureaucratic jargon glossary demystifying terms like _eKYC_, _OTR_, _DBT_, _ABHA_, _PVC Card_, _EPIC_, _NFSA_, _UAN_, and _CRS_.
+10. **Interactive Explainer Guides & Document Checklists:**
+    - Standardized 5-phase sequential guides (Preparation &rarr; Portal Navigation &rarr; Data Entry &rarr; Official Fees &rarr; Post-Submission Tracking) for all 12 services.
+    - WAI-ARIA roving tabindex stepper tabs with keyboard arrow navigation.
+    - Interactive document readiness checklists calculating live completion percentages.
+    - Plain-language bureaucratic jargon glossary demystifying terms like _eKYC_, _OTR_, _DBT_, _ABHA_, _PVC Card_, _EPIC_, _NFSA_, _UAN_, and _CRS_.
 
-10. **Anonymous Feedback & Anti-Leak Engine:**
+11. **Anonymous Feedback & Anti-Leak Engine:**
     - Client-side regex scanner detecting and redacting Aadhaar numbers, phone numbers, email addresses, and payment card numbers before clipboard copy or email submission.
     - Zero-backend feedback modal in `/help` with pre-filled mailto templates.
     - Interactive document readiness checklists calculating live completion percentages (_"2 of 4 documents ready (50%)"_).
     - Plain-language bureaucratic jargon glossary demystifying terms like _eKYC_, _OTR_, _DBT_, _ABHA Address_, and _PVC Card_.
 
-11. **Anonymous Feedback & Anti-Leak Engine:**
+12. **Anonymous Feedback & Anti-Leak Engine:**
     - Client-side regex scanner detecting and redacting Aadhaar numbers, phone numbers, email addresses, and payment card numbers before clipboard copy or email submission.
     - Zero-backend feedback modal in `/help` with pre-filled mailto templates.
 

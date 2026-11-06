@@ -4,7 +4,7 @@
 | :----------------------- | :----------------------------------------------------------------------------- |
 | **Document Purpose**     | Performance verification, bundle size audit, and network budget compliance     |
 | **Document Owner**       | Engineering Lead / Antigravity Agent                                           |
-| **Status**               | Approved — Verified against Release 1.0 Candidate 2 (M8) Build                 |
+| **Status**               | Approved — Verified against Release 1.1 Candidate 1 (M9) Build                 |
 | **Last Updated**         | 2026-11-06                                                                     |
 | **Applicable Standards** | `PROMPT_FINAL.md` §18, §252; Web Vitals (LCP < 2.5s, CLS = 0, FID/INP < 100ms) |
 
@@ -22,12 +22,12 @@ All 28 static routes, 23 JavaScript chunks, and the single atomic CSS stylesheet
 
 | Metric / Asset Group              | Enforced Ceiling            | Measured Actual                                                                       | Status  |
 | :-------------------------------- | :-------------------------- | :------------------------------------------------------------------------------------ | :------ |
-| **Static HTML per Route**         | $\le 60.00\text{ KB}$ raw   | **$20.34\text{ KB} - 57.85\text{ KB}$** raw ($4.97\text{ KB} - 12.56\text{ KB}$ gzip) | ✅ PASS |
-| **CSS Stylesheet Bundle**         | $\le 25.00\text{ KB}$ raw   | **$5.22\text{ KB}$** raw ($1.79\text{ KB}$ gzip)                                      | ✅ PASS |
-| **Route Initial JavaScript**      | $\le 220.00\text{ KB}$ gzip | **$183.68\text{ KB} - 217.08\text{ KB}$** gzip                                        | ✅ PASS |
-| **Total Site Static JS**          | $\le 320.00\text{ KB}$ gzip | **$258.25\text{ KB}$** gzip ($852.33\text{ KB}$ raw) (18 services + 4 languages)      | ✅ PASS |
+| **Static HTML per Route**         | $\le 60.00\text{ KB}$ raw   | **$21.38\text{ KB} - 59.89\text{ KB}$** raw ($5.14\text{ KB} - 12.87\text{ KB}$ gzip) | ✅ PASS |
+| **CSS Stylesheet Bundle**         | $\le 25.00\text{ KB}$ raw   | **$6.29\text{ KB}$** raw ($2.13\text{ KB}$ gzip)                                      | ✅ PASS |
+| **Route Initial JavaScript**      | $\le 220.00\text{ KB}$ gzip | **$183.84\text{ KB} - 219.92\text{ KB}$** gzip                                        | ✅ PASS |
+| **Total Site Static JS**          | $\le 320.00\text{ KB}$ gzip | **$260.82\text{ KB}$** gzip ($865.15\text{ KB}$ raw) (18 services + 4 languages)      | ✅ PASS |
 | **Cumulative Layout Shift (CLS)** | $\le 0.05$                  | **$0.000$** (zero shift across all routes)                                            | ✅ PASS |
-| **Uncompressed Media / Images**   | $0$ assets                  | **$0$ uncompressed external assets**                                                  | ✅ PASS |
+| **Uncompressed Media / Images**   | $0$ assets                  | **$0$ uncompressed external assets** (bespoke inline SVGs)                            | ✅ PASS |
 
 ---
 

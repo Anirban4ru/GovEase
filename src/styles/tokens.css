@@ -64,6 +64,17 @@
   --color-status-info-bg: #ebf0f8;
   --color-status-info-border: #b8daff;
 
+  /* India-First Civic Palette Accents */
+  --color-india-saffron: #e06d10;
+  --color-india-saffron-text: #7a3200;
+  --color-india-saffron-subtle: rgba(224, 109, 16, 0.08);
+  --color-india-white: #ffffff;
+  --color-india-green: #138808;
+  --color-india-green-text: #0e5c06;
+  --color-india-green-subtle: rgba(19, 136, 8, 0.08);
+  --color-india-navy: #1d4e8f;
+  --color-india-ashoka: #0a3d78;
+
   /* Spacing Scale (8pt / 4pt grid) */
   --space-0-5: 0.125rem; /* 2px */
   --space-1: 0.25rem; /* 4px */
@@ -159,4 +170,80 @@ body[data-mode="assisted"] {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ==========================================================================
+   Micro-Animations: Purposeful, Hardware-Accelerated & Accessible
+   ========================================================================== */
+
+@keyframes soundWave {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes progressPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes fadeInStep {
+  from {
+    opacity: 0.8;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Interactive Hover Lift */
+.civic-card-interactive {
+  transition:
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s ease;
+}
+
+.civic-card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.08);
+  border-color: var(--color-brand-primary);
+}
+
+/* Tricolor Ribbon Bar */
+.civic-tricolor-bar {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    var(--color-india-saffron) 0%,
+    var(--color-india-saffron) 33.33%,
+    #ffffff 33.33%,
+    #ffffff 66.66%,
+    var(--color-india-green) 66.66%,
+    var(--color-india-green) 100%
+  );
 }
