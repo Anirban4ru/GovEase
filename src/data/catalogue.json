@@ -57,10 +57,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides high contrast and font resizing controls.",
     "status": "draft-pending-human-review"
   },
@@ -122,10 +119,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Portal features bilingual instructions and text-to-speech accessibility.",
     "status": "draft-pending-human-review"
   },
@@ -191,10 +185,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal requires captcha validation and supports PDF statement downloads.",
     "status": "draft-pending-human-review"
   },
@@ -256,9 +247,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en"
-    ],
+    "languages_at_destination": ["en"],
     "accessibility_notes": "Official portal provides OTP verification and online fee receipt generation.",
     "status": "draft-pending-human-review"
   },
@@ -319,10 +308,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides screen reader accessibility and downloadable account opening forms in regional languages.",
     "status": "draft-pending-human-review"
   },
@@ -384,10 +370,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Jansuraksha portal offers bilingual claim guidelines, rulebooks, and application forms.",
     "status": "draft-pending-human-review"
   },
@@ -449,10 +432,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides multi-language interface and voice-assisted helpbot.",
     "status": "draft-pending-human-review"
   },
@@ -512,10 +492,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides audio captcha and state-wise direct links.",
     "status": "draft-pending-human-review"
   },
@@ -577,10 +554,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal supports citizen public sign-up and online application tracking.",
     "status": "draft-pending-human-review"
   },
@@ -641,10 +615,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "DigiLocker supports high contrast mode, screen readers, and multilingual language switching.",
     "status": "draft-pending-human-review"
   },
@@ -709,10 +680,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal is compliant with GIGW accessibility standards.",
     "status": "draft-pending-human-review"
   },
@@ -775,10 +743,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Portal is GIGW compliant, supports screen readers, text re-sizing, and high contrast options.",
     "status": "draft-pending-human-review"
   },
@@ -840,10 +805,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal supports captcha audio and OTP-based mobile authentication.",
     "status": "draft-pending-human-review"
   },
@@ -908,10 +870,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal supports screen readers and OTP-based mobile registration.",
     "status": "draft-pending-human-review"
   },
@@ -978,10 +937,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides multi-state dropdown navigation; external site accessibility varies by state transport department.",
     "status": "draft-pending-human-review"
   },
@@ -1046,10 +1002,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Vahan portal supports Aadhaar OTP validation, digital application fee payment, and online slot booking.",
     "status": "draft-pending-human-review"
   },
@@ -1110,10 +1063,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides toll-free telephone support (1915) alongside web and SMS grievance lodging.",
     "status": "draft-pending-human-review"
   },
@@ -1173,10 +1123,7 @@
     },
     "integration_classification": 5,
     "feature_state": "official-link-only",
-    "languages_at_destination": [
-      "en",
-      "hi"
-    ],
+    "languages_at_destination": ["en", "hi"],
     "accessibility_notes": "Official portal provides multi-level geographic drill-downs and PDF export.",
     "status": "draft-pending-human-review"
   }

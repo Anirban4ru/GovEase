@@ -3,7 +3,7 @@
 | Metadata                 | Details                                                                                             |
 | :----------------------- | :-------------------------------------------------------------------------------------------------- |
 | **Document Purpose**     | Security control verification, OWASP ASVS 5.0.0 Level 1 mapping, and threat mitigation verification |
-| **Document Owner**       | Security Lead / Antigravity Agent                                                                   |
+| **Document Owner**       | Security & Compliance Team                                                                          |
 | **Status**               | Approved — Beta 0.1 Release Candidate Baseline                                                      |
 | **Last Updated**         | 2026-11-06                                                                                          |
 | **Applicable Standards** | OWASP ASVS 5.0.0 (Level 1); DPDP Act 2023 / DPDP Rules 2025; Hard Rules 1–15                        |

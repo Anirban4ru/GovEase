@@ -3,7 +3,7 @@
 | Metadata                 | Details                                                                        |
 | :----------------------- | :----------------------------------------------------------------------------- |
 | **Document Purpose**     | Performance verification, bundle size audit, and network budget compliance     |
-| **Document Owner**       | Engineering Lead / Antigravity Agent                                           |
+| **Document Owner**       | Engineering Lead / Performance Team                                            |
 | **Status**               | Approved — Verified against Release 1.3 Candidate 1 (M11) Build                |
 | **Last Updated**         | 2026-11-06                                                                     |
 | **Applicable Standards** | `PROMPT_FINAL.md` §18, §252; Web Vitals (LCP < 2.5s, CLS = 0, FID/INP < 100ms) |

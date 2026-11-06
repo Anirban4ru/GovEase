@@ -22,3 +22,5 @@ Per `PROMPT_FINAL.md` Section 10.1: Technology is chosen by evidence, not fashio
 | [`ADR-0008`](ADR-0008-hosting-candidates.md)       | Hosting Infrastructure & Deployment Strategy | 2026-11-05 | Proposed | Local-first ₹0 dev; evaluate Cloudflare Pages vs Vercel Pro          |
 | [`ADR-0009`](ADR-0009-motion-and-3d-strategy.md)   | Motion & 3D Strategy                         | 2026-11-06 | Approved | CSS 3D baseline with conditional WebGL upgrade & static SVG fallback |
 | [`ADR-0010`](ADR-0010-calm-map-colour-system.md)   | Calm Map of Everyday Life Colour System      | 2026-11-06 | Approved | Ink, Ground, Ochre, Teal, Clay tokens with WCAG 2.2 AA contrast      |
+| [`ADR-0009`](ADR-0009-motion-and-3d-strategy.md)   | Motion & 3D Strategy                         | 2026-11-06 | Approved | CSS 3D baseline with conditional WebGL upgrade & static SVG fallback |
+| [`ADR-0010`](ADR-0010-calm-map-colour-system.md)   | Calm Map of Everyday Life Colour System      | 2026-11-06 | Approved | Ink, Ground, Ochre, Teal, Clay tokens with WCAG 2.2 AA contrast      |

@@ -16,16 +16,9 @@ export function PwaRegister() {
   useEffect(() => {
     // 1. Register Service Worker
     if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/sw.js")
-        .then((reg) => {
-          if (process.env.NODE_ENV !== "production") {
-            console.log("[PWA] Service Worker registered:", reg.scope);
-          }
-        })
-        .catch((err) => {
-          console.warn("[PWA] Service Worker registration failed:", err);
-        });
+      navigator.serviceWorker.register("/sw.js").catch(() => {
+        // Graceful fallback when service worker cannot be registered
+      });
     }
 
     // 2. Listen for install prompt

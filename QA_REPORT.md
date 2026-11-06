@@ -3,7 +3,7 @@
 | Metadata                 | Details                                                                                                              |
 | :----------------------- | :------------------------------------------------------------------------------------------------------------------- |
 | **Document Purpose**     | Comprehensive quality assurance report, test execution matrix, and verification evidence for Release 1.3 Candidate 1 |
-| **Document Owner**       | QA Lead / Antigravity Agent                                                                                          |
+| **Document Owner**       | QA Lead / Quality Engineering Team                                                                                   |
 | **Status**               | Approved — Release 1.3 Candidate 1 Baseline (Milestone M11 Complete)                                                 |
 | **Last Updated**         | 2026-11-06                                                                                                           |
 | **Applicable Standards** | `PROMPT_FINAL.md` §14, §18; WCAG 2.2 AA; ISO/IEC/IEEE 29119 Software Testing                                         |

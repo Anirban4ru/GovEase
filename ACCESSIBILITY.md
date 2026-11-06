@@ -3,7 +3,7 @@
 | Metadata                 | Details                                                                                                      |
 | :----------------------- | :----------------------------------------------------------------------------------------------------------- |
 | **Document Purpose**     | Comprehensive WCAG 2.2 Level AA conformance matrix, keyboard testing records, and screen reader verification |
-| **Document Owner**       | Accessibility Lead / Antigravity Agent                                                                       |
+| **Document Owner**       | Accessibility Lead / Engineering Team                                                                        |
 | **Status**               | Approved — Beta 0.1 Release Candidate Baseline                                                               |
 | **Last Updated**         | 2026-11-06                                                                                                   |
 | **Applicable Standards** | WCAG 2.2 Level AA, Rights of Persons with Disabilities (RPwD) Act 2016, GIGW 3.0                             |

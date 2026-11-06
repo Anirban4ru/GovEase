@@ -14,8 +14,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
 const outDir = path.join(rootDir, "out");
-const targetDir =
-  "C:\\Users\\anirb\\.gemini\\antigravity\\brain\\93883785-a23d-47e1-804d-347a6bc1c9f6\\screenshots";
+const targetDir = process.env.SCREENSHOT_DIR || path.join(rootDir, "docs", "screenshots");
 
 fs.mkdirSync(targetDir, { recursive: true });
 
