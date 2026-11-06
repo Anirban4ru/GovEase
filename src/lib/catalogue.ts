@@ -8,6 +8,8 @@ export type EcosystemId =
   | "mobility-and-transport"
   | "utilities-and-local";
 
+export type LifeEcosystem = EcosystemId;
+
 export interface LocalizedString {
   en: string;
   hi?: string;

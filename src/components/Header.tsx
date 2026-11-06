@@ -23,6 +23,9 @@ export function Header() {
         {t("common.skipToContent")}
       </a>
 
+      {/* India-First Civic Tricolor Accent Ribbon */}
+      <div className="civic-tricolor-bar" role="presentation" aria-hidden="true" />
+
       {/* Independent Guide Disclaimer Banner */}
       <div
         style={{
@@ -94,33 +97,73 @@ export function Header() {
             href="/"
             style={{
               display: "flex",
-              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.625rem",
               textDecoration: "none",
               color: "inherit",
               minWidth: 0,
               flexShrink: 1,
             }}
           >
-            <span
+            <div
               style={{
-                fontSize: "1.0625rem",
-                fontWeight: 700,
+                width: "36px",
+                height: "36px",
+                borderRadius: "var(--radius-sm)",
+                backgroundColor: "var(--color-brand-primary-subtle)",
+                border: "1px solid var(--color-border-default)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
                 color: "var(--color-brand-primary)",
-                letterSpacing: "-0.01em",
-                wordBreak: "break-word",
               }}
+              aria-hidden="true"
             >
-              {t("common.appName")}
-            </span>
-            <span
-              style={{
-                fontSize: "0.75rem",
-                color: "var(--color-content-secondary)",
-                fontWeight: 500,
-              }}
-            >
-              {t("common.tagline")}
-            </span>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="3" />
+                <line x1="12" y1="2" x2="12" y2="9" />
+                <line x1="12" y1="15" x2="12" y2="22" />
+                <line x1="2" y1="12" x2="9" y2="12" />
+                <line x1="15" y1="12" x2="22" y2="12" />
+                <line x1="4.93" y1="4.93" x2="9.88" y2="9.88" />
+                <line x1="14.12" y1="14.12" x2="19.07" y2="19.07" />
+                <line x1="4.93" y1="19.07" x2="9.88" y2="14.12" />
+                <line x1="14.12" y1="9.88" x2="19.07" y2="4.93" />
+              </svg>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <span
+                style={{
+                  fontSize: "1.0625rem",
+                  fontWeight: 700,
+                  color: "var(--color-brand-primary)",
+                  letterSpacing: "-0.01em",
+                  wordBreak: "break-word",
+                }}
+              >
+                {t("common.appName")}
+              </span>
+              <span
+                style={{
+                  fontSize: "0.75rem",
+                  color: "var(--color-content-secondary)",
+                  fontWeight: 500,
+                }}
+              >
+                {t("common.tagline")}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Primary Nav */}

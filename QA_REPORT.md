@@ -2,9 +2,9 @@
 
 | Metadata                 | Details                                                                                                              |
 | :----------------------- | :------------------------------------------------------------------------------------------------------------------- |
-| **Document Purpose**     | Comprehensive quality assurance report, test execution matrix, and verification evidence for Release 1.0 Candidate 2 |
+| **Document Purpose**     | Comprehensive quality assurance report, test execution matrix, and verification evidence for Release 1.1 Candidate 1 |
 | **Document Owner**       | QA Lead / Antigravity Agent                                                                                          |
-| **Status**               | Approved — Release 1.0 Candidate 2 Baseline                                                                          |
+| **Status**               | Approved — Release 1.1 Candidate 1 Baseline (Milestone M9 Complete)                                                  |
 | **Last Updated**         | 2026-11-06                                                                                                           |
 | **Applicable Standards** | `PROMPT_FINAL.md` §14, §18; WCAG 2.2 AA; ISO/IEC/IEEE 29119 Software Testing                                         |
 
@@ -12,7 +12,7 @@
 
 ## 1. Executive QA Summary
 
-The Unified Life Services Platform has completed its multi-tier verification gauntlet for **Release 1.0 Candidate 2 (Milestone M8)**.
+The Unified Life Services Platform has completed its multi-tier verification gauntlet for **Release 1.1 Candidate 1 (Milestone M9)**.
 Testing encompasses static analysis, type checking, unit testing, schema enforcement, link health checking, performance budgeting, security auditing, container packaging verification, multi-target deployment automation drills, and end-to-end multi-viewport browser testing with automated accessibility scans.
 
 ### Verification Matrix Overview
@@ -21,8 +21,8 @@ Testing encompasses static analysis, type checking, unit testing, schema enforce
 | :----------------------- | :------------------------------------ | :------------------------------------------------------------- | :-------------------- | :----------- |
 | **Type Integrity**       | TypeScript `5.x` (`tsc --noEmit`)     | Strict type checking across entire codebase                    | 0 Errors              | 100%         |
 | **Code Hygiene**         | ESLint `9.x` (`eslint .`)             | React 19 rules, hook dependencies, zero warnings               | 0 Errors / 0 Warnings | 100%         |
-| **Code Formatting**      | Prettier `3.x` (`prettier --check .`) | 65+ repository files formatted uniformly                       | 100% Clean            | 100%         |
-| **Unit & Integration**   | Vitest `5.1.0`                        | Search relevance, sanitization, catalogue, 4-lang i18n, voice  | 43 / 43 Passed        | 100% (852ms) |
+| **Code Formatting**      | Prettier `3.x` (`prettier --check .`) | 70+ repository files formatted uniformly                       | 100% Clean            | 100%         |
+| **Unit & Integration**   | Vitest `5.1.0`                        | Search relevance, sanitization, catalogue, 4-lang i18n, voice  | 44 / 44 Passed        | 100% (486ms) |
 | **Search Benchmark**     | In-Memory MiniSearch Test Set         | 210 citizen queries across typos, Hindi, Hinglish              | 210 / 210 Top-1       | 100.0%       |
 | **Catalogue Schema**     | Ajv `8.17.1`                          | JSON Schema validation of services and allowlists              | 18 / 18 Conforming    | 100%         |
 | **Link Integrity**       | Custom Node.js Link Checker           | 22 unique URLs across 18 service entries                       | 22 / 22 Allow-listed  | 100%         |
@@ -31,7 +31,7 @@ Testing encompasses static analysis, type checking, unit testing, schema enforce
 | **Security Audit**       | `npm audit --audit-level=high`        | Dependency supply-chain vulnerability check                    | 0 Vulnerabilities     | 100%         |
 | **Container Drill**      | `scripts/docker-verify.mjs`           | Multi-stage, zero-root `USER node`, HEALTHCHECK, sec headers   | Drill Passed          | 100%         |
 | **Deployment Drill**     | `scripts/deploy-drill.mjs`            | GitHub Pages `.nojekyll`, `_headers`, manifest, 404, CSP       | 12 / 12 Checks Passed | 100%         |
-| **End-to-End (E2E)**     | Playwright `1.64.1` (Chromium)        | 264 tests across 6 responsive viewports                        | 264 / 264 Passed      | 100% (1.2m)  |
+| **End-to-End (E2E)**     | Playwright `1.64.1` (Chromium)        | 294 tests across 6 responsive viewports                        | 294 / 294 Passed      | 100% (1.0m)  |
 | **Accessibility (a11y)** | `@axe-core/playwright`                | Automated WCAG 2.2 AA scans across all routes/modals (4 langs) | 0 Violations          | 100%         |
 
 ---
@@ -64,17 +64,19 @@ Playwright executes all tests concurrently across 6 responsive viewports matchin
 - **Desktop-1024px:** $1024 \times 768$ (Common cyber cafe / CSC desktop monitor)
 - **Desktop-1440px:** $1440 \times 900$ (High-resolution desktop monitor)
 
-### Test Spec Breakdown (38 tests $\times$ 6 viewports = 228 tests)
+### Test Spec Breakdown (49 tests $\times$ 6 viewports = 294 tests)
 
-| E2E Spec File                    | Tests / VP |  Total  | Features Tested                                                                                                         | axe-core Result  |
-| :------------------------------- | :--------: | :-----: | :---------------------------------------------------------------------------------------------------------------------- | :--------------: |
-| `e2e/app-shell.spec.ts`          |     7      |   42    | Landmarks, focus rings, skip link, language switch, display mode switch, security headers, screenshots                  |   0 Violations   |
-| `e2e/catalogue.spec.ts`          |     5      |   30    | Explore route (12 services), ecosystem filtering, service detail SSG, save toggle, outbound handoff modal               |   0 Violations   |
-| `e2e/search.spec.ts`             |     5      |   30    | Home search combobox, keyboard navigation (Arrow/Enter/Esc), explore sync, empty state reset                            |   0 Violations   |
-| `e2e/pwa-saved-settings.spec.ts` |     6      |   36    | Saved items backup export/import, print view, data inventory table, purge modal, offline page, PWA manifest             |   0 Violations   |
-| `e2e/guides-checklists.spec.ts`  |     7      |   42    | 5-phase explainer tabs, keyboard arrow navigation, pitfall alerts, jargon cards, document checklist ticks, Hindi switch |   0 Violations   |
-| `e2e/voice-assisted.spec.ts`     |     8      |   48    | Client speech synthesis controls, button toggle states, 6 new service detail pages, axe-core scans                      |   0 Violations   |
-| **Total E2E Execution**          |   **38**   | **228** | **Full Platform Verification**                                                                                          | **0 Violations** |
+| E2E Spec File                        | Tests / VP |  Total  | Features Tested                                                                                                         | axe-core Result  |
+| :----------------------------------- | :--------: | :-----: | :---------------------------------------------------------------------------------------------------------------------- | :--------------: |
+| `e2e/app-shell.spec.ts`              |     7      |   42    | Landmarks, focus rings, skip link, language switch, display mode switch, security headers, screenshots                  |   0 Violations   |
+| `e2e/catalogue.spec.ts`              |     5      |   30    | Explore route (18 services), ecosystem filtering, service detail SSG, save toggle, outbound handoff modal               |   0 Violations   |
+| `e2e/search.spec.ts`                 |     5      |   30    | Home search combobox, keyboard navigation (Arrow/Enter/Esc), explore sync, empty state reset                            |   0 Violations   |
+| `e2e/pwa-saved-settings.spec.ts`     |     6      |   36    | Saved items backup export/import, print view, data inventory table, purge modal, offline page, PWA manifest             |   0 Violations   |
+| `e2e/guides-checklists.spec.ts`      |     7      |   42    | 5-phase explainer tabs, keyboard arrow navigation, pitfall alerts, jargon cards, document checklist ticks, Hindi switch |   0 Violations   |
+| `e2e/voice-assisted.spec.ts`         |     8      |   48    | Client speech synthesis controls, button toggle states, service detail pages, axe-core scans                            |   0 Violations   |
+| `e2e/m8-catalogue-expansion.spec.ts` |     6      |   36    | 6 expanded service guides (DigiLocker, PMJDY, e-Shram, PMSBY, UDID, RC Transfer), 5-phase navigation, outbound modal    |   0 Violations   |
+| `e2e/m9-visual-motion.spec.ts`       |     5      |   30    | Civic tricolor ribbon, Ashoka wheel motif, ecosystem SVGs, soundwave equalizer, checklist transitions, axe-core audit   |   0 Violations   |
+| **Total E2E Execution**              |   **49**   | **294** | **Full Platform Multi-Viewport Verification**                                                                           | **0 Violations** |
 
 ---
 
@@ -103,9 +105,12 @@ Throughout Milestones M0 through M6, all defects identified during loop engineer
 7. **Client Bundle Explosion on Multi-Service Explainer Guides:**
    - _Issue:_ Importing the entire 12-service explainer dictionary into client components inflated client JS by 31KB.
    - _Fix:_ Implemented Server Component slicing in `src/app/services/[id]/page.tsx`, passing only the single relevant service guide as a prop and dropping client JS bundle by ~18KB.
+8. **Hero Civic Badge Color Contrast Remediation:**
+   - _Issue:_ Axe-core flagged insufficient contrast (3.01:1) on the hero badge with saffron `#e06d10` on subtle saffron background `#fdf3ec`.
+   - _Fix:_ Introduced dedicated high-contrast token `--color-india-saffron-text: #7a3200` yielding 8.35:1 contrast, comfortably exceeding WCAG 2.2 AA (4.5:1) and AAA (7:1) requirements.
 
 ---
 
 ## 5. Formal QA Sign-Off
 
-All quality gates defined in `RELEASE_CHECKLIST.md` and `PROMPT_FINAL.md` §14 & §18 have passed with 100% clean evidence. The codebase is verified ready for the **Beta 0.2 Candidate** release.
+All quality gates defined in `RELEASE_CHECKLIST.md` and `PROMPT_FINAL.md` §14 & §18 have passed with 100% clean evidence. The codebase is verified ready for the **Release 1.1 Candidate 1 (Milestone M9)** release.

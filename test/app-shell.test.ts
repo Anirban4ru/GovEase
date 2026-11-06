@@ -73,4 +73,17 @@ describe("App Shell - Design Tokens", () => {
     expect(content).toContain(":lang(bn)");
     expect(content).toContain(":lang(ta)");
   });
+
+  it("tokens.css defines India-First civic palette tokens and micro-animation keyframes", () => {
+    const rootDir = process.cwd();
+    const tokensFile = path.join(rootDir, "src/styles/tokens.css");
+    const content = fs.readFileSync(tokensFile, "utf8");
+
+    expect(content).toContain("--color-india-saffron: #e06d10");
+    expect(content).toContain("--color-india-green: #138808");
+    expect(content).toContain("@keyframes soundWave");
+    expect(content).toContain("@keyframes checkPop");
+    expect(content).toContain("@keyframes fadeInStep");
+    expect(content).toContain(".civic-tricolor-bar");
+  });
 });

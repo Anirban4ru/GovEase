@@ -9,6 +9,7 @@ import { OutboundHandoffModal } from "./OutboundHandoffModal";
 import { DocumentReadinessChecklist } from "./DocumentReadinessChecklist";
 import { ServiceExplainerGuide } from "./ServiceExplainerGuide";
 import { ReadAloudButton } from "./ReadAloudButton";
+import { EcosystemBadge } from "./EcosystemBadge";
 import type { ServiceExplainerGuide as IServiceExplainerGuide } from "../lib/service-explainer-data";
 
 interface ServiceDetailViewProps {
@@ -99,7 +100,11 @@ export function ServiceDetailView({ service, explainerGuide }: ServiceDetailView
         >
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
             <span
+              data-testid="ecosystem-badge-tag"
               style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.375rem",
                 fontSize: "0.75rem",
                 fontWeight: 700,
                 textTransform: "uppercase",
@@ -109,7 +114,8 @@ export function ServiceDetailView({ service, explainerGuide }: ServiceDetailView
                 borderRadius: "var(--radius-xs)",
               }}
             >
-              {ecosystemTitle}
+              <EcosystemBadge ecosystem={service.ecosystem} size={15} />
+              <span>{ecosystemTitle}</span>
             </span>
             <span
               style={{

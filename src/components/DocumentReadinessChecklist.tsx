@@ -214,7 +214,8 @@ export function DocumentReadinessChecklist({
               backgroundColor: isAllReady
                 ? "var(--color-status-success)"
                 : "var(--color-brand-primary)",
-              transition: "width 0.3s ease-in-out",
+              transition: "width 350ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms ease",
+              animation: isAllReady ? "progressPulse 1.8s ease-in-out infinite" : "none",
             }}
           />
         </div>
@@ -263,6 +264,8 @@ export function DocumentReadinessChecklist({
                     marginTop: "0.15rem",
                     cursor: "pointer",
                     accentColor: "var(--color-brand-primary)",
+                    transition: "transform 0.18s cubic-bezier(0.16, 1, 0.3, 1)",
+                    animation: isChecked ? "checkPop 0.25s cubic-bezier(0.16, 1, 0.3, 1)" : "none",
                   }}
                 />
                 <label

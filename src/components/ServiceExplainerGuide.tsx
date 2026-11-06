@@ -208,7 +208,10 @@ export function ServiceExplainerGuide({ guide }: ServiceExplainerGuideProps) {
         id={`step-panel-${currentStep.stepNumber}`}
         aria-labelledby={`step-tab-${currentStep.stepNumber}`}
         tabIndex={0}
-        style={{ outline: "none" }}
+        style={{
+          outline: "none",
+          animation: "fadeInStep 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        }}
       >
         {/* Step Header */}
         <div style={{ marginBottom: "1.25rem" }}>

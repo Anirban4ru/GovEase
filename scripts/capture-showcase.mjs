@@ -145,6 +145,27 @@ server.listen(3005, async () => {
   });
   console.log("Captured showcase-09-readiness-checklist.png");
 
+  // 10. India-First Civic Identity (Header & Hero Motifs)
+  await desktopPage.goto("http://localhost:3005/");
+  await desktopPage.screenshot({
+    path: path.join(targetDir, "showcase-10-india-first-identity.png"),
+    fullPage: false,
+  });
+  console.log("Captured showcase-10-india-first-identity.png");
+
+  // 11. ReadAloudButton Audio Equalizer Wave Animation
+  await desktopPage.goto("http://localhost:3005/services/create-abha-id");
+  const readBtn = desktopPage.locator('button[aria-label="Read aloud"]').first();
+  if ((await readBtn.count()) > 0) {
+    await readBtn.click();
+    await desktopPage.waitForTimeout(300);
+    await desktopPage.screenshot({
+      path: path.join(targetDir, "showcase-11-soundwave-equalizer.png"),
+      fullPage: false,
+    });
+    console.log("Captured showcase-11-soundwave-equalizer.png");
+  }
+
   await browser.close();
   server.close(() => {
     console.log("Showcase capture complete.");

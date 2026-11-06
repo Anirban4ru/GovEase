@@ -8,6 +8,7 @@ import { usePresentationMode } from "../../context/ModeContext";
 import { getAllServices, ECOSYSTEMS } from "../../lib/catalogue";
 import { searchServices } from "../../lib/search";
 import { SearchBar } from "../../components/SearchBar";
+import { EcosystemBadge } from "../../components/EcosystemBadge";
 
 function ExploreContent() {
   const { t, locale } = useTranslation();
@@ -262,6 +263,7 @@ function ExploreContent() {
             return (
               <div
                 key={service.id}
+                className="civic-card-interactive"
                 style={{
                   backgroundColor: "var(--color-surface-page)",
                   border: "1px solid var(--color-border-default)",
@@ -285,6 +287,9 @@ function ExploreContent() {
                 >
                   <span
                     style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.375rem",
                       fontSize: "0.75rem",
                       fontWeight: 700,
                       textTransform: "uppercase",
@@ -294,7 +299,8 @@ function ExploreContent() {
                       borderRadius: "var(--radius-xs)",
                     }}
                   >
-                    {ecosystemLabel}
+                    <EcosystemBadge ecosystem={service.ecosystem} size={14} />
+                    <span>{ecosystemLabel}</span>
                   </span>
 
                   <span
