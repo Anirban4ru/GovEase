@@ -20,7 +20,10 @@ export function DesktopNavigation() {
   ];
 
   return (
-    <nav aria-label="Desktop Primary Navigation" style={{ display: "flex", gap: "1.25rem" }}>
+    <nav
+      aria-label="Desktop Primary Navigation"
+      style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}
+    >
       {navItems.map((item) => {
         const isActive = pathname === item.href;
         return (
@@ -29,14 +32,16 @@ export function DesktopNavigation() {
             href={item.href}
             aria-current={isActive ? "page" : undefined}
             style={{
-              color: isActive ? "var(--color-brand-primary)" : "var(--color-content-secondary)",
-              fontWeight: isActive ? 700 : 500,
+              color: isActive
+                ? "var(--color-govease-navy, #0d3570)"
+                : "var(--color-content-secondary)",
+              fontWeight: isActive ? 700 : 600,
               fontSize: "0.875rem",
               textDecoration: "none",
               borderBottom: isActive
-                ? "2px solid var(--color-brand-primary)"
-                : "2px solid transparent",
-              paddingBottom: "0.25rem",
+                ? "2.5px solid var(--color-govease-saffron, #fc7d1b)"
+                : "2.5px solid transparent",
+              padding: "0.35rem 0.15rem",
               transition: "color var(--transition-fast), border-color var(--transition-fast)",
             }}
           >

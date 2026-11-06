@@ -267,7 +267,9 @@ function HomeContent() {
             color: "var(--color-ink)",
           }}
         >
-          <span style={{ color: "var(--color-teal-text)", fontSize: "0.625rem" }}>●</span>
+          <span style={{ color: "var(--color-govease-green, #1c7e41)", fontSize: "0.625rem" }}>
+            ●
+          </span>
           <span>
             {locale === "hi"
               ? "स्वतंत्र लोक सेवा मार्गदर्शिका • बी.टेक कैपस्टोन"
@@ -386,14 +388,14 @@ function HomeContent() {
               alignItems: "center",
               gap: "0.5rem",
               padding: "0.65rem 1.4rem",
-              backgroundColor: "var(--color-ink)",
-              color: "var(--color-neutral-0)",
+              backgroundColor: "var(--color-govease-navy, #0d3570)",
+              color: "#ffffff",
               borderRadius: "var(--radius-sm)",
               fontWeight: 700,
               fontSize: "0.9375rem",
               textDecoration: "none",
               minHeight: "var(--min-touch-target)",
-              boxShadow: "var(--shadow-sm)",
+              boxShadow: "0 1px 3px rgba(13, 53, 112, 0.2)",
             }}
           >
             <svg

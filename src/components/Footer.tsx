@@ -45,33 +45,48 @@ export function Footer() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "0.625rem",
-                marginBottom: "0.75rem",
+                gap: "0.75rem",
+                marginBottom: "0.85rem",
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/apple-touch-icon.png"
-                alt="GovEase"
-                width="32"
-                height="32"
+                src="/govease-seal.png"
+                alt="GovEase Official Seal"
+                width="44"
+                height="46"
                 style={{
-                  borderRadius: "var(--radius-sm)",
-                  border: "1px solid var(--color-border-default)",
-                  backgroundColor: "#ffffff",
+                  height: "44px",
+                  width: "auto",
+                  objectFit: "contain",
+                  flexShrink: 0,
+                  filter: "drop-shadow(0 1px 3px rgba(13, 53, 112, 0.1))",
                 }}
               />
-              <h2
-                style={{
-                  fontSize: "1.0625rem",
-                  fontWeight: 800,
-                  margin: 0,
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                <span style={{ color: "var(--color-govease-navy, #0c2340)" }}>Gov</span>
-                <span style={{ color: "var(--color-govease-saffron, #f26a1b)" }}>Ease</span>
-              </h2>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <h2
+                  style={{
+                    fontSize: "1.375rem",
+                    fontWeight: 800,
+                    margin: 0,
+                    letterSpacing: "-0.025em",
+                    lineHeight: 1.15,
+                  }}
+                >
+                  <span style={{ color: "var(--color-govease-navy, #0d3570)" }}>Gov</span>
+                  <span style={{ color: "var(--color-govease-saffron, #fc7d1b)" }}>Ease</span>
+                </h2>
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "var(--color-content-secondary)",
+                    fontWeight: 600,
+                    marginTop: "2px",
+                  }}
+                >
+                  An India-First Civic Navigation Architecture
+                </span>
+              </div>
             </div>
             <p style={{ lineHeight: 1.6, margin: 0 }}>{t("footer.aboutText")}</p>
             <div

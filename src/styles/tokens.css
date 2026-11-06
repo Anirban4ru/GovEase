@@ -27,13 +27,16 @@
   --color-ink-blue: #1d4ed8;
   --color-ink-blue-hover: #1e40af;
 
-  /* GovEase Official Sovereign Brand Palette */
-  --color-govease-navy: #0c2340;
-  --color-govease-blue: #0a3678;
-  --color-govease-saffron: #f26a1b;
+  /* GovEase Official Sovereign Brand Palette (Extracted Directly From Emblem) */
+  --color-govease-navy: #0d3570;
+  --color-govease-navy-dark: #092652;
+  --color-govease-blue: #14376a;
+  --color-govease-saffron: #fc7d1b;
   --color-govease-saffron-dark: #c2410c;
-  --color-govease-green: #0f7638;
-  --color-govease-ivory: #f8f9fa;
+  --color-govease-saffron-subtle: rgba(252, 125, 27, 0.08);
+  --color-govease-green: #1c7e41;
+  --color-govease-green-subtle: rgba(28, 126, 65, 0.08);
+  --color-govease-ivory: #f9f5f2;
 
   /* Semantic Brand & Action Tokens */
   --color-brand-primary: var(--color-ink);
@@ -223,15 +226,16 @@ body[data-mode="assisted"] {
 /* Civic Accent Ribbon */
 .civic-tricolor-bar,
 .civic-map-ribbon {
-  height: 2px;
+  height: 3px;
   width: 100%;
   background: linear-gradient(
     90deg,
-    var(--color-ochre) 0%,
-    var(--color-ochre) 33.3%,
-    var(--color-teal) 33.3%,
-    var(--color-teal) 66.6%,
-    var(--color-ink-blue) 66.6%,
-    var(--color-ink-blue) 100%
+    var(--color-govease-saffron, #fc7d1b) 0%,
+    var(--color-govease-saffron, #fc7d1b) 33.3%,
+    #ffffff 33.3%,
+    var(--color-govease-navy, #0d3570) 50%,
+    #ffffff 66.6%,
+    var(--color-govease-green, #1c7e41) 66.6%,
+    var(--color-govease-green, #1c7e41) 100%
   );
 }
