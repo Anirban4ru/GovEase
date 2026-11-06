@@ -1,11 +1,11 @@
 # Unified Life Services Platform — Performance Budget & Verification Report
 
-| Metadata                 | Details                                                                        |
-| :----------------------- | :----------------------------------------------------------------------------- |
-| **Document Purpose**     | Performance verification, bundle size audit, and network budget compliance     |
-| **Document Owner**       | Engineering Lead / Performance Team                                            |
-| **Status**               | Approved — Verified against Release 1.3 Candidate 1 (M11) Build                |
-| **Last Updated**         | 2026-11-06                                                                     |
+| Metadata                 | Details                                                                                                |
+| :----------------------- | :----------------------------------------------------------------------------------------------------- |
+| **Document Purpose**     | Performance verification, bundle size audit, and network budget compliance                             |
+| **Document Owner**       | Engineering Lead / Performance Team                                                                    |
+| **Status**               | Approved — Verified against Release 1.3 Candidate 1 (M11) Build                                        |
+| **Last Updated**         | 2026-11-06                                                                                             |
 | **Applicable Standards** | `System Architecture Specification (SAS)` §18, §252; Web Vitals (LCP < 2.5s, CLS = 0, FID/INP < 100ms) |
 
 ---
@@ -89,4 +89,3 @@ All 29 static routes (including the Calm Map Home, 3D Radial Life System, and Ci
 ## 5. Automated Verification
 
 This budget is enforced via `npm run audit:perf` (`scripts/perf-budget.mjs`), which executes during continuous integration. Any build exceeding the ceilings triggers pipeline failure.
-

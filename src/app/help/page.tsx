@@ -23,9 +23,18 @@ export default function HelpPage() {
             marginBottom: "0.5rem",
           }}
         >
-          {locale === "hi" ? "सहायता, सुरक्षा और हेल्पलाइन" : "Civic Help, Helplines & Anti-Scam Verification"}
+          {locale === "hi"
+            ? "सहायता, सुरक्षा और हेल्पलाइन"
+            : "Civic Help, Helplines & Anti-Scam Verification"}
         </h1>
-        <p style={{ fontSize: "1.0625rem", color: "var(--color-content-secondary)", margin: 0, maxWidth: "760px" }}>
+        <p
+          style={{
+            fontSize: "1.0625rem",
+            color: "var(--color-content-secondary)",
+            margin: 0,
+            maxWidth: "760px",
+          }}
+        >
           {locale === "hi"
             ? "आपातकालीन टोल-फ्री हेल्पलाइन, संदिग्ध सरकारी SMS और ई-चालान सत्यापन, आधिकारिक सरकारी शुल्क कैलकुलेटर, और जन सेवा केंद्र (CSC) की कानूनी दरें।"
             : "Statutory national emergency helplines, TRAI-verified SMS scam detection, official civic tariff calculations, and the MeitY Common Service Center rate charter."}
@@ -71,7 +80,9 @@ export default function HelpPage() {
               marginBottom: "1rem",
             }}
           >
-            {locale === "hi" ? "मंच के मूल सिद्धांत एवं सुरक्षा वास्तुकला" : "GovEase Architectural Trust Principles"}
+            {locale === "hi"
+              ? "मंच के मूल सिद्धांत एवं सुरक्षा वास्तुकला"
+              : "GovEase Architectural Trust Principles"}
           </h2>
 
           <div
@@ -82,29 +93,76 @@ export default function HelpPage() {
             }}
           >
             <div>
-              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-brand-primary)", margin: "0 0 0.25rem 0" }}>
+              <h3
+                style={{
+                  fontSize: "0.9375rem",
+                  fontWeight: 700,
+                  color: "var(--color-brand-primary)",
+                  margin: "0 0 0.25rem 0",
+                }}
+              >
                 1. Zero-Intermediary Handoff
               </h3>
-              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: 0 }}>
-                GovEase never acts as a broker or payment gateway. All citizen actions redirect strictly to verified sovereign portals (*.gov.in / *.nic.in) registered under national DNS.
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--color-content-secondary)",
+                  lineHeight: 1.5,
+                  margin: 0,
+                }}
+              >
+                GovEase never acts as a broker or payment gateway. All citizen actions redirect
+                strictly to verified sovereign portals (*.gov.in / *.nic.in) registered under
+                national DNS.
               </p>
             </div>
 
             <div>
-              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-brand-primary)", margin: "0 0 0.25rem 0" }}>
+              <h3
+                style={{
+                  fontSize: "0.9375rem",
+                  fontWeight: 700,
+                  color: "var(--color-brand-primary)",
+                  margin: "0 0 0.25rem 0",
+                }}
+              >
                 2. DPDP Act 2023 Compliance
               </h3>
-              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: 0 }}>
-                Zero personal data retention. All tools, photo cropping, and document compression occur strictly in your local browser memory using offscreen HTML5 Canvas. No bytes leave your device.
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--color-content-secondary)",
+                  lineHeight: 1.5,
+                  margin: 0,
+                }}
+              >
+                Zero personal data retention. All tools, photo cropping, and document compression
+                occur strictly in your local browser memory using offscreen HTML5 Canvas. No bytes
+                leave your device.
               </p>
             </div>
 
             <div>
-              <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, color: "var(--color-brand-primary)", margin: "0 0 0.25rem 0" }}>
+              <h3
+                style={{
+                  fontSize: "0.9375rem",
+                  fontWeight: 700,
+                  color: "var(--color-brand-primary)",
+                  margin: "0 0 0.25rem 0",
+                }}
+              >
                 3. Open Correction Register
               </h3>
-              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: 0 }}>
-                If you encounter a broken government endpoint or an updated state fee rule, submit a correction to our public registry.
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--color-content-secondary)",
+                  lineHeight: 1.5,
+                  margin: 0,
+                }}
+              >
+                If you encounter a broken government endpoint or an updated state fee rule, submit a
+                correction to our public registry.
               </p>
               <button
                 type="button"

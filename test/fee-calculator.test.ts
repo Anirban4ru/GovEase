@@ -54,4 +54,3 @@ describe("Statutory Fee & Penalty Calculator Engine", () => {
     expect(res.statutoryTotalInr).toBe(0);
   });
 });
-

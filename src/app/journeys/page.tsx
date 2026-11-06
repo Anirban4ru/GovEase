@@ -26,12 +26,18 @@ export default function JourneysPage() {
           }}
         >
           <li>
-            <Link href="/" style={{ color: "var(--color-content-secondary)", textDecoration: "none" }}>
+            <Link
+              href="/"
+              style={{ color: "var(--color-content-secondary)", textDecoration: "none" }}
+            >
               Home
             </Link>
           </li>
           <li aria-hidden="true">/</li>
-          <li aria-current="page" style={{ fontWeight: 600, color: "var(--color-content-primary)" }}>
+          <li
+            aria-current="page"
+            style={{ fontWeight: 600, color: "var(--color-content-primary)" }}
+          >
             Life Event Journeys
           </li>
         </ol>
@@ -48,8 +54,17 @@ export default function JourneysPage() {
         >
           Composite Life Event Journeys
         </h1>
-        <p style={{ fontSize: "1.0625rem", color: "var(--color-content-secondary)", margin: 0, maxWidth: "760px" }}>
-          Indian public administration is organized by ministries, but citizen lives are organized by milestones. Follow integrated, sequential document roadmaps that link multiple departments into one clear path.
+        <p
+          style={{
+            fontSize: "1.0625rem",
+            color: "var(--color-content-secondary)",
+            margin: 0,
+            maxWidth: "760px",
+          }}
+        >
+          Indian public administration is organized by ministries, but citizen lives are organized
+          by milestones. Follow integrated, sequential document roadmaps that link multiple
+          departments into one clear path.
         </p>
       </div>
 
@@ -57,4 +72,3 @@ export default function JourneysPage() {
     </div>
   );
 }
-

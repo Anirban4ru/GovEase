@@ -22,4 +22,3 @@ We adopt the "Calm Map" palette with the following primary functional roles:
 - Every color pair meets or exceeds WCAG 2.2 AA contrast requirements.
 - Color is never the sole carrier of meaning; always paired with explicit text and iconography.
 - Eliminates any confusion with official government portal branding while projecting trust and precision.
-

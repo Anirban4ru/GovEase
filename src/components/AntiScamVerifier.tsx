@@ -1,7 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { analyzeSmsSender, SenderAnalysisResult, VERIFIED_SMS_HEADERS } from "../lib/anti-scam-data";
+import {
+  analyzeSmsSender,
+  SenderAnalysisResult,
+  VERIFIED_SMS_HEADERS,
+} from "../lib/anti-scam-data";
 import { useTranslation } from "../context/I18nContext";
 
 export function AntiScamVerifier() {
@@ -28,7 +32,9 @@ export function AntiScamVerifier() {
         backgroundColor: "var(--color-surface-page)",
       }}
     >
-      <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "1rem" }}>
+      <div
+        style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "1rem" }}
+      >
         <div
           style={{
             width: "36px",
@@ -43,12 +49,26 @@ export function AntiScamVerifier() {
           }}
           aria-hidden="true"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
         </div>
         <div>
-          <h2 style={{ fontSize: "1.25rem", fontWeight: 700, margin: "0 0 0.25rem 0", color: "var(--color-content-primary)" }}>
+          <h2
+            style={{
+              fontSize: "1.25rem",
+              fontWeight: 700,
+              margin: "0 0 0.25rem 0",
+              color: "var(--color-content-primary)",
+            }}
+          >
             {locale === "hi"
               ? "संदिग्ध सरकारी SMS और ई-चालान सत्यापन"
               : "Anti-Scam SMS & Phishing Sender Verifier"}
@@ -97,8 +117,18 @@ export function AntiScamVerifier() {
         </button>
       </div>
 
-      <div style={{ display: "flex", gap: "0.375rem", alignItems: "center", flexWrap: "wrap", marginBottom: "1.25rem" }}>
-        <span style={{ fontSize: "0.75rem", color: "var(--color-content-tertiary)", fontWeight: 600 }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "0.375rem",
+          alignItems: "center",
+          flexWrap: "wrap",
+          marginBottom: "1.25rem",
+        }}
+      >
+        <span
+          style={{ fontSize: "0.75rem", color: "var(--color-content-tertiary)", fontWeight: 600 }}
+        >
           {locale === "hi" ? "उदाहरण देखें:" : "Test Presets:"}
         </span>
         {["AX-PARIVH", "VK-UIDAI", "CPGRAM", "9876543210"].map((sample) => (
@@ -131,18 +161,20 @@ export function AntiScamVerifier() {
               result.category === "HIGH_RISK_PHONE"
                 ? "#dc2626"
                 : result.category === "OFFICIAL_GOV"
-                ? "#16a34a"
-                : "var(--color-border-default)"
+                  ? "#16a34a"
+                  : "var(--color-border-default)"
             }`,
             backgroundColor:
               result.category === "HIGH_RISK_PHONE"
                 ? "rgba(220, 38, 38, 0.05)"
                 : result.category === "OFFICIAL_GOV"
-                ? "rgba(22, 163, 74, 0.05)"
-                : "var(--color-surface-card)",
+                  ? "rgba(22, 163, 74, 0.05)"
+                  : "var(--color-surface-card)",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}
+          >
             <span
               style={{
                 display: "inline-block",
@@ -155,28 +187,43 @@ export function AntiScamVerifier() {
                   result.category === "HIGH_RISK_PHONE"
                     ? "#dc2626"
                     : result.category === "OFFICIAL_GOV"
-                    ? "#16a34a"
-                    : "#64748b",
+                      ? "#16a34a"
+                      : "#64748b",
               }}
             >
               {result.category === "HIGH_RISK_PHONE"
                 ? "FRAUD RISK"
                 : result.category === "OFFICIAL_GOV"
-                ? "VERIFIED GOV SENDER"
-                : "UNVERIFIED SENDER"}
+                  ? "VERIFIED GOV SENDER"
+                  : "UNVERIFIED SENDER"}
             </span>
             <strong style={{ fontSize: "0.9375rem", color: "var(--color-content-primary)" }}>
               {result.title}
             </strong>
           </div>
 
-          <p style={{ fontSize: "0.875rem", color: "var(--color-content-secondary)", margin: "0 0 0.5rem 0", lineHeight: 1.5 }}>
+          <p
+            style={{
+              fontSize: "0.875rem",
+              color: "var(--color-content-secondary)",
+              margin: "0 0 0.5rem 0",
+              lineHeight: 1.5,
+            }}
+          >
             {result.explanation}
           </p>
 
           {result.officialDepartment && (
-            <div style={{ fontSize: "0.8125rem", color: "var(--color-content-primary)", marginBottom: "0.5rem", fontWeight: 600 }}>
-              Authorized Department: <span style={{ fontWeight: 400 }}>{result.officialDepartment}</span>
+            <div
+              style={{
+                fontSize: "0.8125rem",
+                color: "var(--color-content-primary)",
+                marginBottom: "0.5rem",
+                fontWeight: 600,
+              }}
+            >
+              Authorized Department:{" "}
+              <span style={{ fontWeight: 400 }}>{result.officialDepartment}</span>
             </div>
           )}
 
@@ -195,10 +242,12 @@ export function AntiScamVerifier() {
         </div>
       )}
 
-      <div style={{ marginTop: "1rem", fontSize: "0.75rem", color: "var(--color-content-tertiary)" }}>
-        Recognized central headers include: {Object.keys(VERIFIED_SMS_HEADERS).join(", ")}. Never share OTPs or click APK download links.
+      <div
+        style={{ marginTop: "1rem", fontSize: "0.75rem", color: "var(--color-content-tertiary)" }}
+      >
+        Recognized central headers include: {Object.keys(VERIFIED_SMS_HEADERS).join(", ")}. Never
+        share OTPs or click APK download links.
       </div>
     </div>
   );
 }
-

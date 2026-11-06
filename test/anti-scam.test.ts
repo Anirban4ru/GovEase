@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { analyzeSmsSender, CIVIC_HELPLINES, VERIFIED_SMS_HEADERS } from "../src/lib/anti-scam-data";
+import { analyzeSmsSender, CIVIC_HELPLINES } from "../src/lib/anti-scam-data";
 
 describe("Anti-Scam Verification & Emergency Helplines Engine", () => {
   it("flags personal 10-digit mobile numbers as HIGH RISK cyber fraud", () => {
@@ -47,4 +47,3 @@ describe("Anti-Scam Verification & Emergency Helplines Engine", () => {
     expect(cyber?.operatingHours).toContain("24x7");
   });
 });
-

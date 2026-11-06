@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -136,17 +136,10 @@ function HomeContent() {
 
   // Feature Flag for Side-by-Side Comparison (Section 10.3)
   const isClassicQuery = searchParams.get("view") === "classic";
-  const [viewOverride, setViewOverride] = useState<"overhaul" | "classic">(
-    isClassicQuery ? "classic" : "overhaul",
-  );
+  const [viewOverride, setViewOverride] = useState<"overhaul" | "classic" | null>(null);
+  const activeView = viewOverride ?? (isClassicQuery ? "classic" : "overhaul");
 
-  useEffect(() => {
-    if (isClassicQuery) {
-      setViewOverride("classic");
-    }
-  }, [isClassicQuery]);
-
-  if (viewOverride === "classic") {
+  if (activeView === "classic") {
     return (
       <div>
         <div
@@ -492,7 +485,11 @@ function HomeContent() {
               {locale === "hi" ? "18 सत्यापित जनसेवाएँ" : "18 Verified Services"}
             </span>
             <span style={{ color: "var(--color-content-tertiary)" }}>
-              ({locale === "hi" ? "आधिकारिक .gov.in व .nic.in डोमेन" : "Official .gov.in & .nic.in domains"})
+              (
+              {locale === "hi"
+                ? "आधिकारिक .gov.in व .nic.in डोमेन"
+                : "Official .gov.in & .nic.in domains"}
+              )
             </span>
           </div>
 
@@ -514,9 +511,7 @@ function HomeContent() {
             <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
               {locale === "hi" ? "शून्य व्यक्तिगत डेटा संग्रह" : "Zero Credential Capture"}
             </span>
-            <span style={{ color: "var(--color-content-tertiary)" }}>
-              (DPDP Act 2023)
-            </span>
+            <span style={{ color: "var(--color-content-tertiary)" }}>(DPDP Act 2023)</span>
           </div>
 
           <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
@@ -780,8 +775,7 @@ function HomeContent() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns:
-              mode === "simple" ? "1fr" : "repeat(auto-fit, minmax(280px, 1fr))",
+            gridTemplateColumns: mode === "simple" ? "1fr" : "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "1.25rem",
           }}
         >
@@ -799,7 +793,14 @@ function HomeContent() {
             }}
           >
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
                 <div
                   style={{
                     width: "32px",
@@ -813,17 +814,38 @@ function HomeContent() {
                   }}
                   aria-hidden="true"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
                     <circle cx="8.5" cy="8.5" r="1.5" />
                     <polyline points="21 15 16 10 5 21" />
                   </svg>
                 </div>
-                <h3 style={{ fontSize: "1rem", fontWeight: 700, margin: 0, color: "var(--color-ink)" }}>
+                <h3
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: 700,
+                    margin: 0,
+                    color: "var(--color-ink)",
+                  }}
+                >
                   {locale === "hi" ? "दस्तावेज़ एवं फ़ोटो स्टूडियो" : "Doc Prep Studio"}
                 </h3>
               </div>
-              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: "0 0 1rem 0" }}>
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--color-content-secondary)",
+                  lineHeight: 1.5,
+                  margin: "0 0 1rem 0",
+                }}
+              >
                 {locale === "hi"
                   ? "पासपोर्ट फोटो, हस्ताक्षर व प्रमाणपत्रों को सरकारी पोर्टल नियमों (20KB - 50KB) के अनुसार बिना सर्वर अपलोड के काटें व आकार दें।"
                   : "Crop and compress passport photos and signatures to strict government portal specs (20KB - 50KB). 100% in-browser Canvas, zero network transmission."}
@@ -860,7 +882,14 @@ function HomeContent() {
             }}
           >
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
                 <div
                   style={{
                     width: "32px",
@@ -874,15 +903,36 @@ function HomeContent() {
                   }}
                   aria-hidden="true"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                   </svg>
                 </div>
-                <h3 style={{ fontSize: "1rem", fontWeight: 700, margin: 0, color: "var(--color-ink)" }}>
+                <h3
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: 700,
+                    margin: 0,
+                    color: "var(--color-ink)",
+                  }}
+                >
                   {locale === "hi" ? "जीवन-घटना समग्र यात्राएँ" : "Life Event Journeys"}
                 </h3>
               </div>
-              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: "0 0 1rem 0" }}>
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--color-content-secondary)",
+                  lineHeight: 1.5,
+                  margin: "0 0 1rem 0",
+                }}
+              >
                 {locale === "hi"
                   ? "नवजात शिशु, उच्च शिक्षा, असंगठित श्रमिक, व वरिष्ठ नागरिकों के लिए अनुक्रमिक सेवा मार्गदर्शिका।"
                   : "Multi-service dependency workflows with verified prerequisites: Newborn Child, College Graduate, Informal Worker, and Senior Citizen."}
@@ -919,7 +969,14 @@ function HomeContent() {
             }}
           >
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.75rem" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
                 <div
                   style={{
                     width: "32px",
@@ -933,15 +990,36 @@ function HomeContent() {
                   }}
                   aria-hidden="true"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 </div>
-                <h3 style={{ fontSize: "1rem", fontWeight: 700, margin: 0, color: "var(--color-ink)" }}>
+                <h3
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: 700,
+                    margin: 0,
+                    color: "var(--color-ink)",
+                  }}
+                >
                   {locale === "hi" ? "हेल्पलाइन एवं एंटी-स्कैम" : "Anti-Scam & Helplines"}
                 </h3>
               </div>
-              <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", lineHeight: 1.5, margin: "0 0 1rem 0" }}>
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--color-content-secondary)",
+                  lineHeight: 1.5,
+                  margin: "0 0 1rem 0",
+                }}
+              >
                 {locale === "hi"
                   ? "TRAI अधिकृत SMS हेडर सत्यापन, 1930 साइबर हेल्पलाइन, आधिकारिक सरकारी फीस व CSC दर चार्टर।"
                   : "TRAI SMS sender verification, 10-digit phishing detection, 1-tap emergency helplines (1930, 1915), and official fee calculators."}

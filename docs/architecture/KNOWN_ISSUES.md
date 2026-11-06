@@ -34,4 +34,3 @@ No defects may be hidden or untracked. All known limitations and bugs must be li
 | ------- | -------- | ----------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------- | ---------- |
 | TD-001  | Design   | Final design token values in `tokens.css` | Awaiting human decision on Palette (A/B/C) and Typography (1/2/3) | Update `tokens.css` once human approves ADR-0002/0003 | M0 Closure |
 | TD-002  | Testing  | Browser-based E2E Playwright tests        | App shell UI will be built in M1                                  | Add Playwright journey tests in M1                    | M1         |
-

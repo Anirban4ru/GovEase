@@ -60,4 +60,3 @@ Per `Design System Specification` Section 8, chips across life areas and service
 | `no-credential-capture` | `NO CREDENTIAL CAPTURE` | Explicit privacy guarantee; user credentials, passwords, biometrics, or OTPs are never entered into or captured by this platform.                          |
 | `verified-road-links`   | `VERIFIED ROAD LINKS`   | Official Ministry of Road Transport and Highways (MoRTH) or State Transport Department verified navigation (replaces former draft "VERIFIED MORTH LINKS"). |
 | `state-municipal`       | `STATE & MUNICIPAL`     | Verified state-level or local civic administrative bodies.                                                                                                 |
-

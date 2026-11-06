@@ -1,19 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  calculateCivicFee,
-  FeeServiceType,
-  FeeCalculationResult,
-} from "../lib/fee-calculator";
+import { calculateCivicFee, FeeServiceType, FeeCalculationResult } from "../lib/fee-calculator";
 import { useTranslation } from "../context/I18nContext";
 
 export function CivicTariffCalculator() {
   const { locale } = useTranslation();
   const [serviceType, setServiceType] = useState<FeeServiceType>("DRIVING_LICENCE_RENEWAL");
   const [monthsExpired, setMonthsExpired] = useState<number>(0);
-  const [panMode, setPanMode] = useState<"PHYSICAL_INDIA" | "ELECTRONIC_PDF" | "PHYSICAL_INTERNATIONAL">("PHYSICAL_INDIA");
-  const [aadhaarType, setAadhaarType] = useState<"CHILD_MANDATORY_5_15" | "DEMOGRAPHIC" | "BIOMETRIC">("DEMOGRAPHIC");
+  const [panMode, setPanMode] = useState<
+    "PHYSICAL_INDIA" | "ELECTRONIC_PDF" | "PHYSICAL_INTERNATIONAL"
+  >("PHYSICAL_INDIA");
+  const [aadhaarType, setAadhaarType] = useState<
+    "CHILD_MANDATORY_5_15" | "DEMOGRAPHIC" | "BIOMETRIC"
+  >("DEMOGRAPHIC");
 
   const result: FeeCalculationResult = calculateCivicFee({
     serviceType,
@@ -70,7 +70,9 @@ export function CivicTariffCalculator() {
                 fontSize: "0.8125rem",
                 fontWeight: isActive ? 700 : 500,
                 border: "1px solid var(--color-border-default)",
-                backgroundColor: isActive ? "var(--color-brand-primary)" : "var(--color-surface-card)",
+                backgroundColor: isActive
+                  ? "var(--color-brand-primary)"
+                  : "var(--color-surface-card)",
                 color: isActive ? "var(--color-content-inverse)" : "var(--color-content-primary)",
                 cursor: "pointer",
               }}
@@ -106,8 +108,8 @@ export function CivicTariffCalculator() {
               {monthsExpired === 0
                 ? "Expiring this month"
                 : monthsExpired > 0
-                ? `${monthsExpired} month(s) expired`
-                : `${Math.abs(monthsExpired)} month(s) before expiry`}
+                  ? `${monthsExpired} month(s) expired`
+                  : `${Math.abs(monthsExpired)} month(s) before expiry`}
             </span>
           </label>
           <input
@@ -158,7 +160,8 @@ export function CivicTariffCalculator() {
               fontSize: "0.8125rem",
               border: "1px solid var(--color-border-default)",
               borderRadius: "var(--radius-xs, 4px)",
-              backgroundColor: panMode === "PHYSICAL_INDIA" ? "var(--color-brand-primary)" : "transparent",
+              backgroundColor:
+                panMode === "PHYSICAL_INDIA" ? "var(--color-brand-primary)" : "transparent",
               color: panMode === "PHYSICAL_INDIA" ? "#fff" : "var(--color-content-primary)",
               cursor: "pointer",
             }}
@@ -173,7 +176,8 @@ export function CivicTariffCalculator() {
               fontSize: "0.8125rem",
               border: "1px solid var(--color-border-default)",
               borderRadius: "var(--radius-xs, 4px)",
-              backgroundColor: panMode === "ELECTRONIC_PDF" ? "var(--color-brand-primary)" : "transparent",
+              backgroundColor:
+                panMode === "ELECTRONIC_PDF" ? "var(--color-brand-primary)" : "transparent",
               color: panMode === "ELECTRONIC_PDF" ? "#fff" : "var(--color-content-primary)",
               cursor: "pointer",
             }}
@@ -188,7 +192,8 @@ export function CivicTariffCalculator() {
               fontSize: "0.8125rem",
               border: "1px solid var(--color-border-default)",
               borderRadius: "var(--radius-xs, 4px)",
-              backgroundColor: panMode === "PHYSICAL_INTERNATIONAL" ? "var(--color-brand-primary)" : "transparent",
+              backgroundColor:
+                panMode === "PHYSICAL_INTERNATIONAL" ? "var(--color-brand-primary)" : "transparent",
               color: panMode === "PHYSICAL_INTERNATIONAL" ? "#fff" : "var(--color-content-primary)",
               cursor: "pointer",
             }}
@@ -219,8 +224,12 @@ export function CivicTariffCalculator() {
               fontSize: "0.8125rem",
               border: "1px solid var(--color-border-default)",
               borderRadius: "var(--radius-xs, 4px)",
-              backgroundColor: aadhaarType === "CHILD_MANDATORY_5_15" ? "var(--color-brand-primary)" : "transparent",
-              color: aadhaarType === "CHILD_MANDATORY_5_15" ? "#fff" : "var(--color-content-primary)",
+              backgroundColor:
+                aadhaarType === "CHILD_MANDATORY_5_15"
+                  ? "var(--color-brand-primary)"
+                  : "transparent",
+              color:
+                aadhaarType === "CHILD_MANDATORY_5_15" ? "#fff" : "var(--color-content-primary)",
               cursor: "pointer",
             }}
           >
@@ -234,7 +243,8 @@ export function CivicTariffCalculator() {
               fontSize: "0.8125rem",
               border: "1px solid var(--color-border-default)",
               borderRadius: "var(--radius-xs, 4px)",
-              backgroundColor: aadhaarType === "DEMOGRAPHIC" ? "var(--color-brand-primary)" : "transparent",
+              backgroundColor:
+                aadhaarType === "DEMOGRAPHIC" ? "var(--color-brand-primary)" : "transparent",
               color: aadhaarType === "DEMOGRAPHIC" ? "#fff" : "var(--color-content-primary)",
               cursor: "pointer",
             }}
@@ -249,7 +259,8 @@ export function CivicTariffCalculator() {
               fontSize: "0.8125rem",
               border: "1px solid var(--color-border-default)",
               borderRadius: "var(--radius-xs, 4px)",
-              backgroundColor: aadhaarType === "BIOMETRIC" ? "var(--color-brand-primary)" : "transparent",
+              backgroundColor:
+                aadhaarType === "BIOMETRIC" ? "var(--color-brand-primary)" : "transparent",
               color: aadhaarType === "BIOMETRIC" ? "#fff" : "var(--color-content-primary)",
               cursor: "pointer",
             }}
@@ -268,12 +279,35 @@ export function CivicTariffCalculator() {
           backgroundColor: "var(--color-surface-card)",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1rem" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "baseline",
+            flexWrap: "wrap",
+            gap: "0.5rem",
+            marginBottom: "1rem",
+          }}
+        >
           <div>
-            <div style={{ fontSize: "0.75rem", color: "var(--color-content-tertiary)", textTransform: "uppercase", fontWeight: 700 }}>
+            <div
+              style={{
+                fontSize: "0.75rem",
+                color: "var(--color-content-tertiary)",
+                textTransform: "uppercase",
+                fontWeight: 700,
+              }}
+            >
               Statutory Government Fee
             </div>
-            <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-brand-primary)", fontFamily: "var(--font-mono, monospace)" }}>
+            <div
+              style={{
+                fontSize: "1.75rem",
+                fontWeight: 800,
+                color: "var(--color-brand-primary)",
+                fontFamily: "var(--font-mono, monospace)",
+              }}
+            >
               ₹{result.statutoryTotalInr}
             </div>
           </div>
@@ -282,7 +316,14 @@ export function CivicTariffCalculator() {
             <div style={{ fontSize: "0.75rem", color: "#dc2626", fontWeight: 600 }}>
               Typical Tout / Agent Charge
             </div>
-            <div style={{ fontSize: "1.125rem", fontWeight: 600, color: "var(--color-content-secondary)", textDecoration: "line-through" }}>
+            <div
+              style={{
+                fontSize: "1.125rem",
+                fontWeight: 600,
+                color: "var(--color-content-secondary)",
+                textDecoration: "line-through",
+              }}
+            >
               ₹{result.marketToutEstimateInr}
             </div>
             <div style={{ fontSize: "0.75rem", color: "#14532d", fontWeight: 700 }}>
@@ -297,21 +338,45 @@ export function CivicTariffCalculator() {
               padding: "0.75rem",
               borderRadius: "var(--radius-xs, 4px)",
               border: `1px solid ${result.gracePeriodNotice.statusBadge === "RETEST_MANDATORY" ? "#dc2626" : "#15803d"}`,
-              backgroundColor: result.gracePeriodNotice.statusBadge === "RETEST_MANDATORY" ? "rgba(220, 38, 38, 0.05)" : "#f0fdf4",
+              backgroundColor:
+                result.gracePeriodNotice.statusBadge === "RETEST_MANDATORY"
+                  ? "rgba(220, 38, 38, 0.05)"
+                  : "#f0fdf4",
               marginBottom: "1rem",
             }}
           >
-            <strong style={{ fontSize: "0.875rem", color: result.gracePeriodNotice.statusBadge === "RETEST_MANDATORY" ? "#991b1b" : "#14532d" }}>
+            <strong
+              style={{
+                fontSize: "0.875rem",
+                color:
+                  result.gracePeriodNotice.statusBadge === "RETEST_MANDATORY"
+                    ? "#991b1b"
+                    : "#14532d",
+              }}
+            >
               {result.gracePeriodNotice.message}
             </strong>
-            <p style={{ fontSize: "0.8125rem", margin: "0.25rem 0 0 0", color: "var(--color-content-secondary)" }}>
+            <p
+              style={{
+                fontSize: "0.8125rem",
+                margin: "0.25rem 0 0 0",
+                color: "var(--color-content-secondary)",
+              }}
+            >
               {result.gracePeriodNotice.actionAdvice}
             </p>
           </div>
         )}
 
         <div style={{ marginBottom: "1rem" }}>
-          <div style={{ fontSize: "0.8125rem", fontWeight: 700, color: "var(--color-content-primary)", marginBottom: "0.5rem" }}>
+          <div
+            style={{
+              fontSize: "0.8125rem",
+              fontWeight: 700,
+              color: "var(--color-content-primary)",
+              marginBottom: "0.5rem",
+            }}
+          >
             Official Statutory Fee Breakdown:
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.375rem" }}>
@@ -329,11 +394,22 @@ export function CivicTariffCalculator() {
               >
                 <div>
                   <span style={{ color: "var(--color-content-primary)" }}>{item.label}</span>
-                  <span style={{ display: "block", fontSize: "0.6875rem", color: "var(--color-content-tertiary)" }}>
+                  <span
+                    style={{
+                      display: "block",
+                      fontSize: "0.6875rem",
+                      color: "var(--color-content-tertiary)",
+                    }}
+                  >
                     Rule: {item.statutoryRule}
                   </span>
                 </div>
-                <strong style={{ fontFamily: "var(--font-mono, monospace)", color: "var(--color-content-primary)" }}>
+                <strong
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    color: "var(--color-content-primary)",
+                  }}
+                >
                   ₹{item.amountInr}
                 </strong>
               </div>
@@ -352,7 +428,13 @@ export function CivicTariffCalculator() {
             gap: "0.5rem",
           }}
         >
-          <div style={{ fontSize: "0.6875rem", color: "var(--color-content-tertiary)", maxWidth: "480px" }}>
+          <div
+            style={{
+              fontSize: "0.6875rem",
+              color: "var(--color-content-tertiary)",
+              maxWidth: "480px",
+            }}
+          >
             Statutory Authority: {result.legalReference}
           </div>
           <a

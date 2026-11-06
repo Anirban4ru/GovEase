@@ -26,12 +26,18 @@ export default function PrepStudioPage() {
           }}
         >
           <li>
-            <Link href="/" style={{ color: "var(--color-content-secondary)", textDecoration: "none" }}>
+            <Link
+              href="/"
+              style={{ color: "var(--color-content-secondary)", textDecoration: "none" }}
+            >
               Home
             </Link>
           </li>
           <li aria-hidden="true">/</li>
-          <li aria-current="page" style={{ fontWeight: 600, color: "var(--color-content-primary)" }}>
+          <li
+            aria-current="page"
+            style={{ fontWeight: 600, color: "var(--color-content-primary)" }}
+          >
             Document Prep Studio
           </li>
         </ol>
@@ -48,8 +54,17 @@ export default function PrepStudioPage() {
         >
           Civic Document & Photo Prep Studio
         </h1>
-        <p style={{ fontSize: "1.0625rem", color: "var(--color-content-secondary)", margin: 0, maxWidth: "760px" }}>
-          Avoid cyber-cafe extortion and application rejections. Calibrate your passport photos, signatures, and ID cards to exact portal KB dimensions directly inside your browser without uploading to any external server.
+        <p
+          style={{
+            fontSize: "1.0625rem",
+            color: "var(--color-content-secondary)",
+            margin: 0,
+            maxWidth: "760px",
+          }}
+        >
+          Avoid cyber-cafe extortion and application rejections. Calibrate your passport photos,
+          signatures, and ID cards to exact portal KB dimensions directly inside your browser
+          without uploading to any external server.
         </p>
       </div>
 
@@ -57,4 +72,3 @@ export default function PrepStudioPage() {
     </div>
   );
 }
-

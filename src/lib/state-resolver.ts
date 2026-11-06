@@ -28,7 +28,12 @@ export interface StatePortalLink {
 export const INDIAN_STATES: IndianState[] = [
   {
     code: "ALL",
-    name: { en: "All India (National Portals)", hi: "अखिल भारतीय (राष्ट्रीय पोर्टल)", bn: "সর্বভারতীয় (জাতীয় পোর্টাল)", ta: "அகில இந்திய (தேசிய போர்ட்டல்கள்)" },
+    name: {
+      en: "All India (National Portals)",
+      hi: "अखिल भारतीय (राष्ट्रीय पोर्टल)",
+      bn: "সর্বভারতীয় (জাতীয় পোর্টাল)",
+      ta: "அகில இந்திய (தேசிய போர்ட்டல்கள்)",
+    },
   },
   {
     code: "DL",
@@ -300,9 +305,11 @@ export function getStatePortalsForService(serviceId: string, stateCode = "ALL"):
 /**
  * Retrieves the display name of a state in the active language.
  */
-export function getStateDisplayName(stateCode: string, locale: "en" | "hi" | "bn" | "ta" = "en"): string {
+export function getStateDisplayName(
+  stateCode: string,
+  locale: "en" | "hi" | "bn" | "ta" = "en",
+): string {
   const match = INDIAN_STATES.find((s) => s.code === stateCode);
   if (!match) return stateCode;
   return match.name[locale] || match.name.en;
 }
-

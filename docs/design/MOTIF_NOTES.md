@@ -36,4 +36,3 @@ Per Section 0.3 and Section 1.5 of `Design System Specification`:
 - **Geometry:** Fine coordinate crosshairs ($+$) and dotted baseline guides spaced at $48\text{px}$ intervals.
 - **Symbolism:** Evokes the precision, dependability, and neutral orientation of an official survey map.
 - **Application:** Surrounds the 3D radial area system and service categorization containers.
-

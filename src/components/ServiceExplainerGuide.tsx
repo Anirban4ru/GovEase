@@ -326,9 +326,7 @@ export function ServiceExplainerGuide({ guide }: ServiceExplainerGuideProps) {
                     backgroundColor: "var(--color-ink-blue)",
                   }}
                 />
-                <span>
-                  {locale === "hi" ? "सक्रिय दृश्य वाचन" : "Active Read-Along Focus"}
-                </span>
+                <span>{locale === "hi" ? "सक्रिय दृश्य वाचन" : "Active Read-Along Focus"}</span>
               </span>
             )}
           </div>

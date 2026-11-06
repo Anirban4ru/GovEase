@@ -11,7 +11,8 @@ import {
 
 export function DocumentPrepStudio() {
   const { locale } = useTranslation();
-  const [selectedPreset, setSelectedPreset] = useState<keyof typeof CIVIC_PRESETS>("passport_photo");
+  const [selectedPreset, setSelectedPreset] =
+    useState<keyof typeof CIVIC_PRESETS>("passport_photo");
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [originalFile, setOriginalFile] = useState<File | null>(null);
   const [result, setResult] = useState<ProcessedDocumentResult | null>(null);
@@ -90,7 +91,9 @@ export function DocumentPrepStudio() {
       }}
     >
       <div style={{ marginBottom: "1.5rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.35rem" }}>
+        <div
+          style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.35rem" }}
+        >
           <h2
             style={{
               fontSize: "1.25rem",
@@ -122,7 +125,14 @@ export function DocumentPrepStudio() {
             100% In-Browser RAM
           </span>
         </div>
-        <p style={{ fontSize: "0.875rem", color: "var(--color-content-secondary)", margin: 0, lineHeight: 1.5 }}>
+        <p
+          style={{
+            fontSize: "0.875rem",
+            color: "var(--color-content-secondary)",
+            margin: 0,
+            lineHeight: 1.5,
+          }}
+        >
           {locale === "hi"
             ? "सरकारी पोर्टलों (UPSC, SSC, परिवहन, पासपोर्ट) के लिए फोटो व हस्ताक्षर को आवश्यक KB आकार में तुरंत संपीड़ित करें। आपकी कोई भी फोटो सर्वर पर नहीं भेजी जाती।"
             : "Instantly crop and compress photos, signatures, and ID cards to exact portal KB specifications. Zero bytes ever leave your device."}
@@ -144,7 +154,13 @@ export function DocumentPrepStudio() {
         >
           {locale === "hi" ? "सरकारी मानक प्रीसेट चुनें:" : "Select Government Portal Preset:"}
         </label>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0.75rem" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "0.75rem",
+          }}
+        >
           {(Object.keys(CIVIC_PRESETS) as (keyof typeof CIVIC_PRESETS)[]).map((key) => {
             const p = CIVIC_PRESETS[key];
             const isSelected = selectedPreset === key;
@@ -158,8 +174,12 @@ export function DocumentPrepStudio() {
                   padding: "0.85rem 1rem",
                   borderRadius: "var(--radius-sm)",
                   border: "1px solid",
-                  borderColor: isSelected ? "var(--color-brand-primary)" : "var(--color-border-default)",
-                  backgroundColor: isSelected ? "var(--color-brand-primary-subtle)" : "var(--color-surface-page)",
+                  borderColor: isSelected
+                    ? "var(--color-brand-primary)"
+                    : "var(--color-border-default)",
+                  backgroundColor: isSelected
+                    ? "var(--color-brand-primary-subtle)"
+                    : "var(--color-surface-page)",
                   color: "var(--color-content-primary)",
                   cursor: "pointer",
                   minHeight: "var(--min-touch-target)",
@@ -169,7 +189,13 @@ export function DocumentPrepStudio() {
                 <div style={{ fontWeight: 700, fontSize: "0.875rem", marginBottom: "0.25rem" }}>
                   {p.name[locale] || p.name.en}
                 </div>
-                <div style={{ fontSize: "0.75rem", color: "var(--color-content-secondary)", lineHeight: 1.4 }}>
+                <div
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "var(--color-content-secondary)",
+                    lineHeight: 1.4,
+                  }}
+                >
                   {p.description[locale] || p.description.en}
                 </div>
               </button>
@@ -215,7 +241,14 @@ export function DocumentPrepStudio() {
           <circle cx="8.5" cy="8.5" r="1.5" />
           <polyline points="21 15 16 10 5 21" />
         </svg>
-        <div style={{ fontWeight: 700, fontSize: "0.9375rem", color: "var(--color-content-primary)", marginBottom: "0.25rem" }}>
+        <div
+          style={{
+            fontWeight: 700,
+            fontSize: "0.9375rem",
+            color: "var(--color-content-primary)",
+            marginBottom: "0.25rem",
+          }}
+        >
           {originalFile
             ? originalFile.name
             : locale === "hi"
@@ -231,8 +264,17 @@ export function DocumentPrepStudio() {
 
       {/* Processing Status */}
       {isProcessing && (
-        <div style={{ textAlign: "center", padding: "1rem", color: "var(--color-brand-primary)", fontWeight: 600 }}>
-          {locale === "hi" ? "छवि संपीड़ित और पुनः आकार दी जा रही है..." : "Compressing and calibrating exact byte size..."}
+        <div
+          style={{
+            textAlign: "center",
+            padding: "1rem",
+            color: "var(--color-brand-primary)",
+            fontWeight: 600,
+          }}
+        >
+          {locale === "hi"
+            ? "छवि संपीड़ित और पुनः आकार दी जा रही है..."
+            : "Compressing and calibrating exact byte size..."}
         </div>
       )}
 
@@ -266,7 +308,15 @@ export function DocumentPrepStudio() {
             gap: "1.25rem",
           }}
         >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "0.5rem",
+            }}
+          >
             <span
               style={{
                 display: "inline-flex",
@@ -281,7 +331,10 @@ export function DocumentPrepStudio() {
                 borderRadius: "var(--radius-xs)",
               }}
             >
-              ✓ {locale === "hi" ? "आधिकारिक पोर्टल विनिर्देशों के अनुरूप" : "Compliant with Official Portal Specifications"}
+              ✓{" "}
+              {locale === "hi"
+                ? "आधिकारिक पोर्टल विनिर्देशों के अनुरूप"
+                : "Compliant with Official Portal Specifications"}
             </span>
             <span style={{ fontSize: "0.8125rem", color: "var(--color-content-tertiary)" }}>
               Quality: {result.qualityUsed}% • {result.width} × {result.height} px
@@ -304,6 +357,7 @@ export function DocumentPrepStudio() {
                 flexShrink: 0,
               }}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={result.dataUrl}
                 alt="Prepared Document Preview"
@@ -313,12 +367,21 @@ export function DocumentPrepStudio() {
 
             {/* Metrics Breakdown */}
             <div style={{ flex: 1, minWidth: "200px" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem", fontSize: "0.8125rem" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "0.75rem",
+                  fontSize: "0.8125rem",
+                }}
+              >
                 <div>
                   <div style={{ color: "var(--color-content-tertiary)", marginBottom: "0.2rem" }}>
                     {locale === "hi" ? "मूल फ़ाइल आकार:" : "Original File Size:"}
                   </div>
-                  <div style={{ fontWeight: 600 }}>{originalFile ? formatBytes(originalFile.size) : "-"}</div>
+                  <div style={{ fontWeight: 600 }}>
+                    {originalFile ? formatBytes(originalFile.size) : "-"}
+                  </div>
                 </div>
                 <div>
                   <div style={{ color: "var(--color-content-tertiary)", marginBottom: "0.2rem" }}>
@@ -365,7 +428,14 @@ export function DocumentPrepStudio() {
                 minHeight: "var(--min-touch-target)",
               }}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+              >
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
@@ -395,4 +465,3 @@ export function DocumentPrepStudio() {
     </div>
   );
 }
-

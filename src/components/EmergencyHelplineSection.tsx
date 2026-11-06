@@ -17,7 +17,9 @@ export function EmergencyHelplineSection() {
       }}
     >
       <div style={{ marginBottom: "1.25rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.25rem" }}>
+        <div
+          style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.25rem" }}
+        >
           <span
             style={{
               display: "inline-block",
@@ -56,8 +58,10 @@ export function EmergencyHelplineSection() {
         }}
       >
         {CIVIC_HELPLINES.map((item: CivicHelpline) => {
-          const serviceTitle = item.serviceName[locale as "en" | "hi" | "bn" | "ta"] || item.serviceName.en;
-          const purpose = item.emergencyPurpose[locale as "en" | "hi" | "bn" | "ta"] || item.emergencyPurpose.en;
+          const serviceTitle =
+            item.serviceName[locale as "en" | "hi" | "bn" | "ta"] || item.serviceName.en;
+          const purpose =
+            item.emergencyPurpose[locale as "en" | "hi" | "bn" | "ta"] || item.emergencyPurpose.en;
 
           return (
             <div
@@ -73,7 +77,14 @@ export function EmergencyHelplineSection() {
               }}
             >
               <div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   <span
                     style={{
                       fontFamily: "var(--font-mono, monospace)",
@@ -107,10 +118,23 @@ export function EmergencyHelplineSection() {
                 >
                   {serviceTitle}
                 </h3>
-                <div style={{ fontSize: "0.75rem", color: "var(--color-content-tertiary)", marginBottom: "0.5rem" }}>
+                <div
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "var(--color-content-tertiary)",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   {item.authority}
                 </div>
-                <p style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)", margin: "0 0 1rem 0", lineHeight: 1.45 }}>
+                <p
+                  style={{
+                    fontSize: "0.8125rem",
+                    color: "var(--color-content-secondary)",
+                    margin: "0 0 1rem 0",
+                    lineHeight: 1.45,
+                  }}
+                >
                   {purpose}
                 </p>
               </div>
@@ -132,7 +156,15 @@ export function EmergencyHelplineSection() {
                   minHeight: "36px",
                 }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
                 {locale === "hi" ? `डायल करें ${item.number}` : `Call ${item.number}`}

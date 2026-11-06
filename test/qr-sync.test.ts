@@ -21,4 +21,3 @@ describe("Instant QR Code & URL State Cross-Device Sync", () => {
     expect(svg).toContain("<svg");
   });
 });
-

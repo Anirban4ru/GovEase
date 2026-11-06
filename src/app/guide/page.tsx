@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useTranslation, Locale } from "../../context/I18nContext";
+import { useTranslation } from "../../context/I18nContext";
 import { usePresentationMode } from "../../context/ModeContext";
 import { useSavedServices } from "../../hooks/useSavedServices";
 import { EcosystemBadge } from "../../components/EcosystemBadge";
@@ -16,7 +16,7 @@ import {
 } from "../../lib/life-stage-engine";
 
 export default function LifeStageGuidePage() {
-  const { t, locale } = useTranslation();
+  const { locale } = useTranslation();
   const { mode } = usePresentationMode();
   const { isSaved, toggleSave } = useSavedServices();
 

@@ -8,7 +8,8 @@
  * - Ministry of Labour & Employment (e-Shram zero-fee charter)
  */
 
-export type FeeServiceType = "DRIVING_LICENCE_RENEWAL" | "PAN_REPRINT" | "AADHAAR_UPDATE" | "E_SHRAM_REGISTRATION";
+export type FeeServiceType =
+  "DRIVING_LICENCE_RENEWAL" | "PAN_REPRINT" | "AADHAAR_UPDATE" | "E_SHRAM_REGISTRATION";
 
 export interface FeeCalculationInput {
   serviceType: FeeServiceType;
@@ -52,12 +53,21 @@ export function calculateCivicFee(input: FeeCalculationInput): FeeCalculationRes
       const baseRenewal = 200;
       const smartCardFee = 200;
       const items: FeeBreakdownItem[] = [
-        { label: "Driving Licence Renewal Fee", amountInr: baseRenewal, statutoryRule: "CMVR 1989 Rule 32, Item 9" },
-        { label: "Form 7 Smart Card / Form Fee", amountInr: smartCardFee, statutoryRule: "Rule 32 (Issue of Licence in Form 7)" },
+        {
+          label: "Driving Licence Renewal Fee",
+          amountInr: baseRenewal,
+          statutoryRule: "CMVR 1989 Rule 32, Item 9",
+        },
+        {
+          label: "Form 7 Smart Card / Form Fee",
+          amountInr: smartCardFee,
+          statutoryRule: "Rule 32 (Issue of Licence in Form 7)",
+        },
       ];
 
       let lateFee = 0;
-      let statusBadge: "WITHIN_GRACE" | "LATE_PENALTY_APPLIED" | "RETEST_MANDATORY" = "WITHIN_GRACE";
+      let statusBadge: "WITHIN_GRACE" | "LATE_PENALTY_APPLIED" | "RETEST_MANDATORY" =
+        "WITHIN_GRACE";
       let statusMessage = "Your licence is within the standard renewal or grace period.";
       let actionAdvice = "Apply directly on Parivahan Sarathi. No driving re-test is required.";
 
@@ -67,7 +77,8 @@ export function calculateCivicFee(input: FeeCalculationInput): FeeCalculationRes
         lateFee = yearsLate * 1000;
         statusBadge = "RETEST_MANDATORY";
         statusMessage = `Licence expired over 1 year ago (${Math.floor(months / 12)}y ${months % 12}m). Late penalty: ₹${lateFee}.`;
-        actionAdvice = "Under Section 15(4) of MV Act, a driving test re-test is mandatory before renewal.";
+        actionAdvice =
+          "Under Section 15(4) of MV Act, a driving test re-test is mandatory before renewal.";
         items.push({
           label: `Late Renewal Penalty (${yearsLate} year/part after grace period)`,
           amountInr: lateFee,
@@ -98,7 +109,8 @@ export function calculateCivicFee(input: FeeCalculationInput): FeeCalculationRes
           message: statusMessage,
           actionAdvice,
         },
-        legalReference: "Motor Vehicles (Amendment) Act 2019, Section 15 read with Central Motor Vehicles Rules 1989 Rule 32",
+        legalReference:
+          "Motor Vehicles (Amendment) Act 2019, Section 15 read with Central Motor Vehicles Rules 1989 Rule 32",
         officialPortalUrl: "https://sarathi.parivahan.gov.in",
       };
     }
@@ -148,7 +160,8 @@ export function calculateCivicFee(input: FeeCalculationInput): FeeCalculationRes
         label = "Biometric Update with/without Demographic Update (Fingerprint, Iris, Photo)";
       }
 
-      const toutEstimate = type === "CHILD_MANDATORY_5_15" ? 200 : type === "DEMOGRAPHIC" ? 250 : 350;
+      const toutEstimate =
+        type === "CHILD_MANDATORY_5_15" ? 200 : type === "DEMOGRAPHIC" ? 250 : 350;
 
       return {
         serviceName: "Aadhaar Information Update (UIDAI / ASK Kendra)",
@@ -159,10 +172,14 @@ export function calculateCivicFee(input: FeeCalculationInput): FeeCalculationRes
           {
             label,
             amountInr: fee,
-            statutoryRule: fee === 0 ? "UIDAI Circular: Mandatory Child Biometric Update is 100% Free" : "UIDAI Gazette Notification on Aadhaar Enrolment & Update Regulations",
+            statutoryRule:
+              fee === 0
+                ? "UIDAI Circular: Mandatory Child Biometric Update is 100% Free"
+                : "UIDAI Gazette Notification on Aadhaar Enrolment & Update Regulations",
           },
         ],
-        legalReference: "Aadhaar (Targeted Delivery of Financial and Other Subsidies, Benefits and Services) Act 2016",
+        legalReference:
+          "Aadhaar (Targeted Delivery of Financial and Other Subsidies, Benefits and Services) Act 2016",
         officialPortalUrl: "https://myaadhaar.uidai.gov.in",
       };
     }
@@ -180,10 +197,10 @@ export function calculateCivicFee(input: FeeCalculationInput): FeeCalculationRes
             statutoryRule: "Ministry of Labour & Employment: 100% Free for Unorganised Workers",
           },
         ],
-        legalReference: "Unorganised Workers' Social Security Act, 2008 & Ministry of Labour Notifications",
+        legalReference:
+          "Unorganised Workers' Social Security Act, 2008 & Ministry of Labour Notifications",
         officialPortalUrl: "https://eshram.gov.in",
       };
     }
   }
 }
-

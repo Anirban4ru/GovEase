@@ -36,4 +36,3 @@ describe("Document Prep Studio Engine", () => {
     expect(formatBytes(51200)).toBe("50.0 KB");
   });
 });
-

@@ -27,15 +27,33 @@ export function SearchBar({
 
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const recognitionRef = useRef<any>(null);
+  const recognitionRef = useRef<{ stop: () => void } | null>(null);
 
   // Initialize Speech Recognition if supported
   const handleVoiceSearch = () => {
     if (typeof window === "undefined") return;
 
+    interface SpeechResultEvent {
+      results?: Array<Array<{ transcript?: string }>>;
+    }
+
+    interface BrowserSpeechRecognition {
+      continuous: boolean;
+      interimResults: boolean;
+      lang: string;
+      onstart: () => void;
+      onresult: (event: SpeechResultEvent) => void;
+      onerror: () => void;
+      onend: () => void;
+      start: () => void;
+      stop: () => void;
+    }
+
+    type SpeechCtor = new () => BrowserSpeechRecognition;
+
     const SpeechRecognition =
-      (window as unknown as { SpeechRecognition?: any }).SpeechRecognition ||
-      (window as unknown as { webkitSpeechRecognition?: any }).webkitSpeechRecognition;
+      (window as unknown as { SpeechRecognition?: SpeechCtor }).SpeechRecognition ||
+      (window as unknown as { webkitSpeechRecognition?: SpeechCtor }).webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
       alert(
@@ -63,7 +81,7 @@ export function SearchBar({
         setIsListening(true);
       };
 
-      recognition.onresult = (event: any) => {
+      recognition.onresult = (event: SpeechResultEvent) => {
         const transcript = event.results?.[0]?.[0]?.transcript || "";
         if (transcript.trim()) {
           setQuery(transcript);

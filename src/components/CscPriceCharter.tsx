@@ -102,10 +102,34 @@ export function CscPriceCharter() {
           }}
         >
           <thead>
-            <tr style={{ borderBottom: "2px solid var(--color-border-default)", backgroundColor: "var(--color-surface-card)" }}>
-              <th scope="col" style={{ padding: "0.625rem 0.75rem", color: "var(--color-content-primary)" }}>Civic Service</th>
-              <th scope="col" style={{ padding: "0.625rem 0.75rem", color: "var(--color-content-primary)", width: "160px" }}>Max Legal Fee</th>
-              <th scope="col" style={{ padding: "0.625rem 0.75rem", color: "var(--color-content-primary)" }}>Statutory Authority</th>
+            <tr
+              style={{
+                borderBottom: "2px solid var(--color-border-default)",
+                backgroundColor: "var(--color-surface-card)",
+              }}
+            >
+              <th
+                scope="col"
+                style={{ padding: "0.625rem 0.75rem", color: "var(--color-content-primary)" }}
+              >
+                Civic Service
+              </th>
+              <th
+                scope="col"
+                style={{
+                  padding: "0.625rem 0.75rem",
+                  color: "var(--color-content-primary)",
+                  width: "160px",
+                }}
+              >
+                Max Legal Fee
+              </th>
+              <th
+                scope="col"
+                style={{ padding: "0.625rem 0.75rem", color: "var(--color-content-primary)" }}
+              >
+                Statutory Authority
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -117,7 +141,13 @@ export function CscPriceCharter() {
                   backgroundColor: idx % 2 === 0 ? "transparent" : "rgba(0,0,0,0.015)",
                 }}
               >
-                <td style={{ padding: "0.625rem 0.75rem", fontWeight: 600, color: "var(--color-content-primary)" }}>
+                <td
+                  style={{
+                    padding: "0.625rem 0.75rem",
+                    fontWeight: 600,
+                    color: "var(--color-content-primary)",
+                  }}
+                >
                   {item.service}
                 </td>
                 <td style={{ padding: "0.625rem 0.75rem" }}>
@@ -136,7 +166,13 @@ export function CscPriceCharter() {
                     {item.statutoryMaxFee}
                   </span>
                 </td>
-                <td style={{ padding: "0.625rem 0.75rem", color: "var(--color-content-secondary)", fontSize: "0.75rem" }}>
+                <td
+                  style={{
+                    padding: "0.625rem 0.75rem",
+                    color: "var(--color-content-secondary)",
+                    fontSize: "0.75rem",
+                  }}
+                >
                   {item.legalAuthority}
                 </td>
               </tr>
@@ -163,7 +199,8 @@ export function CscPriceCharter() {
             Is a local shop asking for excess money?
           </div>
           <div style={{ fontSize: "0.75rem", color: "var(--color-content-secondary)" }}>
-            Report overcharging to the National Consumer Helpline at <strong>1915</strong> or email grievance to support@csc.gov.in.
+            Report overcharging to the National Consumer Helpline at <strong>1915</strong> or email
+            grievance to support@csc.gov.in.
           </div>
         </div>
 

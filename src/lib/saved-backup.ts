@@ -65,7 +65,7 @@ export function parseAndValidateBackup(rawJson: string): ImportResult & { ids?: 
     parsed === null ||
     !("format" in parsed) ||
     !["govease-backup-v1", "unified-life-services-backup-v1"].includes(
-      String((parsed as { format: unknown }).format)
+      String((parsed as { format: unknown }).format),
     ) ||
     !("savedServiceIds" in parsed) ||
     !Array.isArray((parsed as { savedServiceIds: unknown }).savedServiceIds)
@@ -73,8 +73,7 @@ export function parseAndValidateBackup(rawJson: string): ImportResult & { ids?: 
     return {
       success: false,
       count: 0,
-      message:
-        "Invalid backup structure. The file must be a valid GovEase backup file.",
+      message: "Invalid backup structure. The file must be a valid GovEase backup file.",
       error: "INVALID_SCHEMA",
     };
   }

@@ -244,7 +244,7 @@ export function GoalPhrasedGrid() {
           gap: "1rem",
         }}
       >
-        {POPULAR_GOALS.map((goal, idx) => {
+        {POPULAR_GOALS.map((goal) => {
           const title = goal.titles[locale] || goal.titles.en;
           const hint = goal.hints[locale] || goal.hints.en;
 

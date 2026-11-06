@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { INDIAN_STATES, getStatePortalsForService, getStateDisplayName } from "../src/lib/state-resolver";
+import {
+  INDIAN_STATES,
+  getStatePortalsForService,
+  getStateDisplayName,
+} from "../src/lib/state-resolver";
 import { getAllServices } from "../src/lib/catalogue";
 
 describe("State & Union Territory Civic Resolver", () => {
@@ -62,4 +66,3 @@ describe("State & Union Territory Civic Resolver", () => {
     expect(getStateDisplayName("WB", "ta")).toBe("மேற்கு வங்கம்");
   });
 });
-

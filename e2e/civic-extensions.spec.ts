@@ -71,7 +71,9 @@ test.describe("Civic Capstone Zero-Cost Extensions", () => {
     await expect(page.locator('a[href="tel:1930"]')).toBeVisible();
 
     // Verify Anti-Scam Verifier
-    const verifyInput = page.locator('input[aria-label="SMS sender code or phone number to verify"]');
+    const verifyInput = page.locator(
+      'input[aria-label="SMS sender code or phone number to verify"]',
+    );
     await expect(verifyInput).toBeVisible();
 
     // Test preset button: AX-PARIVH
@@ -89,7 +91,9 @@ test.describe("Civic Capstone Zero-Cost Extensions", () => {
     await expect(page.locator("text=Physical Card Delivery (India) - ₹50")).toBeVisible();
 
     // Verify CSC Rate Schedule table
-    await expect(page.locator("text=Authorized CSC (Common Service Center) Statutory Rate Charter")).toBeVisible();
+    await expect(
+      page.locator("text=Authorized CSC (Common Service Center) Statutory Rate Charter"),
+    ).toBeVisible();
     await expect(page.locator("text=₹0 (100% Free)").first()).toBeVisible();
 
     // Run axe audit

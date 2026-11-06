@@ -9,7 +9,8 @@ import { QrSyncModal } from "../../components/QrSyncModal";
 
 export default function SavedPage() {
   const { locale } = useTranslation();
-  const { savedIds, removeSave, clearAll, exportBackup, importBackup, importIds } = useSavedServices();
+  const { savedIds, removeSave, clearAll, exportBackup, importBackup, importIds } =
+    useSavedServices();
 
   const [statusMessage, setStatusMessage] = useState<string>("");
   const [isConfirmingClear, setIsConfirmingClear] = useState<boolean>(false);
@@ -26,16 +27,21 @@ export default function SavedPage() {
     const params = new URLSearchParams(window.location.search);
     const syncParam = params.get("sync");
     if (syncParam) {
-      const incoming = syncParam.split(",").map((s) => s.trim()).filter(Boolean);
+      const incoming = syncParam
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
       const validCatalogueIds = new Set(allServices.map((s) => s.id));
       const validIncoming = incoming.filter((id) => validCatalogueIds.has(id));
       if (validIncoming.length > 0) {
-        importIds(validIncoming);
-        setStatusMessage(
-          locale === "hi"
-            ? `✓ क्यूआर कोड सिंक सफल: ${validIncoming.length} सेवा संदर्भ इस डिवाइस में आयात किए गए!`
-            : `✓ QR Sync Successful: ${validIncoming.length} service references cloned to this device!`
-        );
+        setTimeout(() => {
+          importIds(validIncoming);
+          setStatusMessage(
+            locale === "hi"
+              ? `✓ क्यूआर कोड सिंक सफल: ${validIncoming.length} सेवा संदर्भ इस डिवाइस में आयात किए गए!`
+              : `✓ QR Sync Successful: ${validIncoming.length} service references cloned to this device!`,
+          );
+        }, 0);
         window.history.replaceState({}, document.title, window.location.pathname);
       }
     }
@@ -456,183 +462,190 @@ export default function SavedPage() {
       ) : (
         <>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          {savedServices.map((service) => {
-            const ecosystemMeta = ECOSYSTEMS.find((e) => e.id === service.ecosystem);
-            const ecosystemTitle =
-              locale === "hi" && ecosystemMeta?.titleHi
-                ? ecosystemMeta.titleHi
-                : ecosystemMeta?.titleEn || service.ecosystem;
-            const title = locale === "hi" && service.title.hi ? service.title.hi : service.title.en;
-            const goal = locale === "hi" && service.goal.hi ? service.goal.hi : service.goal.en;
+            {savedServices.map((service) => {
+              const ecosystemMeta = ECOSYSTEMS.find((e) => e.id === service.ecosystem);
+              const ecosystemTitle =
+                locale === "hi" && ecosystemMeta?.titleHi
+                  ? ecosystemMeta.titleHi
+                  : ecosystemMeta?.titleEn || service.ecosystem;
+              const title =
+                locale === "hi" && service.title.hi ? service.title.hi : service.title.en;
+              const goal = locale === "hi" && service.goal.hi ? service.goal.hi : service.goal.en;
 
-            return (
-              <div
-                key={service.id}
-                className="print-card"
-                style={{
-                  backgroundColor: "var(--color-surface-page)",
-                  border: "1px solid var(--color-border-default)",
-                  borderRadius: "var(--radius-md)",
-                  padding: "1.25rem 1.5rem",
-                  boxShadow: "var(--shadow-sm)",
-                }}
-              >
+              return (
                 <div
+                  key={service.id}
+                  className="print-card"
                   style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
-                    flexWrap: "wrap",
-                    gap: "1rem",
+                    backgroundColor: "var(--color-surface-page)",
+                    border: "1px solid var(--color-border-default)",
+                    borderRadius: "var(--radius-md)",
+                    padding: "1.25rem 1.5rem",
+                    boxShadow: "var(--shadow-sm)",
                   }}
                 >
-                  <div style={{ flex: 1, minWidth: "260px" }}>
-                    <span
-                      style={{
-                        fontSize: "0.6875rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        backgroundColor: "var(--color-brand-primary-subtle)",
-                        color: "var(--color-brand-primary)",
-                        padding: "0.2rem 0.5rem",
-                        borderRadius: "var(--radius-xs)",
-                        display: "inline-block",
-                        marginBottom: "0.375rem",
-                      }}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "flex-start",
+                      flexWrap: "wrap",
+                      gap: "1rem",
+                    }}
+                  >
+                    <div style={{ flex: 1, minWidth: "260px" }}>
+                      <span
+                        style={{
+                          fontSize: "0.6875rem",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          backgroundColor: "var(--color-brand-primary-subtle)",
+                          color: "var(--color-brand-primary)",
+                          padding: "0.2rem 0.5rem",
+                          borderRadius: "var(--radius-xs)",
+                          display: "inline-block",
+                          marginBottom: "0.375rem",
+                        }}
+                      >
+                        {ecosystemTitle}
+                      </span>
+                      <h2
+                        style={{ fontSize: "1.125rem", fontWeight: 700, margin: "0 0 0.25rem 0" }}
+                      >
+                        <Link
+                          href={`/services/${service.id}`}
+                          style={{ color: "var(--color-content-primary)", textDecoration: "none" }}
+                        >
+                          {title}
+                        </Link>
+                      </h2>
+                      <p
+                        style={{
+                          fontSize: "0.875rem",
+                          color: "var(--color-content-secondary)",
+                          margin: 0,
+                        }}
+                      >
+                        {goal}
+                      </p>
+                    </div>
+
+                    <div
+                      className="no-print"
+                      style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
                     >
-                      {ecosystemTitle}
-                    </span>
-                    <h2 style={{ fontSize: "1.125rem", fontWeight: 700, margin: "0 0 0.25rem 0" }}>
                       <Link
                         href={`/services/${service.id}`}
-                        style={{ color: "var(--color-content-primary)", textDecoration: "none" }}
+                        style={{
+                          padding: "0.5rem 1rem",
+                          backgroundColor: "var(--color-brand-primary)",
+                          color: "var(--color-content-inverse)",
+                          borderRadius: "var(--radius-sm)",
+                          fontWeight: 600,
+                          fontSize: "0.8125rem",
+                          textDecoration: "none",
+                          minHeight: "var(--min-touch-target)",
+                          display: "inline-flex",
+                          alignItems: "center",
+                        }}
                       >
-                        {title}
+                        {locale === "hi" ? "विवरण देखें" : "View guide"}
                       </Link>
-                    </h2>
-                    <p
-                      style={{
-                        fontSize: "0.875rem",
-                        color: "var(--color-content-secondary)",
-                        margin: 0,
-                      }}
-                    >
-                      {goal}
-                    </p>
+
+                      <button
+                        type="button"
+                        onClick={() => removeSave(service.id)}
+                        aria-label={`Remove ${title} from saved items`}
+                        style={{
+                          padding: "0.5rem 0.75rem",
+                          backgroundColor: "transparent",
+                          color: "var(--color-content-tertiary)",
+                          border: "1px solid var(--color-border-default)",
+                          borderRadius: "var(--radius-sm)",
+                          fontWeight: 600,
+                          fontSize: "0.8125rem",
+                          cursor: "pointer",
+                          minHeight: "var(--min-touch-target)",
+                        }}
+                      >
+                        {locale === "hi" ? "हटाएं" : "Remove"}
+                      </button>
+                    </div>
                   </div>
 
+                  {/* Print-Only Structured Checklist Details */}
                   <div
-                    className="no-print"
-                    style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
+                    className="print-only"
+                    style={{
+                      marginTop: "1rem",
+                      paddingTop: "0.75rem",
+                      borderTop: "1px solid #eee",
+                      fontSize: "9pt",
+                    }}
                   >
-                    <Link
-                      href={`/services/${service.id}`}
-                      style={{
-                        padding: "0.5rem 1rem",
-                        backgroundColor: "var(--color-brand-primary)",
-                        color: "var(--color-content-inverse)",
-                        borderRadius: "var(--radius-sm)",
-                        fontWeight: 600,
-                        fontSize: "0.8125rem",
-                        textDecoration: "none",
-                        minHeight: "var(--min-touch-target)",
-                        display: "inline-flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      {locale === "hi" ? "विवरण देखें" : "View guide"}
-                    </Link>
-
-                    <button
-                      type="button"
-                      onClick={() => removeSave(service.id)}
-                      aria-label={`Remove ${title} from saved items`}
-                      style={{
-                        padding: "0.5rem 0.75rem",
-                        backgroundColor: "transparent",
-                        color: "var(--color-content-tertiary)",
-                        border: "1px solid var(--color-border-default)",
-                        borderRadius: "var(--radius-sm)",
-                        fontWeight: 600,
-                        fontSize: "0.8125rem",
-                        cursor: "pointer",
-                        minHeight: "var(--min-touch-target)",
-                      }}
-                    >
-                      {locale === "hi" ? "हटाएं" : "Remove"}
-                    </button>
+                    <p style={{ margin: "0 0 0.25rem 0" }}>
+                      <strong>Official Portal:</strong> {service.official_url}
+                    </p>
+                    <p style={{ margin: "0 0 0.25rem 0" }}>
+                      <strong>Provider:</strong> {service.provider.name} ({service.provider.type}{" "}
+                      level)
+                    </p>
+                    <p style={{ margin: "0 0 0.25rem 0" }}>
+                      <strong>Fee:</strong>{" "}
+                      {service.fees.is_fee_required ? service.fees.details : "Free of charge"}
+                    </p>
+                    <p style={{ margin: "0 0 0.25rem 0" }}>
+                      <strong>Last Verified:</strong> {service.verification.last_verified_on}
+                    </p>
+                    <div style={{ marginTop: "0.5rem" }}>
+                      <strong>Required Documents Checklist:</strong>
+                      <ul style={{ margin: "0.25rem 0 0 1.25rem", padding: 0 }}>
+                        {service.documents_required.map((doc: string, idx: number) => (
+                          <li key={idx}>[ ] {doc}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
+              );
+            })}
+          </div>
 
-                {/* Print-Only Structured Checklist Details */}
-                <div
-                  className="print-only"
-                  style={{
-                    marginTop: "1rem",
-                    paddingTop: "0.75rem",
-                    borderTop: "1px solid #eee",
-                    fontSize: "9pt",
-                  }}
-                >
-                  <p style={{ margin: "0 0 0.25rem 0" }}>
-                    <strong>Official Portal:</strong> {service.official_url}
-                  </p>
-                  <p style={{ margin: "0 0 0.25rem 0" }}>
-                    <strong>Provider:</strong> {service.provider.name} ({service.provider.type}{" "}
-                    level)
-                  </p>
-                  <p style={{ margin: "0 0 0.25rem 0" }}>
-                    <strong>Fee:</strong>{" "}
-                    {service.fees.is_fee_required ? service.fees.details : "Free of charge"}
-                  </p>
-                  <p style={{ margin: "0 0 0.25rem 0" }}>
-                    <strong>Last Verified:</strong> {service.verification.last_verified_on}
-                  </p>
-                  <div style={{ marginTop: "0.5rem" }}>
-                    <strong>Required Documents Checklist:</strong>
-                    <ul style={{ margin: "0.25rem 0 0 1.25rem", padding: 0 }}>
-                      {service.documents_required.map((doc: string, idx: number) => (
-                        <li key={idx}>[ ] {doc}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+          {/* Printable CSC Prep Pack Verification Sign-off & Anti-Exploitation Warning */}
+          <div
+            className="print-only"
+            style={{
+              marginTop: "2.5rem",
+              paddingTop: "1.25rem",
+              borderTop: "2px dashed #000",
+              fontSize: "9pt",
+              lineHeight: 1.6,
+            }}
+          >
+            <div style={{ fontWeight: 800, fontSize: "10pt", marginBottom: "0.25rem" }}>
+              CITIZEN PROTECTION & OFFICIAL FEE COMPLIANCE:
+            </div>
+            <p style={{ margin: "0 0 0.5rem 0" }}>
+              Common Service Centers (CSC), cyber-cafes, and kiosk operators are legally prohibited
+              from charging more than the government-mandated tariffs printed above. In case of
+              bribery, intermediary extortion, or overcharging, report immediately to the National
+              Consumer Helpline at <strong>1915</strong> or National Cybercrime Reporting Portal at{" "}
+              <strong>1930</strong>.
+            </p>
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "2rem" }}>
+              <div>
+                <span>Citizen Name: ___________________________</span>
               </div>
-            );
-          })}
-        </div>
-
-        {/* Printable CSC Prep Pack Verification Sign-off & Anti-Exploitation Warning */}
-        <div
-          className="print-only"
-          style={{
-            marginTop: "2.5rem",
-            paddingTop: "1.25rem",
-            borderTop: "2px dashed #000",
-            fontSize: "9pt",
-            lineHeight: 1.6,
-          }}
-        >
-          <div style={{ fontWeight: 800, fontSize: "10pt", marginBottom: "0.25rem" }}>
-            CITIZEN PROTECTION & OFFICIAL FEE COMPLIANCE:
-          </div>
-          <p style={{ margin: "0 0 0.5rem 0" }}>
-            Common Service Centers (CSC), cyber-cafes, and kiosk operators are legally prohibited from charging more than the government-mandated tariffs printed above. In case of bribery, intermediary extortion, or overcharging, report immediately to the National Consumer Helpline at <strong>1915</strong> or National Cybercrime Reporting Portal at <strong>1930</strong>.
-          </p>
-          <div style={{ display: "flex", justifyContent: "space-between", marginTop: "2rem" }}>
-            <div>
-              <span>Citizen Name: ___________________________</span>
-            </div>
-            <div>
-              <span>Signature / Verification: ___________________________</span>
-            </div>
-            <div>
-              <span>Date: ____ / ____ / 2026</span>
+              <div>
+                <span>Signature / Verification: ___________________________</span>
+              </div>
+              <div>
+                <span>Date: ____ / ____ / 2026</span>
+              </div>
             </div>
           </div>
-        </div>
-      </>
-    )}
+        </>
+      )}
 
       {/* Accessible Clear All Confirmation Modal */}
       {isConfirmingClear && (

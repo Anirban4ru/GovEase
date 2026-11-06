@@ -27,4 +27,3 @@ Per `Design System Specification` Section 2 & 3, the platform requires meaningfu
 
 - Preserves ₹0 runtime infrastructure cost and zero third-party tracking.
 - Guarantees instant load on 2G/3G/4G connections while delivering visual depth on modern devices.
-

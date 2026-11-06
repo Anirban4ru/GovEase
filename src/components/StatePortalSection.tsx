@@ -50,7 +50,14 @@ export function StatePortalSection({ serviceId, locale }: StatePortalSectionProp
         }}
       >
         <div>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.25rem" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              marginBottom: "0.25rem",
+            }}
+          >
             <h2
               id="state-resolver-heading"
               style={{

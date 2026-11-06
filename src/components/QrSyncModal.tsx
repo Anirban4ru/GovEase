@@ -12,15 +12,18 @@ interface QrSyncModalProps {
 
 export function QrSyncModal({ isOpen, onClose, savedIds, locale }: QrSyncModalProps) {
   const [svgMarkup, setSvgMarkup] = useState<string>("");
-  const [syncUrl, setSyncUrl] = useState<string>("");
   const [copied, setCopied] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  const syncUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/saved?sync=${savedIds.join(",")}`
+      : "";
 
   useEffect(() => {
     if (!isOpen || typeof window === "undefined") return;
 
     const url = `${window.location.origin}/saved?sync=${savedIds.join(",")}`;
-    setSyncUrl(url);
 
     QRCode.toString(url, {
       type: "svg",
@@ -90,7 +93,14 @@ export function QrSyncModal({ isOpen, onClose, savedIds, locale }: QrSyncModalPr
           color: "var(--color-content-primary)",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            marginBottom: "1rem",
+          }}
+        >
           <h2 id="qr-sync-title" style={{ fontSize: "1.25rem", fontWeight: 700, margin: 0 }}>
             {locale === "hi"
               ? "मोबाइल में स्थानांतरित करें (QR कोड)"
@@ -118,7 +128,14 @@ export function QrSyncModal({ isOpen, onClose, savedIds, locale }: QrSyncModalPr
           </button>
         </div>
 
-        <p style={{ fontSize: "0.875rem", color: "var(--color-content-secondary)", lineHeight: 1.5, marginBottom: "1.25rem" }}>
+        <p
+          style={{
+            fontSize: "0.875rem",
+            color: "var(--color-content-secondary)",
+            lineHeight: 1.5,
+            marginBottom: "1.25rem",
+          }}
+        >
           {locale === "hi"
             ? "सरकारी कार्यालय या जन सेवा केंद्र जाने से पहले अपने फोन के कैमरे से इस कोड को स्कैन करें। आपके सहेजे गए दस्तावेज़ और चेकलिस्ट तुरंत आपके फोन में खुल जाएंगे।"
             : "Scan this QR code with your smartphone camera to instantly access your saved services and preparation checklist on your phone without creating an account."}
@@ -139,7 +156,14 @@ export function QrSyncModal({ isOpen, onClose, savedIds, locale }: QrSyncModalPr
           dangerouslySetInnerHTML={{ __html: svgMarkup }}
         />
 
-        <div style={{ fontSize: "0.8125rem", color: "var(--color-content-tertiary)", textAlign: "center", marginBottom: "1.25rem" }}>
+        <div
+          style={{
+            fontSize: "0.8125rem",
+            color: "var(--color-content-tertiary)",
+            textAlign: "center",
+            marginBottom: "1.25rem",
+          }}
+        >
           {locale === "hi"
             ? `शून्य डेटा शेयरिंग • ${savedIds.length} सेवा संदर्भ एन्कोडेड हैं`
             : `100% Zero-Knowledge • ${savedIds.length} service references encoded in URL`}
@@ -163,8 +187,12 @@ export function QrSyncModal({ isOpen, onClose, savedIds, locale }: QrSyncModalPr
             }}
           >
             {copied
-              ? (locale === "hi" ? "✓ लिंक कॉपी हो गया!" : "✓ Link Copied!")
-              : (locale === "hi" ? "सिंक लिंक कॉपी करें" : "Copy Sync Link")}
+              ? locale === "hi"
+                ? "✓ लिंक कॉपी हो गया!"
+                : "✓ Link Copied!"
+              : locale === "hi"
+                ? "सिंक लिंक कॉपी करें"
+                : "Copy Sync Link"}
           </button>
           <button
             type="button"
@@ -187,4 +215,3 @@ export function QrSyncModal({ isOpen, onClose, savedIds, locale }: QrSyncModalPr
     </div>
   );
 }
-

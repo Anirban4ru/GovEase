@@ -239,7 +239,8 @@ export const LIFE_EVENT_JOURNEYS: LifeEventJourney[] = [
       bn: "কৃষি শ্রমিক, ডেলিভারি কর্মী ও পরিযায়ী শ্রমিকদের জন্য রাষ্ট্রীয় নিরাপত্তা নিশ্চিত করার প্রক্রিয়া।",
       ta: "விவசாயிகள், டெலிவரி தொழிலாளர்கள் மற்றும் அமைப்புசாரா பணியாளர்களுக்கான பாதுகாப்பு வரிசை.",
     },
-    targetCitizens: "Unorganised workers, gig workers, street vendors, and migrant laborers aged 16 to 59",
+    targetCitizens:
+      "Unorganised workers, gig workers, street vendors, and migrant laborers aged 16 to 59",
     steps: [
       {
         sequence: 1,
@@ -371,4 +372,3 @@ export const LIFE_EVENT_JOURNEYS: LifeEventJourney[] = [
     ],
   },
 ];
-

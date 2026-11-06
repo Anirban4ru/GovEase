@@ -4,8 +4,6 @@ import {
   generateCscPrepPack,
   LIFE_STAGE_OPTIONS,
   HOUSEHOLD_NEED_OPTIONS,
-  LifeStageId,
-  HouseholdNeedId,
 } from "../src/lib/life-stage-engine";
 
 describe("Milestone M10 - Citizen Life-Stage Navigator & Recommendation Engine", () => {

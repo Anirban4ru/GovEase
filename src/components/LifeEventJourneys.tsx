@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "../context/I18nContext";
 import { LIFE_EVENT_JOURNEYS } from "../lib/life-event-bundles";
@@ -10,18 +10,15 @@ const STORAGE_KEY = "govease_journey_completed_steps";
 export function LifeEventJourneys() {
   const { locale } = useTranslation();
   const [activeJourneyId, setActiveJourneyId] = useState<string>("newborn-arrival");
-  const [completedSteps, setCompletedSteps] = useState<Record<string, boolean>>({});
-
-  useEffect(() => {
+  const [completedSteps, setCompletedSteps] = useState<Record<string, boolean>>(() => {
+    if (typeof window === "undefined") return {};
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setCompletedSteps(JSON.parse(stored));
-      }
+      return stored ? JSON.parse(stored) : {};
     } catch {
-      // localStorage disabled / private browsing
+      return {};
     }
-  }, []);
+  });
 
   const toggleStep = (stepKey: string) => {
     setCompletedSteps((prev) => {
@@ -55,7 +52,9 @@ export function LifeEventJourneys() {
       }}
     >
       <div style={{ marginBottom: "1.5rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.25rem" }}>
+        <div
+          style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.25rem" }}
+        >
           <h2
             style={{
               fontSize: "1.25rem",
@@ -86,7 +85,14 @@ export function LifeEventJourneys() {
             Multi-Service Pathways
           </span>
         </div>
-        <p style={{ fontSize: "0.875rem", color: "var(--color-content-secondary)", margin: 0, lineHeight: 1.5 }}>
+        <p
+          style={{
+            fontSize: "0.875rem",
+            color: "var(--color-content-secondary)",
+            margin: 0,
+            lineHeight: 1.5,
+          }}
+        >
           {locale === "hi"
             ? "अलग-अलग सेवाओं को खोजने के बजाय, जीवन की प्रमुख घटनाओं के अनुसार क्रमबद्ध दस्तावेज़ प्रक्रिया का पालन करें।"
             : "Instead of navigating single services in silos, follow integrated end-to-end dependency pathways."}
@@ -123,8 +129,12 @@ export function LifeEventJourneys() {
                 padding: "0.6rem 1rem",
                 borderRadius: "var(--radius-sm)",
                 border: "1px solid",
-                borderColor: isSelected ? "var(--color-brand-primary)" : "var(--color-border-default)",
-                backgroundColor: isSelected ? "var(--color-brand-primary)" : "var(--color-surface-page)",
+                borderColor: isSelected
+                  ? "var(--color-brand-primary)"
+                  : "var(--color-border-default)",
+                backgroundColor: isSelected
+                  ? "var(--color-brand-primary)"
+                  : "var(--color-surface-page)",
                 color: isSelected ? "#ffffff" : "var(--color-content-secondary)",
                 fontSize: "0.875rem",
                 fontWeight: 600,
@@ -152,12 +162,34 @@ export function LifeEventJourneys() {
               marginBottom: "1.5rem",
             }}
           >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.75rem" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                flexWrap: "wrap",
+                gap: "0.5rem",
+                marginBottom: "0.75rem",
+              }}
+            >
               <div>
-                <h3 style={{ fontSize: "1.125rem", fontWeight: 700, margin: "0 0 0.25rem 0", color: "var(--color-content-primary)" }}>
+                <h3
+                  style={{
+                    fontSize: "1.125rem",
+                    fontWeight: 700,
+                    margin: "0 0 0.25rem 0",
+                    color: "var(--color-content-primary)",
+                  }}
+                >
                   {currentJourney.title[locale] || currentJourney.title.en}
                 </h3>
-                <p style={{ fontSize: "0.875rem", color: "var(--color-content-secondary)", margin: 0 }}>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    color: "var(--color-content-secondary)",
+                    margin: 0,
+                  }}
+                >
                   {currentJourney.overview[locale] || currentJourney.overview.en}
                 </p>
               </div>
@@ -195,13 +227,21 @@ export function LifeEventJourneys() {
                   style={{
                     height: "100%",
                     width: `${progressPercent}%`,
-                    backgroundColor: progressPercent === 100 ? "#16a34a" : "var(--color-brand-primary)",
+                    backgroundColor:
+                      progressPercent === 100 ? "#16a34a" : "var(--color-brand-primary)",
                     transition: "width 200ms ease",
                   }}
                 />
               </div>
-              <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--color-content-secondary)" }}>
-                {completedCount} / {currentJourney.steps.length} Steps Completed ({progressPercent}%)
+              <span
+                style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  color: "var(--color-content-secondary)",
+                }}
+              >
+                {completedCount} / {currentJourney.steps.length} Steps Completed ({progressPercent}
+                %)
               </span>
             </div>
           </div>
@@ -219,7 +259,9 @@ export function LifeEventJourneys() {
                     border: `1px solid ${isDone ? "#16a34a" : "var(--color-border-default)"}`,
                     borderRadius: "var(--radius-sm)",
                     padding: "1.25rem",
-                    backgroundColor: isDone ? "rgba(22, 163, 74, 0.04)" : "var(--color-surface-page)",
+                    backgroundColor: isDone
+                      ? "rgba(22, 163, 74, 0.04)"
+                      : "var(--color-surface-page)",
                     display: "flex",
                     gap: "1.25rem",
                     alignItems: "flex-start",
@@ -311,8 +353,21 @@ export function LifeEventJourneys() {
                     </p>
 
                     {/* Prerequisites */}
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
-                      <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--color-content-tertiary)" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: "0.75rem",
+                          fontWeight: 700,
+                          color: "var(--color-content-tertiary)",
+                        }}
+                      >
                         Prerequisites:
                       </span>
                       {step.prerequisites.map((pre, pIdx) => (
