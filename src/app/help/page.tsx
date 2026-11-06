@@ -179,7 +179,7 @@ export default function HelpPage() {
                   cursor: "pointer",
                 }}
               >
-                Submit Feedback / Suggest Correction
+                Submit Feedback / Correction
               </button>
             </div>
           </div>

@@ -59,10 +59,14 @@ test.describe("Milestone M6 - Voice Read-Aloud & Expanded Catalogue Services", (
   test("ReadAloudButton is present on service overview, step guide, and checklist", async ({
     page,
   }) => {
-    // Mock window.speechSynthesis in browser context
+    // Mock window.speechSynthesis in browser context with Object.defineProperty
     await page.addInitScript(() => {
-      window.speechSynthesis = {
-        speak: () => {},
+      const mockSynth = {
+        speak: (utt: SpeechSynthesisUtterance) => {
+          if (utt && typeof utt.onstart === "function") {
+            setTimeout(() => (utt.onstart as () => void)(), 50);
+          }
+        },
         cancel: () => {},
         pause: () => {},
         resume: () => {},
@@ -90,6 +94,16 @@ test.describe("Milestone M6 - Voice Read-Aloud & Expanded Catalogue Services", (
         removeEventListener: () => {},
         dispatchEvent: () => true,
       };
+
+      try {
+        Object.defineProperty(window, "speechSynthesis", {
+          value: mockSynth,
+          writable: true,
+          configurable: true,
+        });
+      } catch {
+        (window as unknown as { speechSynthesis: typeof mockSynth }).speechSynthesis = mockSynth;
+      }
     });
 
     await page.goto("/services/voter-id-epic-download");
@@ -132,6 +146,9 @@ test.describe("Milestone M6 - Voice Read-Aloud & Expanded Catalogue Services", (
   test("passes automated accessibility audit (axe-core) on new M6 service pages", async ({
     page,
   }) => {
+    page.on("console", (msg) => console.log("PAGE LOG:", msg.text()));
+    page.on("pageerror", (err) => console.log("PAGE ERROR:", err));
+
     await page.goto("/services/voter-id-epic-download");
     const voterResults = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])

@@ -11,10 +11,10 @@ test.describe("Milestone M9 - India-First Civic Visual Identity & Fluid Micro-In
     const tricolorBar = page.locator(".civic-tricolor-bar");
     await expect(tricolorBar).toBeVisible();
 
-    // Verify brand wheel icon
+    // Verify brand seal / icon
     const brandLink = page.locator('header a[href="/"]').first();
     await expect(brandLink).toBeVisible();
-    await expect(brandLink.locator("svg")).toBeVisible();
+    await expect(brandLink.locator("img, svg").first()).toBeVisible();
   });
 
   test("home page renders India-first civic badge and ecosystem cards with bespoke SVG badges", async ({

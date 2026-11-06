@@ -139,7 +139,6 @@ export function ServiceDetailView({ service, explainerGuide }: ServiceDetailView
               onClick={() => {
                 if (typeof window !== "undefined") window.print();
               }}
-              aria-label={locale === "hi" ? "चेकलिस्ट प्रिंट करें" : "Print CSC Citizen Prep Pack"}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -176,15 +175,6 @@ export function ServiceDetailView({ service, explainerGuide }: ServiceDetailView
             <button
               type="button"
               onClick={() => toggleSave(service.id)}
-              aria-label={
-                isSaved
-                  ? locale === "hi"
-                    ? "सहेजा गया"
-                    : "Saved locally"
-                  : locale === "hi"
-                    ? "सहेजें"
-                    : "Save reference"
-              }
               style={{
                 display: "inline-flex",
                 alignItems: "center",

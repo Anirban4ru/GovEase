@@ -159,7 +159,11 @@ export function useSpeechSynthesis(): SpeechSynthesisState {
       voicesRef.current.length > 0 ? voicesRef.current : window.speechSynthesis.getVoices();
     const chosenVoice = selectBestVoice(voices, lang);
     if (chosenVoice) {
-      utterance.voice = chosenVoice;
+      try {
+        utterance.voice = chosenVoice;
+      } catch {
+        // Fallback if browser or mock rejects non-native voice object
+      }
       utterance.lang = chosenVoice.lang;
     } else {
       if (lang === "hi") utterance.lang = "hi-IN";

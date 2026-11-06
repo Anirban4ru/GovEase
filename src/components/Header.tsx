@@ -18,7 +18,15 @@ export function Header() {
   ];
 
   return (
-    <>
+    <header
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 40,
+        backgroundColor: "#ffffff",
+        boxShadow: "0 1px 3px rgba(13, 53, 112, 0.04)",
+      }}
+    >
       <a href="#main-content" className="skip-to-content">
         {t("common.skipToContent")}
       </a>
@@ -222,16 +230,12 @@ export function Header() {
         </div>
       </div>
 
-      {/* Level 2: Main Application Header */}
-      <header
+      {/* Level 2: Main Application Header Bar */}
+      <div
         style={{
           backgroundColor: "#ffffff",
           borderBottom: "1px solid var(--color-border-default)",
           padding: "0.85rem 0",
-          position: "sticky",
-          top: 0,
-          zIndex: 40,
-          boxShadow: "0 1px 3px rgba(13, 53, 112, 0.04)",
         }}
       >
         <div
@@ -330,7 +334,7 @@ export function Header() {
             </Link>
           </div>
         </div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 }
