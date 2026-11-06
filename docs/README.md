@@ -10,43 +10,35 @@ This repository follows the rule: **documentation is part of the Definition of D
 
 ---
 
-## Root Architecture & Governance Documents
+## Architecture, Security & Governance Documentation
 
-| Document                                                              | Purpose                                                      | Status             |
-| --------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------ |
-| [`PROMPT_FINAL.md`](../PROMPT_FINAL.md)                               | Single source of truth and master instruction file           | Approved / Binding |
-| [`AGENTS.md`](../AGENTS.md)                                           | Operational rules and agent instructions (concise)           | Approved / Active  |
-| [`README.md`](../README.md)                                           | Public project overview, independence disclaimer, and status | Approved / Active  |
-| [`PROJECT_OVERVIEW.md`](../PROJECT_OVERVIEW.md)                       | Strategic context and user problem space                     | Draft              |
-| [`PRODUCT_VISION.md`](../PRODUCT_VISION.md)                           | Long-term vision and principles                              | Draft              |
-| [`PRD.md`](../PRD.md)                                                 | Product Requirements Document for Beta 0.1                   | Draft              |
-| [`REQUIREMENTS.md`](../REQUIREMENTS.md)                               | Detailed functional and non-functional requirements          | Draft              |
-| [`ROADMAP.md`](../ROADMAP.md)                                         | Milestone roadmap (M0 to Release 3+)                         | Active             |
-| [`IMPLEMENTATION_PLAN.md`](../IMPLEMENTATION_PLAN.md)                 | Technical implementation sequence                            | Active             |
-| [`ARCHITECTURE.md`](../ARCHITECTURE.md)                               | System and frontend architecture                             | Draft              |
-| [`SYSTEM_DESIGN.md`](../SYSTEM_DESIGN.md)                             | Detailed component and data-flow design                      | Draft              |
-| [`DATABASE_SCHEMA.md`](../DATABASE_SCHEMA.md)                         | Catalogue data model and future schema plans                 | Draft              |
-| [`API_SPECIFICATION.md`](../API_SPECIFICATION.md)                     | API boundaries (adapter contracts and future endpoints)      | Draft              |
-| [`AUTHENTICATION.md`](../AUTHENTICATION.md)                           | Auth policy (strictly no accounts in Beta 0.1)               | Approved / Active  |
-| [`INTEGRATION_CATALOGUE.md`](../INTEGRATION_CATALOGUE.md)             | Provider integration classifications and research            | Draft              |
-| [`SECURITY.md`](../SECURITY.md)                                       | Security policy, vulnerability reporting, and defenses       | Draft              |
-| [`THREAT_MODEL.md`](../THREAT_MODEL.md)                               | Threat model v0 (STRIDE, trust boundaries, mitigations)      | Approved / Active  |
-| [`PRIVACY_AND_DATA_GOVERNANCE.md`](../PRIVACY_AND_DATA_GOVERNANCE.md) | DPDP compliance, data minimisation, storage rules            | Draft              |
-| [`SECURITY_CONTROL_MAPPING.md`](../SECURITY_CONTROL_MAPPING.md)       | ASVS / OWASP control verification matrix                     | Approved / Active  |
-| [`UI_UX_GUIDELINES.md`](../UI_UX_GUIDELINES.md)                       | Human interface guidelines and interaction design            | Draft              |
-| [`DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md)                             | Design tokens, typography, colors, component states          | Approved / Active  |
-| [`ACCESSIBILITY.md`](../ACCESSIBILITY.md)                             | WCAG 2.2 AA audit log and testing protocols                  | Approved / Active  |
-| [`RESPONSIVE_DESIGN.md`](../RESPONSIVE_DESIGN.md)                     | Viewport specifications and mobile-first rules               | Draft              |
-| [`TESTING_STRATEGY.md`](../TESTING_STRATEGY.md)                       | Multi-tier test strategy and verification gates              | Draft              |
-| [`QA_REPORT.md`](../QA_REPORT.md)                                     | Test execution logs and verification evidence                | Approved / Active  |
-| [`PERFORMANCE_REPORT.md`](../PERFORMANCE_REPORT.md)                   | Performance budgets and Lighthouse results                   | Approved / Active  |
-| [`DEPLOYMENT.md`](../DEPLOYMENT.md)                                   | Hosting evaluation and production cost estimates             | Draft              |
-| [`DISASTER_RECOVERY.md`](../DISASTER_RECOVERY.md)                     | Backup, restore, and business continuity                     | Draft              |
-| [`CONTRIBUTING.md`](../CONTRIBUTING.md)                               | Contribution standards and code hygiene guidelines           | Draft              |
-| [`CHANGELOG.md`](../CHANGELOG.md)                                     | Public changelog of releases and catalogue corrections       | Approved / Active  |
-| [`IMPLEMENTATION_LEDGER.md`](../IMPLEMENTATION_LEDGER.md)             | Feature-state ledger and verification evidence               | Approved / Active  |
-| [`KNOWN_ISSUES.md`](../KNOWN_ISSUES.md)                               | Defect register with reproduction steps and resolution       | Active             |
-| [`RELEASE_CHECKLIST.md`](../RELEASE_CHECKLIST.md)                     | Pre-release gate verification checklist                      | Approved / Active  |
+All detailed technical specifications, architecture decisions, and audit reports are strictly organized within the `docs/` hierarchy:
+
+| Document / Section             | Location                                                                                    | Description                                                       | Status            |
+| ------------------------------ | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------- |
+| **System Threat Model**        | [`docs/architecture/THREAT_MODEL.md`](architecture/THREAT_MODEL.md)                         | STRIDE analysis, trust boundaries, zero-knowledge threat modeling | Approved / Active |
+| **Design System**              | [`docs/architecture/DESIGN_SYSTEM.md`](architecture/DESIGN_SYSTEM.md)                       | Design tokens, typography, colors, component specifications       | Approved / Active |
+| **Security Control Mapping**   | [`docs/architecture/SECURITY_CONTROL_MAPPING.md`](architecture/SECURITY_CONTROL_MAPPING.md) | OWASP ASVS Level 2 & India DPDP Act 2023 controls mapping         | Approved / Active |
+| **Implementation Ledger**      | [`docs/architecture/IMPLEMENTATION_LEDGER.md`](architecture/IMPLEMENTATION_LEDGER.md)       | Milestone deliverables, evidence logs, and verification audits    | Approved / Active |
+| **Known Issues & Defect Log**  | [`docs/architecture/KNOWN_ISSUES.md`](architecture/KNOWN_ISSUES.md)                         | Defect tracking and resolution register                           | Active            |
+| **Accessibility Audit Report** | [`docs/reports/ACCESSIBILITY.md`](reports/ACCESSIBILITY.md)                                 | Automated Axe + manual WCAG 2.2 Level AA compliance report        | Approved / Active |
+| **Quality Assurance Report**   | [`docs/reports/QA_REPORT.md`](reports/QA_REPORT.md)                                         | Vitest (58 tests) & Playwright (60 tests) test run evidence       | Approved / Active |
+| **Performance Budget Audit**   | [`docs/reports/PERFORMANCE_REPORT.md`](reports/PERFORMANCE_REPORT.md)                       | Lighthouse scores, JS bundle size budgets, and TTFB               | Approved / Active |
+| **Pre-Release Checklist**      | [`docs/reports/RELEASE_CHECKLIST.md`](reports/RELEASE_CHECKLIST.md)                         | Pre-flight production gates and verification sign-offs            | Approved / Active |
+
+---
+
+## Supporting Directories
+
+- [`docs/architecture/`](architecture/) — System architecture specifications, threat model, and design tokens
+- [`docs/reports/`](reports/) — Test execution, accessibility, and performance audit reports
+- [`docs/decisions/`](decisions/ADR_INDEX.md) — Architecture Decision Records (ADRs 0001 through 0010)
+- [`docs/catalogue/`](catalogue/CATALOGUE_GOVERNANCE.md) — Catalogue governance, link health checks, domain allow-list
+- [`docs/integrations/`](integrations/AUTHORISATIONS.md) — Official provider endpoints and authorization statuses
+- [`docs/security/`](security/SECURITY_FINDINGS.md) — Security findings, penetration tests, and vulnerability tracking
+- [`docs/screenshots/`](screenshots/) — Automated visual regression and showcase capture artifacts
+- [`docs/HUMAN_ACTIONS.md`](HUMAN_ACTIONS.md) — Human approvals and non-delegable operations register
+- [`docs/OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md) — Technical and policy decision tracking
 
 ---
 

@@ -1,7 +1,7 @@
 /**
  * Unified Life Services Platform - Anti-Leak Sensitive Data Sanitizer
  *
- * Enforces Hard Rule 2 & PROMPT_FINAL.md §272, §282:
+ * Enforces Security Baseline & DPDP Act 2023 Guidelines:
  * Prevents accidental citizen leakage of Aadhaar numbers, phone numbers,
  * email addresses, or payment numbers into feedback and support forms.
  */

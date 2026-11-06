@@ -12,7 +12,6 @@ interface LifeAreaNode {
   nameKey: string;
   count: number;
   chipLabel: string;
-  angle: number; // In degrees: 0, 60, 120, 180, 240, 300
   titles: {
     en: string;
     hi: string;
@@ -33,7 +32,6 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
     nameKey: "ecosystems.healthcare",
     count: 3,
     chipLabel: "OFFICIAL INFORMATION",
-    angle: 300,
     titles: {
       en: "Healthcare & Well-Being",
       hi: "स्वास्थ्य एवं चिकित्सा",
@@ -41,9 +39,9 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
       ta: "சுகாதாரம் மற்றும் நல்வாழ்வு",
     },
     summaries: {
-      en: "ABHA health ID, Ayushman Bharat, and hospital discovery",
+      en: "ABHA Health ID, Ayushman Bharat PM-JAY & verified hospital networks",
       hi: "आयुष्मान भारत स्वास्थ्य खाता (ABHA) व सरकारी अस्पताल",
-      bn: "আভা (ABHA) স্বাস্থ্য কার্ড ও চিকিৎসা সহায়তা",
+      bn: "আভা (ABHA) স্বাস্থ্য কার্ড ও সরকারি চিকিৎসা সহায়তা",
       ta: "ஆபா சுகாதார கணக்கு மற்றும் மருத்துவ வழிகாட்டல்",
     },
   },
@@ -52,7 +50,6 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
     nameKey: "ecosystems.education",
     count: 1,
     chipLabel: "OFFICIAL PORTALS",
-    angle: 0,
     titles: {
       en: "Education & Scholarships",
       hi: "शिक्षा एवं छात्रवृत्ति",
@@ -60,9 +57,9 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
       ta: "கல்வி மற்றும் உதவித்தொகை",
     },
     summaries: {
-      en: "National Scholarship Portal (NSP OTR) & academic credentials",
+      en: "National Scholarship Portal (NSP OTR) & verified student incentives",
       hi: "राष्ट्रीय छात्रवृत्ति पोर्टल (NSP) व छात्र प्रोत्साहन",
-      bn: "জাতীয় স্কলারশিপ পোর্টাল ও শিক্ষা অনুদান",
+      bn: "জাতীয় স্কলারশিপ পোর্টাল ও উচ্চশিক্ষা অনুদান",
       ta: "தேசிய உதவித்தொகை போர்டல் மற்றும் கல்விச் சான்றுகள்",
     },
   },
@@ -71,7 +68,6 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
     nameKey: "ecosystems.financeAndWelfare",
     count: 6,
     chipLabel: "NO CREDENTIAL CAPTURE",
-    angle: 60,
     titles: {
       en: "Finance & Welfare",
       hi: "वित्त एवं जन-कल्याण",
@@ -79,7 +75,7 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
       ta: "நிதி மற்றும் மக்கள் நலம்",
     },
     summaries: {
-      en: "PM Jan Dhan, e-Shram worker UAN, PMSBY, PM-Kisan & pensions",
+      en: "PM Jan Dhan, e-Shram worker UAN, PMSBY, PM-Kisan & social security",
       hi: "जन धन खाता, ई-श्रम, सुरक्षा बीमा व किसान सम्मान निधि",
       bn: "জন ধন অ্যাকাউন্ট, ই-শ্রম, বিমা ও কিষাণ সুবিধা",
       ta: "ஜன் தன் வங்கி கணக்கு, இ-ஷ்ரம், காப்பீடு மற்றும் நலத்திட்டங்கள்",
@@ -90,7 +86,6 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
     nameKey: "ecosystems.governmentAndCitizen",
     count: 4,
     chipLabel: "OFFICIAL PORTALS",
-    angle: 120,
     titles: {
       en: "Citizen & Identity",
       hi: "नागरिक पहचान व अभिलेख",
@@ -98,7 +93,7 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
       ta: "குடிமக்கள் அடையாளம் மற்றும் சான்றிதழ்",
     },
     summaries: {
-      en: "Birth certificates, DigiLocker electronic storage, UDID & PAN",
+      en: "Birth certificates via CRS, DigiLocker, UDID smart cards & PAN reprint",
       hi: "जन्म प्रमाण पत्र, डिजिलॉकर, दिव्यांगजन UDID व पैन कार्ड",
       bn: "জন্ম শংসাপত্র, ডিজিলকার, প্রতিবন্ধী কার্ড ও প্যান",
       ta: "பிறப்புச் சான்றிதழ், டிஜிலாக்கர், மாற்றுத்திறனாளி அட்டை",
@@ -109,7 +104,6 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
     nameKey: "ecosystems.mobilityAndTransport",
     count: 2,
     chipLabel: "VERIFIED ROAD LINKS",
-    angle: 180,
     titles: {
       en: "Mobility & Transport",
       hi: "परिवहन एवं आवागमन",
@@ -117,7 +111,7 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
       ta: "போக்குவரத்து மற்றும் வாகனங்கள்",
     },
     summaries: {
-      en: "Driving licence renewal, Parivahan Sarathi & RC transfer",
+      en: "Driving licence renewal, Parivahan Sarathi & vehicle RC ownership",
       hi: "ड्राइविंग लाइसेंस नवीनीकरण व वाहन आरसी स्वामित्व अंतरण",
       bn: "ড্রাইভিং লাইসেন্স নবায়ন ও গাড়ির আরসি বদল",
       ta: "ஓட்டுநர் உரிமம் புதுப்பித்தல் மற்றும் வாகன ஆர்.சி",
@@ -128,7 +122,6 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
     nameKey: "ecosystems.utilitiesAndLocal",
     count: 1,
     chipLabel: "STATE & MUNICIPAL",
-    angle: 240,
     titles: {
       en: "Public Consumer Rights",
       hi: "उपभोक्ता अधिकार व शिकायत",
@@ -136,7 +129,7 @@ const LIFE_AREA_NODES: LifeAreaNode[] = [
       ta: "நுகர்வோர் உரிமைகள் மற்றும் குறைதீர்ப்பு",
     },
     summaries: {
-      en: "National Consumer Helpline 1915 & grievance redressal",
+      en: "National Consumer Helpline 1915 & grievance redressal directory",
       hi: "राष्ट्रीय उपभोक्ता हेल्पलाइन 1915 व शिकायत निवारण",
       bn: "জাতীয় ভোক্তা হেল্পলাইন ১৯১৫ ও ন্যায়সংগত প্রতিকার",
       ta: "தேசிய நுகர்வோர் உதவி எண் 1915 மற்றும் தீர்வு",
@@ -156,7 +149,7 @@ export function LifeAreaRadialSystem() {
 
   const is3DAllowed = mode === "standard";
 
-  // WCAG 2.2.2: Auto-pause drift after 5 seconds of inactivity
+  // WCAG 2.2.2: Auto-pause motion after 5 seconds of idle inactivity
   useEffect(() => {
     if (!is3DAllowed) return;
 
@@ -170,9 +163,8 @@ export function LifeAreaRadialSystem() {
   }, [is3DAllowed]);
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!is3DAllowed || !containerRef.current) return;
+    if (!is3DAllowed || !containerRef.current || !isDriftActive) return;
 
-    // Reset idle timer on pointer interaction
     if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
     idleTimerRef.current = setTimeout(() => {
       setIsDriftActive(false);
@@ -185,10 +177,10 @@ export function LifeAreaRadialSystem() {
     const deltaX = (e.clientX - centerX) / (rect.width / 2);
     const deltaY = (e.clientY - centerY) / (rect.height / 2);
 
-    // Limit rotation to max 4 degrees X, 6 degrees Y
+    // Subtle 3D perspective tilt
     setTilt({
-      x: -deltaY * 4,
-      y: deltaX * 6,
+      x: -deltaY * 3,
+      y: deltaX * 4,
     });
   };
 
@@ -198,6 +190,9 @@ export function LifeAreaRadialSystem() {
 
   const toggleDrift = () => {
     setIsDriftActive((prev) => !prev);
+    if (!isDriftActive) {
+      setTilt({ x: 0, y: 0 });
+    }
   };
 
   return (
@@ -208,142 +203,52 @@ export function LifeAreaRadialSystem() {
       style={{
         position: "relative",
         width: "100%",
-        maxWidth: "480px",
-        height: "440px",
+        maxWidth: "520px",
         margin: "0 auto",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        backgroundColor: "var(--color-surface-card)",
+        border: "1px solid var(--color-border-default)",
+        borderRadius: "var(--radius-lg)",
+        boxShadow: "var(--shadow-md)",
+        padding: "1.25rem",
+        transform:
+          is3DAllowed && isDriftActive
+            ? `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`
+            : "none",
+        transition: "transform 180ms ease-out, box-shadow 200ms ease",
       }}
       aria-label="Interactive Life Areas Map"
     >
-      {/* Pause/Play Ambient Motion Control (WCAG 2.2.2) */}
-      {is3DAllowed && (
-        <button
-          type="button"
-          onClick={toggleDrift}
-          aria-label={isDriftActive ? "Pause Motion" : "Play Motion"}
-          style={{
-            position: "absolute",
-            top: "0.25rem",
-            right: "0.25rem",
-            background: "var(--color-ground-elevated)",
-            border: "1px solid var(--color-border-default)",
-            borderRadius: "var(--radius-sm)",
-            padding: "0.25rem 0.5rem",
-            fontSize: "0.75rem",
-            fontWeight: 600,
-            color: "var(--color-content-secondary)",
-            cursor: "pointer",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.35rem",
-            zIndex: 10,
-            boxShadow: "var(--shadow-sm)",
-          }}
-        >
-          <span aria-hidden="true">{isDriftActive ? "⏸" : "▶"}</span>
-          <span>{isDriftActive ? "Pause Motion" : "Play Motion"}</span>
-        </button>
-      )}
-
-      {/* 3D Spatial Canvas */}
+      {/* Header bar: Citizen indicator & Pause/Play Motion (WCAG 2.2.2 compliant) */}
       <div
-        className={is3DAllowed ? "spatial-canvas-3d" : ""}
         style={{
-          position: "relative",
-          width: "360px",
-          height: "360px",
-          transform: is3DAllowed ? `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)` : "none",
-          transition: "transform 180ms ease-out",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "1rem",
+          paddingBottom: "0.75rem",
+          borderBottom: "1px solid var(--color-border-subtle)",
+          flexWrap: "wrap",
+          gap: "0.5rem",
         }}
       >
-        {/* Subtle Background Radial Concentric Guides */}
-        <svg
-          width="360"
-          height="360"
-          viewBox="0 0 360 360"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            pointerEvents: "none",
-            opacity: 0.25,
-          }}
-          aria-hidden="true"
-        >
-          <circle
-            cx="180"
-            cy="180"
-            r="70"
-            fill="none"
-            stroke="var(--color-border-strong)"
-            strokeDasharray="2 3"
-          />
-          <circle
-            cx="180"
-            cy="180"
-            r="135"
-            fill="none"
-            stroke="var(--color-border-strong)"
-            strokeDasharray="3 4"
-          />
-          {/* Subtle 6-direction axis lines */}
-          {[0, 60, 120, 180, 240, 300].map((deg) => {
-            const rad = (deg * Math.PI) / 180;
-            const x2 = 180 + Math.cos(rad) * 140;
-            const y2 = 180 + Math.sin(rad) * 140;
-            return (
-              <line
-                key={deg}
-                x1="180"
-                y1="180"
-                x2={x2}
-                y2={y2}
-                stroke="var(--color-border-default)"
-                strokeWidth="1"
-              />
-            );
-          })}
-        </svg>
-
-        {/* Central Citizen Node: "You are here" */}
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "84px",
-            height: "84px",
-            borderRadius: "50%",
-            backgroundColor: "var(--color-ground-elevated)",
-            border: "2px solid var(--color-ochre)",
-            boxShadow: "var(--shadow-md)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            zIndex: 4,
-          }}
-        >
-          <div
+        <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", flexWrap: "wrap" }}>
+          <span
             style={{
-              width: "10px",
-              height: "10px",
+              display: "inline-block",
+              width: "8px",
+              height: "8px",
               borderRadius: "50%",
-              backgroundColor: "var(--color-ochre)",
-              marginBottom: "0.2rem",
+              backgroundColor: "var(--color-teal)",
+              boxShadow: "0 0 0 3px var(--color-teal-subtle)",
             }}
+            aria-hidden="true"
           />
           <span
             style={{
-              fontSize: "0.6875rem",
-              fontWeight: 800,
+              fontSize: "0.8125rem",
+              fontWeight: 700,
               color: "var(--color-ink)",
-              lineHeight: 1.1,
-              padding: "0 0.25rem",
+              letterSpacing: "-0.01em",
             }}
           >
             {locale === "hi"
@@ -354,27 +259,68 @@ export function LifeAreaRadialSystem() {
                   ? "நீங்கள் இங்கே"
                   : "You are here"}
           </span>
+          <span style={{ color: "var(--color-content-tertiary)", fontSize: "0.75rem" }}>•</span>
           <span
             style={{
-              fontSize: "0.625rem",
-              color: "var(--color-content-tertiary)",
+              fontSize: "0.75rem",
               fontWeight: 600,
-              marginTop: "0.1rem",
+              color: "var(--color-content-secondary)",
             }}
           >
             {locale === "hi" ? "6 मुख्य क्षेत्र" : "6 Life Areas"}
           </span>
+          <span style={{ color: "var(--color-content-tertiary)", fontSize: "0.75rem" }}>•</span>
+          <span
+            style={{
+              fontSize: "0.6875rem",
+              fontWeight: 600,
+              color: "var(--color-teal-text)",
+              backgroundColor: "var(--color-teal-subtle)",
+              padding: "0.15rem 0.45rem",
+              borderRadius: "var(--radius-xs)",
+            }}
+          >
+            {locale === "hi" ? "18 सत्यापित सेवाएँ" : "18 Verified Services"}
+          </span>
         </div>
 
-        {/* 6 Orbiting Life Area Nodes */}
-        {LIFE_AREA_NODES.map((node) => {
-          const rad = (node.angle * Math.PI) / 180;
-          const radius = 135; // Distance from center
-          const x = 180 + Math.cos(rad) * radius - 44; // 88px node width / 2
-          const y = 180 + Math.sin(rad) * radius - 44;
+        {is3DAllowed && (
+          <button
+            type="button"
+            onClick={toggleDrift}
+            aria-label={isDriftActive ? "Pause Motion" : "Play Motion"}
+            style={{
+              background: "var(--color-ground-muted)",
+              border: "1px solid var(--color-border-default)",
+              borderRadius: "var(--radius-sm)",
+              padding: "0.25rem 0.6rem",
+              fontSize: "0.75rem",
+              fontWeight: 600,
+              color: "var(--color-content-secondary)",
+              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.35rem",
+              boxShadow: "var(--shadow-sm)",
+            }}
+          >
+            <span aria-hidden="true">{isDriftActive ? "⏸" : "▶"}</span>
+            <span>{isDriftActive ? "Pause Motion" : "Play Motion"}</span>
+          </button>
+        )}
+      </div>
 
-          const title = node.titles[locale] || node.titles.en;
+      {/* 6 Category Tiles in a clean 2-column grid */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          gap: "0.75rem",
+        }}
+      >
+        {LIFE_AREA_NODES.map((node) => {
           const isHovered = hoveredNode === node.id;
+          const title = node.titles[locale] || node.titles.en;
 
           return (
             <Link
@@ -384,87 +330,113 @@ export function LifeAreaRadialSystem() {
               onPointerLeave={() => setHoveredNode(null)}
               onFocus={() => setHoveredNode(node.id)}
               onBlur={() => setHoveredNode(null)}
-              className={is3DAllowed ? "spatial-node-3d" : ""}
+              className="civic-card-interactive"
               style={{
-                position: "absolute",
-                left: `${x}px`,
-                top: `${y}px`,
-                width: "88px",
-                height: "88px",
-                borderRadius: "var(--radius-lg)",
-                backgroundColor: isHovered
-                  ? "var(--color-ground-muted)"
-                  : "var(--color-ground-elevated)",
-                border: isHovered
-                  ? "2px solid var(--color-ochre)"
-                  : "1px solid var(--color-border-strong)",
-                boxShadow: isHovered ? "var(--shadow-lg)" : "var(--shadow-sm)",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
+                justifyContent: "space-between",
+                padding: "0.75rem",
+                backgroundColor: isHovered ? "var(--color-ground)" : "var(--color-surface-card)",
+                border: isHovered
+                  ? "1px solid var(--color-ink-blue)"
+                  : "1px solid var(--color-border-default)",
+                borderRadius: "var(--radius-md)",
                 textDecoration: "none",
                 color: "inherit",
-                zIndex: isHovered ? 8 : 5,
-                padding: "0.35rem",
-                textAlign: "center",
-                cursor: "pointer",
+                boxShadow: isHovered ? "var(--shadow-md)" : "none",
+                transform: isHovered ? "translateY(-2px)" : "none",
+                transition: "all 150ms ease-in-out",
+                minHeight: "100px",
               }}
             >
-              <EcosystemBadge ecosystem={node.id} size={22} />
-              <div
-                style={{
-                  fontSize: "0.6875rem",
-                  fontWeight: 700,
-                  color: "var(--color-ink)",
-                  lineHeight: 1.2,
-                  marginTop: "0.3rem",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                }}
-              >
-                {title}
+              <div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: "0.4rem",
+                    gap: "0.25rem",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                    <EcosystemBadge ecosystem={node.id} size={20} />
+                    <span
+                      style={{
+                        fontSize: "0.8125rem",
+                        fontWeight: 700,
+                        color: "var(--color-ink)",
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {title}
+                    </span>
+                  </div>
+                  <span
+                    style={{
+                      fontSize: "0.6875rem",
+                      fontWeight: 700,
+                      color: "var(--color-teal-text)",
+                      backgroundColor: "var(--color-teal-subtle)",
+                      padding: "0.1rem 0.35rem",
+                      borderRadius: "var(--radius-xs)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {node.count} {locale === "hi" ? "सेवाएँ" : "services"}
+                  </span>
+                </div>
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: "0.75rem",
+                    color: "var(--color-content-secondary)",
+                    lineHeight: 1.35,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  {node.summaries[locale] || node.summaries.en}
+                </p>
               </div>
-              <span
-                style={{
-                  fontSize: "0.625rem",
-                  color: "var(--color-teal)",
-                  fontWeight: 700,
-                  marginTop: "0.15rem",
-                }}
-              >
-                {node.count} {locale === "hi" ? "सेवाएँ" : "services"}
-              </span>
             </Link>
           );
         })}
       </div>
 
-      {/* Summary Box Revealed on Hover / Focus (Section 2.2 #4) */}
+      {/* Footer bar: Official Direct Verification Assurance */}
+      <div
+        style={{
+          marginTop: "1rem",
+          paddingTop: "0.75rem",
+          borderTop: "1px solid var(--color-border-subtle)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          fontSize: "0.6875rem",
+          color: "var(--color-content-tertiary)",
+          flexWrap: "wrap",
+          gap: "0.5rem",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
+          <span style={{ color: "var(--color-teal-text)", fontWeight: 700 }}>✓</span>
+          <span>
+            {locale === "hi"
+              ? "100% आधिकारिक .gov.in और .nic.in पोर्टल"
+              : "100% Official .gov.in & .nic.in Portals"}
+          </span>
+        </div>
+        <span style={{ fontWeight: 600 }}>
+          {locale === "hi" ? "शून्य व्यक्तिगत डेटा संग्रह" : "Zero Personal Data Retention"}
+        </span>
+      </div>
+
+      {/* Dynamic Summary Status on Hover / Focus for Screen Readers and Live Guidance */}
       {hoveredNode && (
-        <div
-          role="status"
-          aria-live="polite"
-          className="motion-fade-in"
-          style={{
-            position: "absolute",
-            bottom: "0.5rem",
-            left: "1rem",
-            right: "1rem",
-            backgroundColor: "var(--color-ground-elevated)",
-            border: "1px solid var(--color-border-default)",
-            borderRadius: "var(--radius-md)",
-            padding: "0.5rem 0.75rem",
-            fontSize: "0.8125rem",
-            color: "var(--color-content-secondary)",
-            boxShadow: "var(--shadow-md)",
-            textAlign: "center",
-            zIndex: 12,
-          }}
-        >
+        <div role="status" aria-live="polite" className="sr-only">
           {LIFE_AREA_NODES.find((n) => n.id === hoveredNode)?.summaries[locale] ||
             LIFE_AREA_NODES.find((n) => n.id === hoveredNode)?.summaries.en}
         </div>

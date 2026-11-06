@@ -44,7 +44,9 @@ Thumbs.db
 *.sln
 *.sw?
 
-# Agent Junction (mirror of .agent)
+# Agent Local Configuration
+.agent/
 .agents/
+AGENTS.md
 
 *.tsbuildinfo

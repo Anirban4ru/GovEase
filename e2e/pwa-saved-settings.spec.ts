@@ -78,7 +78,7 @@ test.describe("Milestone M4 - Saved Items, PWA Shell, Settings & Feedback Flow",
     await page.goto("/offline");
 
     await expect(page.locator("h1")).toContainText("You Are Currently Offline");
-    // Verify PROMPT_FINAL.md §252 date stamp
+    // Verify mandatory catalogue verification date stamp
     await expect(
       page.locator("text=Offline catalogue snapshot verified on: 2026-11-05"),
     ).toBeVisible();

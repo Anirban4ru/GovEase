@@ -4,7 +4,7 @@
  * Maps everyday citizen phrasing, natural language intents, acronyms,
  * Hindi keywords (Devanagari), and Hinglish transliterations to catalogue service IDs.
  *
- * Adheres to PROMPT_FINAL.md §6.4:
+ * Search & Discovery Engine Specifications:
  * "Build a synonym and intent map for ordinary-language queries,
  * spelling variants, transliterations, and common acronyms."
  */

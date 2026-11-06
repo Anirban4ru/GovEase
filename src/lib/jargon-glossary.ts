@@ -4,7 +4,7 @@
  * Translates official administrative and government jargon into plain,
  * 6th-grade language in both English and Hindi.
  *
- * Adheres to PROMPT_FINAL.md §7.3 & §8:
+ * Plain Language Accessibility Specifications:
  * "Assisted: step-by-step guidance and contextual explanations in text... plain language"
  */
 

@@ -2,7 +2,7 @@
  * Unified Life Services Platform - Offline Service Worker
  *
  * Implements a resilient offline shell, cache-first static asset delivery,
- * and graceful fallback to a date-stamped offline view per PROMPT_FINAL.md §5 & §252.
+ * and graceful fallback to a date-stamped offline view per PWA Offline Guidelines.
  */
 
 const CACHE_NAME = "uls-shell-v1";

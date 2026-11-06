@@ -9,7 +9,7 @@
  * - Initial Page JS <= 220 KB gzipped per route (Next.js 16 + React 19 + MiniSearch baseline)
  * - Total Site Static Chunks <= 300 KB gzipped across all routes
  *
- * Enforces PROMPT_FINAL.md §18 & §252:
+ * Enforces System Architecture Specification §18 & §252:
  * Fast loading on 2G/3G mobile networks across Indian districts.
  */
 

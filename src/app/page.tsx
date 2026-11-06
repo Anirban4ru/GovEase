@@ -262,7 +262,7 @@ function HomeContent() {
       >
         {/* Left Column: Dominant Headline, Promise & Instant Search */}
         <div style={{ maxWidth: "580px" }}>
-          {/* Calm Field Guide Badge (Replaces former IN badge) */}
+          {/* Academic Capstone & Civic Guide Badge */}
           <div
             style={{
               display: "inline-flex",
@@ -278,32 +278,15 @@ function HomeContent() {
               color: "var(--color-ink)",
             }}
           >
-            {/* Field Compass Minimal Icon */}
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--color-ochre)"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <polygon
-                points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
-                fill="var(--color-ochre)"
-              />
-            </svg>
+            <span style={{ color: "var(--color-teal-text)", fontSize: "0.625rem" }}>●</span>
             <span>
               {locale === "hi"
-                ? "नागरिक लोक सेवा मार्गदर्शिका"
+                ? "स्वतंत्र लोक सेवा मार्गदर्शिका • बी.टेक कैपस्टोन"
                 : locale === "bn"
-                  ? "নাগরিক জনসেবা সহায়িকা"
+                  ? "নাগরিক জনসেবা সহায়িকা • বি.টেক ক্যাপস্টোন"
                   : locale === "ta"
-                    ? "மக்கள் சேவை வழிகாட்டி"
-                    : "Independent Field Guide to Public Life Services"}
+                    ? "மக்கள் சேவை வழிகாட்டி • கேப்ஸ்டோன்"
+                    : "Independent Public Services Guide • Academic Capstone"}
             </span>
           </div>
 
@@ -331,7 +314,7 @@ function HomeContent() {
               fontSize: "var(--font-size-body)",
               color: "var(--color-content-secondary)",
               lineHeight: 1.6,
-              marginBottom: "1.75rem",
+              marginBottom: "1.5rem",
               maxWidth: "520px",
             }}
           >
@@ -345,8 +328,53 @@ function HomeContent() {
           </p>
 
           {/* Dominant Instant Search Bar */}
-          <div style={{ marginBottom: "1.25rem" }}>
+          <div style={{ marginBottom: "0.85rem" }}>
             <SearchBar />
+          </div>
+
+          {/* Quick Filter Tags */}
+          <div
+            style={{
+              display: "flex",
+              gap: "0.4rem",
+              flexWrap: "wrap",
+              alignItems: "center",
+              marginBottom: "1.5rem",
+            }}
+          >
+            <span
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                color: "var(--color-content-tertiary)",
+              }}
+            >
+              {locale === "hi" ? "त्वरित खोज:" : "Quick access:"}
+            </span>
+            {[
+              { label: "🚗 Driving Licence", href: "/services/driving-licence-renewal" },
+              { label: "📜 Birth Certificate", href: "/services/birth-certificate-crs" },
+              { label: "🎓 Scholarships", href: "/services/national-scholarship-portal" },
+              { label: "🏥 ABHA Card", href: "/services/abha-health-id" },
+              { label: "🌾 PM-Kisan", href: "/services/pm-kisan-samman-nidhi" },
+            ].map((chip) => (
+              <Link
+                key={chip.href}
+                href={chip.href}
+                style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  color: "var(--color-content-secondary)",
+                  backgroundColor: "var(--color-ground-muted)",
+                  border: "1px solid var(--color-border-default)",
+                  borderRadius: "var(--radius-full)",
+                  padding: "0.2rem 0.55rem",
+                  textDecoration: "none",
+                }}
+              >
+                {chip.label}
+              </Link>
+            ))}
           </div>
 
           {/* Quick Action Navigation Buttons */}

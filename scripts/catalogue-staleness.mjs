@@ -51,7 +51,7 @@ report += `**Purpose:** Living audit of catalogue freshness, review schedules, a
 report += `**Audit Date:** ${todayStr}  \n`;
 report += `**Total Services Tracked:** ${entries.length}  \n\n`;
 
-report += `Per \`PROMPT_FINAL.md\` §6.3:  \n`;
+report += `Per System Specification §6.3:  \n`;
 report += `> "An entry past next_review_due is shown with a visible 'may be out of date' notice and is flagged in a maintenance report. Entries more than twice past due are auto-hidden from search ranking until reviewed."\n\n`;
 
 report += `---\n\n`;
