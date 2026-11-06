@@ -166,6 +166,32 @@ server.listen(3005, async () => {
     console.log("Captured showcase-11-soundwave-equalizer.png");
   }
 
+  // 12. Citizen Life-Stage Navigator (/guide - Recommendations View)
+  await desktopPage.goto("http://localhost:3005/guide");
+  const firstStageBtn = desktopPage.locator("section button.civic-card-interactive").first();
+  await firstStageBtn.click();
+  await desktopPage.waitForTimeout(200);
+  const firstNeedBtn = desktopPage.locator("section button.civic-card-interactive").first();
+  await firstNeedBtn.click();
+  await desktopPage.waitForTimeout(200);
+  await desktopPage.screenshot({
+    path: path.join(targetDir, "showcase-12-life-stage-navigator.png"),
+    fullPage: false,
+  });
+  console.log("Captured showcase-12-life-stage-navigator.png");
+
+  // 13. CSC Physical Visit Prep Pack Printable Checklist
+  const cscToggleBtn = desktopPage.locator('button:has-text("Print CSC Prep Sheet")');
+  if ((await cscToggleBtn.count()) > 0) {
+    await cscToggleBtn.click();
+    await desktopPage.waitForTimeout(200);
+    await desktopPage.screenshot({
+      path: path.join(targetDir, "showcase-13-csc-prep-pack.png"),
+      fullPage: false,
+    });
+    console.log("Captured showcase-13-csc-prep-pack.png");
+  }
+
   await browser.close();
   server.close(() => {
     console.log("Showcase capture complete.");

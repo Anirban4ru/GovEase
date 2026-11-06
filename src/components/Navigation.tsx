@@ -12,6 +12,7 @@ export function DesktopNavigation() {
   const navItems = [
     { href: "/", label: t("nav.home") },
     { href: "/explore", label: t("nav.explore") },
+    { href: "/guide", label: t("nav.guide") },
     { href: "/saved", label: t("nav.saved") },
     { href: "/settings", label: t("nav.settings") },
     { href: "/help", label: t("nav.help") },
@@ -88,6 +89,25 @@ export function MobileBottomNavigation() {
         >
           <circle cx="12" cy="12" r="10" />
           <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+        </svg>
+      ),
+    },
+    {
+      href: "/guide",
+      label: t("nav.guide"),
+      icon: (
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5-4-1.5 1.5-4 4 1.5z" />
         </svg>
       ),
     },

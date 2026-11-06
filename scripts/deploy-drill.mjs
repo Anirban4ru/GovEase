@@ -55,6 +55,7 @@ console.log("\n2. Auditing Static HTML Routes...");
 const routesToCheck = [
   "index.html",
   "explore/index.html",
+  "guide/index.html",
   "saved/index.html",
   "settings/index.html",
   "privacy/index.html",

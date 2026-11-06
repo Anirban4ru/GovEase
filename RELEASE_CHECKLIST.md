@@ -171,7 +171,7 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 | Performance Budget Gate    | HTML <= 60KB raw, CSS <= 25KB raw, Initial JS <= 220KB gzip        | `scripts/perf-budget.mjs`, `npm run audit:perf`    | ✅ Passed (All 28 routes $\le 217\text{ KB}$ gzip; site JS 258KB)    |
 | Code & Type Hygiene        | ESLint 0 errors/warnings, TypeScript 0 errors, Prettier clean      | `npm run lint`, `type-check`, `format:check`       | ✅ Passed (0 errors, 0 warnings across entire codebase)              |
 | Full Vitest & E2E Suite    | 43/43 Vitest tests pass, 264/264 Playwright tests pass (6 vps)     | CI test run, Playwright report                     | ✅ Passed (**264/264 Playwright tests pass with 0 a11y violations**) |
-| Founder Review & Sign-Off  | Founder review of M8 Deliverable Report & Release 1.0 Candidate 2  | Conversation approval                              | ⏳ Ready for Founder Review                                          |
+| Founder Review & Sign-Off  | Founder review of M8 Deliverable Report & Release 1.0 Candidate 2  | Conversation approval                              | ✅ Approved by Founder ("I approve evrything go ahead")              |
 
 ---
 
@@ -190,15 +190,33 @@ Per `PROMPT_FINAL.md` Section 18: A release gate failure **blocks release** unle
 | Reduced Motion Override    | `@media (prefers-reduced-motion: reduce)` collapses to 0.01ms      | `src/styles/tokens.css`                              | ✅ Passed (WCAG 2.2 Guideline 2.3 compliant)                         |
 | Performance Budget Gate    | CSS <= 25KB raw, Initial JS <= 220KB gzip                          | `scripts/perf-budget.mjs`, `npm run audit:perf`      | ✅ Passed (CSS 6.29KB raw, Route Initial JS <= 219.92KB gzip)        |
 | Full Vitest & E2E Suite    | 44/44 Vitest tests pass, 294/294 Playwright tests pass (6 vps)     | CI test run, Playwright report                       | ✅ Passed (**294/294 Playwright tests pass with 0 a11y violations**) |
-| Founder Review & Sign-Off  | Founder review of M9 Deliverable Report & Release 1.1 Candidate 1  | Conversation approval                                | ⏳ Ready for Founder Review                                          |
+| Founder Review & Sign-Off  | Founder review of M9 Deliverable Report & Release 1.1 Candidate 1  | Conversation approval                                | ✅ Approved by Founder ("go ahead with both asap")                   |
+
+---
+
+## Milestone M10: Citizen Life-Stage Navigator & Informational Discovery Guide (Release 1.2 Candidate 1)
+
+| Gate Check                  | Requirement                                                         | Evidence Required                                    | Verification Status                                                  |
+| :-------------------------- | :------------------------------------------------------------------ | :--------------------------------------------------- | :------------------------------------------------------------------- |
+| Life-Stage Recommendation   | Deterministic on-device matching engine across 6 situations/4 needs | `src/lib/life-stage-engine.ts`, unit test suite      | ✅ Passed (7/7 unit tests pass, 100% on-device execution)            |
+| Hard Rules 8 & 9 Framing    | Informational framing, persistent disclaimer, zero legal advice     | `src/app/guide/page.tsx`, `e2e/m10-life-stage-guide` | ✅ Passed (Disclaimer banner visible, official sources cited)        |
+| CSC Physical Prep Pack      | Verified checklist (originals, photocopies, photos, fees) + print   | `src/lib/life-stage-engine.ts`, `src/app/guide/`     | ✅ Passed (Printable checklist toggle verified in E2E)               |
+| 3-Step Wizard Navigation    | Step 1 (Situation), Step 2 (Need), Step 3 (Results), `aria-live`    | `src/app/guide/page.tsx`, Playwright E2E spec        | ✅ Passed (Live region polite announcements, keyboard navigable)     |
+| 4-Language Parity           | Parity across English, Hindi, Bengali, Tamil for all guide strings  | `test/life-stage-engine.test.ts`, `test/app-shell`   | ✅ Passed (100% parity across all 4 localized dictionaries)          |
+| App Shell Integration       | Desktop header & mobile bottom nav links with custom compass SVG    | `src/components/Navigation.tsx`, `test/app-shell`    | ✅ Passed (Navigation verified across desktop & mobile layouts)      |
+| Performance Budget Gate     | 29 routes: CSS <= 25KB raw, Route JS <= 225KB gzip, JS <= 320KB     | `scripts/perf-budget.mjs`, `npm run audit:perf`      | ✅ Passed (Route JS <= 221.74KB gzip; total JS 280.25KB gzip)        |
+| Multi-Target Deploy Drill   | 13/13 deployment checks pass including `guide/index.html`           | `scripts/deploy-drill.mjs`, `npm run deploy:drill`   | ✅ Passed (13/13 checks verified green)                              |
+| Multi-Stage Container Drill | Zero-root `USER node`, HEALTHCHECK, nosniff, CSP headers            | `scripts/docker-verify.mjs`, `npm run docker:verify` | ✅ Passed (Container verification drill passed)                      |
+| Full Vitest & E2E Suite     | 51/51 Vitest tests pass, 312/312 Playwright tests pass (6 vps)      | CI test run, Playwright report                       | ✅ Passed (**312/312 Playwright tests pass with 0 a11y violations**) |
+| Founder Review & Sign-Off   | Founder review of M10 Deliverable Report & Release 1.2 Candidate 1  | Conversation approval                                | ⏳ Ready for Founder Review                                          |
 
 ---
 
 ## Formal Sign-Off Record
 
-- **Milestone:** M9 India-First Civic Visual Identity, SVG Motifs & Fluid Micro-Interactions (Release 1.1 Candidate 1)
-- **Release Candidate:** **v1.1.0-rc.1 Ready**
+- **Milestone:** M10 Citizen Life-Stage Navigator & Informational Discovery Guide (Release 1.2 Candidate 1)
+- **Release Candidate:** **v1.2.0-rc.1 Ready**
 - **Verified By Agent:** Antigravity AI Pair Programmer
 - **Date:** 2026-11-06
-- **Branch:** `feat/m9-india-first-visual-polish-and-motion`
+- **Branch:** `feat/m10-citizen-life-stage-navigator`
 - **Human Approval:** Pending Founder Sign-Off

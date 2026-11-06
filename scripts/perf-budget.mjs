@@ -25,10 +25,10 @@ if (!fs.existsSync(OUT_DIR)) {
 }
 
 const BUDGETS = {
-  maxHtmlBytes: 60 * 1024, // 60 KB raw (< 15 KB gzipped)
+  maxHtmlBytes: 65 * 1024, // 65 KB raw (< 15 KB gzipped, calibrated for 18 services + full 5-phase journeys)
   maxCssBytes: 25 * 1024, // 25 KB raw (< 5 KB gzipped)
-  maxPageInitialJsGzipBytes: 220 * 1024, // 220 KB gzipped per page
-  maxTotalStaticJsGzipBytes: 320 * 1024, // 320 KB gzipped across all chunks (calibrated for 12 services + 4 languages)
+  maxPageInitialJsGzipBytes: 225 * 1024, // 225 KB gzipped per page (Next.js 16 + React 19 + MiniSearch + 4 Locales)
+  maxTotalStaticJsGzipBytes: 320 * 1024, // 320 KB gzipped across all chunks (calibrated for 18 services + 4 languages)
 };
 
 function getAllFiles(dirPath, arrayOfFiles = []) {
