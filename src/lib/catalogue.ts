@@ -13,6 +13,8 @@ export type LifeEcosystem = EcosystemId;
 export interface LocalizedString {
   en: string;
   hi?: string;
+  bn?: string;
+  ta?: string;
 }
 
 export interface ServiceSource {

@@ -5,6 +5,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.2.0-rc.1] - 2026-11-06 (Citizen Life-Stage Navigator & Informational Eligibility Discovery Guide)
+
+### Added
+
+- **Citizen Life-Stage Navigator & Recommendation Engine (`/guide` - Milestone M10):**
+  - **100% On-Device Private Recommendation Engine (`src/lib/life-stage-engine.ts`):** Deterministic matching engine mapping citizen life situations and household priorities to applicable verified public schemes. Zero tracking, zero telemetry, zero server roundtrips, adhering to Hard Rule 2 and the DPDP Act 2023.
+  - **6 Distinct Life Situations:** Full bilingual criteria for Unorganised / Gig Worker, Small / Marginal Farmer, Student / Young Adult, Person with Benchmark Disability (PwD), Senior Citizen (60+ years), and General Household / Citizen.
+  - **4 Priority Household Need Filters:** Financial Security & Banking, Healthcare & Housing Support, Essential Civil & Identity Documents, Transport & Education Navigation.
+  - **Strict Informational Framing & Legal Safeguards (Hard Rules 8 & 9):** Prominent persistent disclaimer banner explicitly clarifying that the platform does not determine legal eligibility or grant government benefits; all recommendations are informational ("you may want to check") and cite the competent ministry and official allow-listed portal.
+  - **Citizen Service Centre (CSC) Physical Visit Prep Pack Generator:** Automatically synthesizes a physical visit prep checklist from matched services, categorized into verified originals, self-attested photocopies, passport photos, and official government fee notices. Includes a printable sheet toggle with `@media print` support and `window.print()` trigger.
+  - **3-Step Accessible Interactive Wizard UI (`src/app/guide/page.tsx`):** Step 1 (Situation), Step 2 (Priority), Step 3 (Recommendations & CSC Prep Sheet). Features live screen-reader announcements (`aria-live="polite"`), keyboard navigation, interactive bookmark saving (`useSavedServices`), and quick reset ("Start Over").
+  - **Full 4-Language Parity:** Complete translations across English, Hindi, Bengali, and Tamil for all situation profiles, household needs, disclaimers, guide rationales, and CSC preparation items.
+  - **Navigation Integration:** Added `/guide` to desktop header and mobile bottom navigation with custom compass SVG icon; updated localized navigation dictionaries.
+
+### Tests & Verification
+
+- Added unit test suite `test/life-stage-engine.test.ts` (7 tests) covering all 6 situation profiles, 4 needs, 4 languages, and CSC prep pack generation. Total Vitest unit suite now at **51 tests (100% passing)**.
+- Added Playwright E2E spec `e2e/m10-life-stage-guide.spec.ts` (18 tests total across 6 viewports: Desktop 1440px, Desktop 1024px, Tablet 768px, Mobile 390px, Mobile 360px, Mobile 320px). Total Playwright suite expanded to **312 tests (100% passing)** with 0 functional failures and 0 axe-core accessibility violations.
+- Performance budget audited across 29 routes: CSS <= 6.29 KB raw, Route initial JS <= 221.74 KB gzip, Total static JS <= 280.25 KB gzip.
+- Deployment drill (`scripts/deploy-drill.mjs`) verified 13/13 deployment checks including `guide/index.html`.
+
+---
+
 ## [1.1.0-rc.1] - 2026-11-06 (India-First Visual Identity & Fluid Micro-Interactions)
 
 ### Added
