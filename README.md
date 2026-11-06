@@ -1,15 +1,35 @@
+<div align="center">
+
+  <img src="./public/govease-seal.png" alt="GovEase Sovereign Civic Seal" width="130" height="130" style="border-radius: 50%; box-shadow: 0 4px 12px rgba(13, 53, 112, 0.15);" />
+
 # GovEase
 
 ### _An India-First, Zero-Knowledge Civic Navigation Architecture_
 
-[![Academic Capstone](https://img.shields.io/badge/Project-B.Tech%20CS%20Capstone-blue.svg?style=flat-square)](#academic-context)
-[![Next.js 16](https://img.shields.io/badge/Framework-Next.js%2016%20%7C%20React%2019-black.svg?style=flat-square&logo=next.js)](https://nextjs.org/)
+**An independent, dated public-benefit directory guiding citizens directly to official government portals.**
+
+[![Academic Capstone](https://img.shields.io/badge/Project-3rd%20Year%20B.Tech%20Capstone-blue.svg?style=flat-square)](#10-academic-context--authorship)
+[![Framework](https://img.shields.io/badge/Framework-Next.js%2016%20%7C%20React%2019-black.svg?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript Strict](https://img.shields.io/badge/Language-TypeScript%205%20Strict-3178C6.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![PWA Ready](<https://img.shields.io/badge/Platform-PWA%20(Windows%20%7C%20iOS%20%7C%20Android)-orange.svg?style=flat-square>)](#cross-platform--app-support)
-[![WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA%20Compliant-047857.svg?style=flat-square)](#accessibility--inclusive-design)
-[![Test Suite](https://img.shields.io/badge/Tests-81%20Unit%20%7C%2066%20E2E%20Passing-brightgreen.svg?style=flat-square)](#test-suite--quality-assurance)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![PWA Ready](<https://img.shields.io/badge/Platform-PWA%20(Windows%20%7C%20iOS%20%7C%20Android)-orange.svg?style=flat-square>)](#3-cross-platform--app-support)
+[![WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA%20Compliant-047857.svg?style=flat-square)](#8-test-suite--quality-assurance)
+[![Tests Passing](https://img.shields.io/badge/Tests-81%20Unit%20%7C%2063%20E2E%20Passing-brightgreen.svg?style=flat-square)](#8-test-suite--quality-assurance)
+[![Proprietary Capstone](https://img.shields.io/badge/Status-Not%20For%20Cloning-critical.svg?style=flat-square)](#-notice-proprietary-academic-capstone--not-for-cloning-or-redistribution)
 [![Security Policy](https://img.shields.io/badge/Security-Strict%20CSP%20%7C%20DPDP%202023-red.svg?style=flat-square)](SECURITY.md)
+
+</div>
+
+---
+
+> [!CAUTION]
+>
+> ### 🛑 NOTICE: PROPRIETARY ACADEMIC CAPSTONE — NOT FOR CLONING OR REDISTRIBUTION
+>
+> **This repository is published strictly for academic capstone presentation, jury examination, and portfolio review by authorized evaluators.**
+>
+> - **Strict No-Clone Policy:** Direct cloning, scraping, re-hosting, mirroring, or creating public derivatives of this codebase is **strictly prohibited**.
+> - **Original Intellectual Property:** All architecture definitions, civic decision matrices, on-device algorithms, design tokens, and catalogue data structures represent original intellectual work engineered by **Anirban Chatterjee**.
+> - **Plagiarism & Commercial Prohibition:** Submitting this project (in whole or in part) as another person's academic work or using it for commercial monetization, cyber-cafe syndication, or white-labeling is strictly forbidden.
 
 ---
 
@@ -253,40 +273,42 @@ npm run audit:perf
 
 ---
 
-## 9. Getting Started & Local Development
+## 9. Academic Evaluator Verification & Review Run
 
-### Prerequisites
+> [!WARNING]
+> **Authorized Evaluation Only:** The following instructions are provided strictly for academic jury members, examiners, and project evaluators verifying the technical implementation in a controlled review environment. **Public cloning or redistribution is forbidden.**
+
+### Prerequisites (Review Environment)
 
 - Node.js $\ge 20.0.0$ LTS
 - npm $\ge 10.0.0$
 
-### Installation & Run
+### Verification Execution (Authorized Evaluators Only)
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/anirbanchatterjee/govease.git
+# 1. Access verified project workspace
 cd govease
 
-# 2. Install dependencies
-npm install
+# 2. Install frozen peer dependencies
+npm ci
 
-# 3. Compile catalogue and start development server
+# 3. Compile catalogue snapshot and start local evaluation server
 npm run dev
 
-# 4. Open in browser
+# 4. Open in browser for live feature inspection
 # Navigate to http://localhost:3000
 ```
 
-### Production Build & Containerization
+### Production Build & Container Drill
 
 ```bash
-# Build static production bundle
+# Verify static production bundle compilation (30 pre-rendered static routes)
 npm run build
 
-# Serve compiled static output
+# Run local zero-dependency evaluation static server
 npm run serve:static
 
-# Build hardened multi-stage Docker container
+# Verify hardened multi-stage Docker container build
 docker build -t govease:latest .
 ```
 
@@ -301,7 +323,9 @@ docker build -t govease:latest .
 
 ---
 
-## 11. License & Security
+## 11. Intellectual Property & Copyright Notice
 
-- **Licensing:** Licensed under the open-source [MIT License](LICENSE). Copyright &copy; 2026 Anirban Chatterjee and Contributors.
+- **Copyright & Ownership:** Copyright &copy; 2026 **Anirban Chatterjee**. All Rights Reserved.
+- **Usage Restrictions:** This project is **not open for cloning, copying, redistribution, or commercial use**. All rights regarding the source code, design system, cartographic identity, and data structures are strictly reserved.
+- **Permitted Use:** Read-only academic inspection, peer review, and examination by authorized evaluators.
 - **Security & Vulnerability Disclosure:** Please review [SECURITY.md](SECURITY.md) for responsible disclosure guidelines and security contacts.
