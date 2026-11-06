@@ -9,10 +9,10 @@ import { PwaRegister } from "../components/PwaRegister";
 import { MobileBottomNavigation } from "../components/Navigation";
 
 export const metadata: Metadata = {
-  title: "Unified Life Services Platform | Independent Public Services Guide",
+  title: "GovEase | Independent Public Services Guide",
   description:
-    "An independent, citizen-centric discovery and navigation guide to essential public services in India. Zero advertising, verified official links, and zero server-side tracking.",
-  applicationName: "Unified Life Services Platform",
+    "GovEase is an independent, citizen-centric discovery and navigation guide to essential public services in India. Zero advertising, verified official links, and zero server-side tracking.",
+  applicationName: "GovEase",
   manifest: "/manifest.webmanifest",
   icons: {
     icon: "/icons/icon-192.svg",

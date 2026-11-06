@@ -276,7 +276,7 @@ export function HomeClassicView() {
                 ? "ভারত-প্রথম সমন্বিত জনসেবা নির্দেশিকা"
                 : locale === "ta"
                   ? "இந்தியா-முதன்மை ஒருங்கிணைந்த மக்கள் சேவை வழிகாட்டி"
-                  : "India-First Unified Public Life Services Guide"}
+                  : "India-First GovEase Public Life Services Guide"}
           </span>
         </div>
 

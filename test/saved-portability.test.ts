@@ -7,7 +7,7 @@ describe("Milestone M4 - Saved Services Data Portability", () => {
 
   it("creates a well-formed backup payload with valid service IDs", () => {
     const payload = createBackupPayload([validServiceId, anotherValidServiceId, "non-existent-id"]);
-    expect(payload.format).toBe("unified-life-services-backup-v1");
+    expect(payload.format).toBe("govease-backup-v1");
     expect(payload.savedServiceIds).toEqual([validServiceId, anotherValidServiceId]);
     expect(typeof payload.exportedAt).toBe("string");
   });
@@ -39,7 +39,7 @@ describe("Milestone M4 - Saved Services Data Portability", () => {
 
   it("filters out unknown, corrupt, or injected IDs from external sources", () => {
     const mixedPayload = {
-      format: "unified-life-services-backup-v1",
+      format: "govease-backup-v1",
       exportedAt: new Date().toISOString(),
       savedServiceIds: [
         validServiceId,
@@ -58,7 +58,7 @@ describe("Milestone M4 - Saved Services Data Portability", () => {
 
   it("deduplicates identical IDs gracefully", () => {
     const duplicatePayload = {
-      format: "unified-life-services-backup-v1",
+      format: "govease-backup-v1",
       exportedAt: new Date().toISOString(),
       savedServiceIds: [validServiceId, validServiceId, validServiceId],
     };

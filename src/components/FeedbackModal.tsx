@@ -47,7 +47,7 @@ export function FeedbackModal({ isOpen, onClose, preselectedServiceId }: Feedbac
     : "General / Platform";
 
   const formattedReport = [
-    `### Unified Life Services - Citizen Feedback / Correction Report`,
+    `### GovEase - Citizen Feedback / Correction Report`,
     `- **Category:** ${category}`,
     `- **Target Service:** ${serviceTitle} (${serviceId})`,
     `- **Date:** ${new Date().toISOString()}`,

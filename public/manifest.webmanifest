@@ -1,7 +1,7 @@
 {
-  "name": "Unified Life Services Platform",
-  "short_name": "Life Services",
-  "description": "Citizen-centric navigation and discovery for essential public services in India.",
+  "name": "GovEase - Independent Public Services Guide",
+  "short_name": "GovEase",
+  "description": "GovEase: Citizen-centric navigation and discovery for essential public services in India.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -1,5 +1,5 @@
 /**
- * Unified Life Services Platform - Saved Services Portability Utility
+ * GovEase - Saved Services Portability Utility
  *
  * Implements citizen data portability in alignment with India DPDP Act 2023.
  * Validates, serializes, and deserializes saved service backups without network transmission.
@@ -8,7 +8,7 @@
 import { getAllServices } from "./catalogue";
 
 export interface SavedBackupPayload {
-  format: "unified-life-services-backup-v1";
+  format: "govease-backup-v1" | "unified-life-services-backup-v1";
   exportedAt: string;
   savedServiceIds: string[];
 }
@@ -28,7 +28,7 @@ export function createBackupPayload(savedIds: string[]): SavedBackupPayload {
   const filtered = savedIds.filter((id) => validServiceIds.has(id));
 
   return {
-    format: "unified-life-services-backup-v1",
+    format: "govease-backup-v1",
     exportedAt: new Date().toISOString(),
     savedServiceIds: filtered,
   };
@@ -64,7 +64,9 @@ export function parseAndValidateBackup(rawJson: string): ImportResult & { ids?: 
     typeof parsed !== "object" ||
     parsed === null ||
     !("format" in parsed) ||
-    (parsed as { format: unknown }).format !== "unified-life-services-backup-v1" ||
+    !["govease-backup-v1", "unified-life-services-backup-v1"].includes(
+      String((parsed as { format: unknown }).format)
+    ) ||
     !("savedServiceIds" in parsed) ||
     !Array.isArray((parsed as { savedServiceIds: unknown }).savedServiceIds)
   ) {
@@ -72,7 +74,7 @@ export function parseAndValidateBackup(rawJson: string): ImportResult & { ids?: 
       success: false,
       count: 0,
       message:
-        "Invalid backup structure. The file must be a valid Unified Life Services backup file.",
+        "Invalid backup structure. The file must be a valid GovEase backup file.",
       error: "INVALID_SCHEMA",
     };
   }

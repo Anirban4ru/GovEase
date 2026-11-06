@@ -1,8 +1,8 @@
 {
-  "name": "unified-life-services",
+  "name": "govease",
   "version": "0.1.0",
   "private": true,
-  "description": "India-first, globally expandable Unified Life Services Platform (Independent Public Services Guide)",
+  "description": "GovEase: An India-first, zero-knowledge civic navigation platform (Independent Public Services Guide)",
   "scripts": {
     "dev": "npm run build:catalogue && next dev",
     "build:catalogue": "node scripts/build-catalogue.mjs",

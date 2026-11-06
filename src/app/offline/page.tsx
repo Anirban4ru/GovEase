@@ -76,7 +76,7 @@ export default function OfflinePage() {
         >
           {locale === "hi"
             ? "इंटरनेट कनेक्शन उपलब्ध नहीं है। यह प्लेटफ़ॉर्म आपके डिवाइस पर पहले से सहेजे गए गाइड और प्राथमिकताओं को सुरक्षित रूप से प्रदर्शित कर सकता है।"
-            : "No internet connection detected. The Unified Life Services shell is running offline using locally cached resources."}
+            : "No internet connection detected. The GovEase shell is running offline using locally cached resources."}
         </p>
 
         {/* Mandatory Date Stamp (§252: Never show a cached item as current without its date) */}

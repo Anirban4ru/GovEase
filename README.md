@@ -1,4 +1,4 @@
-# Unified Public Life Services Platform
+# GovEase
 
 ### _An India-First, Zero-Knowledge Civic Navigation Architecture_
 
@@ -27,7 +27,7 @@ In modern India, essential public services—ranging from civil registration, he
 2. **Commercial Surveillance & Data Harvesting:** Intermediary cyber-cafes and commercial portals harvesting citizen Aadhaar numbers, phone numbers, and documents.
 3. **Linguistic & Accessibility Barriers:** Dense bureaucratic jargon, lack of regional language parity, and poor assistive technology compatibility.
 
-The **Unified Public Life Services Platform** addresses these challenges through a **Zero-Knowledge, client-side, privacy-preserving civic navigation engine**. It provides a verified, dated directory of **18 essential public life services** across **6 core domains**, accompanied by 5-phase sequential guides, an on-device eligibility screener, assistive audio narration, and an instant multi-script search engine.
+**GovEase** addresses these challenges through a **Zero-Knowledge, client-side, privacy-preserving civic navigation engine**. It provides a verified, dated directory of **18 essential public life services** across **6 core domains**, accompanied by 5-phase sequential guides, an on-device eligibility screener, assistive audio narration, and an instant multi-script search engine.
 
 ---
 

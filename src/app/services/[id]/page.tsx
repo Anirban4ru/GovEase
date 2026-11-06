@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!service) {
     return {
-      title: "Service Not Found | Unified Life Services Platform",
+      title: "Service Not Found | GovEase",
     };
   }
 
   return {
-    title: `${service.title.en} | Unified Life Services Platform`,
+    title: `${service.title.en} | GovEase`,
     description: service.summary.en,
   };
 }

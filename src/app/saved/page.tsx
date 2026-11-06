@@ -317,7 +317,7 @@ export default function SavedPage() {
         style={{ marginBottom: "2rem", borderBottom: "2px solid #000", paddingBottom: "1rem" }}
       >
         <div style={{ fontSize: "20pt", margin: "0 0 0.5rem 0", fontWeight: 800 }}>
-          Unified Life Services - Personal Service Checklist
+          GovEase - Personal Service Checklist
         </div>
         <p style={{ margin: "0 0 0.25rem 0", fontSize: "10pt" }}>
           Citizen Reference Document • Printed on:{" "}
