@@ -32,12 +32,7 @@ export function IconShield({
   );
 }
 
-export function IconLock({
-  size = 14,
-  color = "currentColor",
-  className = "",
-  style,
-}: IconProps) {
+export function IconLock({ size = 14, color = "currentColor", className = "", style }: IconProps) {
   return (
     <svg
       width={size}
@@ -117,12 +112,7 @@ export function IconBuilding({
   );
 }
 
-export function IconCheck({
-  size = 14,
-  color = "currentColor",
-  className = "",
-  style,
-}: IconProps) {
+export function IconCheck({ size = 14, color = "currentColor", className = "", style }: IconProps) {
   return (
     <svg
       width={size}
@@ -142,12 +132,7 @@ export function IconCheck({
   );
 }
 
-export function IconPrint({
-  size = 14,
-  color = "currentColor",
-  className = "",
-  style,
-}: IconProps) {
+export function IconPrint({ size = 14, color = "currentColor", className = "", style }: IconProps) {
   return (
     <svg
       width={size}
@@ -169,12 +154,7 @@ export function IconPrint({
   );
 }
 
-export function IconCopy({
-  size = 14,
-  color = "currentColor",
-  className = "",
-  style,
-}: IconProps) {
+export function IconCopy({ size = 14, color = "currentColor", className = "", style }: IconProps) {
   return (
     <svg
       width={size}
@@ -195,12 +175,7 @@ export function IconCopy({
   );
 }
 
-export function IconEdit({
-  size = 14,
-  color = "currentColor",
-  className = "",
-  style,
-}: IconProps) {
+export function IconEdit({ size = 14, color = "currentColor", className = "", style }: IconProps) {
   return (
     <svg
       width={size}
@@ -221,12 +196,7 @@ export function IconEdit({
   );
 }
 
-export function IconStar({
-  size = 14,
-  color = "currentColor",
-  className = "",
-  style,
-}: IconProps) {
+export function IconStar({ size = 14, color = "currentColor", className = "", style }: IconProps) {
   return (
     <svg
       width={size}

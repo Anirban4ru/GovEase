@@ -21,7 +21,6 @@ import {
   LandholdingType,
 } from "../lib/eligibility-matcher";
 import {
-  getPersonaIcon,
   IconShield,
   IconCheck,
   IconPrint,
@@ -109,13 +108,6 @@ export function PersonalizedEligibilityModal({
   }, [isOpen, onClose, embedded]);
 
   if (!embedded && !isOpen) return null;
-
-  const handleApplyDemoProfile = (demoProfile: CitizenProfile) => {
-    setProfile(demoProfile);
-    const matches = evaluateCitizenEligibility(demoProfile);
-    setResults(matches);
-    setStep(5); // jump straight to results
-  };
 
   const handleRunEvaluation = () => {
     const matches = evaluateCitizenEligibility(profile);
@@ -303,80 +295,19 @@ export function PersonalizedEligibilityModal({
         )}
       </div>
 
-      {/* Quick Demo Profiles Bar */}
+      {/* Sleek Linear 5-Step Progress Bar */}
       <div
         style={{
           padding: "0.75rem 1.5rem",
-          backgroundColor: "#fffbeb",
-          borderBottom: "1px solid #fef3c7",
-          display: "flex",
-          alignItems: "center",
-          gap: "0.625rem",
-          overflowX: "auto",
-          whiteSpace: "nowrap",
-        }}
-      >
-        <span
-          style={{
-            fontSize: "0.75rem",
-            fontWeight: 700,
-            color: "#b45309",
-            textTransform: "uppercase",
-            letterSpacing: "0.03em",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "4px",
-            flexShrink: 0,
-          }}
-        >
-          ▶ Quick Demo Profiles:
-        </span>
-        <div style={{ display: "flex", gap: "0.5rem", flexWrap: "nowrap" }}>
-          {QUICK_DEMO_PROFILES.map((demo) => (
-            <button
-              key={demo.id}
-              type="button"
-              onClick={() => handleApplyDemoProfile(demo.profile)}
-              style={{
-                padding: "0.3rem 0.65rem",
-                fontSize: "0.75rem",
-                fontWeight: 600,
-                backgroundColor: "#ffffff",
-                color: "#92400e",
-                border: "1px solid #fcd34d",
-                borderRadius: "var(--radius-sm, 6px)",
-                cursor: "pointer",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.35rem",
-                boxShadow: "0 1px 2px rgba(0,0,0,0.05)",
-                transition: "all 0.15s ease",
-                flexShrink: 0,
-              }}
-            >
-              <span style={{ display: "inline-flex", alignItems: "center" }}>
-                {getPersonaIcon(demo.id, 13)}
-              </span>
-              <span>{demo.label[locale] || demo.label.en}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* 5-Step Stepper Bar */}
-      <div
-        style={{
-          padding: "0.85rem 1.5rem",
           borderBottom: "1px solid var(--color-border-subtle, #f0f0f0)",
-          backgroundColor: "#ffffff",
+          backgroundColor: "#fcfcfd",
         }}
       >
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            position: "relative",
+            display: "grid",
+            gridTemplateColumns: "repeat(5, 1fr)",
+            gap: "0.5rem",
           }}
         >
           {[
@@ -397,52 +328,37 @@ export function PersonalizedEligibilityModal({
                   else setStep(s.num);
                 }}
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "4px",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  padding: "0 0.5rem",
+                  padding: "0.35rem 0",
+                  textAlign: "center",
+                  borderBottom: isActive
+                    ? "3px solid var(--color-govease-navy, #0d3570)"
+                    : isPassed
+                      ? "3px solid #047857"
+                      : "3px solid #e2e8f0",
+                  transition: "all 0.15s ease",
                 }}
               >
-                <div
-                  style={{
-                    width: "28px",
-                    height: "28px",
-                    borderRadius: "50%",
-                    backgroundColor: isActive
-                      ? "var(--color-govease-navy, #0d3570)"
-                      : isPassed
-                        ? "#047857"
-                        : "#f3f4f6",
-                    color: isActive || isPassed ? "#ffffff" : "#6b7280",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "0.8125rem",
-                    fontWeight: 700,
-                    transition: "all 0.15s ease",
-                  }}
-                >
-                  {isPassed ? <IconCheck size={13} color="#ffffff" /> : s.num}
-                </div>
                 <span
                   style={{
                     fontSize: "0.75rem",
-                    fontWeight: isActive ? 700 : 500,
-                    color: isActive ? "var(--color-govease-navy, #0d3570)" : "#6b7280",
+                    fontWeight: isActive ? 700 : 600,
+                    color: isActive
+                      ? "var(--color-govease-navy, #0d3570)"
+                      : isPassed
+                        ? "#047857"
+                        : "#94a3b8",
                   }}
                 >
-                  {s.label}
+                  {s.num}. {s.label}
                 </span>
               </button>
             );
           })}
         </div>
       </div>
-
       {/* Modal Scrollable Body */}
       <div
         style={{
@@ -454,29 +370,6 @@ export function PersonalizedEligibilityModal({
           gap: "1.25rem",
         }}
       >
-        {/* Privacy & Purpose Guarantee Banner */}
-        <div
-          style={{
-            padding: "0.75rem 1rem",
-            backgroundColor: "#f0fdf4",
-            border: "1px solid #bbf7d0",
-            borderRadius: "var(--radius-sm, 6px)",
-            fontSize: "0.8125rem",
-            color: "#166534",
-            display: "flex",
-            alignItems: "flex-start",
-            gap: "0.625rem",
-          }}
-        >
-          <IconShield size={18} color="#047857" style={{ flexShrink: 0, marginTop: "2px" }} />
-          <div>
-            <strong style={{ fontWeight: 700 }}>Zero-Knowledge Privacy Guarantee:</strong>{" "}
-            {locale === "hi"
-              ? "यह पात्रता जांच 100% आपके डिवाइस पर चलती है। आपकी जाति, आय या कोई भी निजी विवरण किसी सर्वर पर नहीं भेजा जाता है।"
-              : "Many welfare initiatives have designated affirmative criteria. This screener runs 100% inside your browser. Zero bytes are uploaded to any server (DPDP Act 2023)."}
-          </div>
-        </div>
-
         {/* STEP 1: Personal Profile */}
         {step === 1 && (
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -511,16 +404,6 @@ export function PersonalizedEligibilityModal({
                     fontSize: "0.9375rem",
                   }}
                 />
-                <span
-                  style={{
-                    fontSize: "0.75rem",
-                    color: "var(--color-content-tertiary)",
-                    marginTop: "4px",
-                    display: "block",
-                  }}
-                >
-                  Must be realistic age (e.g. 18–70 for welfare/pensions)
-                </span>
               </div>
 
               {/* Gender */}
@@ -554,16 +437,6 @@ export function PersonalizedEligibilityModal({
                   <option value="female">Female</option>
                   <option value="transgender">Transgender</option>
                 </select>
-                <span
-                  style={{
-                    fontSize: "0.75rem",
-                    color: "var(--color-content-tertiary)",
-                    marginTop: "4px",
-                    display: "block",
-                  }}
-                >
-                  Unlocks designated women or minority initiatives
-                </span>
               </div>
             </div>
 
@@ -611,17 +484,6 @@ export function PersonalizedEligibilityModal({
                   );
                 })}
               </div>
-              <span
-                style={{
-                  fontSize: "0.75rem",
-                  color: "var(--color-content-tertiary)",
-                  marginTop: "6px",
-                  display: "block",
-                }}
-              >
-                Used strictly to match statutory reservation and designated post-matric scholarship
-                grants.
-              </span>
             </div>
 
             {/* Disability Status */}
@@ -659,16 +521,6 @@ export function PersonalizedEligibilityModal({
                 <option value="intellectual">Intellectual disability / Autism</option>
                 <option value="multiple">Multiple disabilities</option>
               </select>
-              <span
-                style={{
-                  fontSize: "0.75rem",
-                  color: "var(--color-content-tertiary)",
-                  marginTop: "4px",
-                  display: "block",
-                }}
-              >
-                Matches Swavlamban UDID card, travel concessions, and assistive equipment aids.
-              </span>
             </div>
           </div>
         )}
@@ -756,16 +608,6 @@ export function PersonalizedEligibilityModal({
                 <option value="unemployed">Unemployed / Job Seeker / Homemaker</option>
                 <option value="retired">Retired / Senior Citizen</option>
               </select>
-              <span
-                style={{
-                  fontSize: "0.75rem",
-                  color: "var(--color-content-tertiary)",
-                  marginTop: "4px",
-                  display: "block",
-                }}
-              >
-                Used to target PM-Kisan, e-Shram UAN, National Scholarships, or EPF benefits.
-              </span>
             </div>
           </div>
         )}
@@ -1491,6 +1333,19 @@ export function PersonalizedEligibilityModal({
               Cancel
             </button>
           )}
+          <span
+            style={{
+              fontSize: "0.75rem",
+              color: "#047857",
+              fontWeight: 600,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "4px",
+            }}
+          >
+            <IconShield size={13} color="#047857" />
+            <span>100% In-Browser Evaluation • DPDP Act Compliant</span>
+          </span>
         </div>
 
         <div style={{ display: "flex", gap: "0.5rem" }}>

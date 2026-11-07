@@ -9,7 +9,6 @@ import { usePresentationMode } from "../context/ModeContext";
 import { SearchBar } from "../components/SearchBar";
 import { EcosystemBadge } from "../components/EcosystemBadge";
 import { GoalPhrasedGrid } from "../components/GoalPhrasedGrid";
-import { QUICK_DEMO_PROFILES } from "../lib/eligibility-matcher";
 import type { LifeEcosystem } from "../lib/catalogue";
 
 const PersonalizedEligibilityModal = dynamic(
@@ -26,7 +25,7 @@ const HomeClassicView = dynamic(
 );
 
 import { IndiaMonumentsAnimation } from "../components/IndiaMonumentsAnimation";
-import { getPersonaIcon, IconShield, IconDocument } from "../components/CivicIcons";
+import { IconDocument } from "../components/CivicIcons";
 
 interface LifeAreaSummary {
   id: LifeEcosystem;
@@ -556,42 +555,23 @@ function HomeContent() {
             aria-hidden="true"
           />
 
-          <div style={{ padding: "1.5rem" }}>
+          <div style={{ padding: "1.75rem 2rem" }}>
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "flex-start",
+                alignItems: "center",
                 flexWrap: "wrap",
-                gap: "1.25rem",
-                marginBottom: "1.25rem",
+                gap: "1.5rem",
               }}
             >
               <div style={{ maxWidth: "680px" }}>
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.4rem",
-                    padding: "0.2rem 0.6rem",
-                    backgroundColor: "#ecfdf5",
-                    border: "1px solid #a7f3d0",
-                    borderRadius: "var(--radius-full, 9999px)",
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    color: "#065f46",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  <IconShield size={13} color="#047857" />
-                  <span>Zero-Knowledge Matching Engine • DPDP Act 2023 Compliant</span>
-                </div>
                 <h3
                   style={{
-                    fontSize: "1.25rem",
+                    fontSize: "1.375rem",
                     fontWeight: 800,
                     color: "var(--color-govease-navy, #0d3570)",
-                    margin: "0 0 0.35rem 0",
+                    margin: "0 0 0.45rem 0",
                   }}
                 >
                   {locale === "hi"
@@ -605,9 +585,9 @@ function HomeContent() {
                 <p
                   style={{
                     margin: 0,
-                    fontSize: "0.875rem",
+                    fontSize: "0.9375rem",
                     color: "var(--color-content-secondary)",
-                    lineHeight: 1.55,
+                    lineHeight: 1.6,
                   }}
                 >
                   {locale === "hi"
@@ -636,13 +616,13 @@ function HomeContent() {
                     setEligibilityModalOpen(true);
                   }}
                   style={{
-                    padding: "0.65rem 1.25rem",
+                    padding: "0.75rem 1.5rem",
                     backgroundColor: "#047857",
                     color: "#ffffff",
                     border: "none",
                     borderRadius: "var(--radius-sm, 6px)",
                     fontWeight: 700,
-                    fontSize: "0.875rem",
+                    fontSize: "0.9375rem",
                     cursor: "pointer",
                     boxShadow: "0 1px 3px rgba(4, 120, 87, 0.3)",
                     display: "inline-flex",
@@ -657,84 +637,22 @@ function HomeContent() {
                 <Link
                   href="/eligibility"
                   style={{
-                    padding: "0.65rem 1.15rem",
+                    padding: "0.75rem 1.35rem",
                     backgroundColor: "var(--color-ground-muted, #f8f9fa)",
                     color: "var(--color-ink)",
                     border: "1px solid var(--color-border-default)",
                     borderRadius: "var(--radius-sm, 6px)",
                     fontWeight: 600,
-                    fontSize: "0.875rem",
+                    fontSize: "0.9375rem",
                     textDecoration: "none",
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: "0.4rem",
+                    gap: "0.45rem",
                   }}
                 >
-                  <IconDocument size={14} />
+                  <IconDocument size={15} />
                   <span>Full-Page Screener</span>
                 </Link>
-              </div>
-            </div>
-
-            {/* 1-Click Interactive Personas Sub-row */}
-            <div
-              style={{
-                padding: "0.75rem 1rem",
-                backgroundColor: "#f8fafc",
-                borderRadius: "var(--radius-md, 8px)",
-                border: "1px solid var(--color-border-subtle, #f1f5f9)",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                flexWrap: "wrap",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  color: "#475569",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.03em",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "4px",
-                  flexShrink: 0,
-                }}
-              >
-                1-Click Citizen Profiles:
-              </span>
-              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                {QUICK_DEMO_PROFILES.map((demo) => (
-                  <button
-                    key={demo.id}
-                    type="button"
-                    onClick={() => {
-                      setSelectedDemoProfileId(demo.id);
-                      setEligibilityModalOpen(true);
-                    }}
-                    style={{
-                      padding: "0.3rem 0.65rem",
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      backgroundColor: "#ffffff",
-                      border: "1px solid #cbd5e1",
-                      borderRadius: "var(--radius-full, 9999px)",
-                      color: "#1e293b",
-                      cursor: "pointer",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "0.4rem",
-                      boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
-                      transition: "all 0.15s ease",
-                    }}
-                  >
-                    <span style={{ display: "inline-flex", alignItems: "center" }}>
-                      {getPersonaIcon(demo.id, 14)}
-                    </span>
-                    <span>{demo.label[locale] || demo.label.en}</span>
-                  </button>
-                ))}
               </div>
             </div>
           </div>
@@ -763,22 +681,6 @@ function HomeContent() {
             }}
           >
             <div>
-              <span
-                style={{
-                  fontSize: "0.6875rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.04em",
-                  color: "var(--color-govease-navy, #0d3570)",
-                  backgroundColor: "#f1f5f9",
-                  padding: "2px 8px",
-                  borderRadius: "4px",
-                  display: "inline-block",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Guided Roadmaps
-              </span>
               <h3
                 style={{
                   fontSize: "1.125rem",
@@ -834,22 +736,6 @@ function HomeContent() {
             }}
           >
             <div>
-              <span
-                style={{
-                  fontSize: "0.6875rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.04em",
-                  color: "#047857",
-                  backgroundColor: "#ecfdf5",
-                  padding: "2px 8px",
-                  borderRadius: "4px",
-                  display: "inline-block",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                In-Browser Studio
-              </span>
               <h3
                 style={{
                   fontSize: "1.125rem",
