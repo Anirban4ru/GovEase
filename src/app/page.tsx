@@ -382,124 +382,6 @@ function HomeContent() {
             </Link>
           ))}
         </div>
-
-        {/* Quick Action Navigation Buttons */}
-        <div
-          style={{
-            display: "flex",
-            gap: "0.75rem",
-            flexWrap: "wrap",
-            alignItems: "center",
-            marginBottom: "2rem",
-          }}
-        >
-          <button
-            type="button"
-            onClick={() => {
-              setSelectedDemoProfileId(undefined);
-              setEligibilityModalOpen(true);
-            }}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.65rem 1.4rem",
-              backgroundColor: "#047857",
-              color: "#ffffff",
-              borderRadius: "var(--radius-sm)",
-              fontWeight: 700,
-              fontSize: "0.9375rem",
-              border: "none",
-              cursor: "pointer",
-              minHeight: "var(--min-touch-target)",
-              boxShadow: "0 2px 4px rgba(4, 120, 87, 0.25)",
-            }}
-          >
-            <span>
-              {locale === "hi"
-                ? "🎯 पात्रता जांचें"
-                : locale === "bn"
-                  ? "🎯 যোগ্যতা যাচাই করুন"
-                  : locale === "ta"
-                    ? "🎯 தகுதி சரிபார்க்கவும்"
-                    : "🎯 Check Eligibility"}
-            </span>
-          </button>
-
-          <Link
-            href="/guide"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.65rem 1.4rem",
-              backgroundColor: "var(--color-govease-navy, #0d3570)",
-              color: "#ffffff",
-              borderRadius: "var(--radius-sm)",
-              fontWeight: 700,
-              fontSize: "0.9375rem",
-              textDecoration: "none",
-              minHeight: "var(--min-touch-target)",
-              boxShadow: "0 1px 3px rgba(13, 53, 112, 0.2)",
-            }}
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <polygon
-                points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
-                fill="currentColor"
-              />
-            </svg>
-            <span>
-              {locale === "hi"
-                ? "योजना मार्गदर्शिका खोलें"
-                : locale === "bn"
-                  ? "লাইফ নেভিগেটর শুরু করুন"
-                  : locale === "ta"
-                    ? "வாழ்க்கை வழிகாட்டி"
-                    : "Open Life Navigator"}
-            </span>
-          </Link>
-
-          <Link
-            href="/explore"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.65rem 1.4rem",
-              backgroundColor: "var(--color-ground-elevated)",
-              color: "var(--color-ink)",
-              border: "1px solid var(--color-border-strong)",
-              borderRadius: "var(--radius-sm)",
-              fontWeight: 600,
-              fontSize: "0.9375rem",
-              textDecoration: "none",
-              minHeight: "var(--min-touch-target)",
-            }}
-          >
-            <span>
-              {locale === "hi"
-                ? "सभी 18 सेवाएँ ब्राउज़ करें"
-                : locale === "bn"
-                  ? "সব ১৮টি সেবা দেখুন"
-                  : locale === "ta"
-                    ? "18 சேவைகளையும் உலாவுங்கள்"
-                    : "Browse 18 Services"}
-            </span>
-          </Link>
-        </div>
-
         {/* Authoritative Civic Standards & Verification Strip */}
         <div
           style={{
@@ -607,199 +489,420 @@ function HomeContent() {
         </div>
       </section>
 
-      {/* PERSONALIZED ELIGIBILITY CHECK & CITIZEN PROFILE SPOTLIGHT */}
+      {/* CIVIC DECISION & NAVIGATION ARCHITECTURE (Structured Command Center) */}
       <section
-        aria-labelledby="eligibility-spotlight-heading"
+        aria-labelledby="civic-navigation-hub-heading"
         style={{
           marginBottom: "3.5rem",
-          backgroundColor: "#ffffff",
-          borderRadius: "var(--radius-lg, 12px)",
-          border: "1.5px solid rgba(5, 150, 105, 0.25)",
-          boxShadow: "0 4px 20px rgba(5, 150, 105, 0.08)",
-          padding: "1.75rem",
-          position: "relative",
-          overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          gap: "1.25rem",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "4px",
-            background: "linear-gradient(90deg, #059669 0%, #10b981 50%, #34d399 100%)",
-          }}
-          aria-hidden="true"
-        />
+        {/* Section Header */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+          <div
+            style={{
+              fontSize: "0.75rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              color: "var(--color-govease-navy, #0d3570)",
+            }}
+          >
+            {locale === "hi"
+              ? "नागरिक निर्णय एवं कल्याणकारी मंच"
+              : locale === "bn"
+                ? "নাগরিক সিদ্ধান্ত ও জনকল্যাণ প্ল্যাটফর্ম"
+                : locale === "ta"
+                  ? "குடிமக்கள் முடிவு & மக்கள் நல தளம்"
+                  : "Civic Decision & Welfare Systems"}
+          </div>
+          <h2
+            id="civic-navigation-hub-heading"
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: 800,
+              color: "var(--color-ink)",
+              margin: 0,
+              letterSpacing: "-0.015em",
+            }}
+          >
+            {locale === "hi"
+              ? "व्यक्तिगत पात्रता जांच एवं नागरिक नेविगेटर"
+              : locale === "bn"
+                ? "ব্যক্তিগত যোগ্যতা যাচাই ও নাগরিক সহায়ক"
+                : locale === "ta"
+                  ? "தனிப்பயனாக்கப்பட்ட தகுதி சரிபார்ப்பு & வழிகாட்டி"
+                  : "Personalized Eligibility & Civic Navigation"}
+          </h2>
+          <p
+            style={{
+              fontSize: "0.875rem",
+              color: "var(--color-content-secondary)",
+              margin: 0,
+              maxWidth: "760px",
+              lineHeight: 1.5,
+            }}
+          >
+            {locale === "hi"
+              ? "बिना किसी सर्वर पर व्यक्तिगत डेटा भेजे, सीधे अपने डिवाइस पर सरकारी योजनाओं की पात्रता जांचें और आधिकारिक दस्तावेज़ तैयार करें।"
+              : locale === "bn"
+                ? "কোনো সার্ভারে তথ্য না পাঠিয়ে, সরাসরি ডিভাইসে সরকারি প্রকল্পের যোগ্যতা যাচাই ও দরখাস্তের নথি প্রস্তুত করুন।"
+                : locale === "ta"
+                  ? "எந்த சர்வரிலும் தனிப்பட்ட விவரங்களை அனுப்பாமல், அரசு திட்டங்களின் தகுதியை சரிபார்த்து ஆவணங்களை தயார் செய்யுங்கள்."
+                  : "Zero-knowledge, client-side tools to calculate statutory welfare entitlements and prepare verified applications completely within your browser."}
+          </p>
+        </div>
 
+        {/* 1. MASTER FEATURE CARD: Scheme Eligibility Screener */}
         <div
           style={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "1.25rem",
-            marginBottom: "1.25rem",
+            backgroundColor: "var(--color-ground-elevated, #ffffff)",
+            borderRadius: "var(--radius-lg, 12px)",
+            border: "1px solid var(--color-border-default)",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.04)",
+            overflow: "hidden",
           }}
         >
-          <div style={{ maxWidth: "680px" }}>
+          <div
+            style={{
+              height: "4px",
+              background: "linear-gradient(90deg, #047857 0%, #0d3570 100%)",
+            }}
+            aria-hidden="true"
+          />
+
+          <div style={{ padding: "1.5rem" }}>
             <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                flexWrap: "wrap",
+                gap: "1.25rem",
+                marginBottom: "1.25rem",
+              }}
+            >
+              <div style={{ maxWidth: "680px" }}>
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.4rem",
+                    padding: "0.2rem 0.6rem",
+                    backgroundColor: "#ecfdf5",
+                    border: "1px solid #a7f3d0",
+                    borderRadius: "var(--radius-full, 9999px)",
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    color: "#065f46",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <span>🎯 Zero-Knowledge Matching Engine • DPDP Act 2023 Compliant</span>
+                </div>
+                <h3
+                  style={{
+                    fontSize: "1.25rem",
+                    fontWeight: 800,
+                    color: "var(--color-govease-navy, #0d3570)",
+                    margin: "0 0 0.35rem 0",
+                  }}
+                >
+                  {locale === "hi"
+                    ? "कल्याणकारी योजना पात्रता परीक्षक"
+                    : locale === "bn"
+                      ? "সরকারি প্রকল্প যোগ্যতা ও সুবিধা মিলিয়ে নেওয়ার ইঞ্জিন"
+                      : locale === "ta"
+                        ? "திட்ட தகுதி மற்றும் பலன்கள் சரிபார்ப்பு"
+                        : "Scheme Eligibility & Benefits Matching Engine"}
+                </h3>
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: "0.875rem",
+                    color: "var(--color-content-secondary)",
+                    lineHeight: 1.55,
+                  }}
+                >
+                  {locale === "hi"
+                    ? "अपनी आयु, लिंग, शिक्षा, पारिवारिक आय, राशन कार्ड (BPL/APL) और राज्य दर्ज करें और जानें कि आप किन-किन केंद्रीय व राज्य योजनाओं के पात्र हैं।"
+                    : locale === "bn"
+                      ? "আপনার বয়স, শিক্ষা, পারিবারিক আয়, রেশন কার্ড (BPL/APL) ও রাজ্য অনুসারে আপনার প্রাপ্য কেন্দ্রীয় ও রাজ্য স্কিম জানুন।"
+                      : locale === "ta"
+                        ? "உங்கள் வயது, கல்வி, குடும்ப வருமானம், ரேஷன் அட்டை மற்றும் மாநிலத்தின் அடிப்படையில் அரசு திட்டங்களை கண்டறியுங்கள்."
+                        : "Match your age, education, household income, ration category, and domicile against 16+ sovereign schemes — computed entirely in-memory with zero server upload."}
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "0.75rem",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedDemoProfileId(undefined);
+                    setEligibilityModalOpen(true);
+                  }}
+                  style={{
+                    padding: "0.65rem 1.25rem",
+                    backgroundColor: "#047857",
+                    color: "#ffffff",
+                    border: "none",
+                    borderRadius: "var(--radius-sm, 6px)",
+                    fontWeight: 700,
+                    fontSize: "0.875rem",
+                    cursor: "pointer",
+                    boxShadow: "0 1px 3px rgba(4, 120, 87, 0.3)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    transition: "all 0.15s ease",
+                  }}
+                >
+                  <span>Check My Eligibility 🎯</span>
+                  <span aria-hidden="true">→</span>
+                </button>
+                <Link
+                  href="/eligibility"
+                  style={{
+                    padding: "0.65rem 1.15rem",
+                    backgroundColor: "var(--color-ground-muted, #f8f9fa)",
+                    color: "var(--color-ink)",
+                    border: "1px solid var(--color-border-default)",
+                    borderRadius: "var(--radius-sm, 6px)",
+                    fontWeight: 600,
+                    fontSize: "0.875rem",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                  }}
+                >
+                  Full-Page Screener 📄
+                </Link>
+              </div>
+            </div>
+
+            {/* 1-Click Interactive Personas Sub-row */}
+            <div
+              style={{
+                padding: "0.75rem 1rem",
+                backgroundColor: "#f8fafc",
+                borderRadius: "var(--radius-md, 8px)",
+                border: "1px solid var(--color-border-subtle, #f1f5f9)",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                flexWrap: "wrap",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  color: "#475569",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.03em",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "4px",
+                  flexShrink: 0,
+                }}
+              >
+                ⚡ 1-Click Persona Demos:
+              </span>
+              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                {QUICK_DEMO_PROFILES.map((demo) => (
+                  <button
+                    key={demo.id}
+                    type="button"
+                    onClick={() => {
+                      setSelectedDemoProfileId(demo.id);
+                      setEligibilityModalOpen(true);
+                    }}
+                    style={{
+                      padding: "0.3rem 0.65rem",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      backgroundColor: "#ffffff",
+                      border: "1px solid #cbd5e1",
+                      borderRadius: "var(--radius-full, 9999px)",
+                      color: "#1e293b",
+                      cursor: "pointer",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.35rem",
+                      boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
+                      transition: "all 0.15s ease",
+                    }}
+                  >
+                    <span>{demo.icon}</span>
+                    <span>{demo.label[locale] || demo.label.en}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 2. TWO BALANCED COMPANION CARDS: Life Stage Navigator & Document Prep Studio */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
+            gap: "1.25rem",
+          }}
+        >
+          {/* Companion Card A: Life Stage Navigator */}
+          <div
+            style={{
+              backgroundColor: "var(--color-ground-elevated, #ffffff)",
+              borderRadius: "var(--radius-lg, 12px)",
+              border: "1px solid var(--color-border-default)",
+              padding: "1.25rem 1.5rem",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              gap: "1rem",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
+            }}
+          >
+            <div>
+              <span
+                style={{
+                  fontSize: "0.6875rem",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.04em",
+                  color: "var(--color-govease-navy, #0d3570)",
+                  backgroundColor: "#f1f5f9",
+                  padding: "2px 8px",
+                  borderRadius: "4px",
+                  display: "inline-block",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                🧭 Guided Roadmaps
+              </span>
+              <h3
+                style={{
+                  fontSize: "1.125rem",
+                  fontWeight: 800,
+                  color: "var(--color-ink)",
+                  margin: "0 0 0.35rem 0",
+                }}
+              >
+                Life Stage Navigator
+              </h3>
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--color-content-secondary)",
+                  lineHeight: 1.5,
+                  margin: 0,
+                }}
+              >
+                Milestone-based verified roadmaps for Higher Education, Formal Employment,
+                Healthcare Access, and Senior Citizen welfare.
+              </p>
+            </div>
+
+            <Link
+              href="/guide"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.4rem",
-                padding: "0.25rem 0.65rem",
-                backgroundColor: "#ecfdf5",
-                border: "1px solid #a7f3d0",
-                borderRadius: "var(--radius-full, 9999px)",
-                fontSize: "0.75rem",
+                fontSize: "0.8125rem",
                 fontWeight: 700,
-                color: "#065f46",
-                marginBottom: "0.5rem",
-              }}
-            >
-              <span>🎯 NEW: Zero-Knowledge Matching Engine • DPDP Act 2023 Compliant</span>
-            </div>
-            <h2
-              id="eligibility-spotlight-heading"
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: 800,
                 color: "var(--color-govease-navy, #0d3570)",
-                margin: "0 0 0.5rem 0",
-                lineHeight: 1.25,
+                textDecoration: "none",
               }}
             >
-              {locale === "hi"
-                ? "व्यक्तिगत पात्रता जांच एवं कल्याणकारी योजना खोज"
-                : locale === "bn"
-                  ? "ব্যক্তিগত যোগ্যতা যাচাই ও সরকারি প্রকল্প সন্ধান"
-                  : locale === "ta"
-                    ? "தனிப்பயனாக்கப்பட்ட தகுதி சரிபார்ப்பு மற்றும் திட்டங்கள்"
-                    : "Personalized Eligibility Check & Schemes Discovery"}
-            </h2>
-            <p
-              style={{
-                margin: 0,
-                fontSize: "0.9375rem",
-                color: "var(--color-content-secondary)",
-                lineHeight: 1.6,
-              }}
-            >
-              {locale === "hi"
-                ? "अपनी आयु, लिंग, शिक्षा, पारिवारिक आय, राशन कार्ड (BPL/APL) और राज्य दर्ज करें और जानें कि आप किन-किन सरकारी योजनाओं और छात्रवृत्तियों के हकदार हैं।"
-                : "Create a citizen profile with your age, gender, education, family income, ration card category (BPL/AAY/PHH/APL), and state to discover every central and state scheme you qualify for — with clear rationales."}
-            </p>
+              <span>Open Life Navigator</span>
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
 
-          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedDemoProfileId(undefined);
-                setEligibilityModalOpen(true);
-              }}
-              style={{
-                padding: "0.75rem 1.5rem",
-                backgroundColor: "#047857",
-                color: "#ffffff",
-                border: "none",
-                borderRadius: "var(--radius-sm, 6px)",
-                fontWeight: 700,
-                fontSize: "0.9375rem",
-                cursor: "pointer",
-                boxShadow: "0 2px 6px rgba(4, 120, 87, 0.3)",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                transition: "all 0.15s ease",
-              }}
-            >
-              <span>Check My Eligibility 🎯</span>
-              <span aria-hidden="true">→</span>
-            </button>
+          {/* Companion Card B: Document & Photo Prep Studio */}
+          <div
+            style={{
+              backgroundColor: "var(--color-ground-elevated, #ffffff)",
+              borderRadius: "var(--radius-lg, 12px)",
+              border: "1px solid var(--color-border-default)",
+              padding: "1.25rem 1.5rem",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              gap: "1rem",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
+            }}
+          >
+            <div>
+              <span
+                style={{
+                  fontSize: "0.6875rem",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.04em",
+                  color: "#047857",
+                  backgroundColor: "#ecfdf5",
+                  padding: "2px 8px",
+                  borderRadius: "4px",
+                  display: "inline-block",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                📸 In-Browser Studio
+              </span>
+              <h3
+                style={{
+                  fontSize: "1.125rem",
+                  fontWeight: 800,
+                  color: "var(--color-ink)",
+                  margin: "0 0 0.35rem 0",
+                }}
+              >
+                Document & Photo Prep Studio
+              </h3>
+              <p
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "var(--color-content-secondary)",
+                  lineHeight: 1.5,
+                  margin: 0,
+                }}
+              >
+                Crop, resize, and compress passport photos and signatures to strict government
+                portal specs (&lt;50KB / &lt;100KB) in client RAM.
+              </p>
+            </div>
+
             <Link
-              href="/eligibility"
+              href="/prep-studio"
               style={{
-                padding: "0.75rem 1.25rem",
-                backgroundColor: "var(--color-ground-muted)",
-                color: "var(--color-ink)",
-                border: "1px solid var(--color-border-default)",
-                borderRadius: "var(--radius-sm, 6px)",
-                fontWeight: 600,
-                fontSize: "0.9375rem",
-                textDecoration: "none",
                 display: "inline-flex",
                 alignItems: "center",
+                gap: "0.4rem",
+                fontSize: "0.8125rem",
+                fontWeight: 700,
+                color: "#047857",
+                textDecoration: "none",
               }}
             >
-              Full Page Screener
+              <span>Open Document Studio</span>
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
-
-        {/* Quick 1-Click Demo Profiles Strip */}
-        <div
-          style={{
-            padding: "0.85rem 1rem",
-            backgroundColor: "#f8fafc",
-            borderRadius: "var(--radius-md, 8px)",
-            border: "1px solid var(--color-border-subtle)",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.75rem",
-            flexWrap: "wrap",
-          }}
-        >
-          <span
-            style={{
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              color: "#475569",
-              textTransform: "uppercase",
-              letterSpacing: "0.03em",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "4px",
-              flexShrink: 0,
-            }}
-          >
-            ⚡ Try 1-Click Demo Profiles:
-          </span>
-          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-            {QUICK_DEMO_PROFILES.map((demo) => (
-              <button
-                key={demo.id}
-                type="button"
-                onClick={() => {
-                  setSelectedDemoProfileId(demo.id);
-                  setEligibilityModalOpen(true);
-                }}
-                style={{
-                  padding: "0.35rem 0.75rem",
-                  fontSize: "0.8125rem",
-                  fontWeight: 600,
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #cbd5e1",
-                  borderRadius: "var(--radius-full, 9999px)",
-                  color: "#1e293b",
-                  cursor: "pointer",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.35rem",
-                  boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
-                  transition: "all 0.15s ease",
-                }}
-              >
-                <span>{demo.icon}</span>
-                <span>{demo.label[locale] || demo.label.en}</span>
-              </button>
-            ))}
-          </div>
-        </div>
       </section>
-
       {/* "WHAT WOULD YOU LIKE TO DO?" (Section 4.1.2 Goal-Phrased Entries) */}
       <GoalPhrasedGrid />
 
