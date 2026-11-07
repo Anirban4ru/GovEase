@@ -20,6 +20,16 @@ import {
   IncomeRangeType,
   LandholdingType,
 } from "../lib/eligibility-matcher";
+import {
+  getPersonaIcon,
+  IconShield,
+  IconCheck,
+  IconPrint,
+  IconCopy,
+  IconEdit,
+  IconBuilding,
+  IconStar,
+} from "./CivicIcons";
 
 export interface PersonalizedEligibilityModalProps {
   isOpen?: boolean;
@@ -254,7 +264,20 @@ export function PersonalizedEligibilityModal({
               justifyContent: "center",
             }}
           >
-            ✕
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
           </button>
         ) : (
           <button
@@ -331,7 +354,9 @@ export function PersonalizedEligibilityModal({
                 flexShrink: 0,
               }}
             >
-              <span>{demo.icon}</span>
+              <span style={{ display: "inline-flex", alignItems: "center" }}>
+                {getPersonaIcon(demo.id, 13)}
+              </span>
               <span>{demo.label[locale] || demo.label.en}</span>
             </button>
           ))}
@@ -401,7 +426,7 @@ export function PersonalizedEligibilityModal({
                     transition: "all 0.15s ease",
                   }}
                 >
-                  {isPassed ? "✓" : s.num}
+                  {isPassed ? <IconCheck size={13} color="#ffffff" /> : s.num}
                 </div>
                 <span
                   style={{
@@ -443,7 +468,7 @@ export function PersonalizedEligibilityModal({
             gap: "0.625rem",
           }}
         >
-          <span style={{ fontSize: "1rem", lineHeight: 1 }}>🛡️</span>
+          <IconShield size={18} color="#047857" style={{ flexShrink: 0, marginTop: "2px" }} />
           <div>
             <strong style={{ fontWeight: 700 }}>Zero-Knowledge Privacy Guarantee:</strong>{" "}
             {locale === "hi"
@@ -1032,7 +1057,7 @@ export function PersonalizedEligibilityModal({
                     margin: 0,
                   }}
                 >
-                  🎯 Found {results.length} Eligible Government Schemes
+                  Found {results.length} Eligible Government Schemes
                 </h3>
                 <p
                   style={{
@@ -1059,9 +1084,22 @@ export function PersonalizedEligibilityModal({
                     border: "1px solid #93c5fd",
                     borderRadius: "var(--radius-sm, 6px)",
                     cursor: "pointer",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.35rem",
                   }}
                 >
-                  {copiedSummary ? "✓ Copied Summary!" : "📋 Copy Report"}
+                  {copiedSummary ? (
+                    <>
+                      <IconCheck size={13} color="#047857" />
+                      <span>Copied Summary!</span>
+                    </>
+                  ) : (
+                    <>
+                      <IconCopy size={13} />
+                      <span>Copy Report</span>
+                    </>
+                  )}
                 </button>
                 <button
                   type="button"
@@ -1077,9 +1115,13 @@ export function PersonalizedEligibilityModal({
                     border: "none",
                     borderRadius: "var(--radius-sm, 6px)",
                     cursor: "pointer",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.35rem",
                   }}
                 >
-                  🖨 Print List
+                  <IconPrint size={13} />
+                  <span>Print List</span>
                 </button>
               </div>
             </div>
@@ -1197,9 +1239,13 @@ export function PersonalizedEligibilityModal({
                             backgroundColor: "#ecfdf5",
                             padding: "2px 8px",
                             borderRadius: "4px",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "0.25rem",
                           }}
                         >
-                          ✓ {scheme.matchScore}% Match
+                          <IconCheck size={11} color="#065f46" />
+                          <span>{scheme.matchScore}% Match</span>
                         </span>
                       </div>
                       <h4
@@ -1234,9 +1280,13 @@ export function PersonalizedEligibilityModal({
                       fontSize: "0.8125rem",
                       fontWeight: 600,
                       color: "#1e3a8a",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.45rem",
                     }}
                   >
-                    🎁 {scheme.highlightBenefit[locale] || scheme.highlightBenefit.en}
+                    <IconStar size={14} color="#2563eb" style={{ flexShrink: 0 }} />
+                    <span>{scheme.highlightBenefit[locale] || scheme.highlightBenefit.en}</span>
                   </div>
 
                   {/* Why You Qualify Checklist */}
@@ -1299,10 +1349,11 @@ export function PersonalizedEligibilityModal({
                           color: "var(--color-govease-navy, #0d3570)",
                           display: "inline-flex",
                           alignItems: "center",
-                          gap: "4px",
+                          gap: "5px",
                         }}
                       >
-                        🏛️ Rule {scheme.ruleVersion}
+                        <IconBuilding size={13} color="#0d3570" />
+                        <span>Rule v{scheme.ruleVersion}</span>
                       </span>
                       <span>•</span>
                       <span>
@@ -1415,9 +1466,13 @@ export function PersonalizedEligibilityModal({
                 border: "1px solid var(--color-border-default)",
                 borderRadius: "var(--radius-sm, 6px)",
                 cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.35rem",
               }}
             >
-              ✎ Edit Profile
+              <IconEdit size={13} />
+              <span>Edit Profile</span>
             </button>
           ) : (
             <button
@@ -1490,7 +1545,7 @@ export function PersonalizedEligibilityModal({
                 boxShadow: "0 2px 4px rgba(4, 120, 87, 0.25)",
               }}
             >
-              Find My Eligible Schemes 🎯
+              Find My Eligible Schemes →
             </button>
           ) : onClose ? (
             <button

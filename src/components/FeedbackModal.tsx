@@ -322,7 +322,7 @@ export function FeedbackModal({ isOpen, onClose, preselectedServiceId }: Feedbac
                 lineHeight: 1.4,
               }}
             >
-              <strong>⚠️ Privacy Warning:</strong> {scanResult.warningMessage}
+              <strong>Privacy Warning:</strong> {scanResult.warningMessage}
             </div>
           )}
 

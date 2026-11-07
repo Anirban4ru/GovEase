@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PersonalizedEligibilityModal } from "../../components/PersonalizedEligibilityModal";
+import { IconLock, IconShield, IconBuilding, IconDocument } from "../../components/CivicIcons";
 
 export const metadata: Metadata = {
   title: "Personalized Eligibility Check & Schemes Discovery | GovEase",
@@ -60,7 +61,8 @@ export default function EligibilityPage() {
             marginBottom: "0.75rem",
           }}
         >
-          <span>🔒 100% Client-Side Evaluation • DPDP Act 2023 Compliant</span>
+          <IconLock size={13} color="#065f46" />
+          <span>100% Client-Side Evaluation • DPDP Act 2023 Compliant</span>
         </div>
         <h1
           style={{
@@ -128,9 +130,13 @@ export default function EligibilityPage() {
                 fontWeight: 700,
                 color: "#1e293b",
                 margin: "0 0 0.25rem 0",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.4rem",
               }}
             >
-              🛡️ Zero Data Transmission
+              <IconShield size={14} color="#0d3570" />
+              <span>Zero Data Transmission</span>
             </h3>
             <p style={{ margin: 0, fontSize: "0.8125rem", color: "#64748b", lineHeight: 1.5 }}>
               Your age, income, caste, disability, and landholding data never leave your browser
@@ -144,9 +150,13 @@ export default function EligibilityPage() {
                 fontWeight: 700,
                 color: "#1e293b",
                 margin: "0 0 0.25rem 0",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.4rem",
               }}
             >
-              🏛️ Official Sovereign Guidelines
+              <IconBuilding size={14} color="#0d3570" />
+              <span>Official Sovereign Guidelines</span>
             </h3>
             <p style={{ margin: 0, fontSize: "0.8125rem", color: "#64748b", lineHeight: 1.5 }}>
               Eligibility algorithms are cross-referenced directly against official Ministry of
@@ -160,9 +170,13 @@ export default function EligibilityPage() {
                 fontWeight: 700,
                 color: "#1e293b",
                 margin: "0 0 0.25rem 0",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.4rem",
               }}
             >
-              📄 Instant Report & Print Dossier
+              <IconDocument size={14} color="#0d3570" />
+              <span>Instant Report & Print Dossier</span>
             </h3>
             <p style={{ margin: 0, fontSize: "0.8125rem", color: "#64748b", lineHeight: 1.5 }}>
               Export a checklist summary or print your qualified schemes dossier directly to take to

@@ -81,7 +81,7 @@ export const QUICK_DEMO_PROFILES: {
 }[] = [
   {
     id: "student-scholarships",
-    icon: "🎓",
+    icon: "student-scholarships",
     label: {
       en: "Student / Scholarships",
       hi: "विद्यार्थी / छात्रवृत्तियां",
@@ -105,7 +105,7 @@ export const QUICK_DEMO_PROFILES: {
   },
   {
     id: "agriculture-livelihood",
-    icon: "🌾",
+    icon: "agriculture-livelihood",
     label: {
       en: "Agriculture & Livelihood",
       hi: "कृषि व आजीविका",
@@ -129,7 +129,7 @@ export const QUICK_DEMO_PROFILES: {
   },
   {
     id: "women-startups",
-    icon: "👩",
+    icon: "women-startups",
     label: {
       en: "Women & Startups",
       hi: "महिला व स्वरोजगार",
@@ -153,7 +153,7 @@ export const QUICK_DEMO_PROFILES: {
   },
   {
     id: "accessibility-divyangjan",
-    icon: "♿",
+    icon: "accessibility-divyangjan",
     label: {
       en: "Accessibility & Inclusion",
       hi: "दिव्यांगजन सहायता",
@@ -177,7 +177,7 @@ export const QUICK_DEMO_PROFILES: {
   },
   {
     id: "informal-gig-worker",
-    icon: "👷",
+    icon: "informal-gig-worker",
     label: {
       en: "Informal & Gig Worker",
       hi: "असंगठित व दैनिक श्रमिक",

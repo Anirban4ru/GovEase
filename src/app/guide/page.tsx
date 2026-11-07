@@ -179,12 +179,12 @@ export default function LifeStageGuidePage() {
       >
         <strong style={{ color: "var(--color-brand-primary)" }}>
           {locale === "hi"
-            ? "⚠️ केवल सूचनात्मक मार्गदर्शन:"
+            ? "केवल सूचनात्मक मार्गदर्शन:"
             : locale === "bn"
-              ? "⚠️ কেবল তথ্যমূলক সহায়িকা:"
+              ? "কেবল তথ্যমূলক সহায়িকা:"
               : locale === "ta"
-                ? "⚠️ தகவல் வழிகாட்டி மட்டுமே:"
-                : "⚠️ Informational Discovery Guide Only:"}
+                ? "தகவல் வழிகாட்டி மட்டுமே:"
+                : "Informational Discovery Guide Only:"}
         </strong>{" "}
         {locale === "hi"
           ? "यह मंच पात्रता का औपचारिक निर्णय नहीं करता है। अंतिम पात्रता और लाभों की स्वीकृति केवल संबंधित मंत्रालय के आधिकारिक सरकारी पोर्टल पर ही सत्यापित होती है।"

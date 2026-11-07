@@ -360,8 +360,8 @@ export function ServiceExplainerGuide({ guide }: ServiceExplainerGuideProps) {
               }}
             >
               {locale === "hi"
-                ? "💡 डिवाइस सूचना: क्षेत्रीय वॉयस इंजन अनुपलब्ध होने पर दृश्य फोकस मोड सक्रिय रहता है।"
-                : "💡 Accessibility Notice: When a device lacks Indian regional voice packs, visual focus read-along guides you step-by-step."}
+                ? "डिवाइस सूचना: क्षेत्रीय वॉयस इंजन अनुपलब्ध होने पर दृश्य फोकस मोड सक्रिय रहता है।"
+                : "Accessibility Notice: When a device lacks Indian regional voice packs, visual focus read-along guides you step-by-step."}
             </div>
           )}
         </div>
@@ -380,9 +380,22 @@ export function ServiceExplainerGuide({ guide }: ServiceExplainerGuideProps) {
               gap: "0.75rem",
             }}
           >
-            <span style={{ fontSize: "1.25rem", lineHeight: 1 }} aria-hidden="true">
-              ⚠️
-            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#b45309"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              style={{ flexShrink: 0, marginTop: "2px" }}
+            >
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
             <div>
               <strong
                 style={{

@@ -26,6 +26,7 @@ const HomeClassicView = dynamic(
 );
 
 import { IndiaMonumentsAnimation } from "../components/IndiaMonumentsAnimation";
+import { getPersonaIcon, IconShield, IconDocument } from "../components/CivicIcons";
 
 interface LifeAreaSummary {
   id: LifeEcosystem;
@@ -582,7 +583,8 @@ function HomeContent() {
                     marginBottom: "0.5rem",
                   }}
                 >
-                  <span>🎯 Zero-Knowledge Matching Engine • DPDP Act 2023 Compliant</span>
+                  <IconShield size={13} color="#047857" />
+                  <span>Zero-Knowledge Matching Engine • DPDP Act 2023 Compliant</span>
                 </div>
                 <h3
                   style={{
@@ -649,7 +651,7 @@ function HomeContent() {
                     transition: "all 0.15s ease",
                   }}
                 >
-                  <span>Check My Eligibility 🎯</span>
+                  <span>Check My Eligibility</span>
                   <span aria-hidden="true">→</span>
                 </button>
                 <Link
@@ -665,9 +667,11 @@ function HomeContent() {
                     textDecoration: "none",
                     display: "inline-flex",
                     alignItems: "center",
+                    gap: "0.4rem",
                   }}
                 >
-                  Full-Page Screener 📄
+                  <IconDocument size={14} />
+                  <span>Full-Page Screener</span>
                 </Link>
               </div>
             </div>
@@ -698,7 +702,7 @@ function HomeContent() {
                   flexShrink: 0,
                 }}
               >
-                ⚡ 1-Click Persona Demos:
+                1-Click Citizen Profiles:
               </span>
               <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                 {QUICK_DEMO_PROFILES.map((demo) => (
@@ -720,12 +724,14 @@ function HomeContent() {
                       cursor: "pointer",
                       display: "inline-flex",
                       alignItems: "center",
-                      gap: "0.35rem",
+                      gap: "0.4rem",
                       boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
                       transition: "all 0.15s ease",
                     }}
                   >
-                    <span>{demo.icon}</span>
+                    <span style={{ display: "inline-flex", alignItems: "center" }}>
+                      {getPersonaIcon(demo.id, 14)}
+                    </span>
                     <span>{demo.label[locale] || demo.label.en}</span>
                   </button>
                 ))}
@@ -771,7 +777,7 @@ function HomeContent() {
                   marginBottom: "0.5rem",
                 }}
               >
-                🧭 Guided Roadmaps
+                Guided Roadmaps
               </span>
               <h3
                 style={{
@@ -842,7 +848,7 @@ function HomeContent() {
                   marginBottom: "0.5rem",
                 }}
               >
-                📸 In-Browser Studio
+                In-Browser Studio
               </span>
               <h3
                 style={{

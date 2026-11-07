@@ -329,7 +329,7 @@ export function Header() {
                 transition: "background-color 0.15s ease",
               }}
             >
-              <span>🎯 {t("nav.eligibility") || "Check Eligibility"}</span>
+              <span>{t("nav.eligibility") || "Check Eligibility"}</span>
             </Link>
             <Link
               href="/explore"
