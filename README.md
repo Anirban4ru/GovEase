@@ -13,7 +13,7 @@
 [![TypeScript Strict](https://img.shields.io/badge/Language-TypeScript%205%20Strict-3178C6.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![PWA Ready](<https://img.shields.io/badge/Platform-PWA%20(Windows%20%7C%20iOS%20%7C%20Android)-orange.svg?style=flat-square>)](#3-cross-platform--app-support)
 [![WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA%20Compliant-047857.svg?style=flat-square)](#8-test-suite--quality-assurance)
-[![Tests Passing](https://img.shields.io/badge/Tests-88%20Unit%20%7C%2063%20E2E%20Passing-brightgreen.svg?style=flat-square)](#8-test-suite--quality-assurance)
+[![Tests Passing](https://img.shields.io/badge/Tests-89%20Unit%20%7C%2063%20E2E%20Passing-brightgreen.svg?style=flat-square)](#8-test-suite--quality-assurance)
 [![Proprietary Capstone](https://img.shields.io/badge/Status-Not%20For%20Cloning-critical.svg?style=flat-square)](#-notice-proprietary-academic-capstone--not-for-cloning-or-redistribution)
 [![Security Policy](https://img.shields.io/badge/Security-Strict%20CSP%20%7C%20DPDP%202023-red.svg?style=flat-square)](SECURITY.md)
 

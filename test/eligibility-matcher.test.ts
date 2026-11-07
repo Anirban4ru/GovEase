@@ -118,4 +118,21 @@ describe("Personalized Eligibility Matcher Engine", () => {
       expect(match.qualificationReasons.ta.length).toBeGreaterThan(0);
     }
   });
+
+  it("enforces rule versioning, effective dates, and sovereign policy circular links on all schemes", () => {
+    // Evaluate across multiple demo profiles to hit all schemes
+    const allMatches = [
+      ...evaluateCitizenEligibility(DEFAULT_CITIZEN_PROFILE),
+      ...QUICK_DEMO_PROFILES.flatMap((p) => evaluateCitizenEligibility(p.profile)),
+    ];
+
+    expect(allMatches.length).toBeGreaterThan(0);
+
+    for (const match of allMatches) {
+      expect(match.ruleVersion).toMatch(/^v\d{4}\.\d{2}$/); // e.g. "v2026.11"
+      expect(match.effectiveDate.length).toBeGreaterThan(0);
+      expect(match.policySourceUrl).toMatch(/^https?:\/\//);
+      expect(match.policySourceTitle.length).toBeGreaterThan(0);
+    }
+  });
 });

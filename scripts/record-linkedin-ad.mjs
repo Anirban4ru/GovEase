@@ -94,7 +94,9 @@ async function recordAd() {
     await page.waitForTimeout(2500);
 
     // Switch demo profile inside modal: Agriculture & Livelihood
-    const farmerDemoBtn = page.locator('div[role="dialog"] button:has-text("Agriculture & Livelihood")').first();
+    const farmerDemoBtn = page
+      .locator('div[role="dialog"] button:has-text("Agriculture & Livelihood")')
+      .first();
     if (await farmerDemoBtn.isVisible()) {
       await farmerDemoBtn.click();
       await setCaption(
@@ -105,7 +107,9 @@ async function recordAd() {
     }
 
     // Switch to Women & Startups
-    const womenDemoBtn = page.locator('div[role="dialog"] button:has-text("Women & Startups")').first();
+    const womenDemoBtn = page
+      .locator('div[role="dialog"] button:has-text("Women & Startups")')
+      .first();
     if (await womenDemoBtn.isVisible()) {
       await womenDemoBtn.click();
       await setCaption(

@@ -129,7 +129,7 @@ export function PersonalizedEligibilityModal({
       `Total Matched Schemes: ${results.length}`,
       ...results.map(
         (r, i) =>
-          `${i + 1}. ${r.title[locale] || r.title.en} - ${r.highlightBenefit[locale] || r.highlightBenefit.en}`,
+          `${i + 1}. ${r.title[locale] || r.title.en} - ${r.highlightBenefit[locale] || r.highlightBenefit.en} [Policy Rule: ${r.ruleVersion}, Effective: ${r.effectiveDate}]`,
       ),
       `Verified on GovEase (Zero-Knowledge Public Guide)`,
     ].join("\n");
@@ -1267,6 +1267,64 @@ export function PersonalizedEligibilityModal({
                         ),
                       )}
                     </ul>
+                  </div>
+
+                  {/* Policy Freshness & Sovereign Provenance Badge */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      flexWrap: "wrap",
+                      gap: "0.5rem",
+                      padding: "0.45rem 0.65rem",
+                      backgroundColor: "#f8fafc",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: "var(--radius-sm, 6px)",
+                      fontSize: "0.75rem",
+                      color: "#475569",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontWeight: 700,
+                          color: "var(--color-govease-navy, #0d3570)",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "4px",
+                        }}
+                      >
+                        🏛️ Rule {scheme.ruleVersion}
+                      </span>
+                      <span>•</span>
+                      <span>
+                        Effective: <strong>{scheme.effectiveDate}</strong>
+                      </span>
+                    </div>
+                    <a
+                      href={scheme.policySourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`Official Sovereign Circular: ${scheme.policySourceTitle}`}
+                      style={{
+                        color: "#0369a1",
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "2px",
+                      }}
+                    >
+                      {scheme.policySourceTitle} ↗
+                    </a>
                   </div>
 
                   {/* Action Links */}

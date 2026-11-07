@@ -52,6 +52,10 @@ export interface MatchedSchemeResult {
   qualificationReasons: Record<Locale, string[]>;
   highlightBenefit: Record<Locale, string>;
   applicationActionUrl: string;
+  ruleVersion: string; // Semantic rule revision, e.g. "v2026.11"
+  effectiveDate: string; // Gazette or operating notification date, e.g. "November 2026"
+  policySourceUrl: string; // Direct official policy or circular link
+  policySourceTitle: string; // Department circular name
 }
 
 export const DEFAULT_CITIZEN_PROFILE: CitizenProfile = {
@@ -311,6 +315,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "ஆண்டுக்கு ₹20,000 வரை நேரடி வங்கி உதவித்தொகை",
       },
       applicationActionUrl: "/services/nsp-scholarship-discovery",
+      ruleVersion: "v2026.11",
+      effectiveDate: "AY 2026-27 (Circular No. F.1-27/2026)",
+      policySourceUrl: "https://scholarships.gov.in/",
+      policySourceTitle: "MoE Central Sector & Post-Matric Guidelines",
     });
   }
 
@@ -364,6 +372,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "ஆண்டுக்கு ₹6,000 மூன்று தவணைகளில் வங்கி கணக்கில்",
       },
       applicationActionUrl: "/services/pm-kisan-status",
+      ruleVersion: "v2026.11",
+      effectiveDate: "01 Feb 2026 (Operational Rev. 4)",
+      policySourceUrl: "https://pmkisan.gov.in/",
+      policySourceTitle: "MoAFW Operational Guidelines Rev. 4",
     });
   }
 
@@ -420,6 +432,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "12 இலக்க UAN அட்டை + ₹2 லட்சம் விபத்து காப்பீடு",
       },
       applicationActionUrl: "/services/eshram-card-registration",
+      ruleVersion: "v2026.10",
+      effectiveDate: "01 Oct 2026 (NSSB-2026-08)",
+      policySourceUrl: "https://eshram.gov.in/",
+      policySourceTitle: "MoLE National Social Security Board Directives",
     });
   }
 
@@ -468,6 +484,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "நாடு தழுவிய செல்லுபடியாகும் அட்டை + பயண சலுகைகள்",
       },
       applicationActionUrl: "/services/swavlamban-udid-card",
+      ruleVersion: "v2026.09",
+      effectiveDate: "September 2026 (RPwD Act 2016 Rules)",
+      policySourceUrl: "https://www.swavlambancard.gov.in/",
+      policySourceTitle: "DEPwD RPwD Act 2016 Guidelines",
     });
 
     // 4b. ADIP Scheme (Assistance to Disabled Persons for Purchase/Fitting of Aids and Appliances)
@@ -512,6 +532,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "100% இலவச சக்கர நாற்காலிகள் மற்றும் நவீன உபகரணங்கள்",
       },
       applicationActionUrl: "https://www.alimco.in/",
+      ruleVersion: "v2026.08",
+      effectiveDate: "August 2026 (Revised Aid Ceiling)",
+      policySourceUrl: "https://www.alimco.in/",
+      policySourceTitle: "ALIMCO/MSJE ADIP Scheme Norms",
     });
   }
 
@@ -563,6 +587,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
           ta: "₹10 லட்சம் முதல் ₹1 கோடி வரை தொழில் கடன்",
         },
         applicationActionUrl: "https://www.standupmitra.in/",
+        ruleVersion: "v2026.11",
+        effectiveDate: "Extended through 2026 (DFS Circular 2026)",
+        policySourceUrl: "https://www.standupmitra.in/",
+        policySourceTitle: "DFS/SIDBI Stand-Up India Notification",
       });
     }
 
@@ -612,6 +640,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
           ta: "கல்வி கட்டணத்திற்காக ஆண்டுக்கு ₹50,000",
         },
         applicationActionUrl: "/services/nsp-scholarship-discovery",
+        ruleVersion: "v2026.11",
+        effectiveDate: "AY 2026-27 (AICTE/PVE/2026)",
+        policySourceUrl: "https://www.aicte-india.org/",
+        policySourceTitle: "AICTE Pragati Scheme Implementation Order",
       });
     }
   }
@@ -664,6 +696,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "குறைந்தபட்ச இருப்பு தேவையில்லை + இலவச RuPay கார்டு",
       },
       applicationActionUrl: "/services/pm-jan-dhan-yojana-account",
+      ruleVersion: "v2026.08",
+      effectiveDate: "Extended Phase III (RBI/FIDD/2026)",
+      policySourceUrl: "https://pmjdy.gov.in/",
+      policySourceTitle: "MoF PMJDY Comprehensive Master Circular",
     });
   }
 
@@ -712,6 +748,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "ஆண்டுக்கு ₹20 மட்டுமே - ₹2,00,000 விபத்து காப்பீடு",
       },
       applicationActionUrl: "/services/pm-suraksha-bima-yojana",
+      ruleVersion: "v2026.06",
+      effectiveDate: "01 June 2026 (DFS/PMSBY/2026)",
+      policySourceUrl: "https://jansuraksha.gov.in/",
+      policySourceTitle: "DFS Annual Renewal Notification 2026",
     });
   }
 
@@ -760,6 +800,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "இலவச/மானிய உணவு தானியங்கள் + நாடு தழுவிய ரேஷன்",
       },
       applicationActionUrl: "/services/ration-card-nfsa-status",
+      ruleVersion: "v2026.11",
+      effectiveDate: "November 2026 (PMGKAY Extension)",
+      policySourceUrl: "https://nfsa.gov.in/",
+      policySourceTitle: "DFPD PMGKAY & NFSA Rules",
     });
   }
 
@@ -808,6 +852,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "வீடு கட்ட ₹1.20 லட்சம் மானியம் அல்லது கடன் வட்டி தள்ளுபடி",
       },
       applicationActionUrl: "/services/pmay-beneficiary-status",
+      ruleVersion: "v2026.09",
+      effectiveDate: "September 2026 (PMAY 2.0 Guidelines)",
+      policySourceUrl: "https://pmaymis.gov.in/",
+      policySourceTitle: "MoHUA PMAY 2.0 Operational Guidelines",
     });
   }
 
@@ -856,6 +904,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
       ta: "14 இலக்க தேசிய சுகாதார அட்டை + காகிதமில்லா சிகிச்சை",
     },
     applicationActionUrl: "/services/create-abha-id",
+    ruleVersion: "v2026.10",
+    effectiveDate: "October 2026 (ABDM Spec 2.3)",
+    policySourceUrl: "https://healthid.ndhm.gov.in/",
+    policySourceTitle: "NHA ABDM Health ID Specification 2.3",
   });
 
   // 10. Voter ID Registration & e-EPIC
@@ -903,6 +955,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "இலவச வண்ண டிஜிட்டல் வாக்காளர் அடையாள அட்டை",
       },
       applicationActionUrl: "/services/voter-id-epic-download",
+      ruleVersion: "v2026.10",
+      effectiveDate: "SSR 2026 (ECI Order 2026)",
+      policySourceUrl: "https://voters.eci.gov.in/",
+      policySourceTitle: "ECI Special Summary Revision Order 2026",
     });
   }
 
@@ -951,6 +1007,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "1 GB இலவச சேமிப்பு + சட்டப்பூர்வ டிஜிட்டல் ஆவணங்கள்",
       },
       applicationActionUrl: "/services/digilocker-account-setup",
+      ruleVersion: "v2026.09",
+      effectiveDate: "September 2026 (IT Act Rule 9A Rev)",
+      policySourceUrl: "https://www.digilocker.gov.in/",
+      policySourceTitle: "MeitY IT (Preservation & Retention) Rules",
     });
   }
 
@@ -999,6 +1059,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "8.25% அரசு வட்டி கணக்கீடு + ஆன்லைன் பிஎஃப் செட்டில்மெண்ட்",
       },
       applicationActionUrl: "/services/epf-passbook-claim-status",
+      ruleVersion: "v2026.10",
+      effectiveDate: "October 2026 (EPFO Circular 2026/8)",
+      policySourceUrl: "https://www.epfindia.gov.in/",
+      policySourceTitle: "EPFO Universal Account Number Directives",
     });
   }
 
@@ -1045,6 +1109,10 @@ export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSche
         ta: "முகமற்ற ஆவண புதுப்பித்தல் மற்றும் வீட்டு விநியோகம்",
       },
       applicationActionUrl: "/services/driving-licence-renewal",
+      ruleVersion: "v2026.08",
+      effectiveDate: "August 2026 (CMVR Amendment 2026)",
+      policySourceUrl: "https://parivahan.gov.in/",
+      policySourceTitle: "MoRTH Central Motor Vehicles Rules (CMVR)",
     });
   }
 
