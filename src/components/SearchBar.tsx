@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { searchServices } from "../lib/search";
 import { useTranslation } from "../context/I18nContext";
 
@@ -388,61 +387,60 @@ export function SearchBar({
                 id={`search-opt-${item.service.id}`}
                 role="option"
                 aria-selected={isSelected}
+                onMouseDown={(e) => {
+                  // Prevent input blur before click triggers
+                  e.preventDefault();
+                }}
+                onClick={() => {
+                  router.push(`/services/${item.service.id}/`);
+                  setIsDismissed(true);
+                }}
                 onMouseEnter={() => setSelectedIndex(idx)}
                 style={{
+                  padding: "0.75rem 1rem",
+                  cursor: "pointer",
                   backgroundColor: isSelected ? "var(--color-brand-primary-subtle)" : "transparent",
                   borderLeft: isSelected
                     ? "3px solid var(--color-brand-primary)"
                     : "3px solid transparent",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.2rem",
                 }}
               >
-                <Link
-                  href={`/services/${item.service.id}/`}
-                  onClick={() => setIsDismissed(true)}
+                <div
                   style={{
                     display: "flex",
-                    flexDirection: "column",
-                    gap: "0.2rem",
-                    padding: "0.75rem 1rem",
-                    textDecoration: "none",
-                    color: "inherit",
-                    cursor: "pointer",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                   }}
                 >
-                  <div
+                  <span
                     style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
+                      fontWeight: 700,
+                      fontSize: "0.9375rem",
+                      color: "var(--color-content-primary)",
                     }}
                   >
-                    <span
-                      style={{
-                        fontWeight: 700,
-                        fontSize: "0.9375rem",
-                        color: "var(--color-content-primary)",
-                      }}
-                    >
-                      {title}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: "0.6875rem",
-                        fontWeight: 600,
-                        textTransform: "uppercase",
-                        backgroundColor: "var(--color-neutral-100)",
-                        color: "var(--color-content-secondary)",
-                        padding: "0.15rem 0.4rem",
-                        borderRadius: "var(--radius-xs)",
-                      }}
-                    >
-                      {item.service.ecosystem.replace(/-/g, " ")}
-                    </span>
-                  </div>
-                  <span style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)" }}>
-                    {goal}
+                    {title}
                   </span>
-                </Link>
+                  <span
+                    style={{
+                      fontSize: "0.6875rem",
+                      fontWeight: 600,
+                      textTransform: "uppercase",
+                      backgroundColor: "var(--color-neutral-100)",
+                      color: "var(--color-content-secondary)",
+                      padding: "0.15rem 0.4rem",
+                      borderRadius: "var(--radius-xs)",
+                    }}
+                  >
+                    {item.service.ecosystem.replace(/-/g, " ")}
+                  </span>
+                </div>
+                <span style={{ fontSize: "0.8125rem", color: "var(--color-content-secondary)" }}>
+                  {goal}
+                </span>
               </li>
             );
           })}
