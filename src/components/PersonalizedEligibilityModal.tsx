@@ -6,6 +6,7 @@ import { useTranslation } from "../context/I18nContext";
 import {
   CitizenProfile,
   DEFAULT_CITIZEN_PROFILE,
+  EMPTY_CITIZEN_PROFILE,
   QUICK_DEMO_PROFILES,
   ALL_INDIAN_STATES,
   evaluateCitizenEligibility,
@@ -52,18 +53,8 @@ function getInitialProfileState(initialDemoId?: string): {
       };
     }
   }
-  if (typeof window !== "undefined") {
-    try {
-      const saved = localStorage.getItem("govease_citizen_profile");
-      if (saved) {
-        const parsed = JSON.parse(saved) as CitizenProfile;
-        return { profile: parsed, step: 1, results: [] };
-      }
-    } catch {
-      // ignore parse error
-    }
-  }
-  return { profile: DEFAULT_CITIZEN_PROFILE, step: 1, results: [] };
+  // Start with clean placeholders and no pre-filled citizen data
+  return { profile: EMPTY_CITIZEN_PROFILE, step: 1, results: [] };
 }
 
 export function PersonalizedEligibilityModal({
@@ -160,7 +151,9 @@ export function PersonalizedEligibilityModal({
           : "0 20px 40px rgba(13, 53, 112, 0.18)",
         width: "100%",
         maxWidth: embedded ? "860px" : "760px",
-        maxHeight: embedded ? "none" : "90vh",
+        height: embedded ? "auto" : "580px",
+        minHeight: embedded ? "auto" : "580px",
+        maxHeight: embedded ? "none" : "min(580px, 92vh)",
         display: "flex",
         flexDirection: "column",
         border: "1px solid var(--color-border-default)",
@@ -392,9 +385,13 @@ export function PersonalizedEligibilityModal({
                   type="number"
                   min="1"
                   max="115"
-                  value={profile.age}
+                  value={profile.age ?? ""}
+                  placeholder="Enter age (e.g. 24)"
                   onChange={(e) =>
-                    setProfile({ ...profile, age: parseInt(e.target.value, 10) || 18 })
+                    setProfile({
+                      ...profile,
+                      age: e.target.value === "" ? "" : parseInt(e.target.value, 10) || 0,
+                    })
                   }
                   style={{
                     width: "100%",
@@ -430,8 +427,12 @@ export function PersonalizedEligibilityModal({
                     borderRadius: "var(--radius-sm, 6px)",
                     fontSize: "0.9375rem",
                     backgroundColor: "#ffffff",
+                    color: profile.gender === "" ? "#64748b" : "inherit",
                   }}
                 >
+                  <option value="" disabled hidden>
+                    Select Gender (Optional)
+                  </option>
                   <option value="all">Any / Prefer not to say</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -512,8 +513,12 @@ export function PersonalizedEligibilityModal({
                   borderRadius: "var(--radius-sm, 6px)",
                   fontSize: "0.9375rem",
                   backgroundColor: "#ffffff",
+                  color: profile.disabilityStatus === "" ? "#64748b" : "inherit",
                 }}
               >
+                <option value="" disabled hidden>
+                  Select Disability Status
+                </option>
                 <option value="none">No benchmark disability</option>
                 <option value="locomotor">Locomotor / Physical disability (≥ 40%)</option>
                 <option value="visual">Visual impairment (Blindness / Low vision)</option>
@@ -554,8 +559,12 @@ export function PersonalizedEligibilityModal({
                   borderRadius: "var(--radius-sm, 6px)",
                   fontSize: "0.9375rem",
                   backgroundColor: "#ffffff",
+                  color: profile.educationLevel === "" ? "#64748b" : "inherit",
                 }}
               >
+                <option value="" disabled hidden>
+                  Select Highest Education Level
+                </option>
                 <option value="below_10th">Below 10th Standard</option>
                 <option value="10th_pass">10th Standard Pass (Matriculation)</option>
                 <option value="12th_pass">12th Standard Pass (Higher Secondary)</option>
@@ -595,8 +604,12 @@ export function PersonalizedEligibilityModal({
                   borderRadius: "var(--radius-sm, 6px)",
                   fontSize: "0.9375rem",
                   backgroundColor: "#ffffff",
+                  color: profile.occupation === "" ? "#64748b" : "inherit",
                 }}
               >
+                <option value="" disabled hidden>
+                  Select Primary Occupation / Livelihood
+                </option>
                 <option value="student">Student (School / College / University)</option>
                 <option value="farmer">Farmer / Landowner Cultivator</option>
                 <option value="agricultural_labourer">Agricultural Labourer / Farm Worker</option>
@@ -641,8 +654,12 @@ export function PersonalizedEligibilityModal({
                   borderRadius: "var(--radius-sm, 6px)",
                   fontSize: "0.9375rem",
                   backgroundColor: "#ffffff",
+                  color: profile.familyIncome === "" ? "#64748b" : "inherit",
                 }}
               >
+                <option value="" disabled hidden>
+                  Select Total Family Annual Income
+                </option>
                 <option value="below_1lakh">
                   Below ₹1,00,000 / year (Antyodaya / EWS Priority)
                 </option>
@@ -740,8 +757,12 @@ export function PersonalizedEligibilityModal({
                   borderRadius: "var(--radius-sm, 6px)",
                   fontSize: "0.9375rem",
                   backgroundColor: "#ffffff",
+                  color: profile.landholding === "" ? "#64748b" : "inherit",
                 }}
               >
+                <option value="" disabled hidden>
+                  Select Cultivable Landholding
+                </option>
                 <option value="not_applicable">Not Applicable / Urban Resident</option>
                 <option value="landless">Landless Labourer</option>
                 <option value="marginal">Marginal Farmer (Less than 1 Hectare / 2.5 Acres)</option>
@@ -780,8 +801,12 @@ export function PersonalizedEligibilityModal({
                     borderRadius: "var(--radius-sm, 6px)",
                     fontSize: "0.9375rem",
                     backgroundColor: "#ffffff",
+                    color: profile.state === "" ? "#64748b" : "inherit",
                   }}
                 >
+                  <option value="" disabled hidden>
+                    Select State / Union Territory
+                  </option>
                   {ALL_INDIAN_STATES.map((st) => (
                     <option key={st} value={st}>
                       {st}

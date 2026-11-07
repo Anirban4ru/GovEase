@@ -6,12 +6,12 @@
 
 import { Locale } from "../context/I18nContext";
 
-export type GenderType = "all" | "male" | "female" | "transgender";
-export type SocialCategoryType = "all" | "general" | "obc" | "sc" | "st" | "ews";
+export type GenderType = "all" | "male" | "female" | "transgender" | "";
+export type SocialCategoryType = "all" | "general" | "obc" | "sc" | "st" | "ews" | "";
 export type DisabilityType =
-  "none" | "locomotor" | "visual" | "hearing" | "intellectual" | "multiple";
+  "none" | "locomotor" | "visual" | "hearing" | "intellectual" | "multiple" | "";
 export type EducationLevelType =
-  "below_10th" | "10th_pass" | "12th_pass" | "diploma_iti" | "undergraduate" | "postgraduate";
+  "below_10th" | "10th_pass" | "12th_pass" | "diploma_iti" | "undergraduate" | "postgraduate" | "";
 export type OccupationType =
   | "student"
   | "farmer"
@@ -20,15 +20,17 @@ export type OccupationType =
   | "salaried"
   | "self_employed"
   | "unemployed"
-  | "retired";
+  | "retired"
+  | "";
 export type IncomeRangeType =
-  "below_1lakh" | "1lakh_to_2_5lakh" | "2_5lakh_to_5lakh" | "5lakh_to_8lakh" | "above_8lakh";
-export type RationCardType = "bpl" | "aay" | "phh" | "apl" | "none";
-export type LandholdingType = "landless" | "marginal" | "small" | "medium_large" | "not_applicable";
-export type AreaType = "rural" | "urban" | "semi_urban";
+  "below_1lakh" | "1lakh_to_2_5lakh" | "2_5lakh_to_5lakh" | "5lakh_to_8lakh" | "above_8lakh" | "";
+export type RationCardType = "bpl" | "aay" | "phh" | "apl" | "none" | "";
+export type LandholdingType =
+  "landless" | "marginal" | "small" | "medium_large" | "not_applicable" | "";
+export type AreaType = "rural" | "urban" | "semi_urban" | "";
 
 export interface CitizenProfile {
-  age: number;
+  age?: number | string;
   gender: GenderType;
   socialCategory: SocialCategoryType;
   disabilityStatus: DisabilityType;
@@ -57,6 +59,21 @@ export interface MatchedSchemeResult {
   policySourceUrl: string; // Direct official policy or circular link
   policySourceTitle: string; // Department circular name
 }
+
+export const EMPTY_CITIZEN_PROFILE: CitizenProfile = {
+  age: "",
+  gender: "",
+  socialCategory: "",
+  disabilityStatus: "",
+  educationLevel: "",
+  occupation: "",
+  familyIncome: "",
+  rationCard: "",
+  landholding: "",
+  state: "",
+  district: "",
+  areaType: "",
+};
 
 export const DEFAULT_CITIZEN_PROFILE: CitizenProfile = {
   age: 21,
@@ -244,7 +261,12 @@ export const ALL_INDIAN_STATES = [
  * Deterministic multi-attribute matching engine.
  * Evaluates citizen profile against all registered public schemes.
  */
-export function evaluateCitizenEligibility(profile: CitizenProfile): MatchedSchemeResult[] {
+export function evaluateCitizenEligibility(rawProfile: CitizenProfile): MatchedSchemeResult[] {
+  const normalizedAge =
+    typeof rawProfile.age === "number"
+      ? rawProfile.age
+      : parseInt(String(rawProfile.age || ""), 10) || 0;
+  const profile = { ...rawProfile, age: normalizedAge };
   const matches: MatchedSchemeResult[] = [];
 
   const isLowIncome =
