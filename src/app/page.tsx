@@ -253,54 +253,27 @@ function HomeContent() {
         </div>
       )}
 
-      {/* HERO SECTION: Authoritative Full-Width Civic Architecture with India Landmark Atmosphere */}
+      {/* HERO SECTION: Full-Width Widescreen Stretched Cinematic Civic Architecture */}
       <section
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           marginBottom: "3.5rem",
-          padding: "2.25rem 2rem 2rem 2rem",
+          padding: "3rem 2.25rem 2.5rem 2.25rem",
           border: "1px solid var(--color-border-subtle, #e2e8f0)",
           borderRadius: "var(--radius-xl, 16px)",
           width: "100%",
           position: "relative",
           overflow: "hidden",
           backgroundColor: "#ffffff",
-          boxShadow: "0 4px 24px rgba(13, 53, 112, 0.05)",
+          boxShadow: "0 8px 32px rgba(13, 53, 112, 0.08)",
         }}
       >
-        <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
-          {/* Academic Capstone & Civic Guide Badge */}
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.35rem 0.85rem",
-              backgroundColor: "var(--color-ground-muted)",
-              border: "1px solid var(--color-border-default)",
-              borderRadius: "var(--radius-full)",
-              marginBottom: "1.25rem",
-              fontSize: "0.8125rem",
-              fontWeight: 700,
-              color: "var(--color-ink)",
-            }}
-          >
-            <span style={{ color: "var(--color-govease-green, #1c7e41)", fontSize: "0.625rem" }}>
-              ●
-            </span>
-            <span>
-              {locale === "hi"
-                ? "स्वतंत्र लोक सेवा मार्गदर्शिका • बी.टेक कैपस्टोन"
-                : locale === "bn"
-                  ? "নাগরিক জনসেবা সহায়িকা • বি.টেক ক্যাপস্টোন"
-                  : locale === "ta"
-                    ? "மக்கள் சேவை வழிகாட்டி • கேப்ஸ்டோன்"
-                    : "Independent Public Services Guide • Academic Capstone"}
-            </span>
-          </div>
+        {/* Full-Bleed Widescreen Stretched Indian Heritage Animation (60 FPS • 100% Offline) */}
+        <IndiaMonumentsAnimation />
 
+        <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: "860px" }}>
           <h1
             style={{
               fontSize: "var(--font-size-hero)",
@@ -494,11 +467,6 @@ function HomeContent() {
               </span>
               <span style={{ color: "var(--color-content-tertiary)" }}>(EN, HI, BN, TA)</span>
             </div>
-          </div>
-
-          {/* Sovereign Indian Landmarks & Animated Motion Stage (100% Offline Vector 60FPS) */}
-          <div style={{ marginTop: "2rem", width: "100%" }}>
-            <IndiaMonumentsAnimation />
           </div>
         </div>
       </section>
