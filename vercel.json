@@ -3,67 +3,112 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/services/abha-health-id/:path*",
+      "source": "/services/abha-health-id",
       "destination": "/services/create-abha-id/",
       "permanent": true
     },
     {
-      "source": "/services/national-scholarship-portal/:path*",
+      "source": "/services/abha-health-id/(.*)",
+      "destination": "/services/create-abha-id/",
+      "permanent": true
+    },
+    {
+      "source": "/services/national-scholarship-portal",
       "destination": "/services/nsp-scholarship-discovery/",
       "permanent": true
     },
     {
-      "source": "/services/pm-kisan-samman-nidhi/:path*",
+      "source": "/services/national-scholarship-portal/(.*)",
+      "destination": "/services/nsp-scholarship-discovery/",
+      "permanent": true
+    },
+    {
+      "source": "/services/pm-kisan-samman-nidhi",
       "destination": "/services/pm-kisan-status/",
       "permanent": true
     },
     {
-      "source": "/services/pm-kisan/:path*",
+      "source": "/services/pm-kisan-samman-nidhi/(.*)",
       "destination": "/services/pm-kisan-status/",
       "permanent": true
     },
     {
-      "source": "/services/jan-dhan/:path*",
+      "source": "/services/pm-kisan",
+      "destination": "/services/pm-kisan-status/",
+      "permanent": true
+    },
+    {
+      "source": "/services/pm-kisan/(.*)",
+      "destination": "/services/pm-kisan-status/",
+      "permanent": true
+    },
+    {
+      "source": "/services/jan-dhan",
       "destination": "/services/pm-jan-dhan-yojana-account/",
       "permanent": true
     },
     {
-      "source": "/services/birth-certificate/:path*",
+      "source": "/services/jan-dhan/(.*)",
+      "destination": "/services/pm-jan-dhan-yojana-account/",
+      "permanent": true
+    },
+    {
+      "source": "/services/birth-certificate",
       "destination": "/services/birth-certificate-crs/",
       "permanent": true
     },
     {
-      "source": "/services/voter-id/:path*",
+      "source": "/services/birth-certificate/(.*)",
+      "destination": "/services/birth-certificate-crs/",
+      "permanent": true
+    },
+    {
+      "source": "/services/voter-id",
       "destination": "/services/voter-id-epic-download/",
       "permanent": true
     },
     {
-      "source": "/services/pan-card/:path*",
+      "source": "/services/voter-id/(.*)",
+      "destination": "/services/voter-id-epic-download/",
+      "permanent": true
+    },
+    {
+      "source": "/services/pan-card",
       "destination": "/services/pan-card-reprint/",
       "permanent": true
     },
     {
-      "source": "/services/digilocker/:path*",
+      "source": "/services/pan-card/(.*)",
+      "destination": "/services/pan-card-reprint/",
+      "permanent": true
+    },
+    {
+      "source": "/services/digilocker",
       "destination": "/services/digilocker-account-setup/",
       "permanent": true
     },
     {
-      "source": "/services/eshram/:path*",
+      "source": "/services/digilocker/(.*)",
+      "destination": "/services/digilocker-account-setup/",
+      "permanent": true
+    },
+    {
+      "source": "/services/eshram",
       "destination": "/services/eshram-card-registration/",
       "permanent": true
     },
     {
-      "source": "/services/epf-passbook/:path*",
-      "destination": "/services/epf-passbook-claim-status/",
+      "source": "/services/eshram/(.*)",
+      "destination": "/services/eshram-card-registration/",
       "permanent": true
     },
     {
-      "source": "/services/ration-card/:path*",
-      "destination": "/services/ration-card-nfsa-status/",
+      "source": "/services/driving-licence",
+      "destination": "/services/driving-licence-renewal/",
       "permanent": true
     },
     {
-      "source": "/services/driving-licence/:path*",
+      "source": "/services/driving-licence/(.*)",
       "destination": "/services/driving-licence-renewal/",
       "permanent": true
     }
