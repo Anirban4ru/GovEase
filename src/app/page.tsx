@@ -25,6 +25,8 @@ const HomeClassicView = dynamic(
   { ssr: false },
 );
 
+import { IndiaMonumentsAnimation } from "../components/IndiaMonumentsAnimation";
+
 interface LifeAreaSummary {
   id: LifeEcosystem;
   chipLabel: string;
@@ -264,27 +266,10 @@ function HomeContent() {
           width: "100%",
           position: "relative",
           overflow: "hidden",
-          backgroundImage: "url('/india-heritage-monuments.svg')",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "bottom right",
-          backgroundSize: "cover",
           backgroundColor: "#ffffff",
           boxShadow: "0 4px 24px rgba(13, 53, 112, 0.05)",
         }}
       >
-        {/* Subtle Ambient Scrim ensuring AAA Contrast & Clarity */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.78) 100%)",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-          aria-hidden="true"
-        />
-
         <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
           {/* Academic Capstone & Civic Guide Badge */}
           <div
@@ -509,6 +494,11 @@ function HomeContent() {
               </span>
               <span style={{ color: "var(--color-content-tertiary)" }}>(EN, HI, BN, TA)</span>
             </div>
+          </div>
+
+          {/* Sovereign Indian Landmarks & Animated Motion Stage (100% Offline Vector 60FPS) */}
+          <div style={{ marginTop: "2rem", width: "100%" }}>
+            <IndiaMonumentsAnimation />
           </div>
         </div>
       </section>

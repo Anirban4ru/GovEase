@@ -28,7 +28,7 @@ const BUDGETS = {
   maxHtmlBytes: 75 * 1024, // 75 KB raw (< 15 KB gzipped, calibrated for 18 services + full 5-phase journeys + 20-state portal resolver)
   maxCssBytes: 25 * 1024, // 25 KB raw (< 5 KB gzipped)
   maxPageInitialJsGzipBytes: 250 * 1024, // 250 KB gzipped per page (Next.js 16 + React 19 + MiniSearch + 4 Locales + 3D Radial + Eligibility Engine)
-  maxTotalStaticJsGzipBytes: 380 * 1024, // 380 KB gzipped across all chunks (calibrated for 18 services, 4 languages + document studio, life journeys & eligibility matcher)
+  maxTotalStaticJsGzipBytes: 390 * 1024, // 390 KB gzipped across all chunks (calibrated for 18 services, 4 languages + document studio, life journeys, eligibility matcher & animated heritage stage)
 };
 
 function getAllFiles(dirPath, arrayOfFiles = []) {
