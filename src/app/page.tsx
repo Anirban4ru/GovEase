@@ -251,240 +251,264 @@ function HomeContent() {
         </div>
       )}
 
-      {/* HERO SECTION: Authoritative Full-Width Civic Architecture */}
+      {/* HERO SECTION: Authoritative Full-Width Civic Architecture with India Landmark Atmosphere */}
       <section
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           marginBottom: "3.5rem",
-          paddingBottom: "2.5rem",
-          borderBottom: "1px solid var(--color-border-subtle)",
+          padding: "2.25rem 2rem 2rem 2rem",
+          border: "1px solid var(--color-border-subtle, #e2e8f0)",
+          borderRadius: "var(--radius-xl, 16px)",
           width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          backgroundImage: "url('/india-heritage-monuments.svg')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "bottom right",
+          backgroundSize: "cover",
+          backgroundColor: "#ffffff",
+          boxShadow: "0 4px 24px rgba(13, 53, 112, 0.05)",
         }}
       >
-        {/* Academic Capstone & Civic Guide Badge */}
+        {/* Subtle Ambient Scrim ensuring AAA Contrast & Clarity */}
         <div
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            padding: "0.35rem 0.85rem",
-            backgroundColor: "var(--color-ground-muted)",
-            border: "1px solid var(--color-border-default)",
-            borderRadius: "var(--radius-full)",
-            marginBottom: "1.25rem",
-            fontSize: "0.8125rem",
-            fontWeight: 700,
-            color: "var(--color-ink)",
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.78) 100%)",
+            pointerEvents: "none",
+            zIndex: 0,
           }}
-        >
-          <span style={{ color: "var(--color-govease-green, #1c7e41)", fontSize: "0.625rem" }}>
-            ●
-          </span>
-          <span>
-            {locale === "hi"
-              ? "स्वतंत्र लोक सेवा मार्गदर्शिका • बी.टेक कैपस्टोन"
-              : locale === "bn"
-                ? "নাগরিক জনসেবা সহায়িকা • বি.টেক ক্যাপস্টোন"
-                : locale === "ta"
-                  ? "மக்கள் சேவை வழிகாட்டி • கேப்ஸ்டோன்"
-                  : "Independent Public Services Guide • Academic Capstone"}
-          </span>
-        </div>
+          aria-hidden="true"
+        />
 
-        <h1
-          style={{
-            fontSize: "var(--font-size-hero)",
-            fontWeight: 800,
-            color: "var(--color-ink)",
-            lineHeight: 1.15,
-            marginBottom: "1rem",
-            letterSpacing: "-0.025em",
-            maxWidth: "920px",
-          }}
-        >
-          {locale === "hi"
-            ? "आवश्यक जनसेवाओं का शांत व स्पष्ट मानचित्र"
-            : locale === "bn"
-              ? "প্রয়োজনীয় নাগরিক সেবার স্বচ্ছ ও নির্ভরযোগ্য মানচিত্র"
-              : locale === "ta"
-                ? "அத்தியாவசிய மக்கள் சேவைகளின் அமைதியான வரைபடம்"
-                : "A calm map of everyday public life services"}
-        </h1>
-
-        <p
-          style={{
-            fontSize: "var(--font-size-body)",
-            color: "var(--color-content-secondary)",
-            lineHeight: 1.6,
-            marginBottom: "1.75rem",
-            maxWidth: "780px",
-          }}
-        >
-          {locale === "hi"
-            ? "नागरिकों को बिना विज्ञापन या डेटा संग्रह सीधे आधिकारिक सरकारी पोर्टलों से जोड़ने वाली स्वतंत्र, सत्यापित मार्गदर्शिका।"
-            : locale === "bn"
-              ? "বিজ্ঞাপন বা ডেটা ট্র্যাকিং ছাড়াই নাগরিকদের সরাসরি অফিসিয়াল সরকারি পোর্টালে নির্দেশ করার একটি স্বাধীন প্ল্যাটফর্ম।"
-              : locale === "ta"
-                ? "விளம்பரங்களோ கண்காணிப்போ இன்றி குடிமக்களை நேரடியாக அதிகாரப்பூர்வ அரசு போர்ட்டல்களுக்கு வழிநடத்தும் வழிகாட்டி."
-                : "An independent, dated catalogue guiding citizens directly to official government portals. Zero advertising, zero document storage, and uncompromising privacy."}
-        </p>
-
-        {/* Dominant Instant Search Bar */}
-        <div style={{ marginBottom: "0.85rem", width: "100%", maxWidth: "720px" }}>
-          <SearchBar />
-        </div>
-
-        {/* Quick Filter Tags */}
-        <div
-          style={{
-            display: "flex",
-            gap: "0.45rem",
-            flexWrap: "wrap",
-            alignItems: "center",
-            marginBottom: "1.75rem",
-          }}
-        >
-          <span
+        <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
+          {/* Academic Capstone & Civic Guide Badge */}
+          <div
             style={{
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              color: "var(--color-content-tertiary)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              padding: "0.35rem 0.85rem",
+              backgroundColor: "var(--color-ground-muted)",
+              border: "1px solid var(--color-border-default)",
+              borderRadius: "var(--radius-full)",
+              marginBottom: "1.25rem",
+              fontSize: "0.8125rem",
+              fontWeight: 700,
+              color: "var(--color-ink)",
             }}
           >
-            {locale === "hi" ? "त्वरित खोज:" : "Quick access:"}
-          </span>
-          {[
-            { label: "Driving Licence Renewal", href: "/services/driving-licence-renewal" },
-            { label: "Birth Certificate (CRS)", href: "/services/birth-certificate-crs" },
-            { label: "Scholarships (NSP)", href: "/services/national-scholarship-portal" },
-            { label: "ABHA Health ID", href: "/services/abha-health-id" },
-            { label: "PM-Kisan Status", href: "/services/pm-kisan-samman-nidhi" },
-            { label: "Jan Dhan Account", href: "/services/pm-jan-dhan-yojana-account" },
-          ].map((chip) => (
-            <Link
-              key={chip.href}
-              href={chip.href}
+            <span style={{ color: "var(--color-govease-green, #1c7e41)", fontSize: "0.625rem" }}>
+              ●
+            </span>
+            <span>
+              {locale === "hi"
+                ? "स्वतंत्र लोक सेवा मार्गदर्शिका • बी.टेक कैपस्टोन"
+                : locale === "bn"
+                  ? "নাগরিক জনসেবা সহায়িকা • বি.টেক ক্যাপস্টোন"
+                  : locale === "ta"
+                    ? "மக்கள் சேவை வழிகாட்டி • கேப்ஸ்டோன்"
+                    : "Independent Public Services Guide • Academic Capstone"}
+            </span>
+          </div>
+
+          <h1
+            style={{
+              fontSize: "var(--font-size-hero)",
+              fontWeight: 800,
+              color: "var(--color-ink)",
+              lineHeight: 1.15,
+              marginBottom: "1rem",
+              letterSpacing: "-0.025em",
+              maxWidth: "920px",
+            }}
+          >
+            {locale === "hi"
+              ? "आवश्यक जनसेवाओं का शांत व स्पष्ट मानचित्र"
+              : locale === "bn"
+                ? "প্রয়োজনীয় নাগরিক সেবার স্বচ্ছ ও নির্ভরযোগ্য মানচিত্র"
+                : locale === "ta"
+                  ? "அத்தியாவசிய மக்கள் சேவைகளின் அமைதியான வரைபடம்"
+                  : "A calm map of everyday public life services"}
+          </h1>
+
+          <p
+            style={{
+              fontSize: "var(--font-size-body)",
+              color: "var(--color-content-secondary)",
+              lineHeight: 1.6,
+              marginBottom: "1.75rem",
+              maxWidth: "780px",
+            }}
+          >
+            {locale === "hi"
+              ? "नागरिकों को बिना विज्ञापन या डेटा संग्रह सीधे आधिकारिक सरकारी पोर्टलों से जोड़ने वाली स्वतंत्र, सत्यापित मार्गदर्शिका।"
+              : locale === "bn"
+                ? "বিজ্ঞাপন বা ডেটা ট্র্যাকিং ছাড়াই নাগরিকদের সরাসরি অফিসিয়াল সরকারি পোর্টালে নির্দেশ করার একটি স্বাধীন প্ল্যাটফর্ম।"
+                : locale === "ta"
+                  ? "விளம்பரங்களோ கண்காணிப்போ இன்றி குடிமக்களை நேரடியாக அதிகாரப்பூர்வ அரசு போர்ட்டல்களுக்கு வழிநடத்தும் வழிகாட்டி."
+                  : "An independent, dated catalogue guiding citizens directly to official government portals. Zero advertising, zero document storage, and uncompromising privacy."}
+          </p>
+
+          {/* Dominant Instant Search Bar */}
+          <div style={{ marginBottom: "0.85rem", width: "100%", maxWidth: "720px" }}>
+            <SearchBar />
+          </div>
+
+          {/* Quick Filter Tags */}
+          <div
+            style={{
+              display: "flex",
+              gap: "0.45rem",
+              flexWrap: "wrap",
+              alignItems: "center",
+              marginBottom: "1.75rem",
+            }}
+          >
+            <span
               style={{
                 fontSize: "0.75rem",
                 fontWeight: 600,
-                color: "var(--color-content-secondary)",
-                backgroundColor: "var(--color-ground-muted)",
-                border: "1px solid var(--color-border-default)",
-                borderRadius: "var(--radius-sm)",
-                padding: "0.25rem 0.65rem",
-                textDecoration: "none",
-                transition: "border-color 120ms ease",
+                color: "var(--color-content-tertiary)",
               }}
             >
-              {chip.label}
-            </Link>
-          ))}
-        </div>
-        {/* Authoritative Civic Standards & Verification Strip */}
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "1.75rem",
-            alignItems: "center",
-            paddingTop: "1.5rem",
-            borderTop: "1px solid var(--color-border-subtle)",
-            fontSize: "0.8125rem",
-            color: "var(--color-content-secondary)",
-          }}
-        >
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--color-teal)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-            <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
-              {locale === "hi" ? "18 सत्यापित जनसेवाएँ" : "18 Verified Services"}
+              {locale === "hi" ? "त्वरित खोज:" : "Quick access:"}
             </span>
-            <span style={{ color: "var(--color-content-tertiary)" }}>
-              (
-              {locale === "hi"
-                ? "आधिकारिक .gov.in व .nic.in डोमेन"
-                : "Official .gov.in & .nic.in domains"}
-              )
-            </span>
+            {[
+              { label: "Driving Licence Renewal", href: "/services/driving-licence-renewal/" },
+              { label: "Birth Certificate (CRS)", href: "/services/birth-certificate-crs/" },
+              { label: "Scholarships (NSP)", href: "/services/nsp-scholarship-discovery/" },
+              { label: "ABHA Health ID", href: "/services/create-abha-id/" },
+              { label: "PM-Kisan Status", href: "/services/pm-kisan-status/" },
+              { label: "Jan Dhan Account", href: "/services/pm-jan-dhan-yojana-account/" },
+            ].map((chip) => (
+              <Link
+                key={chip.href}
+                href={chip.href}
+                style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  color: "var(--color-content-secondary)",
+                  backgroundColor: "var(--color-ground-muted)",
+                  border: "1px solid var(--color-border-default)",
+                  borderRadius: "var(--radius-sm)",
+                  padding: "0.25rem 0.65rem",
+                  textDecoration: "none",
+                  transition: "border-color 120ms ease",
+                }}
+              >
+                {chip.label}
+              </Link>
+            ))}
           </div>
+          {/* Authoritative Civic Standards & Verification Strip */}
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1.75rem",
+              alignItems: "center",
+              paddingTop: "1.5rem",
+              borderTop: "1px solid var(--color-border-subtle)",
+              fontSize: "0.8125rem",
+              color: "var(--color-content-secondary)",
+            }}
+          >
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-teal)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
+                {locale === "hi" ? "18 सत्यापित जनसेवाएँ" : "18 Verified Services"}
+              </span>
+              <span style={{ color: "var(--color-content-tertiary)" }}>
+                (
+                {locale === "hi"
+                  ? "आधिकारिक .gov.in व .nic.in डोमेन"
+                  : "Official .gov.in & .nic.in domains"}
+                )
+              </span>
+            </div>
 
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--color-teal)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-            <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
-              {locale === "hi" ? "शून्य व्यक्तिगत डेटा संग्रह" : "Zero Credential Capture"}
-            </span>
-            <span style={{ color: "var(--color-content-tertiary)" }}>(DPDP Act 2023)</span>
-          </div>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-teal)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
+                {locale === "hi" ? "शून्य व्यक्तिगत डेटा संग्रह" : "Zero Credential Capture"}
+              </span>
+              <span style={{ color: "var(--color-content-tertiary)" }}>(DPDP Act 2023)</span>
+            </div>
 
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--color-ink-blue)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-            </svg>
-            <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
-              {locale === "hi" ? "ऑन-डिवाइस इन-मेमोरी सर्च" : "100% Client-Side Search"}
-            </span>
-            <span style={{ color: "var(--color-content-tertiary)" }}>
-              ({locale === "hi" ? "PWA ऑफलाइन समर्थित" : "Offline PWA"})
-            </span>
-          </div>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-ink-blue)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+              <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
+                {locale === "hi" ? "ऑन-डिवाइस इन-मेमोरी सर्च" : "100% Client-Side Search"}
+              </span>
+              <span style={{ color: "var(--color-content-tertiary)" }}>
+                ({locale === "hi" ? "PWA ऑफलाइन समर्थित" : "Offline PWA"})
+              </span>
+            </div>
 
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--color-ochre)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <line x1="2" y1="12" x2="22" y2="12" />
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
-            <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
-              {locale === "hi" ? "4 क्षेत्रीय भाषाएँ व वाक्-संश्लेषण" : "4 Regional Languages"}
-            </span>
-            <span style={{ color: "var(--color-content-tertiary)" }}>(EN, HI, BN, TA)</span>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-ochre)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+              <span style={{ fontWeight: 600, color: "var(--color-ink)" }}>
+                {locale === "hi" ? "4 क्षेत्रीय भाषाएँ व वाक्-संश्लेषण" : "4 Regional Languages"}
+              </span>
+              <span style={{ color: "var(--color-content-tertiary)" }}>(EN, HI, BN, TA)</span>
+            </div>
           </div>
         </div>
       </section>

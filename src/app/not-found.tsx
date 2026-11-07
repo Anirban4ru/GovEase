@@ -1,7 +1,69 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+const SERVICE_REDIRECTS: Record<string, string> = {
+  "abha-health-id": "create-abha-id",
+  abha: "create-abha-id",
+  "health-id": "create-abha-id",
+  ayushman: "create-abha-id",
+  "national-scholarship-portal": "nsp-scholarship-discovery",
+  scholarships: "nsp-scholarship-discovery",
+  scholarship: "nsp-scholarship-discovery",
+  nsp: "nsp-scholarship-discovery",
+  "pm-kisan-samman-nidhi": "pm-kisan-status",
+  "pm-kisan": "pm-kisan-status",
+  pmkisan: "pm-kisan-status",
+  kisan: "pm-kisan-status",
+  "jan-dhan": "pm-jan-dhan-yojana-account",
+  "pm-jan-dhan": "pm-jan-dhan-yojana-account",
+  pmjdy: "pm-jan-dhan-yojana-account",
+  "birth-certificate": "birth-certificate-crs",
+  crs: "birth-certificate-crs",
+  "voter-id": "voter-id-epic-download",
+  voter: "voter-id-epic-download",
+  epic: "voter-id-epic-download",
+  "pan-card": "pan-card-reprint",
+  pan: "pan-card-reprint",
+  digilocker: "digilocker-account-setup",
+  eshram: "eshram-card-registration",
+  "e-shram": "eshram-card-registration",
+  "epf-passbook": "epf-passbook-claim-status",
+  epf: "epf-passbook-claim-status",
+  epfo: "epf-passbook-claim-status",
+  uan: "epf-passbook-claim-status",
+  "ration-card": "ration-card-nfsa-status",
+  ration: "ration-card-nfsa-status",
+  nfsa: "ration-card-nfsa-status",
+  "driving-licence": "driving-licence-renewal",
+  "driving-license": "driving-licence-renewal",
+  sarathi: "driving-licence-renewal",
+  pmay: "pmay-beneficiary-status",
+  "awas-yojana": "pmay-beneficiary-status",
+  udid: "swavlamban-udid-card",
+  swavlamban: "swavlamban-udid-card",
+  "rc-transfer": "parivahan-rc-transfer",
+  "consumer-helpline": "consumer-helpline-grievance",
+};
 
 export default function NotFound() {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const pathname = window.location.pathname.toLowerCase();
+
+    // Check if URL matches a known service alias
+    for (const [alias, targetId] of Object.entries(SERVICE_REDIRECTS)) {
+      if (pathname.includes(alias)) {
+        router.replace(`/services/${targetId}/`);
+        return;
+      }
+    }
+  }, [router]);
+
   return (
     <div
       className="app-container"

@@ -1,0 +1,71 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/services/abha-health-id/:path*",
+      "destination": "/services/create-abha-id/",
+      "permanent": true
+    },
+    {
+      "source": "/services/national-scholarship-portal/:path*",
+      "destination": "/services/nsp-scholarship-discovery/",
+      "permanent": true
+    },
+    {
+      "source": "/services/pm-kisan-samman-nidhi/:path*",
+      "destination": "/services/pm-kisan-status/",
+      "permanent": true
+    },
+    {
+      "source": "/services/pm-kisan/:path*",
+      "destination": "/services/pm-kisan-status/",
+      "permanent": true
+    },
+    {
+      "source": "/services/jan-dhan/:path*",
+      "destination": "/services/pm-jan-dhan-yojana-account/",
+      "permanent": true
+    },
+    {
+      "source": "/services/birth-certificate/:path*",
+      "destination": "/services/birth-certificate-crs/",
+      "permanent": true
+    },
+    {
+      "source": "/services/voter-id/:path*",
+      "destination": "/services/voter-id-epic-download/",
+      "permanent": true
+    },
+    {
+      "source": "/services/pan-card/:path*",
+      "destination": "/services/pan-card-reprint/",
+      "permanent": true
+    },
+    {
+      "source": "/services/digilocker/:path*",
+      "destination": "/services/digilocker-account-setup/",
+      "permanent": true
+    },
+    {
+      "source": "/services/eshram/:path*",
+      "destination": "/services/eshram-card-registration/",
+      "permanent": true
+    },
+    {
+      "source": "/services/epf-passbook/:path*",
+      "destination": "/services/epf-passbook-claim-status/",
+      "permanent": true
+    },
+    {
+      "source": "/services/ration-card/:path*",
+      "destination": "/services/ration-card-nfsa-status/",
+      "permanent": true
+    },
+    {
+      "source": "/services/driving-licence/:path*",
+      "destination": "/services/driving-licence-renewal/",
+      "permanent": true
+    }
+  ]
+}

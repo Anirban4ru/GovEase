@@ -19,6 +19,7 @@ const PRECACHE_ASSETS = [
   "/icons/icon-192.svg",
   "/icons/icon-512.svg",
   "/icons/icon-maskable.svg",
+  "/india-heritage-monuments.svg",
 ];
 
 // Install: pre-cache application shell

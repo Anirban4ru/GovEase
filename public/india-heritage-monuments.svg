@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true" role="presentation">
+  <defs>
+    <!-- Subtle Tri-Color Sovereign Atmospheric Glow -->
+    <linearGradient id="sovereignSky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff7ed" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#f0fdf4" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Monument Silhouette Gradient -->
+    <linearGradient id="monumentFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d3570" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#0d3570" stop-opacity="0.04" />
+    </linearGradient>
+
+    <linearGradient id="monumentDetail" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#047857" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0d3570" stop-opacity="0.06" />
+    </linearGradient>
+
+    <linearGradient id="chakraAura" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d3570" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0d3570" stop-opacity="0.02" />
+    </linearGradient>
+
+    <radialGradient id="sunGlow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.12" />
+      <stop offset="60%" stop-color="#ea580c" stop-opacity="0.03" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base Tint -->
+  <rect width="100%" height="100%" fill="url(#sovereignSky)" />
+  <circle cx="800" cy="220" r="340" fill="url(#sunGlow)" />
+
+  <!-- Ashoka Chakra Watermark Behind India Gate (Subtle Sovereign Motif) -->
+  <g transform="translate(800, 210) scale(0.95)" opacity="0.45">
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#0d3570" stroke-width="2" stroke-dasharray="4 4" opacity="0.3" />
+    <circle cx="0" cy="0" r="128" fill="none" stroke="#0d3570" stroke-width="2.5" opacity="0.25" />
+    <circle cx="0" cy="0" r="22" fill="#0d3570" opacity="0.2" />
+    <!-- 24 Spokes of Ashoka Chakra -->
+    <g stroke="#0d3570" stroke-width="1.5" opacity="0.25">
+      <line x1="0" y1="-128" x2="0" y2="128" />
+      <line x1="-128" y1="0" x2="128" y2="0" />
+      <line x1="-90.5" y1="-90.5" x2="90.5" y2="90.5" />
+      <line x1="-90.5" y1="90.5" x2="90.5" y2="-90.5" />
+      <line x1="-123.6" y1="-33.1" x2="123.6" y2="33.1" />
+      <line x1="-123.6" y1="33.1" x2="123.6" y2="-33.1" />
+      <line x1="-33.1" y1="-123.6" x2="33.1" y2="123.6" />
+      <line x1="-33.1" y1="123.6" x2="33.1" y2="-123.6" />
+      <line x1="-110.8" y1="-64" x2="110.8" y2="64" />
+      <line x1="-110.8" y1="64" x2="110.8" y2="-64" />
+      <line x1="-64" y1="-110.8" x2="64" y2="110.8" />
+      <line x1="-64" y1="110.8" x2="64" y2="-110.8" />
+    </g>
+  </g>
+
+  <!-- Far Background: Distant Parliament / Rashtrapati Bhavan Dome Silhouette -->
+  <g fill="url(#monumentFill)" opacity="0.6">
+    <!-- Left Background Classical Colonnade -->
+    <path d="M 120 540 L 120 440 L 160 440 L 160 410 L 260 410 L 260 440 L 300 440 L 300 540 Z" />
+    <path d="M 180 410 Q 210 350 240 410 Z" />
+
+    <!-- Right Background Iconic Heritage Domes -->
+    <path d="M 1300 540 L 1300 450 L 1340 450 L 1340 420 L 1440 420 L 1440 450 L 1480 450 L 1480 540 Z" />
+    <path d="M 1360 420 Q 1390 360 1420 420 Z" />
+
+    <!-- Distant Lotus & Heritage Pavilion Silhouettes -->
+    <path d="M 400 540 L 400 470 L 480 470 L 480 540 Z" />
+    <path d="M 1120 540 L 1120 470 L 1200 470 L 1200 540 Z" />
+  </g>
+
+  <!-- CENTERPIECE: INDIA GATE (Iconic All India War Memorial, New Delhi) -->
+  <g fill="url(#monumentDetail)">
+    <!-- Base Platform & Plinth -->
+    <rect x="620" y="525" width="360" height="15" rx="2" />
+    <rect x="635" y="515" width="330" height="10" rx="1" />
+    <rect x="650" y="500" width="300" height="15" />
+
+    <!-- Main Pylons (Left & Right Columns) -->
+    <!-- Left Main Pillar -->
+    <path d="M 660 500 L 670 240 L 730 240 L 740 500 Z" />
+    <!-- Right Main Pillar -->
+    <path d="M 860 500 L 870 240 L 930 240 L 940 500 Z" />
+
+    <!-- The Great Grand Central Archway of India Gate -->
+    <path d="M 740 500 L 740 370 Q 800 300 860 370 L 860 500 Z" />
+    
+    <!-- Inner Arch Inset Moulding -->
+    <path d="M 748 500 L 748 375 Q 800 312 852 375 L 852 500 Z" fill="#ffffff" fill-opacity="0.35" />
+
+    <!-- Transverse Beam & Entablature above Arch -->
+    <rect x="650" y="215" width="300" height="25" rx="2" />
+    <!-- Cornice Band -->
+    <rect x="640" y="200" width="320" height="15" rx="2" />
+    
+    <!-- Upper Attic / Parapet with IN-DI-A inscription cornice -->
+    <rect x="665" y="160" width="270" height="40" rx="3" />
+    <!-- Top Crown Dome / Chhatri Bowl on Peak -->
+    <path d="M 760 160 Q 800 135 840 160 Z" />
+    <rect x="792" y="130" width="16" height="15" rx="2" />
+    <circle cx="800" cy="125" r="5" />
+
+    <!-- Flanking Mini-Arches of India Gate -->
+    <path d="M 680 470 L 680 410 Q 705 385 730 410 L 730 470 Z" fill="#ffffff" fill-opacity="0.3" />
+    <path d="M 870 470 L 870 410 Q 895 385 920 410 L 920 470 Z" fill="#ffffff" fill-opacity="0.3" />
+
+    <!-- Amar Jawan Jyoti (Eternal Flame Memorial Plinth at Center) -->
+    <rect x="785" y="515" width="30" height="10" rx="2" fill="#ea580c" fill-opacity="0.5" />
+    <path d="M 797 515 Q 800 500 803 515 Z" fill="#f97316" fill-opacity="0.7" />
+  </g>
+
+  <!-- Serene Civic Ground Horizon Line -->
+  <line x1="0" y1="540" x2="1600" y2="540" stroke="#0d3570" stroke-width="2" stroke-opacity="0.15" />
+  <line x1="100" y1="545" x2="1500" y2="545" stroke="#047857" stroke-width="1.5" stroke-opacity="0.12" />
+
+  <!-- Subtle Indian Tricolor Decorative Accent at Bottom Border -->
+  <rect x="0" y="594" width="1600" height="2" fill="#ea580c" opacity="0.35" />
+  <rect x="0" y="596" width="1600" height="2" fill="#ffffff" opacity="0.8" />
+  <rect x="0" y="598" width="1600" height="2" fill="#16a34a" opacity="0.35" />
+</svg>

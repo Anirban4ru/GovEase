@@ -251,7 +251,7 @@ export function GoalPhrasedGrid() {
           return (
             <Link
               key={goal.serviceId}
-              href={`/services/${goal.serviceId}`}
+              href={`/services/${goal.serviceId}/`}
               className="civic-card-interactive"
               style={{
                 display: "flex",
