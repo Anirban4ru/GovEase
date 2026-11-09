@@ -2,7 +2,7 @@
 
 **Project:** Unified Life Services Platform  
 **Purpose:** Living audit of catalogue freshness, review schedules, and staleness alerts  
-**Audit Date:** 2026-11-06  
+**Audit Date:** 2026-11-09  
 **Total Services Tracked:** 18  
 
 Per System Specification §6.3:  
@@ -23,24 +23,24 @@ Per System Specification §6.3:
 
 | Service ID | Title | Ecosystem | Last Verified | Review Due | Days Left | Review Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `aadhaar-pvc-card` | Order Aadhaar PVC Card Guide | government-and-citizen | 2026-11-05 | 2027-02-05 | 91d | ⏳ Draft (Pending Review) |
-| `birth-certificate-crs` | Birth & Death Registration via Civil Registration System (CRS) | government-and-citizen | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `consumer-helpline-grievance` | National Consumer Helpline Grievance Registration | utilities-and-local | 2026-11-05 | 2027-02-05 | 91d | ⏳ Draft (Pending Review) |
-| `create-abha-id` | Ayushman Bharat Health Account (ABHA) Creation | healthcare | 2026-11-05 | 2027-02-05 | 91d | ⏳ Draft (Pending Review) |
-| `digilocker-account-setup` | DigiLocker Account Setup & Digital Document Access | government-and-citizen | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `driving-licence-renewal` | Driving Licence Renewal | mobility-and-transport | 2026-11-05 | 2027-02-05 | 91d | ⏳ Draft (Pending Review) |
-| `epf-passbook-claim-status` | EPF Member Passbook & UAN Claim Status | finance-and-welfare | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `eshram-card-registration` | e-Shram Card Registration for Unorganised Workers | finance-and-welfare | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `nsp-scholarship-discovery` | National Scholarship Portal (NSP) Application Discovery | education | 2026-11-05 | 2027-02-05 | 91d | ⏳ Draft (Pending Review) |
-| `pan-card-reprint` | PAN Card Reprint & e-PAN Download | finance-and-welfare | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `parivahan-rc-transfer` | Vehicle Registration Certificate (RC) Ownership Transfer | mobility-and-transport | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `pm-jan-dhan-yojana-account` | PM Jan Dhan Yojana (PMJDY) Zero-Balance Bank Account | finance-and-welfare | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `pm-kisan-status` | PM-Kisan Samman Nidhi Status & Registration | finance-and-welfare | 2026-11-05 | 2027-02-05 | 91d | ⏳ Draft (Pending Review) |
-| `pm-suraksha-bima-yojana` | PM Suraksha Bima Yojana (PMSBY) Accidental Insurance | finance-and-welfare | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `pmay-beneficiary-status` | PM Awas Yojana (PMAY-G) Beneficiary Status & Installment Tracking | utilities-and-local | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `ration-card-nfsa-status` | Ration Card Eligibility & NFSA Entitlement Search | finance-and-welfare | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `swavlamban-udid-card` | Unique Disability ID (UDID) Card & Disability Certificate | government-and-citizen | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
-| `voter-id-epic-download` | Voter ID Registration & e-EPIC Download | government-and-citizen | 2026-11-06 | 2027-02-06 | 92d | ⏳ Draft (Pending Review) |
+| `aadhaar-pvc-card` | Order Aadhaar PVC Card Guide | government-and-citizen | 2026-11-05 | 2027-02-05 | 88d | ⏳ Draft (Pending Review) |
+| `birth-certificate-crs` | Birth & Death Registration via Civil Registration System (CRS) | government-and-citizen | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `consumer-helpline-grievance` | National Consumer Helpline Grievance Registration | utilities-and-local | 2026-11-05 | 2027-02-05 | 88d | ⏳ Draft (Pending Review) |
+| `create-abha-id` | Ayushman Bharat Health Account (ABHA) Creation | healthcare | 2026-11-05 | 2027-02-05 | 88d | ⏳ Draft (Pending Review) |
+| `digilocker-account-setup` | DigiLocker Account Setup & Digital Document Access | government-and-citizen | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `driving-licence-renewal` | Driving Licence Renewal | mobility-and-transport | 2026-11-05 | 2027-02-05 | 88d | ⏳ Draft (Pending Review) |
+| `epf-passbook-claim-status` | EPF Member Passbook & UAN Claim Status | finance-and-welfare | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `eshram-card-registration` | e-Shram Card Registration for Unorganised Workers | finance-and-welfare | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `nsp-scholarship-discovery` | National Scholarship Portal (NSP) Application Discovery | education | 2026-11-05 | 2027-02-05 | 88d | ⏳ Draft (Pending Review) |
+| `pan-card-reprint` | PAN Card Reprint & e-PAN Download | finance-and-welfare | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `parivahan-rc-transfer` | Vehicle Registration Certificate (RC) Ownership Transfer | mobility-and-transport | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `pm-jan-dhan-yojana-account` | PM Jan Dhan Yojana (PMJDY) Zero-Balance Bank Account | finance-and-welfare | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `pm-kisan-status` | PM-Kisan Samman Nidhi Status & Registration | finance-and-welfare | 2026-11-05 | 2027-02-05 | 88d | ⏳ Draft (Pending Review) |
+| `pm-suraksha-bima-yojana` | PM Suraksha Bima Yojana (PMSBY) Accidental Insurance | finance-and-welfare | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `pmay-beneficiary-status` | PM Awas Yojana (PMAY-G) Beneficiary Status & Installment Tracking | utilities-and-local | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `ration-card-nfsa-status` | Ration Card Eligibility & NFSA Entitlement Search | finance-and-welfare | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `swavlamban-udid-card` | Unique Disability ID (UDID) Card & Disability Certificate | government-and-citizen | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
+| `voter-id-epic-download` | Voter ID Registration & e-EPIC Download | government-and-citizen | 2026-11-06 | 2027-02-06 | 89d | ⏳ Draft (Pending Review) |
 
 ---
 *Report generated automatically by `scripts/catalogue-staleness.mjs`*
